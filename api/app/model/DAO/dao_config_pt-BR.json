@@ -1,0 +1,13 @@
+{
+    "strings": {
+        "msg_is_null": "deve ser nulo",
+        "msg_eq_size": "deve ter tamanho igual a",
+        "msg_mx_size": "deve ter tamanho menor ou igual a",
+        "msg_is_int": "deve conter um número inteiro",
+        "msg_is_float": "deve conter um número real",
+        "msg_is_date_db": "deve conter uma data sql válida",
+        "msg_is_datetime_db": "deve conter uma data e tempo sql válida",
+        "msg_not_null": "não pode ser nulo",
+        "msg_not_empty": "não pode ser vazio"
+    }
+}

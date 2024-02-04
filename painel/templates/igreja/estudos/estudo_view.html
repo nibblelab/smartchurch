@@ -1,0 +1,41 @@
+<ol class="breadcrumb pull-right">
+    <li class="breadcrumb-item"><a ui-sref='{{back}}'>Buscar</a></li>
+    <li class="breadcrumb-item active">{{opTitle}}</li>
+</ol>
+
+<h1 class="page-header">&nbsp;</h1>
+
+<div class="panel panel-inverse">
+    <div class="panel-heading">
+        <h4 class="panel-title">{{opTitle}} {{objForm}}</h4>
+        <div class="panel-heading-btn">
+            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+        </div>
+    </div>
+    <div class="panel-body">
+        <h3 class="text-center m-b-30">
+            {{dataFrm.data.titulo.value}}
+        </h3>
+        <div ng-if="dataFrm.data.logo_url.value != ''" class="margin-top-30 margin-bottom-50">
+            <img ng-src="{{dataFrm.data.logo_url.value}}" class="img-fluid" />
+        </div>
+        <div ng-bind-html="dataFrm.data.conteudo.value" class="sermao-texto margin-bottom-50"></div>
+        <div ng-if="videoData.type == 'Youtube'" class="responsive-video">
+            <iframe ng-src="{{videoData.url}}" 
+                    frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div ng-if="videoData.type == 'Vimeo'" class="responsive-video vimeo">
+            <iframe ng-src="{{videoData.url}}" 
+                    frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+        </div>
+        <div ng-if="dataFrm.data.audio.value != ''" >
+            <iframe width="100%" height="100" scrolling="no" frameborder="no" allow="autoplay" 
+                    ng-src="{{audioData.url}}"></iframe>
+        </div>
+        <div class="text-right" ng-show="dataFrm.data.anexo.value != ''">
+            <button type="button" class="btn btn-info" ng-click="downloadArquivo()" >
+                Download
+            </button>
+        </div>
+    </div>
+</div>

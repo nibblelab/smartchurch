@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- conteúdo do menu -->
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home"
+            android:title="@string/menu_inicio" />
+        <item
+            android:id="@+id/nav_perfil"
+            android:icon="@drawable/ic_perfil"
+            android:title="@string/menu_perfil" />
+        <item
+            android:id="@+id/nav_membro"
+            android:icon="@drawable/ic_membresia"
+            android:title="@string/menu_membro" />
+        <item
+            android:id="@+id/nav_palavra"
+            android:icon="@drawable/ic_book"
+            android:title="@string/menu_palavra" />
+        <item
+            android:id="@+id/nav_estudo"
+            android:icon="@drawable/ic_estudo"
+            android:title="@string/menu_estudo" />
+        <item
+            android:id="@+id/nav_transmissao"
+            android:icon="@drawable/ic_live"
+            android:title="@string/menu_transmissao" />
+        <item
+            android:id="@+id/nav_agenda"
+            android:icon="@drawable/ic_agenda"
+            android:title="@string/menu_agenda" />
+        <item
+            android:id="@+id/nav_like"
+            android:icon="@drawable/ic_hearteb"
+            android:title="@string/menu_like" />
+        <item
+            android:id="@+id/nav_oracao"
+            android:icon="@drawable/ic_pray"
+            android:title="@string/menu_pedido_oracao_short" />
+        <item
+            android:id="@+id/nav_smart"
+            android:icon="@drawable/ic_qrcode"
+            android:title="@string/menu_smart" />
+    </group>
+
+    <item android:title="" >
+        <menu>
+            <item
+                android:id="@+id/nav_logout"
+                android:icon="@drawable/ic_logout"
+                android:title="@string/menu_logout" />
+        </menu>
+    </item>
+
+</menu>

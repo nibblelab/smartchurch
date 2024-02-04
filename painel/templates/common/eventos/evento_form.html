@@ -1,0 +1,324 @@
+<ol class="breadcrumb pull-right">
+    <li class="breadcrumb-item"><a ui-sref='{{back}}'>Buscar</a></li>
+    <li class="breadcrumb-item active">{{opTitle}}</li>
+</ol>
+
+<h1 class="page-header">&nbsp;</h1>
+
+<div class="panel panel-inverse">
+    <div class="panel-heading">
+        <h4 class="panel-title">{{opTitle}} {{objForm}}</h4>
+        <div class="panel-heading-btn">
+            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+        </div>
+    </div>
+    <div class="panel-body">
+        <form id="dataFrm" method="POST" autocomplete="off">
+            <legend>Dados Básicos</legend>
+            <div class="form-group row m-b-15">
+                <label class="col-form-label col-md-2">Nome *</label>
+                <div class="col-md-10">
+                    <input class="form-control m-b-5" type="text" placeholder="Nome" ng-model="dataFrm.data.nome.value"
+                            ng-class="{'is-invalid': !dataFrm.data.nome.valid}"
+                            name="validation[nome]" data-validation="[NOTEMPTY]"
+                            data-validation-message="O nome não pode ser vazio" />
+                </div>
+            </div>
+            <div class="form-group row m-b-15">
+                <label class="col-form-label col-md-2">Descrição</label>
+                <div class="col-md-10">
+                    <textarea class="form-control m-b-5" ng-model="dataFrm.data.descricao.value"
+                            ng-class="{'is-invalid': !dataFrm.data.descricao.valid}" ></textarea>
+                </div>
+            </div>
+            
+            <legend>Agenda</legend>
+            <div class="form-group row m-b-15" ng-hide="dataFrm.data.recorrente.value">
+                <label class="col-form-label col-md-2">Início *</label>
+                <div class="col-md-2">
+                    <div class="input-group">
+                        <input class="form-control datepicker" type="text" ng-model="dataFrm.data.data_ini.value" ui-mask="99/99/9999" model-view-value="true" 
+                            ng-class="{'is-invalid': !dataFrm.data.data_ini.valid}"
+                            name="validation[data_ini]" data-validation="[NOTEMPTY]"
+                            data-validation-message="O início não pode ser vazio" />
+                        <span class="input-group-addon" >
+                            <i class="far fa-calendar-alt"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="input-group">
+                        <input class="form-control" type="text" ng-model="dataFrm.data.hora_ini.value" ui-mask="99:99" model-view-value="true"
+                            ng-class="{'is-invalid': !dataFrm.data.hora_ini.valid}"
+                            name="validation[hora_ini]" data-validation="[NOTEMPTY]"
+                            data-validation-message="O início não pode ser vazio" />
+                        <span class="input-group-addon" >
+                            <i class="fa fa-clock"></i>
+                        </span>
+                    </div>
+                </div>
+                <label class="col-form-label col-md-2">Término *</label>
+                <div class="col-md-2">
+                    <div class="input-group">
+                        <input class="form-control datepicker" type="text" ng-model="dataFrm.data.data_end.value" ui-mask="99/99/9999" model-view-value="true" 
+                            ng-class="{'is-invalid': !dataFrm.data.data_end.valid}"
+                            name="validation[data_end]" data-validation="[NOTEMPTY]"
+                            data-validation-message="O término não pode ser vazio" />
+                        <span class="input-group-addon" >
+                            <i class="far fa-calendar-alt"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="input-group">
+                        <input class="form-control" type="text" ng-model="dataFrm.data.hora_end.value" ui-mask="99:99" model-view-value="true"
+                            ng-class="{'is-invalid': !dataFrm.data.hora_end.valid}"
+                            name="validation[hora_end]" data-validation="[NOTEMPTY]"
+                            data-validation-message="O término não pode ser vazio" />
+                        <span class="input-group-addon" >
+                            <i class="fa fa-clock"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            
+            <endereco-data 
+                    model="dataFrm.data.agenda" 
+                    ufs="listUFs"
+                    cidades="listCidades"></endereco-data>
+            
+            <site-data 
+                    model="dataFrm.data.agenda"></site-data>
+            
+            <legend>Inscrições</legend>
+            <div class="form-group row m-b-15">
+                <label class="col-form-label col-md-2">Ativas?</label>
+                <div class="col-md-4">
+                    <div class="checkbox checkbox-css">
+                        <input type="checkbox" id="checkbox_inscricoes_ativas" ng-model="dataFrm.data.inscricoes_ativas.value" /> 
+                        <label for="checkbox_inscricoes_ativas" class="checkbox">
+                            Sim
+                        </label>
+                    </div>
+                </div>
+                <label class="col-form-label col-md-2">Data de Encerramento</label>
+                <div class="col-md-2">
+                    <div class="input-group">
+                        <input class="form-control datepicker" type="text" ng-model="dataFrm.data.data_fim_inscricao.value" ui-mask="99/99/9999" model-view-value="true" 
+                            ng-class="{'is-invalid': !dataFrm.data.data_fim_inscricao.valid}" />
+                        <span class="input-group-addon" >
+                            <i class="far fa-calendar-alt"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="input-group">
+                        <input class="form-control" type="text" ng-model="dataFrm.data.hora_fim_inscricao.value" ui-mask="99:99" model-view-value="true"
+                            ng-class="{'is-invalid': !dataFrm.data.hora_fim_inscricao.valid}" />
+                        <span class="input-group-addon" >
+                            <i class="fa fa-clock"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row m-b-15">
+                <label class="col-form-label col-md-2">Fomulário de Inscrição</label>
+                <div class="col-md-10">
+                    <div class="row" ng-repeat="form in dataFrm.data.formulario_inscricao.value">
+                        <div class="col-7">
+                            <div class="checkbox checkbox-css">
+                                <input type="checkbox" id="checkbox_{{form.field}}" ng-model="form.checked" ng-disabled="form.needed" ng-change="verifyInscForm()" /> 
+                                <label for="checkbox_{{form.field}}" class="checkbox">
+                                    {{form.label}} 
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-5">
+                            <span class="label label-danger" ng-show="form.needed">obrigatório</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <legend>Pagamento</legend>
+            <div class="form-group row m-b-15">
+                <label class="col-form-label col-md-2">Valor</label>
+                <div class="col-md-4">
+                    <input class="form-control" type="text" placeholder="Valor" ng-model="dataFrm.data.valor.value" ui-money-mask />
+                </div>
+            </div>
+            <div class="form-group row m-b-15">
+                <label class="col-form-label col-md-2">Opções de Pagto.</label>
+                <div class="col-md-10">
+                    <div class="row">
+                        <div class="col-10"></div>
+                        <div class="col-2">
+                            <button type="button" class="btn btn-primary btn-block" ng-click="addOpcaoPagto()"
+                                tooltips tooltip-template="Adicionar Opção" tooltip-side="top" ><i class="fa fa-plus"></i></button>
+                        </div>
+                    </div>
+                    <div class="opt-form-row" ng-repeat="opt in dataFrm.data.opcoes_pagto.value">
+                        <div class="row">
+                            <div class="col-12 text-right">
+                                <button type="button" class="btn btn-danger btn-sm " ng-click="removeOpcaoPagto(opt)"
+                                tooltips tooltip-template="Remover Opção" tooltip-side="left" >&times;</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-4">
+                                <label class="col-form-label">Forma Pagto.</label>
+                                <select class="form-control" ng-model="opt.forma" ng-change="onSelectFormaPagto(opt)"  >
+                                    <option value=""></option>
+                                    <option value="{{i.value}}" ng-repeat="i in listFormasPagto">{{i.label}}</option>
+                                </select>
+                            </div>
+                            <div class="col-xs-12 col-sm-4">
+                                <label class="col-form-label">Desconto</label>
+                                <input class="form-control" type="text" ng-model="opt.desconto" ui-money-mask />
+                            </div>
+                            <div class="col-xs-12 col-sm-4">
+                                <label class="col-form-label">Taxa</label>
+                                <input class="form-control" type="text" ng-model="opt.taxa" ui-money-mask />
+                            </div>
+                        </div>
+                        <div ng-show="opt.pagseguro.selected">
+                            <div class="row">
+                                <div class="col-12">
+                                    <label class="col-form-label">E-mail</label>
+                                    <input class="form-control" type="text" ng-model="opt.pagseguro.email" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <label class="col-form-label">Token</label>
+                                    <input class="form-control" type="text" ng-model="opt.pagseguro.token" />
+                                </div>
+                            </div>
+                        </div>
+                        <div ng-show="opt.deposito.selected">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-4">
+                                    <label class="col-form-label">Banco</label>
+                                    <input class="form-control" type="text" ng-model="opt.deposito.banco" />
+                                </div>
+                                <div class="col-xs-12 col-sm-4">
+                                    <label class="col-form-label">Agência</label>
+                                    <input class="form-control" type="text" ng-model="opt.deposito.agencia" />
+                                </div>
+                                <div class="col-xs-12 col-sm-4">
+                                    <label class="col-form-label">Conta</label>
+                                    <input class="form-control" type="text" ng-model="opt.deposito.conta" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-8">
+                                    <label class="col-form-label">Favorecido</label>
+                                    <input class="form-control" type="text" ng-model="opt.deposito.favorecido" />
+                                </div>
+                                <div class="col-xs-12 col-sm-4">
+                                    <label class="col-form-label">CPF/CNPJ</label>
+                                    <input class="form-control" type="text" ng-model="opt.deposito.documento" />
+                                </div>
+                            </div>
+                        </div>
+                        <div ng-show="opt.boleto.selected">
+                            <div class="row">
+                                <div class="col-12">
+                                    <label class="col-form-label">Token</label>
+                                    <input class="form-control" type="text" ng-model="opt.boleto.token" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row m-b-15">
+                <label class="col-form-label col-md-2">Lotes</label>
+                <div class="col-md-10">
+                    <div class="row">
+                        <div class="col-10"></div>
+                        <div class="col-2">
+                            <button type="button" class="btn btn-primary btn-block" ng-click="addLote()"
+                                tooltips tooltip-template="Adicionar Lote" tooltip-side="top" ><i class="fa fa-plus"></i></button>
+                        </div>
+                    </div>
+                    <div class="opt-form-row" ng-repeat="lote in dataFrm.data.lotes.value">
+                        <div class="row">
+                            <div class="col-12 text-right">
+                                <button type="button" class="btn btn-danger btn-sm " ng-click="removeLote(lote)"
+                                tooltips tooltip-template="Remover Lote" tooltip-side="left" >&times;</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-4">
+                                <label class="col-form-label">Nome</label>
+                                <input class="form-control" type="text" ng-model="lote.nome" />
+                            </div>
+                            <div class="col-xs-12 col-sm-4">
+                                <label class="col-form-label">Termina em</label>
+                                <input class="form-control" type="text" ng-model="lote.data_maxima" ui-mask="99/99/9999 99:99" model-view-value="true"  />
+                            </div>
+                            <div class="col-xs-12 col-sm-4">
+                                <label class="col-form-label">Valor</label>
+                                <input class="form-control" type="text" ng-model="lote.valor" ui-money-mask />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <legend>Eleições</legend>
+            <div class="form-group row m-b-15">
+                <label class="col-form-label col-md-2">Eleições?</label>
+                <div class="col-md-4">
+                    <div class="checkbox checkbox-css">
+                        <input type="checkbox" id="checkbox_tem_eleicoes" ng-model="dataFrm.data.tem_eleicoes.value" /> 
+                        <label for="checkbox_tem_eleicoes" class="checkbox">
+                            Sim
+                        </label>
+                    </div>
+                    <small >Marque se ocorrerão eleições nesse evento</small>
+                </div>
+                <label class="col-form-label col-md-2">Credencial Digital?</label>
+                <div class="col-md-4">
+                    <div class="checkbox checkbox-css">
+                        <input type="checkbox" id="checkbox_credencial_digital" ng-model="dataFrm.data.credencial_digital.value" /> 
+                        <label for="checkbox_credencial_digital" class="checkbox">
+                            Sim
+                        </label>
+                    </div>
+                    <small >Marque se esse evento utilizará credenciais digitais</small>
+                </div>
+            </div>
+            <div class="form-group row m-b-15" ng-show="dataFrm.triggers.delegado">
+                <label class="col-form-label col-md-2">Data Limite para Delegados</label>
+                <div class="col-md-2">
+                    <div class="input-group">
+                        <input class="form-control datepicker-top" type="text" ng-model="dataFrm.data.data_max_delegados.value" ui-mask="99/99/9999" model-view-value="true" 
+                            ng-class="{'is-invalid': !dataFrm.data.data_max_delegados.valid}" />
+                        <span class="input-group-addon" >
+                            <i class="far fa-calendar-alt"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="input-group">
+                        <input class="form-control" type="text" ng-model="dataFrm.data.hora_max_delegados.value" ui-mask="99:99" model-view-value="true"
+                            ng-class="{'is-invalid': !dataFrm.data.hora_max_delegados.valid}" />
+                        <span class="input-group-addon" >
+                            <i class="fa fa-clock"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-actions">
+                <div class="form-group row">
+                    <div class="col-md-9 offset-md-3">
+                        <button type="submit" class="btn width-150 btn-primary">Salvar</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

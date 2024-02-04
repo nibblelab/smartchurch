@@ -1,0 +1,1 @@
+{"name":"templos","desc":"API REST de Templos (igrejas, congrega\u00e7\u00f5es e pontos)","methods":[{"name":"all","desc":"Busca ","http_method":"GET","is_auth":true,"params":[]}]}

@@ -1,0 +1,135 @@
+{
+    "menus": [
+        { 
+            "nome": "federacao",
+            "titulo": "Federação", 
+            "icon": "fab fa-buffer", 
+            "modulos": ["MOD_IGREJA","MOD_B_IGREJA","MOD_EVENTOS","MOD_ELEICOES","MOD_FINANCAS","MOD_AGENDA"], 
+            "setted": ["manage_federacao"],
+            "submenus": [
+                { 
+                    "nome": "igrejasdafederacao",
+                    "titulo": "Igrejas", 
+                    "sref": "SmartChurchPanel.federacao.igrejas.buscar",
+                    "states": ["SmartChurchPanel.federacao.igrejas.buscar"],
+                    "modulos": ["MOD_B_IGREJA"], 
+                    "perms": [ "IgrejaFederacao"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "congregacoesdafederacao",
+                    "titulo": "Congregações", 
+                    "sref": "SmartChurchPanel.federacao.congregacoes.buscar",
+                    "states": ["SmartChurchPanel.federacao.congregacoes.buscar"],
+                    "modulos": ["MOD_B_IGREJA"], 
+                    "perms": [ "CongregacaoFederacao"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "pontosdafederacao",
+                    "titulo": "Pontos", 
+                    "sref": "SmartChurchPanel.federacao.pontos.buscar",
+                    "states": ["SmartChurchPanel.federacao.pontos.buscar"],
+                    "modulos": ["MOD_B_IGREJA"], 
+                    "perms": [ "PontoFederacao"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "sociedadesdafederacao",
+                    "titulo": "Sociedades", 
+                    "sref": "SmartChurchPanel.federacao.sociedades.buscar",
+                    "states": ["SmartChurchPanel.federacao.sociedades.buscar"],
+                    "modulos": ["MOD_B_IGREJA"], 
+                    "perms": [ "SociedadeFederacao"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "pessoasdafederacao",
+                    "titulo": "Pessoas", 
+                    "sref": "SmartChurchPanel.federacao.pessoas.buscar",
+                    "states": ["SmartChurchPanel.federacao.pessoas.buscar"],
+                    "modulos": ["MOD_B_IGREJA"], 
+                    "perms": [ "PessoaFederacao"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "diretoriadafederacao",
+                    "titulo": "Diretoria", 
+                    "sref": "SmartChurchPanel.federacao.diretoria.buscar",
+                    "states": ["SmartChurchPanel.federacao.diretoria.buscar","SmartChurchPanel.federacao.diretoria.adicionar",
+                                    "SmartChurchPanel.federacao.diretoria.editar","SmartChurchPanel.federacao.diretoria.oficiais"],
+                    "modulos": ["MOD_B_IGREJA"], 
+                    "perms": [ "DiretoriaFederacao", "DiretoriaFederacaoSave", "DiretoriaFederacaoRemove", "DiretoriaFederacaoBlock", "DiretoriaFederacaoOficiais"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "secretariasdafederacao",
+                    "titulo": "Secretarias", 
+                    "sref": "SmartChurchPanel.federacao.secretarias.buscar",
+                    "states": ["SmartChurchPanel.federacao.secretarias.buscar","SmartChurchPanel.federacao.secretarias.adicionar",
+                                    "SmartChurchPanel.federacao.secretarias.editar"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "SecretariaFederacao", "SecretariaFederacaoSave", "SecretariaFederacaoRemove", "SecretariaFederacaoBlock", 
+                                "SecretariaFederacaoManage"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "executivadafederacao",
+                    "titulo": "Executiva", 
+                    "sref": "SmartChurchPanel.federacao.executiva.buscar",
+                    "states": ["SmartChurchPanel.federacao.executiva.buscar","SmartChurchPanel.federacao.executiva.adicionar","SmartChurchPanel.federacao.executiva.editar",
+                                    "SmartChurchPanel.federacao.executiva.participantes"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "ExecutivaFederacao", "ExecutivaFederacaoSave", "ExecutivaFederacaoRemove", 
+                                    "ExecutivaFederacaoBlock", "ExecutivaFederacaoParticipantes"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "agendadafederacao",
+                    "titulo": "Agenda", 
+                    "sref": "SmartChurchPanel.federacao.agenda.buscar",
+                    "states": ["SmartChurchPanel.federacao.agenda.buscar","SmartChurchPanel.federacao.agenda.adicionar","SmartChurchPanel.federacao.agenda.editar"],
+                    "modulos": ["MOD_AGENDA"], 
+                    "perms": [ "AgendaFederacao", "AgendaFederacaoSave", "AgendaFederacaoRemove", "AgendaFederacaoBlock"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "eventosdafederacao",
+                    "titulo": "Eventos", 
+                    "sref": "SmartChurchPanel.federacao.eventos.buscar",
+                    "states": ["SmartChurchPanel.federacao.eventos.buscar","SmartChurchPanel.federacao.eventos.adicionar","SmartChurchPanel.federacao.eventos.editar"],
+                    "modulos": ["MOD_EVENTOS"], 
+                    "perms": [ "EventoFederacao", "EventoFederacaoSave", "EventoFederacaoRemove", "EventoFederacaoBlock", "EventoFederacaoManage"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "eleicoesdafederacao",
+                    "titulo": "Eleições", 
+                    "sref": "SmartChurchPanel.federacao.eleicoes.buscar",
+                    "states": ["SmartChurchPanel.federacao.eleicoes.buscar","SmartChurchPanel.federacao.eleicoes.adicionar","SmartChurchPanel.federacao.eleicoes.editar"],
+                    "modulos": ["MOD_ELEICOES"], 
+                    "perms": [ "EleicaoFederacao", "EleicaoFederacaoSave", "EleicaoFederacaoRemove", "EleicaoFederacaoBlock", "EleicaoFederacaoManage"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "financasdafederacao",
+                    "titulo": "Finanças", 
+                    "sref": "SmartChurchPanel.federacao.financas.gerenciar",
+                    "states": ["SmartChurchPanel.federacao.financas.gerenciar"],
+                    "modulos": ["MOD_FINANCAS"], 
+                    "perms": [ "FinancaFederacao"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "relatoriosdafederacao",
+                    "titulo": "Relatórios", 
+                    "sref": "SmartChurchPanel.federacao.relatorios.buscar",
+                    "states": ["SmartChurchPanel.federacao.relatorios.buscar","SmartChurchPanel.federacao.relatorios.adicionar","SmartChurchPanel.federacao.relatorios.editar"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "RelatorioFederacao", "RelatorioFederacaoSave", "RelatorioFederacaoRemove", "RelatorioFederacaoBlock", "RelatorioFederacaoBlock"], 
+                    "setted": []
+                }
+            ]
+        }
+    ]
+}

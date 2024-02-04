@@ -1,0 +1,207 @@
+<script type="text/ng-template" id="pessoa_data.html">
+    <legend>Dados Adicionais</legend>
+    <div class="form-group row m-b-15" >
+        <label class="col-form-label col-md-2">Data de Nascimento</label>
+        <div class="col-md-4">
+            <input class="form-control m-b-5 datepicker" type="text" ng-model="ctrl.dataFrm.data.data_nascimento.value"
+                    ng-disabled="ctrl.readonly"
+                    ui-mask="99/99/9999" model-view-value="true"
+                    ng-class="{'is-invalid': !ctrl.dataFrm.data.data_nascimento.valid}" />
+        </div>
+    </div>
+    <div class="form-group row m-b-15" >
+        <label class="col-form-label col-md-2">Escolaridade</label>
+        <div class="col-md-4">
+            <select class="form-control" ng-model="ctrl.dataFrm.data.escolaridade.value"
+                    ng-disabled="ctrl.readonly"
+                    ng-class="{'is-invalid': !ctrl.dataFrm.data.escolaridade.valid}" >
+                <option value="" ></option>
+                <option value="{{i.value}}" ng-repeat="i in ctrl.listEscolaridade">{{i.label}}</option>
+            </select>
+        </div>
+        <label class="col-form-label col-md-2">Profissão</label>
+        <div class="col-md-4">
+            <select class="form-control" ng-model="ctrl.dataFrm.data.profissao.value"
+                    ng-disabled="ctrl.readonly"
+                    ng-class="{'is-invalid': !ctrl.dataFrm.data.profissao.valid}" >
+                <option value="" ></option>
+                <option value="{{i.id}}" ng-repeat="i in ctrl.listProfissoes">{{i.nome}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group row m-b-15" >
+        <label class="col-form-label col-md-2">Sexo</label>
+        <div class="col-md-4">
+            <select class="form-control" ng-model="ctrl.dataFrm.data.sexo.value"
+                    ng-disabled="ctrl.readonly"
+                    ng-class="{'is-invalid': !ctrl.dataFrm.data.sexo.valid}" >
+                <option value="" ></option>
+                <option value="{{i.value}}" ng-repeat="i in ctrl.listSexos">{{i.label}}</option>
+            </select>
+        </div>
+        <label class="col-form-label col-md-2">Estado Civil</label>
+        <div class="col-md-4">
+            <select class="form-control" ng-model="ctrl.dataFrm.data.estado_civil.value"
+                    ng-disabled="ctrl.readonly" ng-change="ctrl.checkCasado()"
+                    ng-class="{'is-invalid': !ctrl.dataFrm.data.estado_civil.valid}" >
+                <option value="" ></option>
+                <option value="{{i.value}}" ng-repeat="i in ctrl.listEstadosCivis">{{i.label}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group row m-b-15" ng-show="ctrl.USER.doIHavePermission(ctrl.user, 'MembroIgrejaEspeciais')" >
+        <label class="col-form-label col-md-2">Especial?</label>
+        <div class="col-md-10">
+            <div class="checkbox checkbox-css m-b-20">
+                <input type="checkbox" id="checkbox_especial" ng-model="ctrl.dataFrm.data.especial.value" /> 
+                <label for="checkbox_especial" class="checkbox">
+                    Sim
+                </label>
+            </div>
+            <small>Marque se essse membro requer acompanhamento pastoral de forma intensiva, está acamado, precisa que leve a ceia em sua casa, etc.</small>
+        </div>
+    </div>
+    <div class="form-group row m-b-15" >
+        <label class="col-form-label col-md-2">Necessidades Especiais</label>
+        <div class="col-md-10">
+            <div class="row">
+                <div class="col-md-4" ng-repeat="p in ctrl.dataFrm.data.necessidades_especiais.value" ng-disabled="ctrl.readonly">
+                    <div class="checkbox checkbox-css m-b-20">
+                        <input type="checkbox" id="checkbox_{{p.id}}" ng-model="p.checked" /> 
+                        <label for="checkbox_{{p.id}}" class="checkbox">
+                            {{p.label}}
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group row m-b-15" >
+        <label class="col-form-label col-md-2">Telefone</label>
+        <div class="col-md-4">
+            <input class="form-control m-b-5" type="text" ng-model="ctrl.dataFrm.data.telefone.value"
+                    ng-disabled="ctrl.readonly"
+                    ui-mask="(99) 9999-9999" model-view-value="true"
+                    ng-class="{'is-invalid': !ctrl.dataFrm.data.telefone.valid}" />
+        </div>
+    </div>
+    <div class="form-group row m-b-15" >
+        <label class="col-form-label col-md-2">Celular (1)</label>
+        <div class="col-md-4">
+            <input class="form-control m-b-5" type="text" ng-model="ctrl.dataFrm.data.celular_1.value"
+                    ng-disabled="ctrl.readonly"
+                    ui-mask="(99) 9 9999-9999" model-view-value="true"
+                    ng-class="{'is-invalid': !ctrl.dataFrm.data.celular_1.valid}" />
+        </div>
+        <label class="col-form-label col-md-2">Celular (2)</label>
+        <div class="col-md-4">
+            <input class="form-control m-b-5" type="text" ng-model="ctrl.dataFrm.data.celular_2.value"
+                    ng-disabled="ctrl.readonly"
+                    ui-mask="(99) 9 9999-9999" model-view-value="true"
+                    ng-class="{'is-invalid': !ctrl.dataFrm.data.celular_2.valid}" />
+        </div>
+    </div>
+    <div class="form-group row m-b-15" >
+        <label class="col-form-label col-md-2">Naturalidade</label>
+        <div class="col-md-4">
+            <input class="form-control m-b-5" type="text" ng-model="ctrl.dataFrm.data.naturalidade.value"
+                    ng-disabled="ctrl.readonly"
+                    ng-class="{'is-invalid': !ctrl.dataFrm.data.naturalidade.valid}" />
+        </div>
+        <label class="col-form-label col-md-2">Nacionalidade</label>
+        <div class="col-md-4">
+            <input class="form-control m-b-5" type="text" ng-model="ctrl.dataFrm.data.nacionalidade.value"
+                    ng-disabled="ctrl.readonly"
+                    ng-class="{'is-invalid': !ctrl.dataFrm.data.nacionalidade.valid}" />
+        </div>
+    </div>
+    
+    <legend>Família</legend>
+    <div class="form-group row m-b-15" >
+        <label class="col-form-label col-md-2">Pai</label>
+        <div class="col-md-8">
+            <input class="form-control m-b-5" type="text" ng-model="ctrl.dataFrm.data.pai.value"
+                    ng-disabled="ctrl.readonly"
+                    ng-class="{'is-invalid': !ctrl.dataFrm.data.pai.valid}" />
+        </div>
+    </div>
+    <div class="form-group row m-b-15" >
+        <label class="col-form-label col-md-2">Mãe</label>
+        <div class="col-md-8">
+            <input class="form-control m-b-5" type="text" ng-model="ctrl.dataFrm.data.mae.value"
+                    ng-disabled="ctrl.readonly"
+                    ng-class="{'is-invalid': !ctrl.dataFrm.data.mae.valid}" />
+        </div>
+    </div>
+    <div class="form-group row m-b-15" ng-show="ctrl.casado" >
+        <label class="col-form-label col-md-2">Conjuge</label>
+        <div class="col-md-8">
+            <input class="form-control m-b-5" type="text" ng-model="ctrl.dataFrm.data.conjuge.value.nome.value" 
+                        ng-blur="ctrl.tryFindConjuge()" ng-disabled="ctrl.readonly" />
+        </div>
+        <div class="col-md-2">
+            <span class="label label-green" ng-show="ctrl.dataFrm.data.conjuge.value.cadastrado.value">Cadastrado</span>
+            <span class="label label-blue" ng-show="ctrl.dataFrm.data.conjuge.value.mesma_igreja.value">Mesma Igreja</span>
+        </div>
+    </div>
+    <div class="form-group row m-b-15" >
+        <label class="col-form-label col-md-2">Filhos?</label>
+        <div class="col-md-4">
+            <div class="checkbox checkbox-css m-b-20">
+                <input type="checkbox" id="checkbox_filhos" ng-model="ctrl.dataFrm.data.tem_filhos.value" 
+                        ng-disabled="ctrl.readonly" ng-change="ctrl.handleFilhos()" /> 
+                <label for="checkbox_filhos" class="checkbox">
+                    Sim
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="filhos-zone">
+        <div ng-repeat="f in ctrl.dataFrm.data.filhos.value" class="filho" data-id="{{f.id.value}}" ng-hide="f.remove.value">
+            <div class="form-group row m-b-15" >
+                <label class="col-form-label col-md-2">Nome</label>
+                <div class="col-md-8">
+                    <input class="form-control m-b-5" type="text" ng-model="f.nome.value" ng-blur="ctrl.procFilhoNome(f)"
+                                ng-disabled="ctrl.readonly" />
+                </div>
+                <div class="col-md-2">
+                    <span class="label label-green" ng-show="f.cadastrado.value">Cadastrado</span>
+                    <span class="label label-blue" ng-show="f.mesma_igreja.value">Mesma Igreja</span>
+                </div>
+            </div>
+            <div class="form-group row m-b-15" ng-show="f.show_opts.value" >
+                <label class="col-form-label col-md-2">Data de Nascimento</label>
+                <div class="col-md-4">
+                    <input class="form-control m-b-5 datepicker" type="text" ng-model="f.data_nascimento.value"
+                            ng-disabled="ctrl.readonly || f.cannot_change.value" ui-mask="99/99/9999" model-view-value="true" />
+                </div>
+                <label class="col-form-label col-md-2">Sexo</label>
+                <div class="col-md-3">
+                    <select class="form-control" ng-model="f.sexo.value" ng-change="ctrl.updateFilhoSexo(f)" 
+                            ng-disabled="ctrl.readonly || f.cannot_change.value" >
+                        <option value="" ></option>
+                        <option value="{{i.value}}" ng-repeat="i in ctrl.listSexos">{{i.label}}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <legend>Doações</legend>
+    <div class="form-group row m-b-15" >
+        <label class="col-form-label col-md-2">Sou doador(a) de</label>
+        <div class="col-md-10">
+            <div class="row">
+                <div class="col-md-4" ng-repeat="p in ctrl.dataFrm.data.doacoes.value">
+                    <div class="checkbox checkbox-css m-b-20">
+                        <input type="checkbox" id="checkbox_{{p.id}}" ng-model="p.checked" ng-disabled="ctrl.readonly" /> 
+                        <label for="checkbox_{{p.id}}" class="checkbox">
+                            {{p.label}}
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>

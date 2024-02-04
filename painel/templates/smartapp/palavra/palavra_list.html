@@ -1,0 +1,129 @@
+<ol class="breadcrumb pull-right">
+    <li class="breadcrumb-item active">{{opTitle}}</li>
+</ol>
+
+<h1 class="page-header">&nbsp;</h1>
+
+<div class="panel panel-inverse">
+    <div class="panel-heading">
+        <h4 class="panel-title">{{opTitle}} {{objList}}</h4>
+        <div class="panel-heading-btn">
+            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div class="add-btn-area"></div>
+        <div class="row filter-row" style="margin-bottom: 10px;">
+            <div class="col-sm-1 text-left">
+                <button class="btn btn-white" type="button" ng-click="clear()" tooltips tooltip-template="Limpar Filtros" tooltip-side="right">
+                    <i class="fa fa-trash"></i>
+                </button>
+            </div>
+            <div class="col-sm-6">
+                <form ng-submit="doSearch(true)">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="" ng-model="searchBy">
+                        <span class="input-group-append">
+                            <button class="btn btn-primary" type="submit" >
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+            <div class="col-sm-4">
+                <button class="btn btn-white" ng-click="enableFilters()">
+                    Filtros
+                    <i class="fas fa-plus" ng-hide="filterEnabled"></i>
+                    <i class="fas fa-minus" ng-show="filterEnabled"></i>
+                    <span class="badge badge-warning" ng-show="filterUsed">!</span>
+                </button>
+            </div>
+        </div>
+        <div class="row filter-row" style="margin-bottom: 10px;" ng-show="filterEnabled">
+            <div class="col-sm-1">
+                
+            </div>
+            <div class="col-sm-3">
+                <select class="form-control" ng-model="serie" ng-change="doSearch(true)" >
+                    <option value="">Série</option>
+                    <option value="{{i.id}}" ng-repeat="i in listSeries">{{i.nome}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="row filter-row" style="margin-bottom: 20px;">
+            <div class="col-sm-1">
+                
+            </div>
+            <div class="col-sm-3">
+                <form >
+                    <select class="form-control" ng-model="pageSize" ng-change="doSearch(true)">
+                        <option value="10">10 registros</option>
+                        <option value="25">25 registros</option>
+                        <option value="50">50 registros</option>
+                        <option value="100">100 registros</option>
+                    </select>
+                </form>
+            </div>
+            <div class="col-sm-8 text-right">
+                <form ng-submit="doSort()" class="form-inline">
+                    <select class="form-control" ng-model="orderField">
+                        <option value="">Ordenar por</option>
+                        <option value="titulo">Título</option>
+                        <option value="time_cad">Data de Cadastro</option>
+                    </select>
+                    <select class="form-control" ng-model="orderOrientation">
+                        <option value="asc">Crescente</option>
+                        <option value="desc">Decrescente</option>
+                    </select>
+                    <button class="btn btn-primary" type="submit" tooltips tooltip-template="Ordenar" tooltip-side="left" >
+                        <i class="fas fa-sort"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="row" style="margin-bottom: 20px;">
+            <div class="col-sm-12" style="padding-top: 10px; text-align: center;">
+                Mostrando <b>{{list.length}}</b> de <b>{{total}}</b> registros
+            </div>
+        </div>
+        <div class="">
+            <ul class="pager">
+                <li class="previous" ng-show="hasPrev"><a href="" ng-click="toPrev()">Anterior</a></li>
+                <li class="next" ng-show="hasNext"><a href="" ng-click="toNext()">Próxima</a></li>
+            </ul>
+        </div>
+        <div class="margin-bottom-50" ng-show="list.length > 0">
+            <div class="table-responsive">
+                <table class="table m-b-0">
+                    <thead>
+                        <tr>
+                            <th>Título</th>
+                            <th class="table-opts"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="d in list">
+                            <td>
+                                {{d.titulo}}
+                            </td>
+                            <td class="table-opts">
+                                <button type="button" class="btn btn-white btn-xs" 
+                                        tooltips tooltip-template="Visualizar" tooltip-side="left"
+                                        ui-sref="SmartChurchPanel.smartapp.palavra.ver({id: d.id, title: 'Visualizando', back: 'SmartChurchPanel.smartapp.palavra.buscar'})" >
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="margin-bottom-50">
+            <ul class="pager">
+                <li class="previous" ng-show="hasPrev"><a href="" ng-click="toPrev()">Anterior</a></li>
+                <li class="next" ng-show="hasNext"><a href="" ng-click="toNext()">Próxima</a></li>
+            </ul>
+        </div>
+    </div>
+</div>

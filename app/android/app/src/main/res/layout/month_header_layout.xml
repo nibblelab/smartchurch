@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/monthHeaderText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:fontFamily="@font/opensans"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:text="01"
+            android:textColor="@color/monthColor"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TableLayout
+            android:id="@+id/week_days"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="8dp"
+            android:stretchColumns="0,1,2,3,4,5,6"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/monthHeaderText"
+            app:layout_constraintVertical_bias="0.025">
+
+            <TableRow>
+
+                <TextView
+                    android:fontFamily="@font/opensans"
+                    android:gravity="center"
+                    android:text="@string/cal_dom"
+                    android:textSize="14sp"
+                    android:textColor="@color/weekendDayColor" />
+
+                <TextView
+                    android:fontFamily="@font/opensans"
+                    android:gravity="center"
+                    android:text="@string/cal_seg"
+                    android:textSize="14sp"
+                    android:textColor="@color/weekDayColor" />
+
+                <TextView
+                    android:fontFamily="@font/opensans"
+                    android:gravity="center"
+                    android:text="@string/cal_ter"
+                    android:textSize="14sp"
+                    android:textColor="@color/weekDayColor" />
+
+                <TextView
+                    android:fontFamily="@font/opensans"
+                    android:gravity="center"
+                    android:text="@string/cal_qua"
+                    android:textSize="14sp"
+                    android:textColor="@color/weekDayColor" />
+
+                <TextView
+                    android:fontFamily="@font/opensans"
+                    android:gravity="center"
+                    android:text="@string/cal_qui"
+                    android:textSize="14sp"
+                    android:textColor="@color/weekDayColor" />
+
+                <TextView
+                    android:fontFamily="@font/opensans"
+                    android:gravity="center"
+                    android:text="@string/cal_sex"
+                    android:textSize="14sp"
+                    android:textColor="@color/weekDayColor" />
+
+                <TextView
+                    android:fontFamily="@font/opensans"
+                    android:gravity="center"
+                    android:text="@string/cal_sab"
+                    android:textSize="14sp"
+                    android:textColor="@color/weekendDayColor" />
+            </TableRow>
+
+            <TableRow android:id="@+id/tableRow2" />
+        </TableLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

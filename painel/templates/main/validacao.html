@@ -1,0 +1,56 @@
+<div id="page-container" style="background-image: url(img/login_bg.jpg); background-repeat: no-repeat; background-attachment: fixed; height: 100vh;">
+    <div class="container">
+        <div class="termos-bg">
+            <p class="text-center">
+                <img src="img/logo_small.png" class="img-fluid" alt="smartchurch" />
+            </p>
+            <h2 class="text-center margin-top-30">
+                Validação de Credenciais dos Delegados - {{data.evento}}
+            </h2>
+            <div class="margin-top-50">
+                <div class="table-responsive">
+                <table class="table m-b-0">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Cargo</th>
+                            <th>Assinaturas</th>
+                            <th class="table-mdata">Registro</th>
+                            <th class="table-opts"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="d in data.credenciais">
+                            <td>
+                                {{d.nome}}
+                            </td>
+                            <td>
+                                {{d.cargo_str}}
+                            </td>
+                            <td>
+                                <span class="label label-default" tooltips tooltip-template="Assinado pelo inscrito" tooltip-side="left" >
+                                    <i class="fas fa-qrcode"></i>
+                                </span>
+                                <span class="label label-success" ng-show="d.assinatura_responsavel != ''"
+                                      tooltips tooltip-template="Assinado pelo responsável" tooltip-side="left" >
+                                    <i class="fas fa-qrcode"></i>
+                                </span>
+                            </td>
+                            <td>
+                                <span class="font-size-10 text-uppercase color-default">Inscrição em:</span> {{d.time_cad_str}} <br/>
+                                <span class="font-size-10 text-uppercase color-default">Última alteração:</span> {{d.last_mod_str}}
+                            </td>
+                            <td class="table-opts" style="width: 180px;">
+                                <button type="button" class="btn btn-success btn-xs" ng-show="d.assinatura_responsavel == ''"
+                                        tooltips tooltip-template="Assinar" tooltip-side="left"
+                                        ng-click="approve(d)" >
+                                    <i class="fas fa-check-double"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

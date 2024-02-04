@@ -1,0 +1,35 @@
+{
+    "menus": [
+        { 
+            "nome": "pastor",
+            "titulo": "Pastor", 
+            "icon": "fas fa-chess-bishop", 
+            "modulos": ["MOD_IGREJA"], 
+            "setted": ["manage_pastor"],
+            "submenus": [
+                { 
+                    "nome": "agendadopastor",
+                    "titulo": "Agenda", 
+                    "sref": "SmartChurchPanel.pastor.agenda.buscar",
+                    "states": ["SmartChurchPanel.pastor.agenda.buscar",
+                                    "SmartChurchPanel.pastor.agenda.adicionar",
+                                    "SmartChurchPanel.pastor.agenda.editar"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "AgendaPastor", "AgendaPastorSave", "AgendaPastorRemove", "AgendaPastorBlock"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "relatoriosdopastor",
+                    "titulo": "Relatórios", 
+                    "sref": "SmartChurchPanel.pastor.relatorios.buscar",
+                    "states": ["SmartChurchPanel.pastor.relatorios.buscar",
+                                "SmartChurchPanel.pastor.relatorios.adicionar",
+                                "SmartChurchPanel.pastor.relatorios.editar"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "RelatorioPastor", "RelatorioPastorSave", "RelatorioPastorRemove", "RelatorioPastorBlock"], 
+                    "setted": []
+                }
+            ]
+        }
+    ]
+}

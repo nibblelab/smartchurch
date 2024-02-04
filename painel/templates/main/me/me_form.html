@@ -1,0 +1,61 @@
+<ol class="breadcrumb pull-right">
+    <li class="breadcrumb-item active">Meus Dados</li>
+</ol>
+
+<h1 class="page-header">&nbsp;</h1>
+
+<div class="panel panel-inverse">
+    <div class="panel-heading">
+        <h4 class="panel-title">Meus Dados</h4>
+        <div class="panel-heading-btn">
+            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+        </div>
+    </div>
+    <div class="panel-body">
+        <form id="dataFrm" method="POST" autocomplete="off">
+            
+            <usuario-data 
+                    model="dataFrm" 
+                    igreja="igreja"
+                    perfis="listPerfis" 
+                    pessoa-service="Pessoa" 
+                    membro-service="MembroDaIgreja"
+                    check-nome="false"
+                    perfil-default="perfilDefault"
+                    readonly="false"></usuario-data>
+            
+            <pessoa-data 
+                    model="dataFrm" 
+                    igreja="igreja"
+                    escolaridades="listEscolaridade"
+                    profissoes="listProfissoes"
+                    sexos="listSexos" 
+                    estadoscivis="listEstadosCivis" 
+                    relacoes="listRelacoes"
+                    pessoa-service="Pessoa" 
+                    membro-service="MembroDaIgreja"
+                    familia-factory="familiaFactory"
+                    user-service="USER" 
+                    user="user"
+                    readonly="false"></pessoa-data>
+            
+            <endereco-data 
+                    model="dataFrm" 
+                    ufs="listUFs"
+                    cidades="listCidades"
+                    readonly="false"></endereco-data>
+            
+            <site-data 
+                    model="dataFrm"
+                    readonly="false"></site-data>
+                        
+            <div class="form-actions">
+                <div class="form-group row">
+                    <div class="col-md-9 offset-md-3">
+                        <button type="submit" class="btn width-150 btn-primary">Salvar</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,1 @@
+{"name":"fileupload","desc":"","methods":[{"name":"save","desc":"salva um upload","http_method":"POST","is_auth":true,"params":[]}]}

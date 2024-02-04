@@ -1,0 +1,140 @@
+<ol class="breadcrumb pull-right">
+    <li class="breadcrumb-item"><a ui-sref='{{back}}'>Buscar</a></li>
+    <li class="breadcrumb-item active">{{opTitle}}</li>
+</ol>
+
+<h1 class="page-header">&nbsp;</h1>
+
+<div class="panel panel-inverse">
+    <div class="panel-heading">
+        <h4 class="panel-title">{{opTitle}} {{objForm}}</h4>
+        <div class="panel-heading-btn">
+            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+        </div>
+    </div>
+    <div class="panel-body">
+        <form id="dataFrm" method="POST" autocomplete="off">
+            <legend>Dados Básicos</legend>
+            <div class="form-group row m-b-15" ng-if="USER.doIHavePermission(user, 'PessoasSave')">
+                <label class="col-form-label col-md-2">Perfil *</label>
+                <div class="col-md-10">
+                    <select class="form-control" ng-model="dataFrm.data.perfil.value"
+                            ng-class="{'is-invalid': !dataFrm.data.perfil.valid}"
+                            name="validation[perfil]" data-validation="[NOTEMPTY]"
+                            data-validation-message="O perfil não pode ser vazio" >
+                        <option value="" >Perfil</option>
+                        <option value="{{i.id}}" ng-repeat="i in listPerfis">{{i.nome}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row m-b-15">
+                <label class="col-form-label col-md-2">Nome *</label>
+                <div class="col-md-10">
+                    <input class="form-control m-b-5" type="text" placeholder="Nome" ng-model="dataFrm.data.nome.value"
+                            ng-class="{'is-invalid': !dataFrm.data.nome.valid}"
+                            name="validation[nome]" data-validation="[NOTEMPTY]"
+                            data-validation-message="O nome não pode ser vazio" />
+                </div>
+            </div>
+            <div class="form-group row m-b-15">
+                <label class="col-form-label col-md-2">E-mail *</label>
+                <div class="col-md-10">
+                    <input class="form-control m-b-5" type="email" placeholder="E-mail" ng-model="dataFrm.data.email.value"
+                            ng-class="{'is-invalid': !dataFrm.data.email.valid}"
+                            ng-blur="checkIsAlreadyAdmin()"
+                            name="validation[email]" data-validation="[NOTEMPTY,EMAIL]"
+                            data-validation-message="O e-mail não pode ser vazio e deve ser válido" />
+                </div>
+            </div>
+            <div class="form-group row m-b-15">
+                <label class="col-form-label col-md-2">Senha *</label>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <input class="form-control m-b-5" type="password" placeholder="Senha" ng-model="dataFrm.data.senha.value"
+                            ng-class="{'is-invalid': !dataFrm.data.senha.valid}"
+                            name="validation[password]" data-validation="[OPTIONAL,L>=6]" 
+                            data-validation-regex="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*_-#?&])[A-Za-z\d$@$!%*_-#?&]{6,}"
+                            data-validation-message="A senha deve ter pelo menos 6 caracteres" 
+                            data-validation-regex-message="A senha deve conter números, letras maiúscas e minúsculas e caracteres especiais como @,!,etc "
+                             />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-default" 
+                                    tooltips tooltip-template="Gerar Senha" tooltip-side="top"
+                                    ng-click="generatePassword()">
+                                <i class="fas fa-cog"></i>
+                            </button>
+                        </span>
+                    </div>
+                    <small ng-show="dataFrm.data.id.value != ''">Se não for alterar deixe em branco</small>
+                </div>
+                <label class="col-form-label col-md-2">Repita a Senha *</label>
+                <div class="col-md-4">
+                    <input class="form-control m-b-5" type="password" placeholder="Repita a Senha" ng-model="dataFrm.data.r_senha.value"
+                            name="validation[rpassword]" data-validation="[V==validation[password]]"
+                            data-validation-message="As senhas não coincidem" />
+                    <small ng-show="dataFrm.data.id.value != ''">Se não for alterar deixe em branco</small>
+                </div>
+            </div>
+            <div class="form-group row m-b-15" >
+                <label class="col-form-label col-md-2" >Módulos</label>
+                <div class="col-md-10">
+                    <div class="row">
+                    <div class="col-md-12" ng-repeat="m in dataFrm.data.modulos.value">
+                        <div class="checkbox checkbox-css m-b-20">
+                            <input type="checkbox" id="checkbox_{{m.id}}" ng-model="m.checked" ng-disabled="m.required" /> 
+                            <label for="checkbox_{{m.id}}" class="checkbox">
+                                {{m.label}} - {{m.desc}}
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            
+            <legend>Dados da Igreja</legend>
+            <div class="form-group row m-b-15">
+                <label class="col-form-label col-md-2">Sínodo </label>
+                <div class="col-md-8">
+                    <select class="form-control" ng-model="dataFrm.data.sinodo.value" ng-change="filterPresbiterios(dataFrm.data.sinodo.value)"
+                            ng-disabled="dataFrm.data.id.value != ''"
+                            ng-class="{'is-invalid': !dataFrm.data.sinodo.valid}" >
+                        <option value=""></option>
+                        <option value="{{i.id}}" ng-repeat="i in listSinodos">{{i.sigla}} - {{i.nome}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row m-b-15">
+                <label class="col-form-label col-md-2">Presbitério </label>
+                <div class="col-md-8">
+                    <select class="form-control" ng-model="dataFrm.data.presbiterio.value" ng-change="filterTemplos(dataFrm.data.presbiterio.value)"
+                            ng-disabled="dataFrm.data.id.value != ''"
+                            ng-class="{'is-invalid': !dataFrm.data.presbiterio.valid}" >
+                        <option value=""></option>
+                        <option value="{{i.id}}" ng-repeat="i in listPresbiterios" ng-show="i.show">{{i.sigla}} - {{i.nome}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row m-b-15">
+                <label class="col-form-label col-md-2">Igreja/Congregação/Ponto *</label>
+                <div class="col-md-8">
+                    <select class="form-control" ng-model="dataFrm.data.igreja.value" ng-change="checkTemploHasAdmin()"
+                            ng-disabled="dataFrm.data.id.value != ''"
+                            ng-class="{'is-invalid': !dataFrm.data.igreja.valid}"
+                            name="validation[igreja]" data-validation="[NOTEMPTY]"
+                            data-validation-message="É necessário informar qual igreja o cliente administrará" >
+                        <option value=""></option>
+                        <option value="{{i.id}}" ng-repeat="i in listTemplos" ng-show="i.show">{{i.nome}}</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="form-actions">
+                <div class="form-group row">
+                    <div class="col-md-9 offset-md-3">
+                        <button type="submit" class="btn width-150 btn-primary">Salvar</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

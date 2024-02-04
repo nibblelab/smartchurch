@@ -1,0 +1,115 @@
+<?php
+/**
+ * 2019
+ *
+ * NOTICE OF LICENSE
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * @author    Nibblelab Tecnologia LTDA
+ * @copyright 2019 Nibblelab Tecnologia LTDA
+ * @license   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ */
+
+namespace IBGEApiClient\MesoRegiao\Response;
+
+use \IBGEApiClient\UF\Response\UFResponseData;
+
+/**
+ * Resposta da busca de Mesorregião
+ */
+class MesoRegiaoResponseData 
+{
+    /**
+     * Id da mesorregião
+     *
+     * @var int 
+     */
+    private $id;
+    /**
+     * Nome da mesorregião
+     *
+     * @var string 
+     */
+    private $nome;
+    /**
+     * UF da mesorregião
+     *
+     * @var \IBGEApiClient\UF\Response\UFResponseData
+     */
+    private $uf;
+    
+    /**
+     * Obtêm o id da mesorregião
+     * 
+     * @return int|null
+     */
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    /**
+     * Seta o id da mesorregião
+     * 
+     * @param int $id
+     * @return void
+     */
+    public function setId($id): void
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * Obtêm o nome da mesorregião
+     * 
+     * @return string|null
+     */
+    public function getNome(): ?string
+    {
+        return $this->nome;
+    }
+
+    /**
+     * Seta o nome da mesorregião
+     * 
+     * @param string $nome
+     * @return void
+     */
+    public function setNome($nome): void
+    {
+        $this->nome = $nome;
+    }
+    
+    /**
+     * Obtêm a UF da mesorregião
+     * 
+     * @return \IBGEApiClient\UF\Response\UFResponseData
+     */
+    public function getUF(): \IBGEApiClient\UF\Response\UFResponseData
+    {
+        return $this->uf;
+    }
+
+    /**
+     * Seta a UF da mesorregião
+     * 
+     * @param \IBGEApiClient\UF\Response\UFResponseData $uf
+     */
+    public function setUF($uf)
+    {
+        $this->uf = $uf;
+    }
+}
+

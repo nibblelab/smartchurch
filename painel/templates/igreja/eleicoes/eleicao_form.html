@@ -1,0 +1,120 @@
+<ol class="breadcrumb pull-right">
+    <li class="breadcrumb-item"><a ui-sref='{{back}}'>Buscar</a></li>
+    <li class="breadcrumb-item active">{{opTitle}}</li>
+</ol>
+
+<h1 class="page-header">&nbsp;</h1>
+
+<div class="panel panel-inverse">
+    <div class="panel-heading">
+        <h4 class="panel-title">{{opTitle}} {{objForm}}</h4>
+        <div class="panel-heading-btn">
+            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+        </div>
+    </div>
+    <div class="panel-body">
+        <form id="dataFrm" method="POST" autocomplete="off">
+            <legend>Agenda/Evento</legend>
+            <div class="form-group row m-b-15">
+                <label class="col-form-label col-md-2">Ligado a *</label>
+                <div class="col-md-10">
+                    <select class="form-control" ng-model="dataFrm.data.ligacao.value" ng-change="onSelectLigacao()"
+                            ng-class="{'is-invalid': !dataFrm.data.ligacao.valid}"
+                            name="validation[nome]" data-validation="[NOTEMPTY]"
+                            data-validation-message="A eleição deve estar ligada diretamente à agenda ou a um evento">
+                        <option value=""></option>
+                        <option value="evt">Evento</option>
+                        <option value="agd">Atividade</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row m-b-15" ng-if="dataFrm.data.ligacao.value == 'agd'">
+                <label class="col-form-label col-md-2">Atividade</label>
+                <div class="col-md-9">
+                    <input class="form-control" type="text" id="atividade" placeholder="Atividade" ng-model="dataFrm.data.atividade.value"
+                            ng-class="{'is-invalid': !dataFrm.data.atividade.valid}" />
+                </div>
+                <div class="col-md-1">
+                    <button type="button" class="btn btn-primary" ng-show="USER.doIHavePermission(user, 'AgendaIgrejaSave')"
+                            tooltips tooltip-template="Adicionar Atividade" tooltip-side="top"
+                            ui-sref="SmartChurchPanel.igreja.agenda.adicionar({back: 'SmartChurchPanel.igreja.eleicoes.adicionar'})" ><i class="fa fa-plus"></i></button>
+                </div>
+            </div>
+            <div class="form-group row m-b-15" ng-if="dataFrm.data.ligacao.value == 'evt'">
+                <label class="col-form-label col-md-2">Evento</label>
+                <div class="col-md-9">
+                    <input class="form-control" type="text" id="event" placeholder="Evento" ng-model="dataFrm.data.event.value"
+                            ng-class="{'is-invalid': !dataFrm.data.event.valid}" />
+                </div>
+                <div class="col-md-1">
+                    <button type="button" class="btn btn-primary" ng-show="USER.doIHavePermission(user, 'EventoIgrejaSave')"
+                            tooltips tooltip-template="Adicionar Evento" tooltip-side="top"
+                            ui-sref="SmartChurchPanel.igreja.eventos.adicionar({back: 'SmartChurchPanel.igreja.eleicoes.adicionar'})" ><i class="fa fa-plus"></i></button>
+                </div>
+            </div>
+            <div class="form-group row m-b-15" ng-show="dataFrm.data.atividade.value != '' || dataFrm.data.event.value != ''" >
+                <label class="col-form-label col-md-2">Início *</label>
+                <div class="col-md-4">
+                    <div class="input-group" ng-model="dataFrm.data.time_ini.value" datetimepicker options="datetimepickerOpts">
+                        <input class="form-control" type="text" 
+                            ng-class="{'is-invalid': !dataFrm.data.time_ini.valid}" />
+                        <span class="input-group-addon">
+                            <i class="far fa-calendar-alt"></i>
+                        </span>
+                    </div>
+                </div>
+                <label class="col-form-label col-md-2">Término *</label>
+                <div class="col-md-4">
+                    <div class="input-group" ng-model="dataFrm.data.time_end.value" datetimepicker options="datetimepickerOpts">
+                        <input class="form-control" type="text"
+                            ng-class="{'is-invalid': !dataFrm.data.time_end.valid}" />
+                        <span class="input-group-addon">
+                            <i class="far fa-calendar-alt"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            
+            <legend>Dados Básicos</legend>
+            <div class="form-group row m-b-15">
+                <label class="col-form-label col-md-2">Nome *</label>
+                <div class="col-md-10">
+                    <input class="form-control m-b-5" type="text" placeholder="Nome" ng-model="dataFrm.data.nome.value"
+                            ng-class="{'is-invalid': !dataFrm.data.nome.valid}"
+                            name="validation[nome]" data-validation="[NOTEMPTY]"
+                            data-validation-message="O nome não pode ser vazio" />
+                </div>
+            </div>
+            
+            <legend>Quem pode votar</legend>
+            <div class="form-group row m-b-15">
+                <label class="col-form-label col-md-2">Apenas presentes?</label>
+                <div class="col-md-4">
+                    <div class="checkbox checkbox-css">
+                        <input type="checkbox" id="checkbox_apenas_presentes" ng-model="dataFrm.data.apenas_presentes.value" /> 
+                        <label for="checkbox_apenas_presentes" class="checkbox">
+                            Sim
+                        </label>
+                    </div>
+                </div>
+                <label class="col-form-label col-md-2">Apenas delegados?</label>
+                <div class="col-md-4">
+                    <div class="checkbox checkbox-css">
+                        <input type="checkbox" id="checkbox_apenas_delegados" ng-model="dataFrm.data.apenas_delegados.value" /> 
+                        <label for="checkbox_apenas_delegados" class="checkbox">
+                            Sim
+                        </label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-actions">
+                <div class="form-group row">
+                    <div class="col-md-9 offset-md-3">
+                        <button type="submit" class="btn width-150 btn-primary">Salvar</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

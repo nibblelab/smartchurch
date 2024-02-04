@@ -1,0 +1,52 @@
+<ol class="breadcrumb pull-right">
+    <li class="breadcrumb-item"><a ui-sref='{{sref.back_level2}}'>Salas da Escola Dominical</a></li>
+    <li class="breadcrumb-item"><a href="" ng-click="toBack(sref.back, sref.backParams)">Frequência</a></li>
+    <li class="breadcrumb-item active">{{opTitle}}</li>
+</ol>
+
+<h1 class="page-header">&nbsp;</h1>
+
+<div class="panel panel-inverse">
+    <div class="panel-heading">
+        <h4 class="panel-title">{{opTitle}} {{objForm}} ::. {{salaData.nome}}</h4>
+        <div class="panel-heading-btn">
+            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+        </div>
+    </div>
+    <div class="panel-body">
+        <form id="dataFrm" method="POST" autocomplete="off">
+            <legend>Dados Básicos</legend>
+            <div class="form-group row m-b-15">
+                <label class="col-form-label col-md-2">Dia *</label>
+                <div class="col-md-4">
+                    <input class="form-control m-b-5 datepicker" type="text" ng-model="dataFrm.data.dia.value"
+                            ui-mask="99/99/9999" model-view-value="true"
+                            ng-class="{'is-invalid': !dataFrm.data.dia.valid}"
+                        name="validation[dia]" data-validation="[NOTEMPTY]"
+                        data-validation-message="O dia não pode ser vazio" />
+                </div>
+            </div>
+            
+            <legend>Alunos</legend>
+            <div class="form-group row m-b-5" ng-repeat="f in dataFrm.data.frequencias.value">
+                <label class="col-form-label col-md-2">{{f.nome}}</label>
+                <div class="col-md-4">
+                    <div class="checkbox checkbox-css m-b-20">
+                        <input type="checkbox" id="checkbox_{{f.id}}" ng-model="f.presente" /> 
+                        <label for="checkbox_{{f.id}}" class="checkbox">
+                            Presente
+                        </label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-actions">
+                <div class="form-group row">
+                    <div class="col-md-9 offset-md-3">
+                        <button type="submit" class="btn width-150 btn-primary">Salvar</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="80dp"
+    tools:context=".fragments.BookmarkFragment">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/mural_list"
+        android:layout_width="match_parent"
+        android:layout_height="260dp"
+        android:paddingTop="80dp"
+        android:orientation="vertical" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="bottom"
+        android:layout_alignParentLeft="true"
+        android:layout_margin="5dp">
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/bookmark_anterior"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:layout_margin="6dp"
+            android:layout_marginBottom="8dp"
+            android:contentDescription="@string/btn_back"
+            app:srcCompat="@drawable/ic_left" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="bottom"
+        android:layout_alignParentRight="true"
+        android:layout_margin="5dp">
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/bookmark_proximo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:layout_margin="6dp"
+            android:layout_marginBottom="8dp"
+            android:contentDescription="@string/btn_next"
+            app:srcCompat="@drawable/ic_right" />
+    </LinearLayout>
+</RelativeLayout>

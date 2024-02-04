@@ -1,0 +1,796 @@
+{
+    "db": {
+        "host": "localhost",
+        "user": "johnatas",
+        "password": "johnatas",
+        "dbname": "smartchurch",
+        "table": "permissoes"
+    },
+    "perms": [
+        { "codigo": "Permissao", "descricao": "Permissão de buscar permissões", "staff": "N", "modulo": "MOD_BASE", "grupo": "Permissões Gerais" },
+        { "codigo": "Dados", "descricao": "Permissão de buscar dados e informações em geral", "staff": "N", "modulo": "MOD_BASE", "grupo": "Permissões Gerais" },
+        { "codigo": "Inscrever", "descricao": "Permissão de se inscrever em eventos", "staff": "N", "modulo": "MOD_BASE", "grupo": "Permissões Gerais" },
+        { "codigo": "SysConfig", "descricao": "Permissão de alterar configurações do sistema", "staff": "S", "modulo": "MOD_BASE", "grupo": "Configurações (Staff)" },
+
+        { "codigo": "IntegracaoIgreja", "descricao": "Permissão de configurar API no contexto de igreja", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Integração" },
+        { "codigo": "IntegracaoFederacao", "descricao": "Permissão de configurar API no contexto de federação", "staff": "N", "modulo": "MOD_BASE", "grupo": "Integração" },
+        { "codigo": "IntegracaoSinodal", "descricao": "Permissão de configurar API no contexto de sinodal", "staff": "N", "modulo": "MOD_BASE", "grupo": "Integração" },
+
+        { "codigo": "Pessoas", "descricao": "Permissão de buscar todas as pessoas", "staff": "N", "modulo": "MOD_BASE", "grupo": "Usuários" },
+        { "codigo": "PessoasSave", "descricao": "Permissão de salvar dados das pessoas", "staff": "N", "modulo": "MOD_BASE", "grupo": "Usuários" },
+        { "codigo": "PessoasRemove", "descricao": "Permissão de remover pessoas", "staff": "N", "modulo": "MOD_BASE", "grupo": "Usuários" },
+
+        { "codigo": "Me", "descricao": "Permissão de buscar meus dados de usuário", "staff": "N", "modulo": "MOD_BASE", "grupo": "Meu Usuário" },
+        { "codigo": "MeSave", "descricao": "Permissão de alterar meus dados de usuário", "staff": "N", "modulo": "MOD_BASE", "grupo": "Meu Usuário" },
+        
+        { "codigo": "InstanciaSave", "descricao": "Permissão de alterar minha instância", "staff": "N", "modulo": "MOD_BASE", "grupo": "Instância" },
+        
+        { "codigo": "DataView", "descricao": "Permissão de acessar o modo web do app", "staff": "N", "modulo": "MOD_BASE", "grupo": "App" },
+        
+        { "codigo": "Bookmark", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_BASE", "grupo": "Bookmark" },
+        { "codigo": "BookmarkSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_BASE", "grupo": "Bookmark" },
+        { "codigo": "BookmarkRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_BASE", "grupo": "Bookmark" },
+        
+        { "codigo": "Mural", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_BASE", "grupo": "Mural" },
+        { "codigo": "MuralSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_BASE", "grupo": "Mural" },
+        { "codigo": "MuralRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_BASE", "grupo": "Mural" },
+        { "codigo": "MuralBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_BASE", "grupo": "Mural" },
+
+        { "codigo": "Admin", "descricao": "Permissão de administração", "staff": "N", "modulo": "MOD_BASE", "grupo": "Usuário Admin" },
+
+        { "codigo": "Perfil", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_BASE", "grupo": "Perfil" },
+        { "codigo": "PerfilSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_BASE", "grupo": "Perfil" },
+        { "codigo": "PerfilRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_BASE", "grupo": "Perfil" },
+
+        { "codigo": "Supremo", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_BASE", "grupo": "Estrutura: Supremo Concílio" },
+        { "codigo": "SupremoSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_BASE", "grupo": "Estrutura: Supremo Concílio" },
+        { "codigo": "SupremoRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_BASE", "grupo": "Estrutura: Supremo Concílio" },
+        { "codigo": "SupremoBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_BASE", "grupo": "Estrutura: Supremo Concílio" },
+
+        { "codigo": "Sinodo", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_BASE", "grupo": "Estrutura: Sínodos" },
+        { "codigo": "SinodoSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_BASE", "grupo": "Estrutura: Sínodos" },
+        { "codigo": "SinodoRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_BASE", "grupo": "Estrutura: Sínodos" },
+        { "codigo": "SinodoBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_BASE", "grupo": "Estrutura: Sínodos" },
+
+        { "codigo": "Presbiterio", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_BASE", "grupo": "Estrutura: Presbitérios" },
+        { "codigo": "PresbiterioSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_BASE", "grupo": "Estrutura: Presbitérios" },
+        { "codigo": "PresbiterioRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_BASE", "grupo": "Estrutura: Presbitérios" },
+        { "codigo": "PresbiterioBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_BASE", "grupo": "Estrutura: Presbitérios" },
+
+        { "codigo": "Igreja", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_BASE", "grupo": "Estrutura: Igrejas" },
+        { "codigo": "IgrejaSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_BASE", "grupo": "Estrutura: Igrejas" },
+        { "codigo": "IgrejaRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_BASE", "grupo": "Estrutura: Igrejas" },
+        { "codigo": "IgrejaBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_BASE", "grupo": "Estrutura: Igrejas" },
+
+        { "codigo": "Congregacao", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_BASE", "grupo": "Estrutura: Congregações" },
+        { "codigo": "CongregacaoSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_BASE", "grupo": "Estrutura: Congregações" },
+        { "codigo": "CongregacaoRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_BASE", "grupo": "Estrutura: Congregações" },
+        { "codigo": "CongregacaoBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_BASE", "grupo": "Estrutura: Congregações" },
+
+        { "codigo": "Ponto", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_BASE", "grupo": "Estrutura: Pontos de Pregação" },
+        { "codigo": "PontoSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_BASE", "grupo": "Estrutura: Pontos de Pregação" },
+        { "codigo": "PontoRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_BASE", "grupo": "Estrutura: Pontos de Pregação" },
+        { "codigo": "PontoBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_BASE", "grupo": "Estrutura: Pontos de Pregação" },
+
+        { "codigo": "Nacional", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_BASE", "grupo": "Estrutura: Nacionais" },
+        { "codigo": "NacionalSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_BASE", "grupo": "Estrutura: Nacionais" },
+        { "codigo": "NacionalRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_BASE", "grupo": "Estrutura: Nacionais" },
+        { "codigo": "NacionalBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_BASE", "grupo": "Estrutura: Nacionais" },
+
+        { "codigo": "Sinodal", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_BASE", "grupo": "Estrutura: Sinodais" },
+        { "codigo": "SinodalSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_BASE", "grupo": "Estrutura: Sinodais" },
+        { "codigo": "SinodalRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_BASE", "grupo": "Estrutura: Sinodais" },
+        { "codigo": "SinodalBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_BASE", "grupo": "Estrutura: Sinodais" },
+        { "codigo": "SinodalAdmin", "descricao": "Permissão de atribuir admin", "staff": "N", "modulo": "MOD_BASE", "grupo": "Estrutura: Sinodais" },
+
+        { "codigo": "Federacao", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_BASE", "grupo": "Estrutura: Federações" },
+        { "codigo": "FederacaoSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_BASE", "grupo": "Estrutura: Federações" },
+        { "codigo": "FederacaoRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_BASE", "grupo": "Estrutura: Federações" },
+        { "codigo": "FederacaoBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_BASE", "grupo": "Estrutura: Federações" },
+        { "codigo": "FederacaoAdmin", "descricao": "Permissão de atribuir admin", "staff": "N", "modulo": "MOD_BASE", "grupo": "Estrutura: Federações" },
+
+        { "codigo": "Cargo", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_BASE", "grupo": "Estrutura: Cargos" },
+        { "codigo": "CargoSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_BASE", "grupo": "Estrutura: Cargos" },
+        { "codigo": "CargoRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_BASE", "grupo": "Estrutura: Cargos" },
+
+        { "codigo": "TagAgenda", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_BASE", "grupo": "Estrutura: Tags da Agenda" },
+        { "codigo": "TagAgendaSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_BASE", "grupo": "Estrutura: Tags da Agenda" },
+        { "codigo": "TagAgendaRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_BASE", "grupo": "Estrutura: Tags da Agenda" },
+        { "codigo": "TagAgendaBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_BASE", "grupo": "Estrutura: Tags da Agenda" },
+
+        { "codigo": "Profissao", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_BASE", "grupo": "Estrutura: Profissões" },
+        { "codigo": "ProfissaoSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_BASE", "grupo": "Estrutura: Profissões" },
+        { "codigo": "ProfissaoRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_BASE", "grupo": "Estrutura: Profissões" },
+
+        { "codigo": "Doacao", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_BASE", "grupo": "Estrutura: Doações" },
+        { "codigo": "DoacaoSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_BASE", "grupo": "Estrutura: Doações" },
+        { "codigo": "DoacaoRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_BASE", "grupo": "Estrutura: Doações" },
+
+        { "codigo": "Necessidade", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_BASE", "grupo": "Estrutura: Necessidades Especiais" },
+        { "codigo": "NecessidadeSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_BASE", "grupo": "Estrutura: Necessidades Especiais" },
+        { "codigo": "NecessidadeRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_BASE", "grupo": "Estrutura: Necessidades Especiais" },
+
+        { "codigo": "MotivoRecusa", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_BASE", "grupo": "Estrutura: Motivos de Recusa" },
+        { "codigo": "MotivoRecusaSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_BASE", "grupo": "Estrutura: Motivos de Recusa" },
+        { "codigo": "MotivoRecusaRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_BASE", "grupo": "Estrutura: Motivos de Recusa" },
+
+        { "codigo": "Cliente", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_BASE", "grupo": "Clientes" },
+        { "codigo": "ClienteSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_BASE", "grupo": "Clientes" },
+        { "codigo": "ClienteRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_BASE", "grupo": "Clientes" },
+        { "codigo": "ClienteBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_BASE", "grupo": "Clientes" },
+
+        { "codigo": "CongregacaoIgreja", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Igreja: Congregações" },
+        { "codigo": "CongregacaoIgrejaSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Igreja: Congregações" },
+        { "codigo": "CongregacaoIgrejaRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Igreja: Congregações" },
+        { "codigo": "CongregacaoIgrejaBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Igreja: Congregações" },
+
+        { "codigo": "PontoIgreja", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Igreja: Pontos de Pregação" },
+        { "codigo": "PontoIgrejaSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Igreja: Pontos de Pregação" },
+        { "codigo": "PontoIgrejaRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Igreja: Pontos de Pregação" },
+        { "codigo": "PontoIgrejaBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Igreja: Pontos de Pregação" },
+
+        { "codigo": "MembroIgreja", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_B_IGREJA", "grupo": "Igreja: Membresia" },
+        { "codigo": "MembroIgrejaSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_B_IGREJA", "grupo": "Igreja: Membresia" },
+        { "codigo": "MembroIgrejaRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_B_IGREJA", "grupo": "Igreja: Membresia" },
+        { "codigo": "MembroIgrejaBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_B_IGREJA", "grupo": "Igreja: Membresia" },
+        { "codigo": "MembroIgrejaEspeciais", "descricao": "Permissão de buscar membros especiais", "staff": "N", "modulo": "MOD_B_IGREJA", "grupo": "Igreja: Membresia" },
+
+        { "codigo": "RelMembroAno", "descricao": "Membros x Idade", "staff": "N", "modulo": "MOD_BASE", "grupo": "Igreja: Gráficos da Membresia" },
+        { "codigo": "RelMembroGrpIdade", "descricao": "Membros x Grupo de Idade", "staff": "N", "modulo": "MOD_BASE", "grupo": "Igreja: Gráficos da Membresia" },
+        { "codigo": "RelMembroSexo", "descricao": "Membros x Sexo", "staff": "N", "modulo": "MOD_BASE", "grupo": "Igreja: Gráficos da Membresia" },
+        { "codigo": "RelMembroEstadoCivil", "descricao": "Membros x Estado Civil", "staff": "N", "modulo": "MOD_BASE", "grupo": "Igreja: Gráficos da Membresia" },
+        { "codigo": "RelMembroEscolaridade", "descricao": "Membros x Escolaridade", "staff": "N", "modulo": "MOD_BASE", "grupo": "Igreja: Gráficos da Membresia" },
+        { "codigo": "RelMembroComungante", "descricao": "Membros x Profissão de Fé", "staff": "N", "modulo": "MOD_BASE", "grupo": "Igreja: Gráficos da Membresia" },
+        
+        { "codigo": "RelMembroBairro", "descricao": "Membros x Bairro", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Igreja: Gráficos da Igreja" },
+        { "codigo": "RelMembroVisitante", "descricao": "Membros x Visitantes", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Igreja: Gráficos da Igreja" },
+        { "codigo": "RelMembroSocialNet", "descricao": "Membros x Redes Sociais", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Igreja: Gráficos da Igreja" },
+        { "codigo": "RelMembroNecessidade", "descricao": "Membros x Necessidades Especiais", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Igreja: Gráficos da Igreja" },
+        { "codigo": "RelMembroDoacao", "descricao": "Membros x Doações", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Igreja: Gráficos da Igreja" },
+        { "codigo": "RelMembroEspecial", "descricao": "Membros x Especial", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Igreja: Gráficos da Igreja" },
+        { "codigo": "RelMembroAdmissao", "descricao": "Membros x Ano Admissão", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Igreja: Gráficos da Igreja" },
+        { "codigo": "RelMembroDemissao", "descricao": "Membros x Ano Demissão", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Igreja: Gráficos da Igreja" },
+        { "codigo": "RelMembroPreenchimento", "descricao": "Membros x Preenchimento do Perfil", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Igreja: Gráficos da Igreja" },
+        { "codigo": "RelMembroFilhos", "descricao": "Membros Com Filhos x Membros Sem Filhos", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Igreja: Gráficos da Igreja" },
+        
+        { "codigo": "RelPerfilPreenchido", "descricao": "Perfil Preenchido", "staff": "N", "modulo": "MOD_BASE", "grupo": "Gráficos de Perfil" },
+
+        { "codigo": "SecretariaIgreja", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Igreja: Secretarias" },
+        { "codigo": "SecretariaIgrejaSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Igreja: Secretarias" },
+        { "codigo": "SecretariaIgrejaRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Igreja: Secretarias" },
+        { "codigo": "SecretariaIgrejaBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Igreja: Secretarias" },
+        { "codigo": "SecretariaIgrejaManage", "descricao": "Permissão de gerenciar secretaria", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Igreja: Secretarias" },
+        { "codigo": "SecretariaIgrejaPessoa", "descricao": "Permissão de atribuir secretário", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Igreja: Secretarias" },
+
+        { "codigo": "MinisterioIgreja", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Igreja: Ministérios" },
+        { "codigo": "MinisterioIgrejaSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Igreja: Ministérios" },
+        { "codigo": "MinisterioIgrejaRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Igreja: Ministérios" },
+        { "codigo": "MinisterioIgrejaBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Igreja: Ministérios" },
+        { "codigo": "MinisterioIgrejaPessoa", "descricao": "Permissão de atribuir participante", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Igreja: Ministérios" },
+
+        { "codigo": "SociedadeIgreja", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_B_IGREJA", "grupo": "Igreja: Sociedades" },
+        { "codigo": "SociedadeIgrejaSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_B_IGREJA", "grupo": "Igreja: Sociedades" },
+        { "codigo": "SociedadeIgrejaRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_B_IGREJA", "grupo": "Igreja: Sociedades" },
+        { "codigo": "SociedadeIgrejaBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_B_IGREJA", "grupo": "Igreja: Sociedades" },
+        { "codigo": "SociedadeIgrejaSocio", "descricao": "Permissão de atribuir sócio", "staff": "N", "modulo": "MOD_B_IGREJA", "grupo": "Igreja: Sociedades" },
+        { "codigo": "SociedadeIgrejaManage", "descricao": "Permissão de gerenciar sociedade", "staff": "N", "modulo": "MOD_B_IGREJA", "grupo": "Igreja: Sociedades" },
+
+        { "codigo": "PequenoGrupoIgreja", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Igreja: Pequenos Grupos" },
+        { "codigo": "PequenoGrupoIgrejaSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Igreja: Pequenos Grupos" },
+        { "codigo": "PequenoGrupoIgrejaRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Igreja: Pequenos Grupos" },
+        { "codigo": "PequenoGrupoIgrejaBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Igreja: Pequenos Grupos" },
+        { "codigo": "PequenoGrupoIgrejaParticipantes", "descricao": "Permissão de configurar participantes", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Igreja: Pequenos Grupos" },
+
+        { "codigo": "PastorIgreja", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_B_IGREJA", "grupo": "Igreja: Pastores" },
+        { "codigo": "PastorIgrejaSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_B_IGREJA", "grupo": "Igreja: Pastores" },
+        { "codigo": "PastorIgrejaRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_B_IGREJA", "grupo": "Igreja: Pastores" },
+        { "codigo": "PastorIgrejaBlock", "descricao": "Permissão de alterar status", "staff": "N", "modulo": "MOD_B_IGREJA", "grupo": "Igreja: Pastores" },
+
+        { "codigo": "EvangelistaIgreja", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_B_IGREJA", "grupo": "Igreja: Evangelistas" },
+        { "codigo": "EvangelistaIgrejaSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_B_IGREJA", "grupo": "Igreja: Evangelistas" },
+        { "codigo": "EvangelistaIgrejaRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_B_IGREJA", "grupo": "Igreja: Evangelistas" },
+        { "codigo": "EvangelistaIgrejaBlock", "descricao": "Permissão de alterar status", "staff": "N", "modulo": "MOD_B_IGREJA", "grupo": "Igreja: Evangelistas" },
+
+        { "codigo": "PresbiteroIgreja", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_B_IGREJA", "grupo": "Igreja: Presbíteros" },
+        { "codigo": "PresbiteroIgrejaSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_B_IGREJA", "grupo": "Igreja: Presbíteros" },
+        { "codigo": "PresbiteroIgrejaRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_B_IGREJA", "grupo": "Igreja: Presbíteros" },
+        { "codigo": "PresbiteroIgrejaBlock", "descricao": "Permissão de alterar status", "staff": "N", "modulo": "MOD_B_IGREJA", "grupo": "Igreja: Presbíteros" },
+
+        { "codigo": "DiaconoIgreja", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_B_IGREJA", "grupo": "Igreja: Diáconos" },
+        { "codigo": "DiaconoIgrejaSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_B_IGREJA", "grupo": "Igreja: Diáconos" },
+        { "codigo": "DiaconoIgrejaRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_B_IGREJA", "grupo": "Igreja: Diáconos" },
+        { "codigo": "DiaconoIgrejaBlock", "descricao": "Permissão de alterar status", "staff": "N", "modulo": "MOD_B_IGREJA", "grupo": "Igreja: Diáconos" },
+
+        { "codigo": "OficialIgreja", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Igreja: Oficiais" },
+        { "codigo": "OficialIgrejaSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Igreja: Oficiais" },
+        { "codigo": "OficialIgrejaRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Igreja: Oficiais" },
+        { "codigo": "OficialIgrejaBlock", "descricao": "Permissão de alterar status", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Igreja: Oficiais" },
+
+        { "codigo": "ConselhoIgreja", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Igreja: Conselho" },
+        { "codigo": "ConselhoIgrejaManage", "descricao": "Permissão de gerenciar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Igreja: Conselho" },
+
+        { "codigo": "JuntaIgreja", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Igreja: Junta Diaconal" },
+        { "codigo": "JuntaIgrejaManage", "descricao": "Permissão de gerenciar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Igreja: Junta Diaconal" },
+
+        { "codigo": "AgendaIgreja", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Igreja: Agenda" },
+        { "codigo": "AgendaIgrejaSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Igreja: Agenda" },
+        { "codigo": "AgendaIgrejaRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Igreja: Agenda" },
+        { "codigo": "AgendaIgrejaBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Igreja: Agenda" },
+
+        { "codigo": "EventoIgreja", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_EVENTOS", "grupo": "Igreja: Eventos" },
+        { "codigo": "EventoIgrejaSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_EVENTOS", "grupo": "Igreja: Eventos" },
+        { "codigo": "EventoIgrejaRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_EVENTOS", "grupo": "Igreja: Eventos" },
+        { "codigo": "EventoIgrejaBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_EVENTOS", "grupo": "Igreja: Eventos" },
+        { "codigo": "EventoIgrejaManage", "descricao": "Permissão de gerenciar", "staff": "N", "modulo": "MOD_EVENTOS", "grupo": "Igreja: Eventos" },
+
+        { "codigo": "EleicaoIgreja", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_ELEICOES", "grupo": "Igreja: Eleições" },
+        { "codigo": "EleicaoIgrejaSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_ELEICOES", "grupo": "Igreja: Eleições" },
+        { "codigo": "EleicaoIgrejaRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_ELEICOES", "grupo": "Igreja: Eleições" },
+        { "codigo": "EleicaoIgrejaBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_ELEICOES", "grupo": "Igreja: Eleições" },
+        { "codigo": "EleicaoIgrejaManage", "descricao": "Permissão de gerenciar", "staff": "N", "modulo": "MOD_ELEICOES", "grupo": "Igreja: Eleições" },
+
+        { "codigo": "FinancaIgreja", "descricao": "Permissão de gerenciar finanças", "staff": "N", "modulo": "MOD_FINANCAS", "grupo": "Igreja: Finanças" },
+
+        { "codigo": "TransmissaoIgreja", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Igreja: Transmissão on-line" },
+        { "codigo": "TransmissaoIgrejaSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Igreja: Transmissão on-line" },
+        { "codigo": "TransmissaoIgrejaRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Igreja: Transmissão on-line" },
+        { "codigo": "TransmissaoIgrejaBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Igreja: Transmissão on-line" },
+
+        { "codigo": "SuperintendenciaIgreja", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Igreja: Superintendência" },
+        { "codigo": "SuperintendenciaIgrejaSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Igreja: Superintendência" },
+        { "codigo": "SuperintendenciaIgrejaRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Igreja: Superintendência" },
+        { "codigo": "SuperintendenciaIgrejaBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Igreja: Superintendência" },
+        
+        { "codigo": "PedidosOracaoIgreja", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Igreja: Pedidos de Oração" },
+        { "codigo": "PedidosOracaoIgrejaSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Igreja: Pedidos de Oração" },
+        { "codigo": "PedidosOracaoIgrejaRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Igreja: Pedidos de Oração" },
+
+        { "codigo": "Integracao", "descricao": "Permissão de buscar dados de integração", "staff": "N", "modulo": "MOD_FINANCAS", "grupo": "Finanças: Integração de Pagamento" },
+        { "codigo": "IntegracaoSave", "descricao": "Permissão de salvar dado de integração", "staff": "N", "modulo": "MOD_FINANCAS", "grupo": "Finanças: Integração de Pagamento" },
+        { "codigo": "IntegracaoRemove", "descricao": "Permissão de remover dado de integração", "staff": "N", "modulo": "MOD_FINANCAS", "grupo": "Finanças: Integração de Pagamento" },
+
+        { "codigo": "Conta", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_FINANCAS", "grupo": "Finanças: Contas" },
+        { "codigo": "ContaSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_FINANCAS", "grupo": "Finanças: Contas" },
+        { "codigo": "ContaRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_FINANCAS", "grupo": "Finanças: Contas" },
+        { "codigo": "ContaBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_FINANCAS", "grupo": "Finanças: Contas" },
+
+        { "codigo": "Categoria", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_FINANCAS", "grupo": "Finanças: Categorias" },
+        { "codigo": "CategoriaSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_FINANCAS", "grupo": "Finanças: Categorias" },
+        { "codigo": "CategoriaRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_FINANCAS", "grupo": "Finanças: Categorias" },
+        { "codigo": "CategoriaBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_FINANCAS", "grupo": "Finanças: Categorias" },
+
+        { "codigo": "SubCategoria", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_FINANCAS", "grupo": "Finanças: SubCategorias" },
+        { "codigo": "SubCategoriaSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_FINANCAS", "grupo": "Finanças: SubCategorias" },
+        { "codigo": "SubCategoriaRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_FINANCAS", "grupo": "Finanças: SubCategorias" },
+        { "codigo": "SubCategoriaBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_FINANCAS", "grupo": "Finanças: SubCategorias" },
+
+        { "codigo": "Tag", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_FINANCAS", "grupo": "Finanças: Tags" },
+        { "codigo": "TagSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_FINANCAS", "grupo": "Finanças: Tags" },
+        { "codigo": "TagRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_FINANCAS", "grupo": "Finanças: Tags" },
+        { "codigo": "TagBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_FINANCAS", "grupo": "Finanças: Tags" },
+
+        { "codigo": "Entrada", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_FINANCAS", "grupo": "Finanças: Entradas" },
+        { "codigo": "EntradaSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_FINANCAS", "grupo": "Finanças: Entradas" },
+        { "codigo": "EntradaRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_FINANCAS", "grupo": "Finanças: Entradas" },
+        { "codigo": "EntradaStat", "descricao": "Permissão de alterar status", "staff": "N", "modulo": "MOD_FINANCAS", "grupo": "Finanças: Entradas" },
+
+        { "codigo": "Saida", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_FINANCAS", "grupo": "Finanças: Saídas" },
+        { "codigo": "SaidaSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_FINANCAS", "grupo": "Finanças: Saídas" },
+        { "codigo": "SaidaRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_FINANCAS", "grupo": "Finanças: Saídas" },
+        { "codigo": "SaidaStat", "descricao": "Permissão de alterar status", "staff": "N", "modulo": "MOD_FINANCAS", "grupo": "Finanças: Saídas" },
+
+        { "codigo": "Votacao", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_ELEICOES", "grupo": "Eleições" },
+        { "codigo": "VotacaoSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_ELEICOES", "grupo": "Eleições" },
+        { "codigo": "VotacaoRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_ELEICOES", "grupo": "Eleições" },
+        { "codigo": "VotacaoStat", "descricao": "Permissão de alterar status", "staff": "N", "modulo": "MOD_ELEICOES", "grupo": "Eleições" },
+        { "codigo": "VotacaoEleitores", "descricao": "Permissão de configurar eleitores", "staff": "N", "modulo": "MOD_ELEICOES", "grupo": "Eleições" },
+        { "codigo": "VotacaoEscrutinios", "descricao": "Permissão de configurar escrutínios", "staff": "N", "modulo": "MOD_ELEICOES", "grupo": "Eleições" },
+        { "codigo": "VotacaoCandidatos", "descricao": "Permissão de configurar candidatos", "staff": "N", "modulo": "MOD_ELEICOES", "grupo": "Eleições" },
+        { "codigo": "VotacaoResultado", "descricao": "Permissão de apurar resultado", "staff": "N", "modulo": "MOD_ELEICOES", "grupo": "Eleições" },
+
+        { "codigo": "Inscricao", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_EVENTOS", "grupo": "Eventos: Inscrições" },
+        { "codigo": "InscricaoSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_EVENTOS", "grupo": "Eventos: Inscrições" },
+        { "codigo": "InscricaoRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_EVENTOS", "grupo": "Eventos: Inscrições" },
+        { "codigo": "InscricaoBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_EVENTOS", "grupo": "Eventos: Inscrições" },
+
+        { "codigo": "Comissao", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_EVENTOS", "grupo": "Eventos: Comissões" },
+        { "codigo": "ComissaoSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_EVENTOS", "grupo": "Eventos: Comissões" },
+        { "codigo": "ComissaoRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_EVENTOS", "grupo": "Eventos: Comissões" },
+        { "codigo": "ComissaoBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_EVENTOS", "grupo": "Eventos: Comissões" },
+        { "codigo": "ComissaoParticipantes", "descricao": "Permissão de configurar participantes", "staff": "N", "modulo": "MOD_EVENTOS", "grupo": "Eventos: Comissões" },
+
+        { "codigo": "ComissaoRelatorios", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_EVENTOS", "grupo": "Eventos: Relatórios de Comissões" },
+        { "codigo": "ComissaoRelatoriosSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_EVENTOS", "grupo": "Eventos: Relatórios de Comissões" },
+        { "codigo": "ComissaoRelatoriosRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_EVENTOS", "grupo": "Eventos: Relatórios de Comissões" },
+        { "codigo": "ComissaoRelatoriosBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_EVENTOS", "grupo": "Eventos: Relatórios de Comissões" },
+        { "codigo": "ComissaoRelatoriosAvail", "descricao": "Permissão de avaliar/aprovar", "staff": "N", "modulo": "MOD_EVENTOS", "grupo": "Eventos: Relatórios de Comissões" },
+
+        { "codigo": "RelatorioEvento", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_EVENTOS", "grupo": "Eventos: Relatórios" },
+        { "codigo": "RelatorioEventoSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_EVENTOS", "grupo": "Eventos: Relatórios" },
+        { "codigo": "RelatorioEventoRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_EVENTOS", "grupo": "Eventos: Relatórios" },
+        { "codigo": "RelatorioEventoBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_EVENTOS", "grupo": "Eventos: Relatórios" },
+        { "codigo": "RelatorioEventoAvail", "descricao": "Permissão de avaliar/aprovar", "staff": "N", "modulo": "MOD_EVENTOS", "grupo": "Eventos: Relatórios" },
+
+        { "codigo": "Checkin", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_EVENTOS", "grupo": "Eventos: Checkins" },
+        { "codigo": "CheckinSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_EVENTOS", "grupo": "Eventos: Checkins" },
+
+        { "codigo": "FinancaEvento", "descricao": "Permissão de gerenciar finanças", "staff": "N", "modulo": "MOD_FINANCAS", "grupo": "Eventos: Finanças" },
+
+        { "codigo": "SerieSermao", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Palavra: Séries de Sermões" },
+        { "codigo": "SerieSermaoSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Palavra: Séries de Sermões" },
+        { "codigo": "SerieSermaoRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Palavra: Séries de Sermões" },
+        { "codigo": "SerieSermaoBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Palavra: Séries de Sermões" },
+
+        { "codigo": "Sermao", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Palavra: Sermões" },
+        { "codigo": "SermaoSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Palavra: Sermões" },
+        { "codigo": "SermaoRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Palavra: Sermões" },
+        { "codigo": "SermaoBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Palavra: Sermões" },
+
+        { "codigo": "SerieEstudoIgreja", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Estudos da Igreja: Séries de Estudos" },
+        { "codigo": "SerieEstudoIgrejaSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Estudos da Igreja: Séries de Estudos" },
+        { "codigo": "SerieEstudoIgrejaRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Estudos da Igreja: Séries de Estudos" },
+        { "codigo": "SerieEstudoIgrejaBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Estudos da Igreja: Séries de Estudos" },
+
+        { "codigo": "EstudoIgreja", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Estudos da Igreja: Estudos" },
+        { "codigo": "EstudoIgrejaSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Estudos da Igreja: Estudos" },
+        { "codigo": "EstudoIgrejaRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Estudos da Igreja: Estudos" },
+        { "codigo": "EstudoIgrejaBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Estudos da Igreja: Estudos" },
+
+        { "codigo": "SuperintendenciaIgreja", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_EBD", "grupo": "Escola Bíblica Dominical: Superintendência" },
+        { "codigo": "SuperintendenciaIgrejaSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_EBD", "grupo": "Escola Bíblica Dominical: Superintendência" },
+        { "codigo": "SuperintendenciaIgrejaRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_EBD", "grupo": "Escola Bíblica Dominical: Superintendência" },
+        { "codigo": "SuperintendenciaIgrejaBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_EBD", "grupo": "Escola Bíblica Dominical: Superintendência" },
+        
+        { "codigo": "ProfessorEBD", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_EBD", "grupo": "Escola Bíblica Dominical: Professores" },
+        { "codigo": "ProfessorEBDSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_EBD", "grupo": "Escola Bíblica Dominical: Professores" },
+        { "codigo": "ProfessorEBDRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_EBD", "grupo": "Escola Bíblica Dominical: Professores" },
+
+        { "codigo": "SalaEBD", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_EBD", "grupo": "Escola Bíblica Dominical: Salas" },
+        { "codigo": "SalaEBDSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_EBD", "grupo": "Escola Bíblica Dominical: Salas" },
+        { "codigo": "SalaEBDRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_EBD", "grupo": "Escola Bíblica Dominical: Salas" },
+        { "codigo": "SalaEBDBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_EBD", "grupo": "Escola Bíblica Dominical: Salas" },
+        { "codigo": "SalaEBDProfessores", "descricao": "Permissão de configurar professores", "staff": "N", "modulo": "MOD_EBD", "grupo": "Escola Bíblica Dominical: Salas" },
+        { "codigo": "SalaEBDAlunos", "descricao": "Permissão de configurar alunos", "staff": "N", "modulo": "MOD_EBD", "grupo": "Escola Bíblica Dominical: Salas" },
+
+        { "codigo": "FrequenciaEBD", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_EBD", "grupo": "Escola Bíblica Dominical: Frequências" },
+        { "codigo": "FrequenciaEBDSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_EBD", "grupo": "Escola Bíblica Dominical: Frequências" },
+        { "codigo": "FrequenciaEBDRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_EBD", "grupo": "Escola Bíblica Dominical: Frequências" },
+        { "codigo": "SumarioEBD", "descricao": "Permissão de gerar sumário", "staff": "N", "modulo": "MOD_EBD", "grupo": "Escola Bíblica Dominical: Frequências" },
+
+        { "codigo": "Secretario", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Secretarias: Secretários" },
+        { "codigo": "SecretarioSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Secretarias: Agenda" },
+        { "codigo": "SecretarioRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Secretarias: Agenda" },
+        { "codigo": "AgendaSecretaria", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Secretarias: Agenda" },
+        { "codigo": "AgendaSecretariaSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Secretarias: Agenda" },
+        { "codigo": "AgendaSecretariaRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Secretarias: Agenda" },
+        { "codigo": "AgendaSecretariaBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Secretarias: Agenda" },
+
+        { "codigo": "FinancaSecretaria", "descricao": "Permissão de gerenciar finanças", "staff": "N", "modulo": "MOD_FINANCAS", "grupo": "Secretarias: Finanças" },
+
+        { "codigo": "RelatorioSecretaria", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_EVENTOS", "grupo": "Secretarias: Relatórios" },
+        { "codigo": "RelatorioSecretariaSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_EVENTOS", "grupo": "Secretarias: Relatórios" },
+        { "codigo": "RelatorioSecretariaRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_EVENTOS", "grupo": "Secretarias: Relatórios" },
+        { "codigo": "RelatorioSecretariaBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_EVENTOS", "grupo": "Secretarias: Relatórios" },
+
+        { "codigo": "Servo", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Ministérios: Participantes" },
+        { "codigo": "ServoSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Ministérios: Participantes" },
+        { "codigo": "ServoRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Ministérios: Participantes" },
+        { "codigo": "ServoBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Ministérios: Participantes" },
+
+        { "codigo": "SecretariaMinisterio", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Ministérios: Secretarias" },
+        { "codigo": "SecretariaMinisterioSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Ministérios: Secretarias" },
+        { "codigo": "SecretariaMinisterioRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Ministérios: Secretarias" },
+        { "codigo": "SecretariaMinisterioBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Ministérios: Secretarias" },
+        { "codigo": "SecretariaMinisterioPessoa", "descricao": "Permissão de atribuir secretário", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Ministérios: Secretarias" },
+
+        { "codigo": "AgendaMinisterio", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Ministérios: Agenda" },
+        { "codigo": "AgendaMinisterioSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Ministérios: Agenda" },
+        { "codigo": "AgendaMinisterioRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Ministérios: Agenda" },
+        { "codigo": "AgendaMinisterioBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Ministérios: Agenda" },
+
+        { "codigo": "EventoMinisterio", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_EVENTOS", "grupo": "Ministérios: Eventos" },
+        { "codigo": "EventoMinisterioSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_EVENTOS", "grupo": "Ministérios: Eventos" },
+        { "codigo": "EventoMinisterioRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_EVENTOS", "grupo": "Ministérios: Eventos" },
+        { "codigo": "EventoMinisterioBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_EVENTOS", "grupo": "Ministérios: Eventos" },
+        { "codigo": "EventoMinisterioManage", "descricao": "Permissão de gerenciar", "staff": "N", "modulo": "MOD_EVENTOS", "grupo": "Ministérios: Eventos" },
+
+        { "codigo": "FinancaMinisterio", "descricao": "Permissão de gerenciar finanças", "staff": "N", "modulo": "MOD_FINANCAS", "grupo": "Ministérios: Finanças" },
+
+        { "codigo": "RelatorioMinisterio", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_EVENTOS", "grupo": "Ministérios: Relatórios" },
+        { "codigo": "RelatorioMinisterioSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_EVENTOS", "grupo": "Ministérios: Relatórios" },
+        { "codigo": "RelatorioMinisterioRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_EVENTOS", "grupo": "Ministérios: Relatórios" },
+        { "codigo": "RelatorioMinisterioBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_EVENTOS", "grupo": "Ministérios: Relatórios" },
+        { "codigo": "RelatorioMinisterioAvail", "descricao": "Permissão de avaliar/aprovar", "staff": "N", "modulo": "MOD_EVENTOS", "grupo": "Ministérios: Relatórios" },
+
+        { "codigo": "Socio", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_B_IGREJA", "grupo": "Sociedades: Sócios" },
+        { "codigo": "SocioSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_B_IGREJA", "grupo": "Sociedades: Sócios" },
+        { "codigo": "SocioRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_B_IGREJA", "grupo": "Sociedades: Sócios" },
+        { "codigo": "SocioBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_B_IGREJA", "grupo": "Sociedades: Sócios" },
+
+        { "codigo": "DiretoriaSociedade", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_B_IGREJA", "grupo": "Sociedades: Diretorias" },
+        { "codigo": "DiretoriaSociedadeSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_B_IGREJA", "grupo": "Sociedades: Diretorias" },
+        { "codigo": "DiretoriaSociedadeRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_B_IGREJA", "grupo": "Sociedades: Diretorias" },
+        { "codigo": "DiretoriaSociedadeBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_B_IGREJA", "grupo": "Sociedades: Diretorias" },
+        { "codigo": "DiretoriaSociedadeOficiais", "descricao": "Permissão de gerenciar oficiais", "staff": "N", "modulo": "MOD_B_IGREJA", "grupo": "Sociedades: Diretorias" },
+
+        { "codigo": "SecretariaSociedade", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_B_IGREJA", "grupo": "Sociedades: Secretarias" },
+        { "codigo": "SecretariaSociedadeSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_B_IGREJA", "grupo": "Sociedades: Secretarias" },
+        { "codigo": "SecretariaSociedadeRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_B_IGREJA", "grupo": "Sociedades: Secretarias" },
+        { "codigo": "SecretariaSociedadeBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_B_IGREJA", "grupo": "Sociedades: Secretarias" },
+        { "codigo": "SecretariaSociedadeManage", "descricao": "Permissão de gerenciar secretaria", "staff": "N", "modulo": "MOD_B_IGREJA", "grupo": "Sociedades: Secretarias" },
+        { "codigo": "SecretariaSociedadePessoa", "descricao": "Permissão de atribuir secretário", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Sociedades: Secretarias" },
+
+        { "codigo": "AgendaSociedade", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Sociedades: Agenda" },
+        { "codigo": "AgendaSociedadeSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Sociedades: Agenda" },
+        { "codigo": "AgendaSociedadeRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Sociedades: Agenda" },
+        { "codigo": "AgendaSociedadeBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Sociedades: Agenda" },
+        
+        { "codigo": "PedidosOracaoSociedade", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Sociedades: Pedidos de Oração" },
+        { "codigo": "PedidosOracaoSociedadeSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Sociedades: Pedidos de Oração" },
+        { "codigo": "PedidosOracaoSociedadeRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Sociedades: Pedidos de Oração" },
+
+        { "codigo": "EventoSociedade", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_EVENTOS", "grupo": "Sociedades: Eventos" },
+        { "codigo": "EventoSociedadeSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_EVENTOS", "grupo": "Sociedades: Eventos" },
+        { "codigo": "EventoSociedadeRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_EVENTOS", "grupo": "Sociedades: Eventos" },
+        { "codigo": "EventoSociedadeBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_EVENTOS", "grupo": "Sociedades: Eventos" },
+        { "codigo": "EventoSociedadeManage", "descricao": "Permissão de gerenciar", "staff": "N", "modulo": "MOD_EVENTOS", "grupo": "Sociedades: Eventos" },
+
+        { "codigo": "EleicaoSociedade", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_ELEICOES", "grupo": "Sociedades: Eleições" },
+        { "codigo": "EleicaoSociedadeSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_ELEICOES", "grupo": "Sociedades: Eleições" },
+        { "codigo": "EleicaoSociedadeRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_ELEICOES", "grupo": "Sociedades: Eleições" },
+        { "codigo": "EleicaoSociedadeBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_ELEICOES", "grupo": "Sociedades: Eleições" },
+        { "codigo": "EleicaoSociedadeManage", "descricao": "Permissão de gerenciar", "staff": "N", "modulo": "MOD_ELEICOES", "grupo": "Sociedades: Eleições" },
+
+        { "codigo": "FinancaSociedade", "descricao": "Permissão de gerenciar finanças", "staff": "N", "modulo": "MOD_FINANCAS", "grupo": "Sociedades: Finanças" },
+
+        { "codigo": "RelatorioSociedade", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_DOCUMENTOS", "grupo": "Sociedades: Relatórios" },
+        { "codigo": "RelatorioSociedadeSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_DOCUMENTOS", "grupo": "Sociedades: Relatórios" },
+        { "codigo": "RelatorioSociedadeRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_DOCUMENTOS", "grupo": "Sociedades: Relatórios" },
+        { "codigo": "RelatorioSociedadeBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_DOCUMENTOS", "grupo": "Sociedades: Relatórios" },
+        { "codigo": "RelatorioSociedadeAvail", "descricao": "Permissão de avaliar/aprovar", "staff": "N", "modulo": "MOD_DOCUMENTOS", "grupo": "Sociedades: Relatórios" },
+
+        { "codigo": "RelSocioAno", "descricao": "Sócios x Idade", "staff": "N", "modulo": "MOD_BASE", "grupo": "Sociedades: Gráficos dos Sócios" },
+        { "codigo": "RelSocioSexo", "descricao": "Sócios x Sexo", "staff": "N", "modulo": "MOD_BASE", "grupo": "Sociedades: Gráficos dos Sócios" },
+        { "codigo": "RelSocioEstadoCivil", "descricao": "Sócios x Estado Civil", "staff": "N", "modulo": "MOD_BASE", "grupo": "Sociedades: Gráficos dos Sócios" },
+        { "codigo": "RelSocioEscolaridade", "descricao": "Sócios x Escolaridade", "staff": "N", "modulo": "MOD_BASE", "grupo": "Sociedades: Gráficos dos Sócios" },
+        { "codigo": "RelSocioComungante", "descricao": "Sócios x Profissão de Fé", "staff": "N", "modulo": "MOD_BASE", "grupo": "Sociedades: Gráficos dos Sócios" },
+        { "codigo": "RelSocioFilho", "descricao": "Sócios x Filhos", "staff": "N", "modulo": "MOD_BASE", "grupo": "Sociedades: Gráficos dos Sócios" },
+        { "codigo": "RelSocioFilhoSexo", "descricao": "Filhos x Sexo", "staff": "N", "modulo": "MOD_BASE", "grupo": "Sociedades: Gráficos dos Sócios" },
+        { "codigo": "RelSocioNecessidade", "descricao": "Sócios x Necessidades Especiais", "staff": "N", "modulo": "MOD_BASE", "grupo": "Sociedades: Gráficos dos Sócios" },
+        { "codigo": "RelSocioDoacao", "descricao": "Sócios x Doações", "staff": "N", "modulo": "MOD_BASE", "grupo": "Sociedades: Gráficos dos Sócios" },
+        { "codigo": "RelSocioArrolamento", "descricao": "Sócios x Arrolamento", "staff": "N", "modulo": "MOD_BASE", "grupo": "Sociedades: Gráficos dos Sócios" },
+
+        { "codigo": "AgendaPastor", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Pastor: Agenda" },
+        { "codigo": "AgendaPastorSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Pastor: Agenda" },
+        { "codigo": "AgendaPastorRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Pastor: Agenda" },
+        { "codigo": "AgendaPastorBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Pastor: Agenda" },
+
+        { "codigo": "RelatorioPastor", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Pastor: Relatórios" },
+        { "codigo": "RelatorioPastorSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Pastor: Relatórios" },
+        { "codigo": "RelatorioPastorRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Pastor: Relatórios" },
+        { "codigo": "RelatorioPastorBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Pastor: Relatórios" },
+
+        { "codigo": "AgendaEvangelista", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Evangelista: Agenda" },
+        { "codigo": "AgendaEvangelistaSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Evangelista: Agenda" },
+        { "codigo": "AgendaEvangelistaRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Evangelista: Agenda" },
+        { "codigo": "AgendaEvangelistaBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Evangelista: Agenda" },
+
+        { "codigo": "RelatorioEvangelista", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Evangelista: Relatórios" },
+        { "codigo": "RelatorioEvangelistaSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Evangelista: Relatórios" },
+        { "codigo": "RelatorioEvangelistaRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Evangelista: Relatórios" },
+        { "codigo": "RelatorioEvangelistaBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Evangelista: Relatórios" },
+
+        { "codigo": "AgendaConselho", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Conselho: Agenda" },
+        { "codigo": "AgendaConselhoSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Conselho: Agenda" },
+        { "codigo": "AgendaConselhoRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Conselho: Agenda" },
+        { "codigo": "AgendaConselhoBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Conselho: Agenda" },
+
+        { "codigo": "RelatorioConselho", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Conselho: Relatórios" },
+        { "codigo": "RelatorioConselhoSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Conselho: Relatórios" },
+        { "codigo": "RelatorioConselhoRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Conselho: Relatórios" },
+        { "codigo": "RelatorioConselhoBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Conselho: Relatórios" },
+        { "codigo": "RelatorioConselhoAvail", "descricao": "Permissão de avaliar/aprovar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Conselho: Relatórios" },
+
+        { "codigo": "AgendaJunta", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Junta Diaconal: Agenda" },
+        { "codigo": "AgendaJuntaSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Junta Diaconal: Agenda" },
+        { "codigo": "AgendaJuntaRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Junta Diaconal: Agenda" },
+        { "codigo": "AgendaJuntaBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Junta Diaconal: Agenda" },
+
+        { "codigo": "RelatorioJunta", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Junta Diaconal: Relatórios" },
+        { "codigo": "RelatorioJuntaSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Junta Diaconal: Relatórios" },
+        { "codigo": "RelatorioJuntaRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Junta Diaconal: Relatórios" },
+        { "codigo": "RelatorioJuntaBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Junta Diaconal: Relatórios" },
+        { "codigo": "RelatorioJuntaAvail", "descricao": "Permissão de avaliar/aprovar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Junta Diaconal: Relatórios" },
+
+        { "codigo": "IgrejaPresbiterio", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Presbitério: Igrejas" },
+        { "codigo": "IgrejaPresbiterioSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Presbitério: Igrejas" },
+        { "codigo": "IgrejaPresbiterioRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Presbitério: Igrejas" },
+        { "codigo": "IgrejaPresbiterioBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Presbitério: Igrejas" },
+
+        { "codigo": "CongregacaoPresbiterio", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Presbitério: Congregações" },
+        { "codigo": "CongregacaoPresbiterioSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Presbitério: Congregações" },
+        { "codigo": "CongregacaoPresbiterioRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Presbitério: Congregações" },
+        { "codigo": "CongregacaoPresbiterioBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Presbitério: Congregações" },
+
+        { "codigo": "PontoPresbiterio", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Presbitério: Pontos de Pregação" },
+        { "codigo": "PontoPresbiterioSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Presbitério: Pontos de Pregação" },
+        { "codigo": "PontoPresbiterioRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Presbitério: Pontos de Pregação" },
+        { "codigo": "PontoPresbiterioBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Presbitério: Pontos de Pregação" },
+
+        { "codigo": "DiretoriaPresbiterio", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Presbitério: Diretoria" },
+        { "codigo": "DiretoriaPresbiterioSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Presbitério: Diretoria" },
+        { "codigo": "DiretoriaPresbiterioRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Presbitério: Diretoria" },
+        { "codigo": "DiretoriaPresbiterioBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Presbitério: Diretoria" },
+        { "codigo": "DiretoriaPresbiterioOficiais", "descricao": "Permissão de gerenciar oficiais", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Presbitério: Diretoria" },
+
+        { "codigo": "SecretariaPresbiterio", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Presbitério: Secretarias" },
+        { "codigo": "SecretariaPresbiterioSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Presbitério: Secretarias" },
+        { "codigo": "SecretariaPresbiterioRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Presbitério: Secretarias" },
+        { "codigo": "SecretariaPresbiterioBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Presbitério: Secretarias" },
+        { "codigo": "SecretariaPresbiterioManage", "descricao": "Permissão de gerenciar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Presbitério: Secretarias" },
+
+        { "codigo": "ExecutivaPresbiterio", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Presbitério: Executiva" },
+        { "codigo": "ExecutivaPresbiterioSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Presbitério: Executiva" },
+        { "codigo": "ExecutivaPresbiterioRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Presbitério: Executiva" },
+        { "codigo": "ExecutivaPresbiterioBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Presbitério: Executiva" },
+        { "codigo": "ExecutivaPresbiterioParticipantes", "descricao": "Permissão de gerenciar participantes", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Presbitério: Executiva" },
+
+        { "codigo": "FederacaoPresbiterio", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Presbitério: Federações" },
+        { "codigo": "FederacaoPresbiterioSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Presbitério: Federações" },
+        { "codigo": "FederacaoPresbiterioRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Presbitério: Federações" },
+        { "codigo": "FederacaoPresbiterioBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Presbitério: Federações" },
+
+        { "codigo": "AgendaPresbiterio", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Presbitério: Agenda" },
+        { "codigo": "AgendaPresbiterioSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Presbitério: Agenda" },
+        { "codigo": "AgendaPresbiterioRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Presbitério: Agenda" },
+        { "codigo": "AgendaPresbiterioBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Presbitério: Agenda" },
+
+        { "codigo": "EventoPresbiterio", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_EVENTOS", "grupo": "Presbitério: Eventos" },
+        { "codigo": "EventoPresbiterioSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_EVENTOS", "grupo": "Presbitério: Eventos" },
+        { "codigo": "EventoPresbiterioRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_EVENTOS", "grupo": "Presbitério: Eventos" },
+        { "codigo": "EventoPresbiterioBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_EVENTOS", "grupo": "Presbitério: Eventos" },
+        { "codigo": "EventoPresbiterioManage", "descricao": "Permissão de gerenciar", "staff": "N", "modulo": "MOD_EVENTOS", "grupo": "Presbitério: Eventos" },
+
+        { "codigo": "EleicaoPresbiterio", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_ELEICOES", "grupo": "Presbitério: Eleições" },
+        { "codigo": "EleicaoPresbiterioSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_ELEICOES", "grupo": "Presbitério: Eleições" },
+        { "codigo": "EleicaoPresbiterioRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_ELEICOES", "grupo": "Presbitério: Eleições" },
+        { "codigo": "EleicaoPresbiterioBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_ELEICOES", "grupo": "Presbitério: Eleições" },
+        { "codigo": "EleicaoPresbiterioManage", "descricao": "Permissão de gerenciar", "staff": "N", "modulo": "MOD_ELEICOES", "grupo": "Presbitério: Eleições" },
+
+        { "codigo": "FinancaPresbiterio", "descricao": "Permissão de gerenciar finanças", "staff": "N", "modulo": "MOD_FINANCAS", "grupo": "Presbitério: Finanças" },
+
+        { "codigo": "RelatorioPresbiterio", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Presbitério: Relatórios" },
+        { "codigo": "RelatorioPresbiterioSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Presbitério: Relatórios" },
+        { "codigo": "RelatorioPresbiterioRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Presbitério: Relatórios" },
+        { "codigo": "RelatorioPresbiterioBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Presbitério: Relatórios" },
+        { "codigo": "RelatorioPresbiterioAvail", "descricao": "Permissão de avaliar/aprovar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Presbitério: Relatórios" },
+
+        { "codigo": "PresbiterioSinodo", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Sínodo: Presbitérios" },
+        { "codigo": "PresbiterioSinodoSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Sínodo: Presbitérios" },
+        { "codigo": "PresbiterioSinodoRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Sínodo: Presbitérios" },
+        { "codigo": "PresbiterioSinodoBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Sínodo: Presbitérios" },
+
+        { "codigo": "DiretoriaSinodo", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Sínodo: Diretoria" },
+        { "codigo": "DiretoriaSinodoSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Sínodo: Diretoria" },
+        { "codigo": "DiretoriaSinodoRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Sínodo: Diretoria" },
+        { "codigo": "DiretoriaSinodoBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Sínodo: Diretoria" },
+        { "codigo": "DiretoriaSinodoOficiais", "descricao": "Permissão de gerenciar oficiais", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Sínodo: Diretoria" },
+
+        { "codigo": "SecretariaSinodo", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Sínodo: Secretarias" },
+        { "codigo": "SecretariaSinodoSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Sínodo: Secretarias" },
+        { "codigo": "SecretariaSinodoRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Sínodo: Secretarias" },
+        { "codigo": "SecretariaSinodoBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Sínodo: Secretarias" },
+        { "codigo": "SecretariaSinodoManage", "descricao": "Permissão de gerenciar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Sínodo: Secretarias" },
+
+        { "codigo": "ExecutivaSinodo", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Sínodo: Executiva" },
+        { "codigo": "ExecutivaSinodoSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Sínodo: Executiva" },
+        { "codigo": "ExecutivaSinodoRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Sínodo: Executiva" },
+        { "codigo": "ExecutivaSinodoBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Sínodo: Executiva" },
+        { "codigo": "ExecutivaSinodoParticipantes", "descricao": "Permissão de gerenciar participantes", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Sínodo: Executiva" },
+
+        { "codigo": "SinodalSinodo", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Sínodo: Sinodais" },
+        { "codigo": "SinodalSinodoSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Sínodo: Sinodais" },
+        { "codigo": "SinodalSinodoRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Sínodo: Sinodais" },
+        { "codigo": "SinodalSinodoBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Sínodo: Sinodais" },
+
+        { "codigo": "AgendaSinodo", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Sínodo: Agenda" },
+        { "codigo": "AgendaSinodoSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Sínodo: Agenda" },
+        { "codigo": "AgendaSinodoRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Sínodo: Agenda" },
+        { "codigo": "AgendaSinodoBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Sínodo: Agenda" },
+
+        { "codigo": "EventoSinodo", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_EVENTOS", "grupo": "Sínodo: Eventos" },
+        { "codigo": "EventoSinodoSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_EVENTOS", "grupo": "Sínodo: Eventos" },
+        { "codigo": "EventoSinodoRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_EVENTOS", "grupo": "Sínodo: Eventos" },
+        { "codigo": "EventoSinodoBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_EVENTOS", "grupo": "Sínodo: Eventos" },
+        { "codigo": "EventoSinodoManage", "descricao": "Permissão de gerenciar", "staff": "N", "modulo": "MOD_EVENTOS", "grupo": "Sínodo: Eventos" },
+
+        { "codigo": "EleicaoSinodo", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_ELEICOES", "grupo": "Sínodo: Eleições" },
+        { "codigo": "EleicaoSinodoSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_ELEICOES", "grupo": "Sínodo: Eleições" },
+        { "codigo": "EleicaoSinodoRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_ELEICOES", "grupo": "Sínodo: Eleições" },
+        { "codigo": "EleicaoSinodoBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_ELEICOES", "grupo": "Sínodo: Eleições" },
+        { "codigo": "EleicaoSinodoManage", "descricao": "Permissão de gerenciar", "staff": "N", "modulo": "MOD_ELEICOES", "grupo": "Sínodo: Eleições" },
+
+        { "codigo": "FinancaSinodo", "descricao": "Permissão de gerenciar finanças", "staff": "N", "modulo": "MOD_FINANCAS", "grupo": "Sínodo: Finanças" },
+
+        { "codigo": "RelatorioSinodo", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Sínodo: Relatórios" },
+        { "codigo": "RelatorioSinodoSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Sínodo: Relatórios" },
+        { "codigo": "RelatorioSinodoRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Sínodo: Relatórios" },
+        { "codigo": "RelatorioSinodoBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Sínodo: Relatórios" },
+        { "codigo": "RelatorioSinodoAvail", "descricao": "Permissão de avaliar/aprovar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Sínodo: Relatórios" },
+
+        { "codigo": "IgrejaFederacao", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_B_IGREJA", "grupo": "Federação: Igrejas" },
+        { "codigo": "CongregacaoFederacao", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_B_IGREJA", "grupo": "Federação: Congregações" },
+        { "codigo": "PontoFederacao", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_B_IGREJA", "grupo": "Federação: Pontos de Pregação" },
+        { "codigo": "SociedadeFederacao", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_B_IGREJA", "grupo": "Federação: Sociedades" },
+
+        { "codigo": "PessoaFederacao", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_B_IGREJA", "grupo": "Federação: Pessoas" },
+        
+        { "codigo": "RelFedSociedades", "descricao": "Sociedades Ativas x Inativas", "staff": "N", "modulo": "MOD_BASE", "grupo": "Federação: Gráficos das Sociedades" },
+        { "codigo": "RelFedSocioAno", "descricao": "Sócios x Idade", "staff": "N", "modulo": "MOD_BASE", "grupo": "Federação: Gráficos das Sociedades" },
+        { "codigo": "RelFedSocioSexo", "descricao": "Sócios x Sexo", "staff": "N", "modulo": "MOD_BASE", "grupo": "Federação: Gráficos das Sociedades" },
+        { "codigo": "RelFedSocioEstadoCivil", "descricao": "Sócios x Estado Civil", "staff": "N", "modulo": "MOD_BASE", "grupo": "Federação: Gráficos das Sociedades" },
+        { "codigo": "RelFedSocioEscolaridade", "descricao": "Sócios x Escolaridade", "staff": "N", "modulo": "MOD_BASE", "grupo": "Federação: Gráficos das Sociedades" },
+        { "codigo": "RelFedSocioComungante", "descricao": "Sócios x Profissão de Fé", "staff": "N", "modulo": "MOD_BASE", "grupo": "Federação: Gráficos das Sociedades" },
+        { "codigo": "RelFedSocioFilho", "descricao": "Sócios x Filhos", "staff": "N", "modulo": "MOD_BASE", "grupo": "Federação: Gráficos das Sociedades" },
+        { "codigo": "RelFedSocioFilhoSexo", "descricao": "Filhos x Sexo", "staff": "N", "modulo": "MOD_BASE", "grupo": "Federação: Gráficos das Sociedades" },
+        { "codigo": "RelFedSocioNecessidade", "descricao": "Sócios x Necessidades Especiais", "staff": "N", "modulo": "MOD_BASE", "grupo": "Federação: Gráficos das Sociedades" },
+        { "codigo": "RelFedSocioDoacao", "descricao": "Sócios x Doações", "staff": "N", "modulo": "MOD_BASE", "grupo": "Federação: Gráficos das Sociedades" },
+        { "codigo": "RelFedSocioArrolamento", "descricao": "Sócios x Arrolamento", "staff": "N", "modulo": "MOD_BASE", "grupo": "Federação: Gráficos das Sociedades" },
+
+        { "codigo": "DiretoriaFederacao", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Federação: Diretoria" },
+        { "codigo": "DiretoriaFederacaoSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Federação: Diretoria" },
+        { "codigo": "DiretoriaFederacaoRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Federação: Diretoria" },
+        { "codigo": "DiretoriaFederacaoBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Federação: Diretoria" },
+        { "codigo": "DiretoriaFederacaoOficiais", "descricao": "Permissão de gerenciar oficiais", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Federação: Diretoria" },
+
+        { "codigo": "SecretariaFederacao", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Federação: Secretarias" },
+        { "codigo": "SecretariaFederacaoSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Federação: Secretarias" },
+        { "codigo": "SecretariaFederacaoRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Federação: Secretarias" },
+        { "codigo": "SecretariaFederacaoBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Federação: Secretarias" },
+        { "codigo": "SecretariaFederacaoManage", "descricao": "Permissão de gerenciar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Federação: Secretarias" },
+
+        { "codigo": "ExecutivaFederacao", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Federação: Executiva" },
+        { "codigo": "ExecutivaFederacaoSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Federação: Executiva" },
+        { "codigo": "ExecutivaFederacaoRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Federação: Executiva" },
+        { "codigo": "ExecutivaFederacaoBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Federação: Executiva" },
+        { "codigo": "ExecutivaFederacaoParticipantes", "descricao": "Permissão de gerenciar participantes", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Federação: Executiva" },
+
+        { "codigo": "AgendaFederacao", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Federação: Agenda" },
+        { "codigo": "AgendaFederacaoSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Federação: Agenda" },
+        { "codigo": "AgendaFederacaoRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Federação: Agenda" },
+        { "codigo": "AgendaFederacaoBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Federação: Agenda" },
+
+        { "codigo": "EventoFederacao", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_EVENTOS", "grupo": "Federação: Eventos" },
+        { "codigo": "EventoFederacaoSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_EVENTOS", "grupo": "Federação: Eventos" },
+        { "codigo": "EventoFederacaoRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_EVENTOS", "grupo": "Federação: Eventos" },
+        { "codigo": "EventoFederacaoBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_EVENTOS", "grupo": "Federação: Eventos" },
+        { "codigo": "EventoFederacaoManage", "descricao": "Permissão de gerenciar", "staff": "N", "modulo": "MOD_EVENTOS", "grupo": "Federação: Eventos" },
+
+        { "codigo": "EleicaoFederacao", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_ELEICOES", "grupo": "Federação: Eleições" },
+        { "codigo": "EleicaoFederacaoSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_ELEICOES", "grupo": "Federação: Eleições" },
+        { "codigo": "EleicaoFederacaoRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_ELEICOES", "grupo": "Federação: Eleições" },
+        { "codigo": "EleicaoFederacaoBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_ELEICOES", "grupo": "Federação: Eleições" },
+        { "codigo": "EleicaoFederacaoManage", "descricao": "Permissão de gerenciar", "staff": "N", "modulo": "MOD_ELEICOES", "grupo": "Federação: Eleições" },
+
+        { "codigo": "FinancaFederacao", "descricao": "Permissão de gerenciar finanças", "staff": "N", "modulo": "MOD_FINANCAS", "grupo": "Federação: Finanças" },
+
+        { "codigo": "RelatorioFederacao", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Federação: Relatórios" },
+        { "codigo": "RelatorioFederacaoSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Federação: Relatórios" },
+        { "codigo": "RelatorioFederacaoRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Federação: Relatórios" },
+        { "codigo": "RelatorioFederacaoBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Federação: Relatórios" },
+        { "codigo": "RelatorioFederacaoAvail", "descricao": "Permissão de avaliar/aprovar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Federação: Relatórios" },
+
+        { "codigo": "IgrejaSinodal", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_B_IGREJA", "grupo": "Sinodal: Igrejas" },
+        
+        { "codigo": "RelSinFederacoes", "descricao": "Federações Ativas x Inativas", "staff": "N", "modulo": "MOD_BASE", "grupo": "Sinodal: Gráficos das Federações" },
+        { "codigo": "RelSinSociedades", "descricao": "Sociedades Ativas x Inativas", "staff": "N", "modulo": "MOD_BASE", "grupo": "Sinodal: Gráficos das Federações" },
+        { "codigo": "RelSinSocioAno", "descricao": "Sócios x Idade", "staff": "N", "modulo": "MOD_BASE", "grupo": "Sinodal: Gráficos das Federações" },
+        { "codigo": "RelSinSocioSexo", "descricao": "Sócios x Sexo", "staff": "N", "modulo": "MOD_BASE", "grupo": "Sinodal: Gráficos das Federações" },
+        { "codigo": "RelSinSocioEstadoCivil", "descricao": "Sócios x Estado Civil", "staff": "N", "modulo": "MOD_BASE", "grupo": "Sinodal: Gráficos das Federações" },
+        { "codigo": "RelSinSocioEscolaridade", "descricao": "Sócios x Escolaridade", "staff": "N", "modulo": "MOD_BASE", "grupo": "Sinodal: Gráficos das Federações" },
+        { "codigo": "RelSinSocioComungante", "descricao": "Sócios x Profissão de Fé", "staff": "N", "modulo": "MOD_BASE", "grupo": "Sinodal: Gráficos das Federações" },
+        { "codigo": "RelSinSocioFilho", "descricao": "Sócios x Filhos", "staff": "N", "modulo": "MOD_BASE", "grupo": "Sinodal: Gráficos das Federações" },
+        { "codigo": "RelSinSocioFilhoSexo", "descricao": "Filhos x Sexo", "staff": "N", "modulo": "MOD_BASE", "grupo": "Sinodal: Gráficos das Federações" },
+        { "codigo": "RelSinSocioNecessidade", "descricao": "Sócios x Necessidades Especiais", "staff": "N", "modulo": "MOD_BASE", "grupo": "Sinodal: Gráficos das Federações" },
+        { "codigo": "RelSinSocioDoacao", "descricao": "Sócios x Doações", "staff": "N", "modulo": "MOD_BASE", "grupo": "Sinodal: Gráficos das Federações" },
+        { "codigo": "RelSinSocioArrolamento", "descricao": "Sócios x Arrolamento", "staff": "N", "modulo": "MOD_BASE", "grupo": "Sinodal: Gráficos das Federações" },
+
+        { "codigo": "CongregacaoSinodal", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_B_IGREJA", "grupo": "Sinodal: Congregações" },
+
+        { "codigo": "PontoSinodal", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_B_IGREJA", "grupo": "Sinodal: Pontos de Pregação" },
+
+        { "codigo": "FederacaoSinodal", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_B_IGREJA", "grupo": "Sinodal: Federações" },
+
+        { "codigo": "SociedadeSinodal", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_B_IGREJA", "grupo": "Sinodal: Sociedades" },
+
+        { "codigo": "PessoaSinodal", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_B_IGREJA", "grupo": "Sinodal: Pessoas" },
+
+        { "codigo": "DiretoriaSinodal", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_CONFEDERACAO", "grupo": "Sinodal: Diretoria" },
+        { "codigo": "DiretoriaSinodalSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_CONFEDERACAO", "grupo": "Sinodal: Diretoria" },
+        { "codigo": "DiretoriaSinodalRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_CONFEDERACAO", "grupo": "Sinodal: Diretoria" },
+        { "codigo": "DiretoriaSinodalBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_CONFEDERACAO", "grupo": "Sinodal: Diretoria" },
+        { "codigo": "DiretoriaSinodalOficiais", "descricao": "Permissão de gerenciar oficiais", "staff": "N", "modulo": "MOD_CONFEDERACAO", "grupo": "Sinodal: Diretoria" },
+
+        { "codigo": "SecretariaSinodal", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_CONFEDERACAO", "grupo": "Sinodal: Secretarias" },
+        { "codigo": "SecretariaSinodalSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_CONFEDERACAO", "grupo": "Sinodal: Secretarias" },
+        { "codigo": "SecretariaSinodalRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_CONFEDERACAO", "grupo": "Sinodal: Secretarias" },
+        { "codigo": "SecretariaSinodalBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_CONFEDERACAO", "grupo": "Sinodal: Secretarias" },
+        { "codigo": "SecretariaSinodalManage", "descricao": "Permissão de gerenciar", "staff": "N", "modulo": "MOD_CONFEDERACAO", "grupo": "Sinodal: Secretarias" },
+        { "codigo": "SecretariaSinodalPessoa", "descricao": "Permissão de atribuir secretário", "staff": "N", "modulo": "MOD_CONFEDERACAO", "grupo": "Sinodal: Secretarias" },
+
+        { "codigo": "ExecutivaSinodal", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_CONFEDERACAO", "grupo": "Sinodal: Executiva" },
+        { "codigo": "ExecutivaSinodalSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_CONFEDERACAO", "grupo": "Sinodal: Executiva" },
+        { "codigo": "ExecutivaSinodalRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_CONFEDERACAO", "grupo": "Sinodal: Executiva" },
+        { "codigo": "ExecutivaSinodalBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_CONFEDERACAO", "grupo": "Sinodal: Executiva" },
+        { "codigo": "ExecutivaSinodalParticipantes", "descricao": "Permissão de gerenciar participantes", "staff": "N", "modulo": "MOD_CONFEDERACAO", "grupo": "Sinodal: Executiva" },
+
+        { "codigo": "AgendaSinodal", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_AGENDA", "grupo": "Sinodal: Agenda" },
+        { "codigo": "AgendaSinodalSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_AGENDA", "grupo": "Sinodal: Agenda" },
+        { "codigo": "AgendaSinodalRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_AGENDA", "grupo": "Sinodal: Agenda" },
+        { "codigo": "AgendaSinodalBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_AGENDA", "grupo": "Sinodal: Agenda" },
+
+        { "codigo": "EventoSinodal", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_EVENTOS", "grupo": "Sinodal: Eventos" },
+        { "codigo": "EventoSinodalSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_EVENTOS", "grupo": "Sinodal: Eventos" },
+        { "codigo": "EventoSinodalRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_EVENTOS", "grupo": "Sinodal: Eventos" },
+        { "codigo": "EventoSinodalBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_EVENTOS", "grupo": "Sinodal: Eventos" },
+        { "codigo": "EventoSinodalManage", "descricao": "Permissão de gerenciar", "staff": "N", "modulo": "MOD_EVENTOS", "grupo": "Sinodal: Eventos" },
+
+        { "codigo": "EleicaoSinodal", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_ELEICOES", "grupo": "Sinodal: Eleições" },
+        { "codigo": "EleicaoSinodalSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_ELEICOES", "grupo": "Sinodal: Eleições" },
+        { "codigo": "EleicaoSinodalRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_ELEICOES", "grupo": "Sinodal: Eleições" },
+        { "codigo": "EleicaoSinodalBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_ELEICOES", "grupo": "Sinodal: Eleições" },
+        { "codigo": "EleicaoSinodalManage", "descricao": "Permissão de gerenciar", "staff": "N", "modulo": "MOD_ELEICOES", "grupo": "Sinodal: Eleições" },
+
+        { "codigo": "FinancaSinodal", "descricao": "Permissão de gerenciar finanças", "staff": "N", "modulo": "MOD_FINANCAS", "grupo": "Sinodal: Finanças" },
+
+        { "codigo": "RelatorioSinodal", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Sinodal: Relatórios" },
+        { "codigo": "RelatorioSinodalSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Sinodal: Relatórios" },
+        { "codigo": "RelatorioSinodalRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Sinodal: Relatórios" },
+        { "codigo": "RelatorioSinodalBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Sinodal: Relatórios" },
+        { "codigo": "RelatorioSinodalAvail", "descricao": "Permissão de avaliar/aprovar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Sinodal: Relatórios" },
+
+        { "codigo": "SinodalNacional", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Nacional: Sinodais" },
+        { "codigo": "DiretoriaNacional", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Nacional: Diretoria" },
+        { "codigo": "DiretoriaNacionalSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Nacional: Diretoria" },
+        { "codigo": "DiretoriaNacionalRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Nacional: Diretoria" },
+        { "codigo": "DiretoriaNacionalBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Nacional: Diretoria" },
+        { "codigo": "DiretoriaNacionalOficiais", "descricao": "Permissão de gerenciar oficiais", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Nacional: Diretoria" },
+
+        { "codigo": "SecretariaNacional", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Nacional: Secretarias" },
+        { "codigo": "SecretariaNacionalSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Nacional: Secretarias" },
+        { "codigo": "SecretariaNacionalRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Nacional: Secretarias" },
+        { "codigo": "SecretariaNacionalBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Nacional: Secretarias" },
+        { "codigo": "SecretariaNacionalManage", "descricao": "Permissão de gerenciar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Nacional: Secretarias" },
+
+        { "codigo": "ExecutivaNacional", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Nacional: Executiva" },
+        { "codigo": "ExecutivaNacionalSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Nacional: Executiva" },
+        { "codigo": "ExecutivaNacionalRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Nacional: Executiva" },
+        { "codigo": "ExecutivaNacionalBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Nacional: Executiva" },
+        { "codigo": "ExecutivaNacionalParticipantes", "descricao": "Permissão de gerenciar participantes", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Nacional: Executiva" },
+
+        { "codigo": "AgendaNacional", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Nacional: Agenda" },
+        { "codigo": "AgendaNacionalSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Nacional: Agenda" },
+        { "codigo": "AgendaNacionalRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Nacional: Agenda" },
+        { "codigo": "AgendaNacionalBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Nacional: Agenda" },
+
+        { "codigo": "EventoNacional", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_EVENTOS", "grupo": "Nacional: Eventos" },
+        { "codigo": "EventoNacionalSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_EVENTOS", "grupo": "Nacional: Eventos" },
+        { "codigo": "EventoNacionalRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_EVENTOS", "grupo": "Nacional: Eventos" },
+        { "codigo": "EventoNacionalBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_EVENTOS", "grupo": "Nacional: Eventos" },
+        { "codigo": "EventoNacionalManage", "descricao": "Permissão de gerenciar", "staff": "N", "modulo": "MOD_EVENTOS", "grupo": "Nacional: Eventos" },
+
+        { "codigo": "EleicaoNacional", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_ELEICOES", "grupo": "Nacional: Eleições" },
+        { "codigo": "EleicaoNacionalSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_ELEICOES", "grupo": "Nacional: Eleições" },
+        { "codigo": "EleicaoNacionalRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_ELEICOES", "grupo": "Nacional: Eleições" },
+        { "codigo": "EleicaoNacionalBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_ELEICOES", "grupo": "Nacional: Eleições" },
+        { "codigo": "EleicaoNacionalManage", "descricao": "Permissão de gerenciar", "staff": "N", "modulo": "MOD_ELEICOES", "grupo": "Nacional: Eleições" },
+
+        { "codigo": "FinancaNacional", "descricao": "Permissão de gerenciar finanças", "staff": "N", "modulo": "MOD_FINANCAS", "grupo": "Nacional: Finanças" },
+
+        { "codigo": "RelatorioNacional", "descricao": "Permissão de buscar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Nacional: Relatórios" },
+        { "codigo": "RelatorioNacionalSave", "descricao": "Permissão de salvar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Nacional: Relatórios" },
+        { "codigo": "RelatorioNacionalRemove", "descricao": "Permissão de remover", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Nacional: Relatórios" },
+        { "codigo": "RelatorioNacionalBlock", "descricao": "Permissão de bloquear", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Nacional: Relatórios" },
+        { "codigo": "RelatorioNacionalAvail", "descricao": "Permissão de avaliar/aprovar", "staff": "N", "modulo": "MOD_IGREJA", "grupo": "Nacional: Relatórios" }
+    ]
+}

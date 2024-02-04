@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html ng-app="SmartChurchMural" ng-controller="MuralCtrl as ctrl">
+    <head>
+        <link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+        <link rel="manifest" href="manifest.json">
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-TileImage" content="ms-icon-144x144.png">
+        <meta name="theme-color" content="#ffffff">
+        <title>SmartChurch ::. Mural</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,600,700&display=swap" rel="stylesheet">
+        <link href="bower_components/font-awesome/css/all.min.css" rel="stylesheet" type="text/css" />
+        <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="bower_components/pace/themes/blue/pace-theme-loading-bar.css" rel="stylesheet" type="text/css" />
+        <link href="bower_components/nblutils/dist/css/nblutils.min.css" rel="stylesheet" type="text/css" />
+        <link href="css/style.css?v=0.8.1" rel="stylesheet" />
+        <script src="bower_components/pace/pace.min.js"></script>
+        <base href="/mural/">
+    </head>
+    <body ng-cloak>
+        <div class="container" ng-show="ctrl.loaded">
+            <div class="row">
+                <div class="col-1"></div>
+                <div class="col-10">
+                    <div class="mural">
+                        <div class="mural-item">
+                            <img class="card-img-top" ng-src="{{ctrl.data.img_url}}" alt="{{ctrl.data.titulo}}" ng-if="ctrl.data.img != ''">
+                            <div class="mural-body">
+                                <h4>{{ctrl.data.titulo}}</h4>
+                                <div ng-bind-html="ctrl.data.conteudo" ng-if="ctrl.data.mural_content.text" class="card-text margin-bottom-50"></div>
+                                <div ng-if="ctrl.data.videoData.type == 'Youtube' && ctrl.data.mural_content.video" class="responsive-video">
+                                    <iframe ng-src="{{ctrl.data.videoData.url}}" 
+                                            frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                </div>
+                                <div ng-if="ctrl.data.videoData.type == 'Vimeo' && ctrl.data.mural_content.video" class="responsive-video vimeo">
+                                    <iframe ng-src="{{ctrl.data.videoData.url}}" 
+                                            frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                                </div>
+                                <div ng-if="ctrl.data.audioData.url != '' && ctrl.data.mural_content.audio" >
+                                    <iframe width="100%" height="100" scrolling="no" frameborder="no" allow="autoplay" 
+                                            ng-src="{{ctrl.data.audioData.url}}"></iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <script src="bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="bower_components/angular/angular.min.js"></script>
+        <script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+        <script src="bower_components/angular-i18n/angular-locale_pt-br.js"></script>
+        <script src="bower_components/momentjs/min/moment-with-locales.min.js"></script>
+        <script src="bower_components/nblutils/dist/js/nblutils.min.js"></script>
+        <script src="bower_components/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="js/util.js"></script>
+        <script src="js/mural.js"></script>
+    </body>
+</html>

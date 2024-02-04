@@ -1,0 +1,259 @@
+<ol class="breadcrumb pull-right">
+    <li class="breadcrumb-item"><a ui-sref='{{sref.back_level2}}'>Salas da Escola Dominical</a></li>
+    <li class="breadcrumb-item active">{{objList}}</li>
+</ol>
+
+<h1 class="page-header">&nbsp;</h1>
+
+<div class="panel panel-inverse">
+    <div class="panel-heading">
+        <h4 class="panel-title">{{opTitle}} {{objList}} ::. {{salaData.nome}}</h4>
+        <div class="panel-heading-btn">
+            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div class="add-btn-area">
+            <div class="row filter-row">
+                <div class="col-sm-4">
+                    <button class="btn btn-danger" type="button" ng-click="removeSelected()" 
+                            tooltips tooltip-template="Remover Selecionados" tooltip-side="right"
+                            ng-show="markList.length > 0 && USER.doIHavePermission(user, localPerms.remove)">
+                        <i class="fa fa-trash"></i>
+                    </button>
+                </div>
+                <div class="col-sm-3"></div>
+                <div class="col-sm-2">
+                    <button type="button" class="btn btn-sm btn-primary" ng-show="USER.doIHavePermission(user, localPerms.add)"
+                            tooltips tooltip-template="Adicionar Múltiplos" tooltip-side="left"
+                            ng-click="toAdd(sref.add, sref.addMultipleParams)" ><i class="fas fa-plus-circle"></i> Adicionar Múltiplos</button>
+                </div>
+                <div class="col-sm-3 text-right">
+                    <button type="button" class="btn btn-sm btn-rounded" 
+                            ng-class="{'btn-grey': allSelected, 'btn-white': !allSelected}" 
+                            tooltips tooltip-template="Marcar/Desmarcar Todos" tooltip-side="left" 
+                            ng-show="USER.doIHavePermission(user, localPerms.remove)"
+                            ng-click="selectAll()" ><i class="fa fa-check"></i></button>
+                    <button type="button" class="btn btn-lg btn-primary" ng-show="USER.doIHavePermission(user, localPerms.add)"
+                            tooltips tooltip-template="Adicionar" tooltip-side="left"
+                            ng-click="toAdd(sref.add, sref.addParams)" ><i class="fa fa-plus"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="row filter-row" style="margin-bottom: 10px;">
+            <div class="col-sm-1 text-left">
+                <button class="btn btn-white" type="button" ng-click="clear()" tooltips tooltip-template="Limpar Filtros" tooltip-side="right">
+                    <i class="fa fa-trash"></i>
+                </button>
+            </div>
+            <div class="col-sm-6">
+                <form ng-submit="doSearch(true)">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="" ng-model="searchBy">
+                        <span class="input-group-append">
+                            <button class="btn btn-primary" type="submit" >
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+            <div class="col-sm-4">
+                <button class="btn btn-white" ng-click="enableFilters()">
+                    Filtros
+                    <i class="fas fa-plus" ng-hide="filterEnabled"></i>
+                    <i class="fas fa-minus" ng-show="filterEnabled"></i>
+                    <span class="badge badge-warning" ng-show="filterUsed">!</span>
+                </button>
+            </div>
+        </div>
+        <div class="row filter-row" style="margin-bottom: 10px;" ng-show="filterEnabled">
+            <div class="col-sm-1">
+                
+            </div>
+            <div class="col-sm-3">
+                <select class="form-control" ng-model="stat" ng-change="doSearch(true)" >
+                    <option value="">Status</option>
+                    <option value="{{i.value}}" ng-repeat="i in listStatus">{{i.label}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="row filter-row" style="margin-bottom: 10px;" ng-show="filterEnabled">
+            <div class="col-sm-1">
+                
+            </div>
+            <div class="col-sm-3">
+                <select class="form-control" ng-model="sexo" ng-change="doSearch(true)" >
+                    <option value="">Sexo</option>
+                    <option value="{{i.value}}" ng-repeat="i in listSexos">{{i.label}}</option>
+                </select>
+            </div>
+            <div class="col-sm-3">
+                <select class="form-control" ng-model="escolaridade" ng-change="doSearch(true)" >
+                    <option value="">Escolaridade</option>
+                    <option value="{{i.value}}" ng-repeat="i in listEscolaridade">{{i.label}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="row filter-row" style="margin-bottom: 10px;" ng-show="filterEnabled">
+            <div class="col-sm-1">
+                
+            </div>
+            <div class="col-sm-3">
+                <select class="form-control" ng-model="estado_civil" ng-change="doSearch(true)" >
+                    <option value="">Estado Civil</option>
+                    <option value="{{i.value}}" ng-repeat="i in listEstadoCivil">{{i.label}}</option>
+                </select>
+            </div>
+            <div class="col-sm-3">
+                <div class="checkbox checkbox-css" ng-hide="sem_filhos">
+                    <input type="checkbox" id="checkbox_com_filhos" ng-model="com_filhos" ng-change="doSearch(true)" /> 
+                    <label for="checkbox_com_filhos" class="checkbox">
+                        Com Filhos
+                    </label>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="checkbox checkbox-css" ng-hide="com_filhos" >
+                    <input type="checkbox" id="checkbox_sem_filhos" ng-model="sem_filhos" ng-change="doSearch(true)" /> 
+                    <label for="checkbox_sem_filhos" class="checkbox">
+                        Sem Filhos
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="row filter-row" style="margin-bottom: 20px;">
+            <div class="col-sm-1">
+                
+            </div>
+            <div class="col-sm-3">
+                <form >
+                    <select class="form-control" ng-model="pageSize" ng-change="doSearch(true)">
+                        <option value="10">10 registros</option>
+                        <option value="25">25 registros</option>
+                        <option value="50">50 registros</option>
+                        <option value="100">100 registros</option>
+                    </select>
+                </form>
+            </div>
+            <div class="col-sm-8 text-right">
+                <form ng-submit="doSort()" class="form-inline">
+                    <select class="form-control" ng-model="orderField">
+                        <option value="">Ordenar por</option>
+                        <option value="nome">Nome</option>
+                    </select>
+                    <select class="form-control" ng-model="orderOrientation">
+                        <option value="asc">Crescente</option>
+                        <option value="desc">Decrescente</option>
+                    </select>
+                    <button class="btn btn-primary" type="submit" tooltips tooltip-template="Ordenar" tooltip-side="left" >
+                        <i class="fas fa-sort"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="row" style="margin-bottom: 20px;">
+            <div class="col-sm-12" style="padding-top: 10px; text-align: center;">
+                Mostrando <b>{{list.length}}</b> de <b>{{total}}</b> registros
+            </div>
+        </div>
+        <div class="">
+            <ul class="pager">
+                <li class="previous" ng-show="hasPrev"><a href="" ng-click="toPrev()">Anterior</a></li>
+                <li class="next" ng-show="hasNext"><a href="" ng-click="toNext()">Próxima</a></li>
+            </ul>
+        </div>
+        <div class="margin-bottom-50" ng-show="list.length > 0">
+            <div class="table-responsive">
+                <table class="table m-b-0">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Contato</th>
+                            <th>Data de Nascimento</th>
+                            <th>Sexo</th>
+                            <th>Escolaridade</th>
+                            <th>Estado Civil</th>
+                            <th>Filhos</th>
+                            <th>Status</th>
+                            <th>Participação</th>
+                            <th class="table-opts"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="d in list">
+                            <td>
+                                {{d.nome}}
+                            </td>
+                            <td>
+                                <span class="font-size-10 text-uppercase color-default">E-mail:</span> {{d.email}} <br/>
+                                <span class="font-size-10 text-uppercase color-default">Telefone:</span> {{d.telefone}} <br/>
+                                <span class="font-size-10 text-uppercase color-default">Celular (1):</span> {{d.celular_1}} 
+                            </td>
+                            <td>
+                                {{d.data_nascimento_str}}
+                            </td>
+                            <td>
+                                <span class="label label-info" ng-show="d.masculino">Masculino</span>
+                                <span class="label label-pink" ng-show="d.feminino">Feminino</span>
+                            </td>
+                            <td>
+                                {{d.escolaridade_str}}
+                            </td>
+                            <td>
+                                {{d.estado_civil_str}}
+                            </td>
+                            <td>
+                                <span class="label label-green" ng-show="d.tem_filhos">Sim</span>
+                            </td>
+                            <td>
+                                <span class="label label-green" ng-show="d.stat == 'ATV'">Ativo</span>
+                                <span class="label label-danger" ng-hide="d.stat == 'ATV'">Não Ativo</span>
+                            </td>
+                            <td>
+                                <span class="font-size-10 text-uppercase color-default">Início em:</span> {{d.inicio_str}} <br/>
+                                <span class="font-size-10 text-uppercase color-default">Término em:</span> {{d.fim_str}}
+                            </td>
+                            <td class="table-opts">
+                                <button type="button" class="btn btn-xs btn-rounded"  ng-show="USER.doIHavePermission(user, localPerms.remove)"
+                                        ng-class="{'btn-grey': d.selected, 'btn-white': !d.selected}" 
+                                        tooltips tooltip-template="Marcar" tooltip-side="left" 
+                                        ng-click="markThis(d)">
+                                    <i class="fa fa-check"></i>
+                                </button>
+                                <button type="button" class="btn btn-white btn-xs" ng-show="USER.doIHavePermission(user, localPerms.changeStat) && d.stat == 'ATV'"
+                                        tooltips tooltip-template="Bloquear" tooltip-side="left"
+                                        ng-click="changeStat(d)" >
+                                    <i class="fas fa-lock"></i>
+                                </button>
+                                <button type="button" class="btn btn-white btn-xs" ng-show="USER.doIHavePermission(user, localPerms.changeStat) && d.stat != 'ATV'"
+                                        tooltips tooltip-template="Ativar" tooltip-side="left"
+                                        ng-click="changeStat(d)" >
+                                    <i class="fas fa-lock-open"></i>
+                                </button>
+                                <button type="button" class="btn btn-warning btn-xs" ng-show="USER.doIHavePermission(user, localPerms.edit)"
+                                        tooltips tooltip-template="Editar" tooltip-side="left"
+                                        ng-click="toEdit(sref.edit, d.id, sref.editParams)" >
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button type="button" class="btn btn-danger btn-xs" tooltips tooltip-template="Remover" tooltip-side="left"
+                                        ng-show="USER.doIHavePermission(user, localPerms.remove)"
+                                        ng-click="remove(d)">
+                                    <i class="fas fa-trash-alt"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="margin-bottom-50">
+            <ul class="pager">
+                <li class="previous" ng-show="hasPrev"><a href="" ng-click="toPrev()">Anterior</a></li>
+                <li class="next" ng-show="hasNext"><a href="" ng-click="toNext()">Próxima</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,312 @@
+
+[ng\:cloak], [ng-cloak], .ng-cloak {
+    display: none !important;
+}
+
+.margin-bottom-10 {
+    margin-bottom: 10px;
+}
+
+.pace .pace-progress {
+    background: transparent !important;
+}
+
+.pace .pace-activity {
+    top: 90% !important;
+    width: 25px !important;
+    height: 25px !important;
+    border-top-color: #0375a8;
+    border-left-color: #0375a8;
+}
+
+.form-group.has-danger .form-control {
+    border-color: #fb434a;
+}
+
+.login.login-v2 .login-content {
+    border: 1px solid rgba(0,0,0,.1);
+}
+
+.login.login-v2 .form-control {
+    background: #fff;
+    color: rgba(0,0,0,.5);
+}
+
+.login.login-v2 .login-content .form-control {
+    border: 1px solid rgba(0,0,0,.1) !important;
+}
+
+.login.login-v2 a, 
+.login.login-v2 label {
+    color: rgba(0,0,0,.5);
+}
+
+.gritter-item-wrapper.ntf-err {
+    background-color: #d40000 !important;
+}
+
+.gritter-item-wrapper.ntf-err .gritter-top,
+.gritter-item-wrapper.ntf-err .gritter-item,
+.gritter-item-wrapper.ntf-err .gritter-bottom {
+    background: transparent !important;
+}
+
+.gritter-item-wrapper.ntf-err .gritter-item p {
+    color: #fff !important;
+}
+
+.gritter-item-wrapper.ntf-err .gritter-close {
+    color: #fff !important;
+    border-left-color: rgba(0,0,0,.3) !important;
+}
+
+.gritter-item-wrapper.ntf-err .gritter-close::before,
+.gritter-close::before {
+    content: 'Fechar' !important;
+    color: #fff !important;
+}
+
+.header .navbar-brand {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.table-opts {
+    min-width: 150px;
+    text-align: right;
+}
+
+.table-mdata {
+    width: 300px;
+}
+
+.font-size-10 {
+    font-size: 10px;
+}
+
+.color-default {
+    color: #acb7bf !important;
+}
+
+.margin-bottom-50 {
+    margin-bottom: 50px;
+}
+
+label.checkbox {
+    font-weight: 400;
+}
+
+.form-actions {
+    border-top: 1px solid #dfe4ed;
+    padding-top: 20px;
+    margin: 20px 0px;
+}
+
+.btn .badge {
+    position: absolute;
+    top: -10px;
+}
+
+.add-btn-area {
+    margin-bottom: 10px;
+}
+
+.candidato-row {
+    background: #f3ffef;
+}
+
+h5 > span {
+    font-weight: 300;
+}
+
+.candidato-opt:hover,
+.candidato-opt:focus {
+    border-color: #255b6c;
+    background: #c8e9f3;
+}
+
+.candidato-opt.active {
+    border-color: #195519;
+    background: #cce9cc;
+}
+
+.tag {
+    color: #fff;
+    padding-right: 10px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.tag-icon {
+    background: #fff;
+    border-radius: 50%;
+    padding: 5px 7px;
+    margin-left: -10px;
+    behavior: url(PIE.htc);
+}
+
+.b-sep {
+    border-bottom: 1px solid rgba(0,0,0,.1);
+}
+
+.form-inline label {
+    margin-right: 10px;
+}
+
+.margin-top-30 {
+    margin-top: 30px;
+}
+
+.margin-top-50 {
+    margin-top: 50px;
+}
+
+.opt-form-row {
+    margin-top: 10px;
+    padding: 7px;
+    padding-bottom: 10px;
+    border: 1px solid rgba(0,0,0,.1);
+    border-radius: 5px;
+}
+
+.easy-autocomplete-container {
+    z-index: 2000;
+}
+
+.responsive-video {
+    height: 0;
+    padding-top: 25px;
+    padding-bottom: 67.5%;
+    margin-bottom: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.responsive-video.widescreen {
+    padding-bottom: 56.34%;
+}
+
+.responsive-video.vimeo {
+    padding-top: 0;
+}
+
+.responsive-video embed, 
+.responsive-video iframe, 
+.responsive-video object, 
+.responsive-video video {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.sermao-texto {
+    padding-top: 30px;
+}
+
+.img-table {
+    max-width: 200px;
+}
+
+.note-editor .note-toolbar {
+    background-color: #f2f4f5 !important;
+}
+
+.is-admin {
+    border-left: 5px solid #49b6d6;
+}
+
+.text-bottom {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+}
+
+.termos-bg {
+    padding: 10px;
+}
+
+.termos-bg p {
+    text-align: justify;
+    margin-bottom: 5px;
+}
+
+.form-control-error {
+    z-index: 100;
+}
+
+.termos-txt {
+    
+}
+
+.member-widget {
+    text-align: center;
+    font-size: 20px;
+    color: #fff;
+    padding: 5px;
+}
+
+.permissoes-block {
+    border: 1px solid rgba(0,0,0,.1);
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.permissoes-block h5 {
+    padding: 10px;
+    margin: 0;
+    cursor: pointer;
+}
+
+.permissoes-subgrupo {
+    padding: 10px;
+}
+
+.context-title {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+.form-table {
+    
+}
+
+.presente {
+    background: #32a932;
+}
+
+.ausente {
+    background: #ff5b57;
+}
+
+.filhos-zone {
+    
+}
+
+.filho {
+    border-left: 2px solid #000;
+    padding-left: 5px;
+    margin-top: 5px;
+}
+
+.menino {
+    border-left: 2px solid #0088f0;
+}
+
+.menina {
+    border-left: 2px solid #f0008c;
+}
+
+@media (max-width: 600px) {
+    .filter-row * {
+        margin-top: 5px;
+    }
+
+    .login.login-v2 .login-content {
+        margin: 10px;
+    }
+}

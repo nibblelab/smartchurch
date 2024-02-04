@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/evento_it_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_marginTop="20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="10dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_chevs"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="190dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:paddingLeft="5dp">
+
+            <TextView
+                android:id="@+id/evento_titulo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/opensans_bold"
+                android:gravity="left"
+                android:text="Título"
+                android:textColor="@color/sermaoTitle"
+                android:textSize="22sp"/>
+
+            <TextView
+                android:id="@+id/evento_responsavel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/opensans_semibold"
+                android:gravity="left"
+                android:text="Responsável"
+                android:background="@color/colorPrimaryDark"
+                android:textColor="@color/menuTxt"
+                android:textSize="18sp"
+                android:paddingTop="5dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:paddingBottom="5dp" />
+
+            <LinearLayout
+                android:id="@+id/evento_tags"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:paddingTop="10dp"></LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:paddingTop="10dp">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/ic_watch"
+                    />
+
+                <TextView
+                    android:id="@+id/evento_horario"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/opensans"
+                    android:gravity="left"
+                    android:text="09:00 - 10:00"
+                    android:textColor="@color/validDayColor"
+                    android:textSize="18sp"
+                    android:layout_marginLeft="10dp" />
+
+            </LinearLayout>
+
+            <WebView
+                android:id="@+id/evento_observacoes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"></WebView>
+
+            <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+                android:id="@+id/evento_youtube"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"></com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView>
+
+            <com.ct7ct7ct7.androidvimeoplayer.view.VimeoPlayerView
+                android:id="@+id/evento_vimeo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"></com.ct7ct7ct7.androidvimeoplayer.view.VimeoPlayerView>
+
+            <LinearLayout
+                android:id="@+id/evento_endereco"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="10dp">
+
+                <TextView
+                    android:id="@+id/evento_rua"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/opensans"
+                    android:gravity="left"
+                    android:text="Rua Teste"
+                    android:textSize="14sp"
+                    android:layout_marginLeft="10dp" />
+
+                <TextView
+                    android:id="@+id/evento_bairro"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/opensans"
+                    android:gravity="left"
+                    android:text="Bairro Teste"
+                    android:textSize="14sp"
+                    android:layout_marginLeft="10dp" />
+
+                <TextView
+                    android:id="@+id/evento_cidade"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/opensans"
+                    android:gravity="left"
+                    android:text="Teste/UF"
+                    android:textSize="14sp"
+                    android:layout_marginLeft="10dp" />
+
+                <TextView
+                    android:id="@+id/evento_cep"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/opensans"
+                    android:gravity="left"
+                    android:text="99.999-99"
+                    android:textSize="14sp"
+                    android:layout_marginLeft="10dp" />
+
+                <ImageView
+                    android:id="@+id/evento_map"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/ic_map"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/evento_links"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:paddingTop="20dp">
+
+                <ImageView
+                    android:id="@+id/evento_site"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/ic_link"
+                    android:layout_marginLeft="30dp"
+                    />
+
+                <ImageView
+                    android:id="@+id/evento_facebook"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/ic_facebook"
+                    android:layout_marginLeft="20dp"
+                    />
+
+                <ImageView
+                    android:id="@+id/evento_instagram"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/ic_instagram"
+                    android:layout_marginLeft="20dp"
+                    />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

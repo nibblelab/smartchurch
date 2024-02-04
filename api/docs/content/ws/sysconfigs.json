@@ -1,0 +1,1 @@
+{"name":"sysconfigs","desc":"API REST de Sysconfigs","methods":[{"name":"edit","desc":"Edita","http_method":"PUT","is_auth":true,"params":[{"param":"id","desc":"","required":true}]},{"name":"me","desc":"Busca ","http_method":"GET","is_auth":true,"params":[{"param":"id","desc":"","required":true}]},{"name":"all","desc":"Busca ","http_method":"GET","is_auth":true,"params":[]}]}

@@ -1,0 +1,33 @@
+{
+  "name": "nblutils",
+  "authors": [
+    "Johnatas [Njerbaden] Teixeira de Freitas <johnatas@nibblelab.com>"
+  ],
+  "description": "JS/Angular modules with many useful functions",
+  "main": [
+    "src/nblutils.js"
+  ],
+  "license": "MIT",
+  "homepage": "www.nibblelab.com",
+  "dependencies": {
+    "momentjs": ""
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public_html/bower_components",
+    "test",
+    "tests"
+  ],
+  "_release": "cfbdee1150",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "cfbdee1150ad6cf720fc4016313847c09584af69"
+  },
+  "_source": "https://github.com/nibblelab/nblutils.git",
+  "_target": "*",
+  "_originalSource": "nblutils",
+  "_direct": true
+}

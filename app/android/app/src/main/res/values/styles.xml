@@ -1,0 +1,53 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="SmartChurchAppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="SmartChurchAppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="SmartChurchAppTheme.NoTitleBar">
+        <item name="windowActionBar">true</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="SmartChurchAppTheme.DialogDanger" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:textColor">@color/colorDangerTitle</item>
+        <item name="android:textColorPrimary">@color/colorDangerTxt</item>
+        <item name="android:windowBackground">@drawable/bg_dialog_alert</item>
+    </style>
+
+    <style name="SmartChurchAppTheme.DialogInfo" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:textColor">@color/colorInfoTitle</item>
+        <item name="android:textColorPrimary">@color/colorDangerTxt</item>
+        <item name="android:windowBackground">@drawable/bg_dialog_info</item>
+    </style>
+
+    <style name="SmartChurchAppTheme.DialogWarning" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:textColor">@color/colorWarningTitle</item>
+        <item name="android:textColorPrimary">@color/colorDangerTxt</item>
+        <item name="android:windowBackground">@drawable/bg_dialog_warning</item>
+    </style>
+
+    <style name="SmartChurchAppTheme.DialogSuccess" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:textColor">@color/colorSuccessTitle</item>
+        <item name="android:textColorPrimary">@color/colorDangerTxt</item>
+        <item name="android:windowBackground">@drawable/bg_dialog_success</item>
+    </style>
+
+    <style name="SmartChurchAppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="SmartChurchAppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    
+    <style name="SmartChurchAppTheme.Fullscreen" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
+</resources>

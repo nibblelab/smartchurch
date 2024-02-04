@@ -1,0 +1,15 @@
+
+.smartchurch-title {
+    text-align: center;
+    font-weight: 700;
+}
+
+.smartchurch-subtitle {
+    border-bottom: 1px solid rgba(0,0,0,.1);
+    padding-bottom: 5px;
+}
+
+.smartchurch-shortcode {
+    font-weight: 700;
+}
+

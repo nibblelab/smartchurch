@@ -1,0 +1,15 @@
+{
+  "name": "randomcolor",
+  "homepage": "https://github.com/davidmerfield/randomColor",
+  "version": "0.5.4",
+  "_release": "0.5.4",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.5.4",
+    "commit": "5e0cdb4d84a214ccc10e4ad3c2308ed09549bede"
+  },
+  "_source": "https://github.com/davidmerfield/randomColor.git",
+  "_target": "^0.5.4",
+  "_originalSource": "randomcolor",
+  "_direct": true
+}

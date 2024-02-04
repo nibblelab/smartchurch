@@ -1,0 +1,104 @@
+<script type="text/ng-template" id="sociedade_home.html">
+    <div class="row">
+        <div class="col-xl-6 col-md-6 col-xs-12" ng-if="ctrl.USER.doIHavePermission(ctrl.user, 'RelSocioAno')">
+            <div class="panel panel-inverse">
+                <div class="panel-heading">
+                    <h4 class="panel-title">Sócios x Idade</h4>
+                </div>
+                <div class="panel-body">
+                    <div id="socios_idade" class="height-sm"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6 col-md-6 col-xs-12" ng-if="ctrl.USER.doIHavePermission(ctrl.user, 'RelSocioSexo')">
+            <div class="panel panel-inverse">
+                <div class="panel-heading">
+                    <h4 class="panel-title">Sócios x Sexo</h4>
+                </div>
+                <div class="panel-body">
+                    <div id="socios_sexo" class="height-sm"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6 col-md-6 col-xs-12" ng-if="ctrl.USER.doIHavePermission(ctrl.user, 'RelSocioEstadoCivil')">
+            <div class="panel panel-inverse">
+                <div class="panel-heading">
+                    <h4 class="panel-title">Sócios x Estado Civil</h4>
+                </div>
+                <div class="panel-body">
+                    <div id="socios_estado_civil" class="height-sm"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6 col-md-6 col-xs-12" ng-if="ctrl.USER.doIHavePermission(ctrl.user, 'RelSocioEscolaridade')">
+            <div class="panel panel-inverse">
+                <div class="panel-heading">
+                    <h4 class="panel-title">Sócios x Escolaridade</h4>
+                </div>
+                <div class="panel-body">
+                    <div id="socios_escolaridade" class="height-sm"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6 col-md-6 col-xs-12" ng-if="ctrl.USER.doIHavePermission(ctrl.user, 'RelSocioComungante')">
+            <div class="panel panel-inverse">
+                <div class="panel-heading">
+                    <h4 class="panel-title">Sócios x Profissão de Fé</h4>
+                </div>
+                <div class="panel-body">
+                    <div id="socios_comungante" class="height-sm"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6 col-md-6 col-xs-12" ng-if="ctrl.USER.doIHavePermission(ctrl.user, 'RelSocioFilho')">
+            <div class="panel panel-inverse">
+                <div class="panel-heading">
+                    <h4 class="panel-title">Sócios x Filhos</h4>
+                </div>
+                <div class="panel-body">
+                    <div id="socios_filho" class="height-sm"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6 col-md-6 col-xs-12" ng-if="ctrl.USER.doIHavePermission(ctrl.user, 'RelSocioFilhoSexo')">
+            <div class="panel panel-inverse">
+                <div class="panel-heading">
+                    <h4 class="panel-title">Filhos x Sexo</h4>
+                </div>
+                <div class="panel-body">
+                    <div id="socios_filho_por_sexo" class="height-sm"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6 col-md-6 col-xs-12" ng-if="ctrl.USER.doIHavePermission(ctrl.user, 'RelSocioNecessidade')">
+            <div class="panel panel-inverse">
+                <div class="panel-heading">
+                    <h4 class="panel-title">Sócios x Necessidades Especiais</h4>
+                </div>
+                <div class="panel-body">
+                    <div id="socios_necessidade" class="height-sm"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6 col-md-6 col-xs-12" ng-if="ctrl.USER.doIHavePermission(ctrl.user, 'RelSocioDoacao')">
+            <div class="panel panel-inverse">
+                <div class="panel-heading">
+                    <h4 class="panel-title">Sócios x Doações</h4>
+                </div>
+                <div class="panel-body">
+                    <div id="socios_doacao" class="height-sm"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6 col-md-6 col-xs-12" ng-if="ctrl.USER.doIHavePermission(ctrl.user, 'RelSocioArrolamento')">
+            <div class="panel panel-inverse">
+                <div class="panel-heading">
+                    <h4 class="panel-title">Sócios x Cooperadores</h4>
+                </div>
+                <div class="panel-body">
+                    <div id="socios_cooperador" class="height-sm"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>

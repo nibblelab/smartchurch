@@ -1,0 +1,80 @@
+<ol class="breadcrumb pull-right">
+    <li class="breadcrumb-item"><a ui-sref='{{back}}'>Buscar</a></li>
+    <li class="breadcrumb-item active">{{opTitle}}</li>
+</ol>
+
+<h1 class="page-header">&nbsp;</h1>
+
+<div class="panel panel-inverse">
+    <div class="panel-heading">
+        <h4 class="panel-title">{{opTitle}} {{objForm}}</h4>
+        <div class="panel-heading-btn">
+            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+        </div>
+    </div>
+    <div class="panel-body">
+        <form id="dataFrm" method="POST" autocomplete="off">
+            <legend>Dados Básicos</legend>
+            <div class="form-group row m-b-15">
+                <label class="col-form-label col-md-2">Nome *</label>
+                <div class="col-md-10">
+                    <input class="form-control m-b-5" type="text" placeholder="Nome" ng-model="dataFrm.data.nome.value"
+                            ng-class="{'is-invalid': !dataFrm.data.nome.valid}"
+                            name="validation[nome]" data-validation="[NOTEMPTY]"
+                            data-validation-message="O nome não pode ser vazio" />
+                </div>
+            </div>
+            <div class="form-group row m-b-15">
+                <label class="col-form-label col-md-2">E-mail</label>
+                <div class="col-md-10">
+                    <input class="form-control m-b-5" type="text" placeholder="E-mail" ng-model="dataFrm.data.email.value"
+                            ng-class="{'is-invalid': !dataFrm.data.email.valid}" />
+                </div>
+            </div>
+            <div class="form-group row m-b-15">
+                <label class="col-form-label col-md-2">Sínodo </label>
+                <div class="col-md-8">
+                    <select class="form-control" ng-model="dataFrm.data.sinodo.value" ng-change="filterPresbiterios(dataFrm.data.sinodo.value)"
+                            ng-class="{'is-invalid': !dataFrm.data.sinodo.valid}" >
+                        <option value=""></option>
+                        <option value="{{i.id}}" ng-repeat="i in listSinodos">{{i.sigla}} - {{i.nome}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row m-b-15">
+                <label class="col-form-label col-md-2">Presbitério </label>
+                <div class="col-md-8">
+                    <select class="form-control" ng-model="dataFrm.data.presbiterio.value"
+                            ng-class="{'is-invalid': !dataFrm.data.presbiterio.valid}" >
+                        <option value=""></option>
+                        <option value="{{i.id}}" ng-repeat="i in listPresbiterios" ng-show="i.show">{{i.sigla}} - {{i.nome}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row m-b-15">
+                <label class="col-form-label col-md-2">Data de Fundação</label>
+                <div class="col-md-4">
+                    <input class="form-control m-b-5 datepicker" type="text" ng-model="dataFrm.data.fundacao.value"
+                            ui-mask="99/99/9999" model-view-value="true"
+                            ng-class="{'is-invalid': !dataFrm.data.fundacao.valid}" />
+                </div>
+            </div>
+            
+            <endereco-data 
+                    model="dataFrm" 
+                    ufs="listUFs"
+                    cidades="listCidades"></endereco-data>
+            
+            <site-data 
+                    model="dataFrm"></site-data>
+            
+            <div class="form-actions">
+                <div class="form-group row">
+                    <div class="col-md-9 offset-md-3">
+                        <button type="submit" class="btn width-150 btn-primary">Salvar</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

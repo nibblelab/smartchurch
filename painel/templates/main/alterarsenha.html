@@ -1,0 +1,36 @@
+<div class="login-cover">
+    <div class="login-cover-image" style="background-image: url(img/login_bg.jpg)" data-id="login-cover-image"></div>
+</div>
+
+<div id="page-container" class="">
+    <div class="login login-v2">
+        <div class="login-header">
+            <div class="brand">
+                <img src="img/logo_small.png" class="img-fluid" alt="smartchurch" />
+            </div>
+        </div>
+        <div class="login-content">
+            <form id="frm" method="POST" class="margin-bottom-0">
+                <div class="form-group m-b-20">
+                    <div class="input-group">
+                        <input type="password" class="form-control form-control-lg" ng-model="dataFrm.data.senha.value" ng-hide="showPass"
+                                name="validation[pass]" placeholder="Nova Senha" data-validation="[NOTEMPTY]"
+                                data-validation-message="A senha precisa ser fornecida" />
+                        <input type="text" class="form-control form-control-lg" ng-model="dataFrm.data.senha.value" ng-show="showPass"
+                                name="validation[pass]" placeholder="Nova Senha" data-validation="[NOTEMPTY]"
+                                data-validation-message="A senha precisa ser fornecida" />
+                        <span class="input-group-append">
+                            <button class="btn btn-default" type="button" ng-click="showPassOrHide()" >
+                                <i class="fas fa-eye" ng-hide="showPass"></i>
+                                <i class="fas fa-eye-slash" ng-show="showPass"></i>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+                <div class="login-buttons">
+                    <button type="submit" class="btn btn-primary btn-block btn-lg">Redefinir Senha</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

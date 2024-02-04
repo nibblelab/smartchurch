@@ -1,0 +1,1692 @@
+{
+    "menus": [
+        { 
+            "nome": "perfil",
+            "titulo": "Perfil", 
+            "icon": "ion ion-md-contacts", 
+            "modulos": ["MOD_BASE"], 
+            "setted": [],
+            "submenus": [
+                { 
+                    "nome": "perfis",
+                    "titulo": "Perfis", 
+                    "sref": "SmartChurchPanel.staff.perfis.buscar",
+                    "states": ["SmartChurchPanel.staff.perfis.buscar","SmartChurchPanel.staff.perfis.adicionar","SmartChurchPanel.staff.perfis.editar"],
+                    "modulos": ["MOD_BASE"], 
+                    "perms": [ "Perfil", "PerfilSave", "PerfilRemove"], 
+                    "setted": []
+                }
+            ]
+        },
+        { 
+            "nome": "config",
+            "titulo": "Configurações", 
+            "icon": "ion ion-md-settings", 
+            "modulos": ["MOD_BASE"], 
+            "setted": [],
+            "submenus": [
+                { 
+                    "nome": "sysconfig",
+                    "titulo": "Sistema", 
+                    "sref": "SmartChurchPanel.staff.sysconfig.editar",
+                    "states": ["SmartChurchPanel.staff.sysconfig.editar"],
+                    "modulos": ["MOD_BASE"], 
+                    "perms": [ "SysConfig"], 
+                    "setted": []
+                }
+            ]
+        },
+        { 
+            "nome": "estrutura",
+            "titulo": "Estrutura", 
+            "icon": "ion ion-md-business", 
+            "modulos": ["MOD_BASE"], 
+            "setted": [],
+            "submenus": [
+                { 
+                    "nome": "supremoconcilio",
+                    "titulo": "Supremo", 
+                    "sref": "SmartChurchPanel.staff.supremoconcilio.buscar",
+                    "states": ["SmartChurchPanel.staff.supremoconcilio.buscar",
+                                "SmartChurchPanel.staff.supremoconcilio.adicionar",
+                                "SmartChurchPanel.staff.supremoconcilio.editar"],
+                    "modulos": ["MOD_BASE"], 
+                    "perms": [ "Supremo", "SupremoSave", "SupremoRemove", "SupremoBlock"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "sinodos",
+                    "titulo": "Sínodos", 
+                    "sref": "SmartChurchPanel.staff.sinodos.buscar",
+                    "states": ["SmartChurchPanel.staff.sinodos.buscar","SmartChurchPanel.staff.sinodos.adicionar","SmartChurchPanel.staff.sinodos.editar"],
+                    "modulos": ["MOD_BASE"], 
+                    "perms": [ "Sinodo", "SinodoSave", "SinodoRemove", "SinodoBlock"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "presbiterios",
+                    "titulo": "Presbitérios", 
+                    "sref": "SmartChurchPanel.staff.presbiterios.buscar",
+                    "states": ["SmartChurchPanel.staff.presbiterios.buscar","SmartChurchPanel.staff.presbiterios.adicionar","SmartChurchPanel.staff.presbiterios.editar"],
+                    "modulos": ["MOD_BASE"], 
+                    "perms": [ "Presbiterio", "PresbiterioSave", "PresbiterioRemove", "PresbiterioBlock"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "igrejas",
+                    "titulo": "Igrejas", 
+                    "sref": "SmartChurchPanel.staff.igrejas.buscar",
+                    "states": ["SmartChurchPanel.staff.igrejas.buscar","SmartChurchPanel.staff.igrejas.adicionar","SmartChurchPanel.staff.igrejas.editar"],
+                    "modulos": ["MOD_BASE"], 
+                    "perms": [ "Igreja", "IgrejaSave", "IgrejaRemove", "IgrejaBlock"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "congregacoes",
+                    "titulo": "Congregações", 
+                    "sref": "SmartChurchPanel.staff.congregacoes.buscar",
+                    "states": ["SmartChurchPanel.staff.congregacoes.buscar","SmartChurchPanel.staff.congregacoes.adicionar","SmartChurchPanel.staff.congregacoes.editar"],
+                    "modulos": ["MOD_BASE"], 
+                    "perms": [ "Congregacao", "CongregacaoSave", "CongregacaoRemove", "CongregacaoBlock"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "pontosdepregacao",
+                    "titulo": "Pontos", 
+                    "sref": "SmartChurchPanel.staff.pontosdepregacao.buscar",
+                    "states": ["SmartChurchPanel.staff.pontosdepregacao.buscar","SmartChurchPanel.staff.pontosdepregacao.adicionar","SmartChurchPanel.staff.pontosdepregacao.editar"],
+                    "modulos": ["MOD_BASE"], 
+                    "perms": [ "Ponto", "PontoSave", "PontoRemove", "PontoBlock"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "nacionais",
+                    "titulo": "Nacionais", 
+                    "sref": "SmartChurchPanel.staff.nacionais.buscar",
+                    "states": ["SmartChurchPanel.staff.nacionais.buscar","SmartChurchPanel.staff.nacionais.adicionar","SmartChurchPanel.staff.nacionais.editar"],
+                    "modulos": ["MOD_BASE"], 
+                    "perms": [ "Nacional", "NacionalSave", "NacionalRemove", "NacionalBlock"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "sinodais",
+                    "titulo": "Sinodais", 
+                    "sref": "SmartChurchPanel.staff.sinodais.buscar",
+                    "states": ["SmartChurchPanel.staff.sinodais.buscar","SmartChurchPanel.staff.sinodais.adicionar","SmartChurchPanel.staff.sinodais.editar",
+                        "SmartChurchPanel.sinodais.admin"],
+                    "modulos": ["MOD_BASE"], 
+                    "perms": [ "Sinodal", "SinodalSave", "SinodalRemove", "SinodalBlock", "SinodalAdmin"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "federacoes",
+                    "titulo": "Federações", 
+                    "sref": "SmartChurchPanel.staff.federacoes.buscar",
+                    "states": ["SmartChurchPanel.staff.federacoes.buscar","SmartChurchPanel.staff.federacoes.adicionar","SmartChurchPanel.staff.federacoes.editar",
+                        "SmartChurchPanel.federacoes.admin"],
+                    "modulos": ["MOD_BASE"], 
+                    "perms": [ "Federacao", "FederacaoSave", "FederacaoRemove", "FederacaoBlock", "FederacaoAdmin"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "cargos",
+                    "titulo": "Cargos", 
+                    "sref": "SmartChurchPanel.staff.cargos.buscar",
+                    "states": ["SmartChurchPanel.staff.cargos.buscar","SmartChurchPanel.staff.cargos.adicionar","SmartChurchPanel.staff.cargos.editar"],
+                    "modulos": ["MOD_BASE"], 
+                    "perms": [ "Cargo", "CargoSave", "CargoRemove"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "tagsagenda",
+                    "titulo": "Tags Agenda", 
+                    "sref": "SmartChurchPanel.staff.tagsagenda.buscar",
+                    "states": ["SmartChurchPanel.staff.tagsagenda.buscar","SmartChurchPanel.staff.tagsagenda.adicionar","SmartChurchPanel.staff.tagsagenda.editar"],
+                    "modulos": ["MOD_BASE"], 
+                    "perms": [ "TagAgenda", "TagAgendaSave", "TagAgendaRemove", "TagAgendaBlock"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "profissoes",
+                    "titulo": "Profissões", 
+                    "sref": "SmartChurchPanel.staff.profissoes.buscar",
+                    "states": ["SmartChurchPanel.staff.profissoes.buscar","SmartChurchPanel.staff.profissoes.adicionar","SmartChurchPanel.staff.profissoes.editar"],
+                    "modulos": ["MOD_BASE"], 
+                    "perms": [ "Profissao", "ProfissaoSave", "ProfissaoRemove"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "doacoes",
+                    "titulo": "Doações", 
+                    "sref": "SmartChurchPanel.staff.doacoes.buscar",
+                    "states": ["SmartChurchPanel.staff.doacoes.buscar","SmartChurchPanel.staff.doacoes.adicionar","SmartChurchPanel.staff.doacoes.editar"],
+                    "modulos": ["MOD_BASE"], 
+                    "perms": [ "Doacao", "DoacaoSave", "DoacaoRemove"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "necessidadesespeciais",
+                    "titulo": "Necessidades", 
+                    "sref": "SmartChurchPanel.staff.necessidadesespeciais.buscar",
+                    "states": ["SmartChurchPanel.staff.necessidadesespeciais.buscar","SmartChurchPanel.staff.necessidadesespeciais.adicionar",
+                                "SmartChurchPanel.staff.necessidadesespeciais.editar"],
+                    "modulos": ["MOD_BASE"], 
+                    "perms": [ "Necessidade", "NecessidadeSave", "NecessidadeRemove"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "motivosrecusa",
+                    "titulo": "Motivos Recusa", 
+                    "sref": "SmartChurchPanel.staff.motivosrecusa.buscar",
+                    "states": ["SmartChurchPanel.staff.motivosrecusa.buscar","SmartChurchPanel.staff.motivosrecusa.adicionar","SmartChurchPanel.staff.motivosrecusa.editar"],
+                    "modulos": ["MOD_BASE"], 
+                    "perms": [ "MotivoRecusa", "MotivoRecusaSave", "MotivoRecusaRemove"], 
+                    "setted": []
+                }
+            ]
+        }, 
+        {
+            "nome": "cliente",
+            "titulo": "Cliente", 
+            "icon": "fas fa-user-tag", 
+            "modulos": ["MOD_BASE"], 
+            "setted": [],
+            "submenus": [
+                { 
+                    "nome": "clientes",
+                    "titulo": "Clientes", 
+                    "sref": "SmartChurchPanel.staff.clientes.buscar",
+                    "states": ["SmartChurchPanel.staff.clientes.buscar","SmartChurchPanel.staff.clientes.adicionar","SmartChurchPanel.staff.clientes.editar"],
+                    "modulos": ["MOD_BASE"], 
+                    "perms": [ "Cliente", "ClienteSave", "ClienteRemove", "ClienteBlock"], 
+                    "setted": []
+                }
+            ]
+        },
+        { 
+            "nome": "igreja",
+            "titulo": "Igreja", 
+            "icon": "fas fa-church", 
+            "modulos": ["MOD_BASE","MOD_B_IGREJA","MOD_IGREJA","MOD_EBD","MOD_EVENTOS","MOD_AGENDA","MOD_ELEICOES","MOD_FINANCAS"], 
+            "setted": ["manage_igreja"],
+            "submenus": [
+                { 
+                    "nome": "dados",
+                    "titulo": "Dados da Igreja", 
+                    "sref": "SmartChurchPanel.igreja.dados.editar",
+                    "states": ["SmartChurchPanel.igreja.dados.editar"],
+                    "modulos": ["MOD_BASE"], 
+                    "perms": [ "InstanciaSave"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "congregacoes",
+                    "titulo": "Congregações", 
+                    "sref": "SmartChurchPanel.igreja.congregacoes.buscar",
+                    "states": ["SmartChurchPanel.igreja.congregacoes.buscar","SmartChurchPanel.igreja.congregacoes.adicionar","SmartChurchPanel.igreja.congregacoes.editar"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "CongregacaoIgreja", "CongregacaoIgrejaSave", "CongregacaoIgrejaRemove", "CongregacaoIgrejaBlock"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "pontosdepregacao",
+                    "titulo": "Pontos", 
+                    "sref": "SmartChurchPanel.igreja.pontosdepregacao.buscar",
+                    "states": ["SmartChurchPanel.igreja.pontosdepregacao.buscar","SmartChurchPanel.igreja.pontosdepregacao.adicionar","SmartChurchPanel.igreja.pontosdepregacao.editar"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "PontoIgreja", "PontoIgrejaSave", "PontoIgrejaRemove", "PontoIgrejaBlock"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "membros",
+                    "titulo": "Membresia", 
+                    "sref": "SmartChurchPanel.igreja.membros.buscar",
+                    "states": ["SmartChurchPanel.igreja.membros.buscar","SmartChurchPanel.igreja.membros.adicionar",
+                                "SmartChurchPanel.igreja.membros.editar"],
+                    "modulos": ["MOD_B_IGREJA"], 
+                    "perms": [ "MembroIgreja", "MembroIgrejaSave", "MembroIgrejaRemove", "MembroIgrejaBlock", "MembroIgrejaEspeciais"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "secretarias",
+                    "titulo": "Secretarias", 
+                    "sref": "SmartChurchPanel.igreja.secretarias.buscar",
+                    "states": ["SmartChurchPanel.igreja.secretarias.buscar","SmartChurchPanel.igreja.secretarias.adicionar","SmartChurchPanel.igreja.secretarias.editar",
+                                    "SmartChurchPanel.igreja.secretarias.secretarios.buscar","SmartChurchPanel.igreja.secretarias.secretarios.adicionar",
+                                    "SmartChurchPanel.igreja.secretarias.secretarios.editar"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "SecretariaIgreja", "SecretariaIgrejaSave", "SecretariaIgrejaRemove", "SecretariaIgrejaBlock", 
+                                "SecretariaIgrejaPessoa"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "ministerios",
+                    "titulo": "Ministérios", 
+                    "sref": "SmartChurchPanel.igreja.ministerios.buscar",
+                    "states": ["SmartChurchPanel.igreja.ministerios.buscar","SmartChurchPanel.igreja.ministerios.adicionar","SmartChurchPanel.igreja.ministerios.editar",
+                                    "SmartChurchPanel.igreja.ministerios.participantes.buscar","SmartChurchPanel.igreja.ministerios.participantes.adicionar",
+                                    "SmartChurchPanel.igreja.ministerios.participantes.editar"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "MinisterioIgreja", "MinisterioIgrejaSave", "MinisterioIgrejaRemove", "MinisterioIgrejaBlock", "MinisterioIgrejaPessoa"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "sociedades",
+                    "titulo": "Sociedades", 
+                    "sref": "SmartChurchPanel.igreja.sociedades.buscar",
+                    "states": ["SmartChurchPanel.igreja.sociedades.buscar","SmartChurchPanel.igreja.sociedades.adicionar","SmartChurchPanel.igreja.sociedades.editar",
+                                    "SmartChurchPanel.igreja.sociedades.socios.buscar","SmartChurchPanel.igreja.sociedades.socios.adicionar",
+                                    "SmartChurchPanel.igreja.sociedades.socios.editar"],
+                    "modulos": ["MOD_B_IGREJA"], 
+                    "perms": [ "SociedadeIgreja", "SociedadeIgrejaSave", "SociedadeIgrejaRemove", "SociedadeIgrejaBlock",
+                                "SociedadeIgrejaSocio"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "pequenosgrupos",
+                    "titulo": "Pequenos Grupos", 
+                    "sref": "SmartChurchPanel.igreja.pequenosgrupos.buscar",
+                    "states": ["SmartChurchPanel.igreja.pequenosgrupos.buscar","SmartChurchPanel.igreja.pequenosgrupos.adicionar",
+                                    "SmartChurchPanel.igreja.pequenosgrupos.editar","SmartChurchPanel.igreja.pequenosgrupos.participantes.buscar",
+                                    "SmartChurchPanel.igreja.pequenosgrupos.participantes.adicionar",
+                                    "SmartChurchPanel.igreja.pequenosgrupos.participantes.editar"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "PequenoGrupoIgreja", "PequenoGrupoIgrejaSave", "PequenoGrupoIgrejaRemove", "PequenoGrupoIgrejaBlock", 
+                                "PequenoGrupoIgrejaParticipantes"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "pastores",
+                    "titulo": "Pastores", 
+                    "sref": "SmartChurchPanel.igreja.pastores.buscar",
+                    "states": ["SmartChurchPanel.igreja.pastores.buscar","SmartChurchPanel.igreja.pastores.adicionar","SmartChurchPanel.igreja.pastores.editar"],
+                    "modulos": ["MOD_B_IGREJA"], 
+                    "perms": [ "PastorIgreja", "PastorIgrejaSave", "PastorIgrejaRemove", "PastorIgrejaBlock"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "evangelistas",
+                    "titulo": "Evangelistas", 
+                    "sref": "SmartChurchPanel.igreja.evangelistas.buscar",
+                    "states": ["SmartChurchPanel.igreja.evangelistas.buscar","SmartChurchPanel.igreja.evangelistas.adicionar","SmartChurchPanel.igreja.evangelistas.editar"],
+                    "modulos": ["MOD_B_IGREJA"], 
+                    "perms": [ "EvangelistaIgreja", "EvangelistaIgrejaSave", "EvangelistaIgrejaRemove", "EvangelistaIgrejaBlock"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "presbiteros",
+                    "titulo": "Presbíteros", 
+                    "sref": "SmartChurchPanel.igreja.presbiteros.buscar",
+                    "states": ["SmartChurchPanel.igreja.presbiteros.buscar","SmartChurchPanel.igreja.presbiteros.adicionar","SmartChurchPanel.igreja.presbiteros.editar"],
+                    "modulos": ["MOD_B_IGREJA"], 
+                    "perms": [ "PresbiteroIgreja", "PresbiteroIgrejaSave", "PresbiteroIgrejaRemove", "PresbiteroIgrejaBlock"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "diaconos",
+                    "titulo": "Diáconos", 
+                    "sref": "SmartChurchPanel.igreja.diaconos.buscar",
+                    "states": ["SmartChurchPanel.igreja.diaconos.buscar","SmartChurchPanel.igreja.diaconos.adicionar","SmartChurchPanel.igreja.diaconos.editar"],
+                    "modulos": ["MOD_B_IGREJA"], 
+                    "perms": [ "DiaconoIgreja", "DiaconoIgrejaSave", "DiaconoIgrejaRemove", "DiaconoIgrejaBlock"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "oficiais",
+                    "titulo": "Oficiais", 
+                    "sref": "SmartChurchPanel.igreja.oficiais.buscar",
+                    "states": ["SmartChurchPanel.igreja.oficiais.buscar","SmartChurchPanel.igreja.oficiais.adicionar","SmartChurchPanel.igreja.oficiais.editar"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "OficialIgreja", "OficialIgrejaSave", "OficialIgrejaRemove", "OficialIgrejaBlock"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "conselho",
+                    "titulo": "Conselho", 
+                    "sref": "SmartChurchPanel.igreja.conselho.buscar",
+                    "states": ["SmartChurchPanel.igreja.conselho.buscar"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "ConselhoIgreja", "ConselhoIgrejaManage"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "junta",
+                    "titulo": "Junta", 
+                    "sref": "SmartChurchPanel.igreja.junta.buscar",
+                    "states": ["SmartChurchPanel.igreja.junta.buscar"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "JuntaIgreja", "JuntaIgrejaManage"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "agenda",
+                    "titulo": "Agenda", 
+                    "sref": "SmartChurchPanel.igreja.agenda.buscar",
+                    "states": ["SmartChurchPanel.igreja.agenda.buscar","SmartChurchPanel.igreja.agenda.adicionar","SmartChurchPanel.igreja.agenda.editar"],
+                    "modulos": ["MOD_AGENDA"], 
+                    "perms": [ "AgendaIgreja", "AgendaIgrejaSave", "AgendaIgrejaRemove", "AgendaIgrejaBlock"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "eventos",
+                    "titulo": "Eventos", 
+                    "sref": "SmartChurchPanel.igreja.eventos.buscar",
+                    "states": ["SmartChurchPanel.igreja.eventos.buscar","SmartChurchPanel.igreja.eventos.adicionar","SmartChurchPanel.igreja.eventos.editar"],
+                    "modulos": ["MOD_EVENTOS"], 
+                    "perms": [ "EventoIgreja", "EventoIgrejaSave", "EventoIgrejaRemove", "EventoIgrejaBlock", "EventoIgrejaManage"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "eleicoes",
+                    "titulo": "Eleições", 
+                    "sref": "SmartChurchPanel.igreja.eleicoes.buscar",
+                    "states": ["SmartChurchPanel.igreja.eleicoes.buscar","SmartChurchPanel.igreja.eleicoes.adicionar","SmartChurchPanel.igreja.eleicoes.editar"],
+                    "modulos": ["MOD_ELEICOES"], 
+                    "perms": [ "EleicaoIgreja", "EleicaoIgrejaSave", "EleicaoIgrejaRemove", "EleicaoIgrejaBlock", "EleicaoIgrejaManage"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "financas",
+                    "titulo": "Finanças", 
+                    "sref": "SmartChurchPanel.igreja.financas.gerenciar",
+                    "states": ["SmartChurchPanel.igreja.financas.gerenciar"],
+                    "modulos": ["MOD_FINANCAS"], 
+                    "perms": [ "FinancaIgreja"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "transmissoes",
+                    "titulo": "Transmissões", 
+                    "sref": "SmartChurchPanel.igreja.transmissoes.buscar",
+                    "states": ["SmartChurchPanel.igreja.transmissoes.buscar","SmartChurchPanel.igreja.transmissoes.adicionar",
+                                    "SmartChurchPanel.igreja.transmissoes.editar","SmartChurchPanel.igreja.transmissoes.ver"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "TransmissaoIgreja", "TransmissaoIgrejaSave", "TransmissaoIgrejaRemove", "TransmissaoIgrejaBlock"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "superintendencia",
+                    "titulo": "Superintendência", 
+                    "sref": "SmartChurchPanel.igreja.superintendencia.buscar",
+                    "states": ["SmartChurchPanel.igreja.superintendencia.buscar","SmartChurchPanel.igreja.superintendencia.adicionar",
+                                    "SmartChurchPanel.igreja.superintendencia.editar"],
+                    "modulos": ["MOD_EBD"], 
+                    "perms": [ "SuperintendenciaIgreja", "SuperintendenciaIgrejaSave", "SuperintendenciaIgrejaRemove", "SuperintendenciaIgrejaBlock"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "mural",
+                    "titulo": "Mural", 
+                    "sref": "SmartChurchPanel.igreja.mural.buscar",
+                    "states": ["SmartChurchPanel.igreja.mural.buscar","SmartChurchPanel.igreja.mural.adicionar",
+                                    "SmartChurchPanel.igreja.mural.editar"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "Mural", "MuralSave", "MuralRemove", "MuralBlock"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "pedidosdeoracao",
+                    "titulo": "Pedidos de Oração", 
+                    "sref": "SmartChurchPanel.igreja.pedidosdeoracao.buscar",
+                    "states": ["SmartChurchPanel.igreja.pedidosdeoracao.buscar"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "PedidosOracaoIgreja"], 
+                    "setted": []
+                }
+            ]
+        },
+        { 
+            "nome": "presbiterio",
+            "titulo": "Presbitério", 
+            "icon": "fas fa-chess-bishop", 
+            "modulos": ["MOD_IGREJA","MOD_EVENTOS","MOD_ELEICOES","MOD_FINANCAS"], 
+            "setted": ["manage_presbiterio"],
+            "submenus": [
+                { 
+                    "nome": "igrejasdopresbiterio",
+                    "titulo": "Igrejas", 
+                    "sref": "SmartChurchPanel.igrejasdopresbiterio.buscar",
+                    "states": ["SmartChurchPanel.igrejasdopresbiterio.buscar","SmartChurchPanel.igrejasdopresbiterio.adicionar","SmartChurchPanel.igrejasdopresbiterio.editar"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "IgrejaPresbiterio", "IgrejaPresbiterioSave", "IgrejaPresbiterioRemove", "IgrejaPresbiterioBlock"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "congregacoesdopresbiterio",
+                    "titulo": "Congregações", 
+                    "sref": "SmartChurchPanel.congregacoesdopresbiterio.buscar",
+                    "states": ["SmartChurchPanel.congregacoesdopresbiterio.buscar","SmartChurchPanel.congregacoesdopresbiterio.adicionar","SmartChurchPanel.congregacoesdopresbiterio.editar"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "CongregacaoPresbiterio", "CongregacaoPresbiterioSave", "CongregacaoPresbiterioRemove", "CongregacaoPresbiterioBlock"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "pontosdopresbiterio",
+                    "titulo": "Pontos", 
+                    "sref": "SmartChurchPanel.pontosdopresbiterio.buscar",
+                    "states": ["SmartChurchPanel.pontosdopresbiterio.buscar","SmartChurchPanel.pontosdopresbiterio.adicionar","SmartChurchPanel.pontosdopresbiterio.editar"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "PontoPresbiterio", "PontoPresbiterioSave", "PontoPresbiterioRemove", "PontoPresbiterioBlock"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "diretoriadopresbiterio",
+                    "titulo": "Diretoria", 
+                    "sref": "SmartChurchPanel.diretoriadopresbiterio.buscar",
+                    "states": ["SmartChurchPanel.diretoriadopresbiterio.buscar","SmartChurchPanel.diretoriadopresbiterio.adicionar",
+                                    "SmartChurchPanel.diretoriadopresbiterio.editar","SmartChurchPanel.diretoriadopresbiterio.oficiais"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "DiretoriaPresbiterio", "DiretoriaPresbiterioSave", "DiretoriaPresbiterioRemove", "DiretoriaPresbiterioBlock", 
+                                "DiretoriaPresbiterioOficiais"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "secretariasdopresbiterio",
+                    "titulo": "Secretarias", 
+                    "sref": "SmartChurchPanel.secretariasdopresbiterio.buscar",
+                    "states": ["SmartChurchPanel.secretariasdopresbiterio.buscar","SmartChurchPanel.secretariasdopresbiterio.adicionar",
+                        "SmartChurchPanel.secretariasdopresbiterio.editar"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "SecretariaPresbiterio", "SecretariaPresbiterioSave", "SecretariaPresbiterioRemove", "SecretariaPresbiterioBlock", 
+                                "SecretariaPresbiterioManage"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "executivadopresbiterio",
+                    "titulo": "Executiva", 
+                    "sref": "SmartChurchPanel.executivadopresbiterio.buscar",
+                    "states": ["SmartChurchPanel.executivadopresbiterio.buscar","SmartChurchPanel.executivadopresbiterio.adicionar","SmartChurchPanel.executivadopresbiterio.editar",
+                                    "SmartChurchPanel.executivadopresbiterio.participantes"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "ExecutivaPresbiterio", "ExecutivaPresbiterioSave", "ExecutivaPresbiterioRemove", 
+                                    "ExecutivaPresbiterioBlock", "ExecutivaPresbiterioParticipantes"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "federacoesdopresbiterio",
+                    "titulo": "Federações", 
+                    "sref": "SmartChurchPanel.federacoesdopresbiterio.buscar",
+                    "states": ["SmartChurchPanel.federacoesdopresbiterio.buscar","SmartChurchPanel.federacoesdopresbiterio.adicionar","SmartChurchPanel.federacoesdopresbiterio.editar"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "FederacaoPresbiterio", "FederacaoPresbiterioSave", "FederacaoPresbiterioRemove", "FederacaoPresbiterioBlock"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "agendadopresbiterio",
+                    "titulo": "Agenda", 
+                    "sref": "SmartChurchPanel.agendadopresbiterio.buscar",
+                    "states": ["SmartChurchPanel.agendadopresbiterio.buscar","SmartChurchPanel.agendadopresbiterio.adicionar","SmartChurchPanel.agendadopresbiterio.editar"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "AgendaPresbiterio", "AgendaPresbiterioSave", "AgendaPresbiterioRemove", "AgendaPresbiterioBlock"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "eventosdopresbiterio",
+                    "titulo": "Eventos", 
+                    "sref": "SmartChurchPanel.eventosdopresbiterio.buscar",
+                    "states": ["SmartChurchPanel.eventosdopresbiterio.buscar","SmartChurchPanel.eventosdopresbiterio.adicionar","SmartChurchPanel.eventosdopresbiterio.editar"],
+                    "modulos": ["MOD_EVENTOS"], 
+                    "perms": [ "EventoPresbiterio", "EventoPresbiterioSave", "EventoPresbiterioRemove", "EventoPresbiterioBlock", "EventoPresbiterioManage"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "eleicoesdopresbiterio",
+                    "titulo": "Eleições", 
+                    "sref": "SmartChurchPanel.eleicoesdopresbiterio.buscar",
+                    "states": ["SmartChurchPanel.eleicoesdopresbiterio.buscar","SmartChurchPanel.eleicoesdopresbiterio.adicionar","SmartChurchPanel.eleicoesdopresbiterio.editar"],
+                    "modulos": ["MOD_ELEICOES"], 
+                    "perms": [ "EleicaoPresbiterio", "EleicaoPresbiterioSave", "EleicaoPresbiterioRemove", "EleicaoPresbiterioBlock", "EleicaoPresbiterioManage"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "financasdopresbiterio",
+                    "titulo": "Finanças", 
+                    "sref": "SmartChurchPanel.financasdopresbiterio.gerenciar",
+                    "states": ["SmartChurchPanel.financasdopresbiterio.gerenciar"],
+                    "modulos": ["MOD_FINANCAS"], 
+                    "perms": [ "FinancaPresbiterio"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "relatoriosdopresbiterio",
+                    "titulo": "Relatórios", 
+                    "sref": "SmartChurchPanel.relatoriosdopresbiterio.buscar",
+                    "states": ["SmartChurchPanel.relatoriosdopresbiterio.buscar","SmartChurchPanel.relatoriosdopresbiterio.adicionar","SmartChurchPanel.relatoriosdopresbiterio.editar"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "RelatorioPresbiterio", "RelatorioPresbiterioSave", "RelatorioPresbiterioRemove", "RelatorioPresbiterioBlock", "RelatorioPresbiterioAvail"], 
+                    "setted": []
+                }
+            ]
+        },
+        { 
+            "nome": "sinodo",
+            "titulo": "Sínodo", 
+            "icon": "fas fa-chess-queen", 
+            "modulos": ["MOD_IGREJA","MOD_EVENTOS","MOD_ELEICOES","MOD_FINANCAS"], 
+            "setted": ["manage_sinodo"],
+            "submenus": [
+                { 
+                    "nome": "presbiteriosdosinodo",
+                    "titulo": "Presbitérios", 
+                    "sref": "SmartChurchPanel.presbiteriosdosinodo.buscar",
+                    "states": ["SmartChurchPanel.presbiteriosdosinodo.buscar","SmartChurchPanel.presbiteriosdosinodo.adicionar","SmartChurchPanel.presbiteriosdosinodo.editar"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "PresbiterioSinodo", "PresbiterioSinodoSave", "PresbiterioSinodoRemove", "PresbiterioSinodoBlock"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "diretoriadosinodo",
+                    "titulo": "Diretoria", 
+                    "sref": "SmartChurchPanel.diretoriadosinodo.buscar",
+                    "states": ["SmartChurchPanel.diretoriadosinodo.buscar","SmartChurchPanel.diretoriadosinodo.adicionar",
+                                    "SmartChurchPanel.diretoriadosinodo.editar","SmartChurchPanel.diretoriadosinodo.oficiais"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "DiretoriaSinodo", "DiretoriaSinodoSave", "DiretoriaSinodoRemove", "DiretoriaSinodoBlock", "DiretoriaSinodoOficiais"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "secretariasdosinodo",
+                    "titulo": "Secretarias", 
+                    "sref": "SmartChurchPanel.secretariasdosinodo.buscar",
+                    "states": ["SmartChurchPanel.secretariasdosinodo.buscar","SmartChurchPanel.secretariasdosinodo.adicionar",
+                        "SmartChurchPanel.secretariasdosinodo.editar"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "SecretariaSinodo", "SecretariaSinodoSave", "SecretariaSinodoRemove", "SecretariaSinodoBlock", 
+                                "SecretariaSinodoManage"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "executivadosinodo",
+                    "titulo": "Executiva", 
+                    "sref": "SmartChurchPanel.executivadosinodo.buscar",
+                    "states": ["SmartChurchPanel.executivadosinodo.buscar","SmartChurchPanel.executivadosinodo.adicionar","SmartChurchPanel.executivadosinodo.editar",
+                                    "SmartChurchPanel.executivadosinodo.participantes"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "ExecutivaSinodo", "ExecutivaSinodoSave", "ExecutivaSinodoRemove", 
+                                    "ExecutivaSinodoBlock", "ExecutivaSinodoParticipantes"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "sinodaisdosinodo",
+                    "titulo": "Sinodais", 
+                    "sref": "SmartChurchPanel.sinodaisdosinodo.buscar",
+                    "states": ["SmartChurchPanel.sinodaisdosinodo.buscar","SmartChurchPanel.sinodaisdosinodo.adicionar","SmartChurchPanel.sinodaisdosinodo.editar"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "SinodalSinodo", "SinodalSinodoSave", "SinodalSinodoRemove", "SinodalSinodoBlock"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "agendadosinodo",
+                    "titulo": "Agenda", 
+                    "sref": "SmartChurchPanel.agendadosinodo.buscar",
+                    "states": ["SmartChurchPanel.agendadosinodo.buscar","SmartChurchPanel.agendadosinodo.adicionar","SmartChurchPanel.agendadosinodo.editar"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "AgendaSinodo", "AgendaSinodoSave", "AgendaSinodoRemove", "AgendaSinodoBlock"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "eventosdosinodo",
+                    "titulo": "Eventos", 
+                    "sref": "SmartChurchPanel.eventosdosinodo.buscar",
+                    "states": ["SmartChurchPanel.eventosdosinodo.buscar","SmartChurchPanel.eventosdosinodo.adicionar","SmartChurchPanel.eventosdosinodo.editar"],
+                    "modulos": ["MOD_EVENTOS"], 
+                    "perms": [ "EventoSinodo", "EventoSinodoSave", "EventoSinodoRemove", "EventoSinodoBlock", "EventoSinodoManage"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "eleicoesdosinodo",
+                    "titulo": "Eleições", 
+                    "sref": "SmartChurchPanel.eleicoesdosinodo.buscar",
+                    "states": ["SmartChurchPanel.eleicoesdosinodo.buscar","SmartChurchPanel.eleicoesdosinodo.adicionar","SmartChurchPanel.eleicoesdosinodo.editar"],
+                    "modulos": ["MOD_ELEICOES"], 
+                    "perms": [ "EleicaoSinodo", "EleicaoSinodoSave", "EleicaoSinodoRemove", "EleicaoSinodoBlock", "EleicaoSinodoManage"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "financasdosinodo",
+                    "titulo": "Finanças", 
+                    "sref": "SmartChurchPanel.financasdosinodo.gerenciar",
+                    "states": ["SmartChurchPanel.financasdosinodo.gerenciar"],
+                    "modulos": ["MOD_FINANCAS"], 
+                    "perms": [ "FinancaSinodo"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "relatoriosdosinodo",
+                    "titulo": "Relatórios", 
+                    "sref": "SmartChurchPanel.relatoriosdosinodo.buscar",
+                    "states": ["SmartChurchPanel.relatoriosdosinodo.buscar","SmartChurchPanel.relatoriosdosinodo.adicionar","SmartChurchPanel.relatoriosdosinodo.editar"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "RelatorioSinodo", "RelatorioSinodoSave", "RelatorioSinodoRemove", "RelatorioSinodoBlock", "RelatorioSinodoAvail"], 
+                    "setted": []
+                }
+            ]
+        },
+        { 
+            "nome": "federacao",
+            "titulo": "Federação", 
+            "icon": "fab fa-buffer", 
+            "modulos": ["MOD_IGREJA","MOD_B_IGREJA","MOD_EVENTOS","MOD_ELEICOES","MOD_FINANCAS","MOD_AGENDA"], 
+            "setted": ["manage_federacao"],
+            "submenus": [
+                { 
+                    "nome": "igrejasdafederacao",
+                    "titulo": "Igrejas", 
+                    "sref": "SmartChurchPanel.igrejasdafederacao.buscar",
+                    "states": ["SmartChurchPanel.igrejasdafederacao.buscar"],
+                    "modulos": ["MOD_B_IGREJA"], 
+                    "perms": [ "IgrejaFederacao"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "congregacoesdafederacao",
+                    "titulo": "Congregações", 
+                    "sref": "SmartChurchPanel.congregacoesdafederacao.buscar",
+                    "states": ["SmartChurchPanel.congregacoesdafederacao.buscar"],
+                    "modulos": ["MOD_B_IGREJA"], 
+                    "perms": [ "CongregacaoFederacao"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "pontosdafederacao",
+                    "titulo": "Pontos", 
+                    "sref": "SmartChurchPanel.pontosdafederacao.buscar",
+                    "states": ["SmartChurchPanel.pontosdafederacao.buscar"],
+                    "modulos": ["MOD_B_IGREJA"], 
+                    "perms": [ "PontoFederacao"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "sociedadesdafederacao",
+                    "titulo": "Sociedades", 
+                    "sref": "SmartChurchPanel.sociedadesdafederacao.buscar",
+                    "states": ["SmartChurchPanel.sociedadesdafederacao.buscar"],
+                    "modulos": ["MOD_B_IGREJA"], 
+                    "perms": [ "SociedadeFederacao"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "pessoasdafederacao",
+                    "titulo": "Pessoas", 
+                    "sref": "SmartChurchPanel.pessoasdafederacao.buscar",
+                    "states": ["SmartChurchPanel.pessoasdafederacao.buscar"],
+                    "modulos": ["MOD_B_IGREJA"], 
+                    "perms": [ "PessoaFederacao"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "diretoriadafederacao",
+                    "titulo": "Diretoria", 
+                    "sref": "SmartChurchPanel.diretoriadafederacao.buscar",
+                    "states": ["SmartChurchPanel.diretoriadafederacao.buscar","SmartChurchPanel.diretoriadafederacao.adicionar",
+                                    "SmartChurchPanel.diretoriadafederacao.editar","SmartChurchPanel.diretoriadafederacao.oficiais"],
+                    "modulos": ["MOD_B_IGREJA"], 
+                    "perms": [ "DiretoriaFederacao", "DiretoriaFederacaoSave", "DiretoriaFederacaoRemove", "DiretoriaFederacaoBlock", "DiretoriaFederacaoOficiais"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "secretariasdafederacao",
+                    "titulo": "Secretarias", 
+                    "sref": "SmartChurchPanel.secretariasdafederacao.buscar",
+                    "states": ["SmartChurchPanel.secretariasdafederacao.buscar","SmartChurchPanel.secretariasdafederacao.adicionar",
+                                    "SmartChurchPanel.secretariasdafederacao.editar"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "SecretariaFederacao", "SecretariaFederacaoSave", "SecretariaFederacaoRemove", "SecretariaFederacaoBlock", 
+                                "SecretariaFederacaoManage"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "executivadafederacao",
+                    "titulo": "Executiva", 
+                    "sref": "SmartChurchPanel.executivadafederacao.buscar",
+                    "states": ["SmartChurchPanel.executivadafederacao.buscar","SmartChurchPanel.executivadafederacao.adicionar","SmartChurchPanel.executivadafederacao.editar",
+                                    "SmartChurchPanel.executivadafederacao.participantes"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "ExecutivaFederacao", "ExecutivaFederacaoSave", "ExecutivaFederacaoRemove", 
+                                    "ExecutivaFederacaoBlock", "ExecutivaFederacaoParticipantes"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "agendadafederacao",
+                    "titulo": "Agenda", 
+                    "sref": "SmartChurchPanel.agendadafederacao.buscar",
+                    "states": ["SmartChurchPanel.agendadafederacao.buscar","SmartChurchPanel.agendadafederacao.adicionar","SmartChurchPanel.agendadafederacao.editar"],
+                    "modulos": ["MOD_AGENDA"], 
+                    "perms": [ "AgendaFederacao", "AgendaFederacaoSave", "AgendaFederacaoRemove", "AgendaFederacaoBlock"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "eventosdafederacao",
+                    "titulo": "Eventos", 
+                    "sref": "SmartChurchPanel.eventosdafederacao.buscar",
+                    "states": ["SmartChurchPanel.eventosdafederacao.buscar","SmartChurchPanel.eventosdafederacao.adicionar","SmartChurchPanel.eventosdafederacao.editar"],
+                    "modulos": ["MOD_EVENTOS"], 
+                    "perms": [ "EventoFederacao", "EventoFederacaoSave", "EventoFederacaoRemove", "EventoFederacaoBlock", "EventoFederacaoManage"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "eleicoesdafederacao",
+                    "titulo": "Eleições", 
+                    "sref": "SmartChurchPanel.eleicoesdafederacao.buscar",
+                    "states": ["SmartChurchPanel.eleicoesdafederacao.buscar","SmartChurchPanel.eleicoesdafederacao.adicionar","SmartChurchPanel.eleicoesdafederacao.editar"],
+                    "modulos": ["MOD_ELEICOES"], 
+                    "perms": [ "EleicaoFederacao", "EleicaoFederacaoSave", "EleicaoFederacaoRemove", "EleicaoFederacaoBlock", "EleicaoFederacaoManage"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "financasdafederacao",
+                    "titulo": "Finanças", 
+                    "sref": "SmartChurchPanel.financasdafederacao.gerenciar",
+                    "states": ["SmartChurchPanel.financasdafederacao.gerenciar"],
+                    "modulos": ["MOD_FINANCAS"], 
+                    "perms": [ "FinancaFederacao"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "relatoriosdafederacao",
+                    "titulo": "Relatórios", 
+                    "sref": "SmartChurchPanel.relatoriosdafederacao.buscar",
+                    "states": ["SmartChurchPanel.relatoriosdafederacao.buscar","SmartChurchPanel.relatoriosdafederacao.adicionar","SmartChurchPanel.relatoriosdafederacao.editar"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "RelatorioFederacao", "RelatorioFederacaoSave", "RelatorioFederacaoRemove", "RelatorioFederacaoBlock", "RelatorioFederacaoBlock"], 
+                    "setted": []
+                }
+            ]
+        },
+        { 
+            "nome": "sinodal",
+            "titulo": "Sinodal", 
+            "icon": "fas fa-layer-group", 
+            "modulos": ["MOD_BASE","MOD_B_IGREJA","MOD_CONFEDERACAO","MOD_AGENDA","MOD_EVENTOS","MOD_ELEICOES","MOD_FINANCAS"], 
+            "setted": ["manage_sinodal"],
+            "submenus": [
+                { 
+                    "nome": "dadosdasinodal",
+                    "titulo": "Dados da Sinodal", 
+                    "sref": "SmartChurchPanel.sinodal.dados.editar",
+                    "states": ["SmartChurchPanel.sinodal.dados.editar"],
+                    "modulos": ["MOD_BASE"], 
+                    "perms": [ "InstanciaSave"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "igrejasdasinodal",
+                    "titulo": "Igrejas", 
+                    "sref": "SmartChurchPanel.sinodal.igrejas.buscar",
+                    "states": ["SmartChurchPanel.sinodal.igrejas.buscar"],
+                    "modulos": ["MOD_B_IGREJA"], 
+                    "perms": [ "IgrejaSinodal"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "congregacoesdasinodal",
+                    "titulo": "Congregações", 
+                    "sref": "SmartChurchPanel.sinodal.congregacoes.buscar",
+                    "states": ["SmartChurchPanel.sinodal.congregacoes.buscar"],
+                    "modulos": ["MOD_B_IGREJA"], 
+                    "perms": [ "CongregacaoSinodal"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "pontosdasinodal",
+                    "titulo": "Pontos", 
+                    "sref": "SmartChurchPanel.sinodal.pontos.buscar",
+                    "states": ["SmartChurchPanel.sinodal.pontos.buscar"],
+                    "modulos": ["MOD_B_IGREJA"], 
+                    "perms": [ "PontoSinodal"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "federacoesdasinodal",
+                    "titulo": "Federações", 
+                    "sref": "SmartChurchPanel.sinodal.federacoes.buscar",
+                    "states": ["SmartChurchPanel.sinodal.federacoes.buscar"],
+                    "modulos": ["MOD_B_IGREJA"], 
+                    "perms": [ "FederacaoSinodal"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "sociedadesdasinodal",
+                    "titulo": "Sociedades", 
+                    "sref": "SmartChurchPanel.sinodal.sociedades.buscar",
+                    "states": ["SmartChurchPanel.sinodal.sociedades.buscar"],
+                    "modulos": ["MOD_B_IGREJA"], 
+                    "perms": [ "SociedadeSinodal"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "pessoasdasinodal",
+                    "titulo": "Pessoas", 
+                    "sref": "SmartChurchPanel.sinodal.pessoas.buscar",
+                    "states": ["SmartChurchPanel.sinodal.pessoas.buscar"],
+                    "modulos": ["MOD_B_IGREJA"], 
+                    "perms": [ "PessoaSinodal"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "diretoriasdasinodal",
+                    "titulo": "Diretoria", 
+                    "sref": "SmartChurchPanel.sinodal.diretorias.buscar",
+                    "states": ["SmartChurchPanel.sinodal.diretorias.buscar","SmartChurchPanel.sinodal.diretorias.adicionar",
+                                    "SmartChurchPanel.sinodal.diretorias.editar","SmartChurchPanel.sinodal.diretorias.oficiais.buscar",
+                                    "SmartChurchPanel.sinodal.diretorias.oficiais.adicionar","SmartChurchPanel.sinodal.diretorias.oficiais.editar"],
+                    "modulos": ["MOD_CONFEDERACAO"], 
+                    "perms": [ "DiretoriaSinodal", "DiretoriaSinodalSave", "DiretoriaSinodalRemove", "DiretoriaSinodalBlock", "DiretoriaSinodalOficiais"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "secretariasdasinodal",
+                    "titulo": "Secretarias", 
+                    "sref": "SmartChurchPanel.sinodal.secretarias.buscar",
+                    "states": ["SmartChurchPanel.sinodal.secretarias.buscar","SmartChurchPanel.sinodal.secretarias.adicionar",
+                                    "SmartChurchPanel.sinodal.secretarias.editar"],
+                    "modulos": ["MOD_CONFEDERACAO"], 
+                    "perms": [ "SecretariaSinodal", "SecretariaSinodalSave", "SecretariaSinodalRemove", "SecretariaSinodalBlock", 
+                                "SecretariaSinodalManage"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "executivadasinodal",
+                    "titulo": "Executiva", 
+                    "sref": "SmartChurchPanel.sinodal.executiva.buscar",
+                    "states": ["SmartChurchPanel.sinodal.executiva.buscar","SmartChurchPanel.sinodal.executiva.adicionar",
+                                    "SmartChurchPanel.sinodal.executiva.editar",
+                                    "SmartChurchPanel.sinodal.executiva.participantes"],
+                    "modulos": ["MOD_CONFEDERACAO"], 
+                    "perms": [ "ExecutivaSinodal", "ExecutivaSinodalSave", "ExecutivaSinodalRemove", 
+                                    "ExecutivaSinodalBlock", "ExecutivaSinodalParticipantes"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "agendadasinodal",
+                    "titulo": "Agenda", 
+                    "sref": "SmartChurchPanel.agenda.buscar",
+                    "states": ["SmartChurchPanel.sinodal.agenda.buscar","SmartChurchPanel.sinodal.agenda.adicionar",
+                                    "SmartChurchPanel.sinodal.agenda.editar"],
+                    "modulos": ["MOD_AGENDA"], 
+                    "perms": [ "AgendaSinodal", "AgendaSinodalSave", "AgendaSinodalRemove", "AgendaSinodalBlock"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "eventosdasinodal",
+                    "titulo": "Eventos", 
+                    "sref": "SmartChurchPanel.eventos.buscar",
+                    "states": ["SmartChurchPanel.sinodal.eventos.buscar","SmartChurchPanel.sinodal.eventos.adicionar",
+                                    "SmartChurchPanel.sinodal.eventos.editar"],
+                    "modulos": ["MOD_EVENTOS"], 
+                    "perms": [ "EventoSinodal", "EventoSinodalSave", "EventoSinodalRemove", "EventoSinodalBlock", "EventoSinodalManage"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "eleicoesdasinodal",
+                    "titulo": "Eleições", 
+                    "sref": "SmartChurchPanel.eleicoes.buscar",
+                    "states": ["SmartChurchPanel.sinodal.eleicoes.buscar","SmartChurchPanel.sinodal.eleicoes.adicionar",
+                                    "SmartChurchPanel.sinodal.eleicoes.editar"],
+                    "modulos": ["MOD_ELEICOES"], 
+                    "perms": [ "EleicaoSinodal", "EleicaoSinodalSave", "EleicaoSinodalRemove", "EleicaoSinodalBlock", "EleicaoSinodalManage"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "financasdasinodal",
+                    "titulo": "Finanças", 
+                    "sref": "SmartChurchPanel.sinodal.financas.gerenciar",
+                    "states": ["SmartChurchPanel.sinodal.financas.gerenciar"],
+                    "modulos": ["MOD_FINANCAS"], 
+                    "perms": [ "FinancaSinodal"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "relatoriosdasinodal",
+                    "titulo": "Relatórios", 
+                    "sref": "SmartChurchPanel.sinodal.relatorios.buscar",
+                    "states": ["SmartChurchPanel.sinodal.relatorios.buscar","SmartChurchPanel.sinodal.relatorios.adicionar",
+                                    "SmartChurchPanel.sinodal.relatorios.editar"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "RelatorioSinodal", "RelatorioSinodalSave", "RelatorioSinodalRemove", "RelatorioSinodalBlock"], 
+                    "setted": []
+                }
+            ]
+        },
+        {
+            "nome": "integracao_sinodal",
+            "titulo": "Integração", 
+            "icon": "fas fa-flask", 
+            "modulos": ["MOD_BASE"], 
+            "setted": ["manage_sinodal"],
+            "submenus": [ 
+                { 
+                    "nome": "token",
+                    "titulo": "Token", 
+                    "sref": "SmartChurchPanel.sinodal.token.gerar",
+                    "states": ["SmartChurchPanel.sinodal.token.gerar"],
+                    "modulos": ["MOD_BASE"], 
+                    "perms": [ "IntegracaoSinodal"], 
+                    "setted": []
+                }
+            ]
+        },
+        { 
+            "nome": "financas",
+            "titulo": "Finanças", 
+            "icon": "fas fa-donate", 
+            "modulos": ["MOD_FINANCAS"], 
+            "setted": ["manage_financa"],
+            "submenus": [
+                { 
+                    "nome": "integracoes",
+                    "titulo": "Integração", 
+                    "sref": "SmartChurchPanel.integracoes.buscar",
+                    "states": ["SmartChurchPanel.integracoes.buscar","SmartChurchPanel.integracoes.adicionar","SmartChurchPanel.integracoes.editar"],
+                    "modulos": ["MOD_FINANCAS"], 
+                    "perms": [ "Integracao", "IntegracaoSave", "IntegracaoRemove"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "contas",
+                    "titulo": "Contas", 
+                    "sref": "SmartChurchPanel.contas.buscar",
+                    "states": ["SmartChurchPanel.contas.buscar","SmartChurchPanel.contas.adicionar","SmartChurchPanel.contas.editar"],
+                    "modulos": ["MOD_FINANCAS"], 
+                    "perms": [ "Conta", "ContaSave", "ContaRemove", "ContaBlock"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "categorias",
+                    "titulo": "Categorias", 
+                    "sref": "SmartChurchPanel.categorias.buscar",
+                    "states": ["SmartChurchPanel.categorias.buscar","SmartChurchPanel.categorias.adicionar","SmartChurchPanel.categorias.editar"],
+                    "modulos": ["MOD_FINANCAS"], 
+                    "perms": [ "Categoria", "CategoriaSave", "CategoriaRemove", "CategoriaBlock"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "subcategorias",
+                    "titulo": "SubCategorias", 
+                    "sref": "SmartChurchPanel.subcategorias.buscar",
+                    "states": ["SmartChurchPanel.subcategorias.buscar","SmartChurchPanel.subcategorias.adicionar","SmartChurchPanel.subcategorias.editar"],
+                    "modulos": ["MOD_FINANCAS"], 
+                    "perms": [ "SubCategoria", "SubCategoriaSave", "SubCategoriaRemove", "SubCategoriaBlock"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "tags",
+                    "titulo": "Tags", 
+                    "sref": "SmartChurchPanel.tags.buscar",
+                    "states": ["SmartChurchPanel.tags.buscar","SmartChurchPanel.tags.adicionar","SmartChurchPanel.tags.editar"],
+                    "modulos": ["MOD_FINANCAS"], 
+                    "perms": [ "Tag", "TagSave", "TagRemove", "TagBlock"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "entradas",
+                    "titulo": "Entradas", 
+                    "sref": "SmartChurchPanel.entradas.buscar",
+                    "states": ["SmartChurchPanel.entradas.buscar","SmartChurchPanel.entradas.adicionar","SmartChurchPanel.entradas.editar"],
+                    "modulos": ["MOD_FINANCAS"], 
+                    "perms": [ "Entrada", "EntradaSave", "EntradaRemove", "EntradaStat"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "saidas",
+                    "titulo": "Saídas", 
+                    "sref": "SmartChurchPanel.saidas.buscar",
+                    "states": ["SmartChurchPanel.saidas.buscar","SmartChurchPanel.saidas.adicionar","SmartChurchPanel.saidas.editar"],
+                    "modulos": ["MOD_FINANCAS"], 
+                    "perms": [ "Saida", "SaidaSave", "SaidaRemove", "SaidaStat"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "balanco",
+                    "titulo": "Balanço", 
+                    "sref": "SmartChurchPanel.balanco.buscar",
+                    "states": ["SmartChurchPanel.balanco.buscar"],
+                    "modulos": ["MOD_FINANCAS"], 
+                    "perms": [ "Entrada", "Saida"], 
+                    "setted": []
+                }
+            ]
+        },
+        { 
+            "nome": "evento",
+            "titulo": "Evento", 
+            "icon": "fab fa-gripfire", 
+            "modulos": ["MOD_EVENTOS","MOD_FINANCAS","MOD_DOCUMENTOS"], 
+            "setted": ["manage_evento"],
+            "submenus": [
+                { 
+                    "nome": "inscricoes",
+                    "titulo": "Inscrições", 
+                    "sref": "SmartChurchPanel.inscricoes.buscar",
+                    "states": ["SmartChurchPanel.inscricoes.buscar","SmartChurchPanel.inscricoes.adicionar","SmartChurchPanel.inscricoes.editar"],
+                    "modulos": ["MOD_EVENTOS"], 
+                    "perms": [ "Inscricao", "InscricaoSave", "InscricaoRemove", "InscricaoBlock"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "comissoes",
+                    "titulo": "Comissões", 
+                    "sref": "SmartChurchPanel.comissoes.buscar",
+                    "states": ["SmartChurchPanel.comissoes.buscar","SmartChurchPanel.comissoes.adicionar","SmartChurchPanel.comissoes.editar","SmartChurchPanel.comissoes.participantes",
+                                "SmartChurchPanel.comissoes.relatorios.buscar","SmartChurchPanel.comissoes.relatorios.adicionar","SmartChurchPanel.comissoes.relatorios.editar"],
+                    "modulos": ["MOD_EVENTOS","MOD_DOCUMENTOS"], 
+                    "perms": [ "Comissao", "ComissaoSave", "ComissaoRemove", "ComissaoBlock", "ComissaoParticipantes", 
+                                "ComissaoRelatorios", "ComissaoRelatoriosSave", "ComissaoRelatoriosRemove", "ComissaoRelatoriosBlock", "ComissaoRelatoriosAvail"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "relatoriosdovento",
+                    "titulo": "Relatórios", 
+                    "sref": "SmartChurchPanel.relatoriosdovento.buscar",
+                    "states": ["SmartChurchPanel.relatoriosdovento.buscar","SmartChurchPanel.relatoriosdovento.adicionar","SmartChurchPanel.relatoriosdovento.editar"],
+                    "modulos": ["MOD_DOCUMENTOS"], 
+                    "perms": [ "RelatorioEvento", "RelatorioEventoSave", "RelatorioEventoRemove", "RelatorioEventoBlock", "RelatorioEventoAvail"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "checkin",
+                    "titulo": "Check-in", 
+                    "sref": "SmartChurchPanel.checkin.buscar",
+                    "states": ["SmartChurchPanel.checkin.buscar","SmartChurchPanel.checkin.marcar"],
+                    "modulos": ["MOD_EVENTOS"], 
+                    "perms": [ "Checkin", "CheckinSave"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "financasdoevento",
+                    "titulo": "Finanças", 
+                    "sref": "SmartChurchPanel.financasdoevento.gerenciar",
+                    "states": ["SmartChurchPanel.financasdoevento.gerenciar"],
+                    "modulos": ["MOD_FINANCAS"], 
+                    "perms": [ "FinancaEvento"], 
+                    "setted": []
+                }
+            ]
+        },
+        { 
+            "nome": "eleicao",
+            "titulo": "Eleição", 
+            "icon": "fas fa-vote-yea", 
+            "modulos": ["MOD_ELEICOES"], 
+            "setted": ["manage_eleicao"],
+            "submenus": [
+                { 
+                    "nome": "votacoes",
+                    "titulo": "Votações", 
+                    "sref": "SmartChurchPanel.votacoes.buscar",
+                    "states": ["SmartChurchPanel.votacoes.buscar","SmartChurchPanel.votacoes.adicionar","SmartChurchPanel.votacoes.editar","SmartChurchPanel.votacoes.eleitores",
+                                    "SmartChurchPanel.votacoes.escrutinios.buscar","SmartChurchPanel.votacoes.escrutinios.candidatos",
+                                    "SmartChurchPanel.votacoes.escrutinios.resultado"],
+                    "modulos": ["MOD_ELEICOES"], 
+                    "perms": [ "Votacao", "VotacaoSave", "VotacaoRemove", "VotacaoStat", "VotacaoEleitores", 
+                                    "VotacaoEscrutinios", "VotacaoCandidatos", "VotacaoResultado"], 
+                    "setted": []
+                }
+            ]
+        },
+        { 
+            "nome": "palavraigreja",
+            "titulo": "Palavra", 
+            "icon": "ion ion-md-book", 
+            "modulos": ["MOD_IGREJA"], 
+            "setted": ["manage_igreja"],
+            "submenus": [
+                { 
+                    "nome": "seriesdesermoes",
+                    "titulo": "Séries", 
+                    "sref": "SmartChurchPanel.igreja.seriesdesermoes.buscar",
+                    "states": ["SmartChurchPanel.igreja.seriesdesermoes.buscar","SmartChurchPanel.igreja.seriesdesermoes.adicionar",
+                                    "SmartChurchPanel.igreja.seriesdesermoes.editar","SmartChurchPanel.igreja.seriesdesermoes.ver"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "SerieSermao", "SerieSermaoSave", "SerieSermaoRemove", "SerieSermaoBlock"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "sermoes",
+                    "titulo": "Sermões", 
+                    "sref": "SmartChurchPanel.igreja.sermoes.buscar",
+                    "states": ["SmartChurchPanel.igreja.sermoes.buscar","SmartChurchPanel.igreja.sermoes.adicionar",
+                                    "SmartChurchPanel.igreja.sermoes.editar","SmartChurchPanel.igreja.sermoes.ver"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "Sermao", "SermaoSave", "SermaoRemove", "SermaoBlock"], 
+                    "setted": []
+                }
+            ]
+        },
+        { 
+            "nome": "estudoigreja",
+            "titulo": "Estudos", 
+            "icon": "fas fa-graduation-cap", 
+            "modulos": ["MOD_IGREJA"], 
+            "setted": ["manage_igreja"],
+            "submenus": [
+                { 
+                    "nome": "seriesdeestudos",
+                    "titulo": "Séries", 
+                    "sref": "SmartChurchPanel.igreja.seriesdeestudos.buscar",
+                    "states": ["SmartChurchPanel.igreja.seriesdeestudos.buscar","SmartChurchPanel.igreja.seriesdeestudos.adicionar",
+                                    "SmartChurchPanel.igreja.seriesdeestudos.editar","SmartChurchPanel.igreja.seriesdeestudos.ver"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "SerieEstudoIgreja", "SerieEstudoIgrejaSave", "SerieEstudoIgrejaRemove", "SerieEstudoIgrejaBlock"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "estudos",
+                    "titulo": "Estudos", 
+                    "sref": "SmartChurchPanel.igreja.estudos.buscar",
+                    "states": ["SmartChurchPanel.igreja.estudos.buscar","SmartChurchPanel.igreja.estudos.adicionar",
+                                    "SmartChurchPanel.igreja.estudos.editar","SmartChurchPanel.igreja.estudos.ver"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "EstudoIgreja", "EstudoIgrejaSave", "EstudoIgrejaRemove", "EstudoIgrejaBlock"], 
+                    "setted": []
+                }
+            ]
+        },
+        { 
+            "nome": "minhaigreja",
+            "titulo": "Igreja", 
+            "icon": "fas fa-church", 
+            "modulos": ["MOD_IGREJA"], 
+            "setted": [ "ver_igreja"],
+            "submenus": [
+                {
+                    "nome": "palavra",
+                    "titulo": "Palavra", 
+                    "sref": "SmartChurchPanel.smartapp.palavra.buscar",
+                    "states": ["SmartChurchPanel.smartapp.palavra.buscar","SmartChurchPanel.smartapp.palavra.ver"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "DataView"], 
+                    "setted": [],
+                    "submenus": []
+                },
+                {
+                    "nome": "transmissoes",
+                    "titulo": "Transmissões", 
+                    "sref": "SmartChurchPanel.smartapp.transmissoes.buscar",
+                    "states": ["SmartChurchPanel.smartapp.transmissoes.buscar"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "DataView"], 
+                    "setted": [],
+                    "submenus": [ ]
+                },
+                {
+                    "nome": "pedidosdeoracao",
+                    "titulo": "Pedidos de Oração", 
+                    "sref": "SmartChurchPanel.smartapp.pedidosdeoracaonaigreja.buscar",
+                    "states": ["SmartChurchPanel.smartapp.pedidosdeoracaonaigreja.buscar",
+                                "SmartChurchPanel.smartapp.pedidosdeoracaonaigreja.adicionar",
+                                "SmartChurchPanel.smartapp.pedidosdeoracaonaigreja.editar"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "Dados"], 
+                    "setted": [],
+                    "submenus": [ ]
+                }
+            ]
+        },
+        { 
+            "nome": "minhasociedade",
+            "titulo": "Sociedade", 
+            "icon": "fas fa-star", 
+            "modulos": ["MOD_IGREJA"], 
+            "setted": [ "ver_sociedade"],
+            "submenus": [
+                {
+                    "nome": "pedidosdeoracao",
+                    "titulo": "Pedidos de Oração", 
+                    "sref": "SmartChurchPanel.smartapp.pedidosdeoracaonasociedade.buscar",
+                    "states": ["SmartChurchPanel.smartapp.pedidosdeoracaonasociedade.buscar",
+                                "SmartChurchPanel.smartapp.pedidosdeoracaonasociedade.adicionar",
+                                "SmartChurchPanel.smartapp.pedidosdeoracaonasociedade.editar"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "Dados"], 
+                    "setted": [],
+                    "submenus": [ ]
+                }
+            ]
+        },
+        {
+            "nome": "integracao",
+            "titulo": "Integração", 
+            "icon": "fas fa-flask", 
+            "modulos": ["MOD_IGREJA"], 
+            "setted": ["manage_igreja"],
+            "submenus": [ 
+                { 
+                    "nome": "token",
+                    "titulo": "Token", 
+                    "sref": "SmartChurchPanel.igreja.token.gerar",
+                    "states": ["SmartChurchPanel.igreja.token.gerar"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "IntegracaoIgreja"], 
+                    "setted": []
+                }
+            ]
+        },
+        { 
+            "nome": "ebd",
+            "titulo": "Escola Dominical", 
+            "icon": "fas fa-school", 
+            "modulos": ["MOD_EBD"], 
+            "setted": ["manage_igreja"],
+            "submenus": [
+                { 
+                    "nome": "salasebd",
+                    "titulo": "Salas", 
+                    "sref": "SmartChurchPanel.salasebd.buscar",
+                    "states": ["SmartChurchPanel.salasebd.buscar","SmartChurchPanel.salasebd.adicionar","SmartChurchPanel.salasebd.editar",
+                        "SmartChurchPanel.salasebd.professores.buscar","SmartChurchPanel.salasebd.professores.adicionar","SmartChurchPanel.salasebd.professores.editar",
+                        "SmartChurchPanel.salasebd.alunos.buscar","SmartChurchPanel.salasebd.alunos.adicionar","SmartChurchPanel.salasebd.alunos.editar",
+                        "SmartChurchPanel.salasebd.frequencias.buscar","SmartChurchPanel.salasebd.frequencias.adicionar","SmartChurchPanel.salasebd.frequencias.editar"],
+                    "modulos": ["MOD_EBD"], 
+                    "perms": [ "SalaEBD", "SalaEBDSave", "SalaEBDRemove", "SalaEBDBlock", "SalaEBDProfessores", "SalaEBDAlunos", 
+                        "FrequenciaEBD", "FrequenciaEBDSave", "FrequenciaEBDRemove"], 
+                    "setted": []
+                }
+            ]
+        },
+        { 
+            "nome": "secretaria",
+            "titulo": "Secretaria", 
+            "icon": "ion ion-md-hammer", 
+            "modulos": ["MOD_IGREJA","MOD_CONFEDERACAO","MOD_AGENDA","MOD_FINANCAS","MOD_DOCUMENTOS"], 
+            "setted": ["manage_secretaria"],
+            "submenus": [
+                { 
+                    "nome": "agendadasecretaria",
+                    "titulo": "Agenda", 
+                    "sref": "SmartChurchPanel.agendadasecretaria.buscar",
+                    "states": ["SmartChurchPanel.agendadasecretaria.buscar","SmartChurchPanel.agendadasecretaria.adicionar","SmartChurchPanel.agendadasecretaria.editar"],
+                    "modulos": ["MOD_AGENDA"], 
+                    "perms": [ "AgendaSecretaria", "AgendaSecretariaSave", "AgendaSecretariaRemove", "AgendaSecretariaBlock"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "financasdasecretaria",
+                    "titulo": "Finanças", 
+                    "sref": "SmartChurchPanel.financasdasecretaria.gerenciar",
+                    "states": ["SmartChurchPanel.financasdasecretaria.gerenciar"],
+                    "modulos": ["MOD_FINANCAS"], 
+                    "perms": [ "FinancaSecretaria"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "relatoriossecretaria",
+                    "titulo": "Relatórios", 
+                    "sref": "SmartChurchPanel.relatoriosdasecretaria.buscar",
+                    "states": ["SmartChurchPanel.relatoriosdasecretaria.buscar","SmartChurchPanel.relatoriosdasecretaria.adicionar","SmartChurchPanel.relatoriosdasecretaria.editar"],
+                    "modulos": ["MOD_DOCUMENTOS"], 
+                    "perms": [ "RelatorioSecretaria", "RelatorioSecretariaSave", "RelatorioSecretariaRemove", "RelatorioSecretariaBlock"], 
+                    "setted": []
+                }
+            ]
+        },
+        { 
+            "nome": "ministerio",
+            "titulo": "Ministério", 
+            "icon": "fas fa-people-carry", 
+            "modulos": ["MOD_IGREJA","MOD_AGENDA","MOD_FINANCAS","MOD_EVENTOS","MOD_DOCUMENTOS"], 
+            "setted": ["manage_ministerio"],
+            "submenus": [
+                { 
+                    "nome": "participantesdoministerio",
+                    "titulo": "Participantes", 
+                    "sref": "SmartChurchPanel.participantesdoministerio.buscar",
+                    "states": ["SmartChurchPanel.participantesdoministerio.buscar","SmartChurchPanel.participantesdoministerio.adicionar",
+                                    "SmartChurchPanel.participantesdoministerio.editar"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "Servo", "ServoSave", "ServoRemove", "ServoBlock"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "secretariasdoministerio",
+                    "titulo": "Secretarias", 
+                    "sref": "SmartChurchPanel.secretariasdoministerio.buscar",
+                    "states": ["SmartChurchPanel.secretariasdoministerio.buscar","SmartChurchPanel.secretariasdoministerio.adicionar",
+                                    "SmartChurchPanel.secretariasdoministerio.editar","SmartChurchPanel.secretariasdoministerio.secretarios.buscar",
+                                    "SmartChurchPanel.secretariasdoministerio.secretarios.adicionar",
+                                    "SmartChurchPanel.secretariasdoministerio.secretarios.editar"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "SecretariaMinisterio", "SecretariaMinisterioSave", "SecretariaMinisterioRemove", "SecretariaMinisterioBlock", 
+                                "SecretariaMinisterioPessoa"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "agendadoministerio",
+                    "titulo": "Agenda", 
+                    "sref": "SmartChurchPanel.agendadoministerio.buscar",
+                    "states": ["SmartChurchPanel.agendadoministerio.buscar","SmartChurchPanel.agendadoministerio.adicionar","SmartChurchPanel.agendadoministerio.editar"],
+                    "modulos": ["MOD_AGENDA"], 
+                    "perms": [ "AgendaMinisterio", "AgendaMinisterioSave", "AgendaMinisterioRemove", "AgendaMinisterioBlock"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "eventosdoministerio",
+                    "titulo": "Eventos", 
+                    "sref": "SmartChurchPanel.eventosdoministerio.buscar",
+                    "states": ["SmartChurchPanel.eventosdoministerio.buscar","SmartChurchPanel.eventosdoministerio.adicionar","SmartChurchPanel.eventosdoministerio.editar"],
+                    "modulos": ["MOD_EVENTOS"], 
+                    "perms": [ "EventoMinisterio", "EventoMinisterioSave", "EventoMinisterioRemove", "EventoMinisterioBlock", "EventoMinisterioManage"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "financasdoministerio",
+                    "titulo": "Finanças", 
+                    "sref": "SmartChurchPanel.financasdoministerio.gerenciar",
+                    "states": ["SmartChurchPanel.financasdoministerio.gerenciar"],
+                    "modulos": ["MOD_FINANCAS"], 
+                    "perms": [ "FinancaMinisterio"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "relatoriosdoministerio",
+                    "titulo": "Relatórios", 
+                    "sref": "SmartChurchPanel.relatoriosdoministerio.buscar",
+                    "states": ["SmartChurchPanel.relatoriosdoministerio.buscar","SmartChurchPanel.relatoriosdoministerio.adicionar","SmartChurchPanel.relatoriosdoministerio.editar"],
+                    "modulos": ["MOD_DOCUMENTOS"], 
+                    "perms": [ "RelatorioMinisterio", "RelatorioMinisterioSave", "RelatorioMinisterioRemove", "RelatorioMinisterioBlock", "RelatorioMinisterioAvail"], 
+                    "setted": []
+                }
+            ]
+        },
+        { 
+            "nome": "sociedade",
+            "titulo": "Sociedade", 
+            "icon": "fas fa-star", 
+            "modulos": ["MOD_IGREJA","MOD_B_IGREJA","MOD_EVENTOS","MOD_AGENDA","MOD_FINANCAS","MOD_DOCUMENTOS"], 
+            "setted": ["manage_sociedade"],
+            "submenus": [
+                { 
+                    "nome": "socios",
+                    "titulo": "Sócios", 
+                    "sref": "SmartChurchPanel.socios.buscar",
+                    "states": ["SmartChurchPanel.socios.buscar","SmartChurchPanel.socios.adicionar","SmartChurchPanel.socios.editar"],
+                    "modulos": ["MOD_B_IGREJA"], 
+                    "perms": [ "Socio", "SocioSave", "SocioRemove", "SocioBlock"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "diretoriasdasociedade",
+                    "titulo": "Diretoria", 
+                    "sref": "SmartChurchPanel.diretoriasdasociedade.buscar",
+                    "states": ["SmartChurchPanel.diretoriasdasociedade.buscar","SmartChurchPanel.diretoriasdasociedade.adicionar",
+                                    "SmartChurchPanel.diretoriasdasociedade.editar","SmartChurchPanel.diretoriasdasociedade.oficiais.buscar",
+                                    "SmartChurchPanel.diretoriasdasociedade.oficiais.adicionar","SmartChurchPanel.diretoriasdasociedade.oficiais.editar"],
+                    "modulos": ["MOD_B_IGREJA"], 
+                    "perms": [ "DiretoriaSociedade", "DiretoriaSociedadeSave", "DiretoriaSociedadeRemove", "DiretoriaSociedadeBlock", 
+                                    "DiretoriaSociedadeOficiais"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "secretariasdasociedade",
+                    "titulo": "Secretarias", 
+                    "sref": "SmartChurchPanel.secretariasdasociedade.buscar",
+                    "states": ["SmartChurchPanel.secretariasdasociedade.buscar","SmartChurchPanel.secretariasdasociedade.adicionar","SmartChurchPanel.secretariasdasociedade.editar",
+                                    "SmartChurchPanel.secretariasdasociedade.secretarios.buscar","SmartChurchPanel.secretariasdasociedade.secretarios.adicionar",
+                                    "SmartChurchPanel.secretariasdasociedade.secretarios.editar"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "SecretariaSociedade", "SecretariaSociedadeSave", "SecretariaSociedadeRemove", "SecretariaSociedadeBlock", 
+                                "SecretariaSociedadePessoa"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "agendadasociedade",
+                    "titulo": "Agenda", 
+                    "sref": "SmartChurchPanel.agendadasociedade.buscar",
+                    "states": ["SmartChurchPanel.agendadasociedade.buscar","SmartChurchPanel.agendadasociedade.adicionar","SmartChurchPanel.agendadasociedade.editar"],
+                    "modulos": ["MOD_AGENDA"], 
+                    "perms": [ "AgendaSociedade", "AgendaSociedadeSave", "AgendaSociedadeRemove", "AgendaSociedadeBlock"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "pedidosdeoracaodasociedade",
+                    "titulo": "Pedidos de Oração", 
+                    "sref": "SmartChurchPanel.pedidosdeoracaodasociedade.buscar",
+                    "states": ["SmartChurchPanel.pedidosdeoracaodasociedade.buscar"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "PedidosOracaoSociedade"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "eventosdasociedade",
+                    "titulo": "Eventos", 
+                    "sref": "SmartChurchPanel.eventosdasociedade.buscar",
+                    "states": ["SmartChurchPanel.eventosdasociedade.buscar","SmartChurchPanel.eventosdasociedade.adicionar","SmartChurchPanel.eventosdasociedade.editar"],
+                    "modulos": ["MOD_EVENTOS"], 
+                    "perms": [ "EventoSociedade", "EventoSociedadeSave", "EventoSociedadeRemove", "EventoSociedadeBlock", "EventoSociedadeManage"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "eleicoesdasociedade",
+                    "titulo": "Eleições", 
+                    "sref": "SmartChurchPanel.eleicoesdasociedade.buscar",
+                    "states": ["SmartChurchPanel.eleicoesdasociedade.buscar","SmartChurchPanel.eleicoesdasociedade.adicionar","SmartChurchPanel.eleicoesdasociedade.editar"],
+                    "modulos": ["MOD_ELEICOES"], 
+                    "perms": [ "EleicaoSociedade", "EleicaoSociedadeSave", "EleicaoSociedadeRemove", "EleicaoSociedadeBlock", "EleicaoSociedadeManage"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "financasdasociedade",
+                    "titulo": "Finanças", 
+                    "sref": "SmartChurchPanel.financasdasociedade.gerenciar",
+                    "states": ["SmartChurchPanel.financasdasociedade.gerenciar"],
+                    "modulos": ["MOD_FINANCAS"], 
+                    "perms": [ "FinancaSociedade"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "relatoriosdasociedade",
+                    "titulo": "Relatórios", 
+                    "sref": "SmartChurchPanel.relatoriosdasociedade.buscar",
+                    "states": ["SmartChurchPanel.relatoriosdasociedade.buscar","SmartChurchPanel.relatoriosdasociedade.adicionar","SmartChurchPanel.relatoriosdasociedade.editar"],
+                    "modulos": ["MOD_DOCUMENTOS"], 
+                    "perms": [ "RelatorioSociedade", "RelatorioSociedadeSave", "RelatorioSociedadeRemove", "RelatorioSociedadeBlock", "RelatorioSociedadeAvail"], 
+                    "setted": []
+                }
+            ]
+        },
+        { 
+            "nome": "pastor",
+            "titulo": "Pastor", 
+            "icon": "fas fa-chess-bishop", 
+            "modulos": ["MOD_IGREJA"], 
+            "setted": ["manage_igreja"],
+            "submenus": [
+                { 
+                    "nome": "agendadopastor",
+                    "titulo": "Agenda", 
+                    "sref": "SmartChurchPanel.agendadopastor.buscar",
+                    "states": ["SmartChurchPanel.agendadopastor.buscar","SmartChurchPanel.agendadopastor.adicionar","SmartChurchPanel.agendadopastor.editar"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "AgendaPastor", "AgendaPastorSave", "AgendaPastorRemove", "AgendaPastorBlock"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "relatoriosdopastor",
+                    "titulo": "Relatórios", 
+                    "sref": "SmartChurchPanel.relatoriosdopastor.buscar",
+                    "states": ["SmartChurchPanel.relatoriosdopastor.buscar","SmartChurchPanel.relatoriosdopastor.adicionar","SmartChurchPanel.relatoriosdopastor.editar"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "RelatorioPastor", "RelatorioPastorSave", "RelatorioPastorRemove", "RelatorioPastorBlock"], 
+                    "setted": []
+                }
+            ]
+        },
+        { 
+            "nome": "evangelista",
+            "titulo": "Evangelista", 
+            "icon": "fas fa-chess-bishop", 
+            "modulos": ["MOD_IGREJA"], 
+            "setted": ["manage_igreja"],
+            "submenus": [
+                { 
+                    "nome": "agendadoevangelista",
+                    "titulo": "Agenda", 
+                    "sref": "SmartChurchPanel.agendadoevangelista.buscar",
+                    "states": ["SmartChurchPanel.agendadoevangelista.buscar","SmartChurchPanel.agendadoevangelista.adicionar","SmartChurchPanel.agendadoevangelista.editar"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "AgendaEvangelista", "AgendaEvangelistaSave", "AgendaEvangelistaRemove", "AgendaEvangelistaBlock"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "relatoriosdopastor",
+                    "titulo": "Relatórios", 
+                    "sref": "SmartChurchPanel.relatoriosdopastor.buscar",
+                    "states": ["SmartChurchPanel.relatoriosdopastor.buscar","SmartChurchPanel.relatoriosdopastor.adicionar","SmartChurchPanel.relatoriosdopastor.editar"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "RelatorioEvangelista", "RelatorioEvangelistaSave", "RelatorioEvangelistaRemove", "RelatorioEvangelistaBlock"], 
+                    "setted": []
+                }
+            ]
+        },
+        { 
+            "nome": "conselho",
+            "titulo": "Conselho", 
+            "icon": "fas fa-fish", 
+            "modulos": ["MOD_IGREJA"], 
+            "setted": ["manage_conselho"],
+            "submenus": [
+                { 
+                    "nome": "agendadoconselho",
+                    "titulo": "Agenda", 
+                    "sref": "SmartChurchPanel.agendadoconselho.buscar",
+                    "states": ["SmartChurchPanel.agendadoconselho.buscar","SmartChurchPanel.agendadoconselho.adicionar","SmartChurchPanel.agendadoconselho.editar"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "AgendaConselho", "AgendaConselhoSave", "AgendaConselhoRemove", "AgendaConselhoBlock"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "relatoriosdoconselho",
+                    "titulo": "Relatórios", 
+                    "sref": "SmartChurchPanel.relatoriosdoconselho.buscar",
+                    "states": ["SmartChurchPanel.relatoriosdoconselho.buscar","SmartChurchPanel.relatoriosdoconselho.adicionar","SmartChurchPanel.relatoriosdoconselho.editar"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "RelatorioConselho", "RelatorioConselhoSave", "RelatorioConselhoRemove", "RelatorioConselhoBlock", 
+                                    "RelatorioConselhoAvail"], 
+                    "setted": []
+                }
+            ]
+        },
+        { 
+            "nome": "junta",
+            "titulo": "Junta", 
+            "icon": "fas fa-hands-helping", 
+            "modulos": ["MOD_IGREJA"], 
+            "setted": ["manage_junta"],
+            "submenus": [
+                { 
+                    "nome": "agendadajunta",
+                    "titulo": "Agenda", 
+                    "sref": "SmartChurchPanel.agendadajunta.buscar",
+                    "states": ["SmartChurchPanel.agendadajunta.buscar","SmartChurchPanel.agendadajunta.adicionar","SmartChurchPanel.agendadajunta.editar"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "AgendaJunta", "AgendaJuntaSave", "AgendaJuntaRemove", "AgendaJuntaBlock"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "relatoriosdajunta",
+                    "titulo": "Relatórios", 
+                    "sref": "SmartChurchPanel.relatoriosdajunta.buscar",
+                    "states": ["SmartChurchPanel.relatoriosdajunta.buscar","SmartChurchPanel.relatoriosdajunta.adicionar","SmartChurchPanel.relatoriosdajunta.editar"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "RelatorioJunta", "RelatorioJuntaSave", "RelatorioJuntaRemove", "RelatorioJuntaBlock", "RelatorioJuntaAvail"], 
+                    "setted": []
+                }
+            ]
+        },
+        { 
+            "nome": "nacional",
+            "titulo": "Nacional", 
+            "icon": "fas fa-flag", 
+            "modulos": ["MOD_IGREJA","MOD_EVENTOS","MOD_ELEICOES","MOD_FINANCAS"], 
+            "setted": [],
+            "submenus": [
+                { 
+                    "nome": "sinodaisdanacional",
+                    "titulo": "Sinodais", 
+                    "sref": "SmartChurchPanel.sinodaisdanacional.buscar",
+                    "states": ["SmartChurchPanel.sinodaisdanacional.buscar"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "SinodalNacional"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "diretoriadanacional",
+                    "titulo": "Diretoria", 
+                    "sref": "SmartChurchPanel.diretoriadanacional.buscar",
+                    "states": ["SmartChurchPanel.diretoriadanacional.buscar","SmartChurchPanel.diretoriadanacional.adicionar",
+                                    "SmartChurchPanel.diretoriadanacional.editar","SmartChurchPanel.diretoriadanacional.oficiais"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "DiretoriaNacional", "DiretoriaNacionalSave", "DiretoriaNacionalRemove", "DiretoriaNacionalBlock", "DiretoriaNacionalOficiais"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "secretariasdanacional",
+                    "titulo": "Secretarias", 
+                    "sref": "SmartChurchPanel.secretariasdanacional.buscar",
+                    "states": ["SmartChurchPanel.secretariasdanacional.buscar","SmartChurchPanel.secretariasdanacional.adicionar",
+                        "SmartChurchPanel.secretariasdanacional.editar"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "SecretariaNacional", "SecretariaNacionalSave", "SecretariaNacionalRemove", "SecretariaNacionalBlock", 
+                                "SecretariaNacionalManage"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "executivadanacional",
+                    "titulo": "Executiva", 
+                    "sref": "SmartChurchPanel.executivadanacional.buscar",
+                    "states": ["SmartChurchPanel.executivadanacional.buscar","SmartChurchPanel.executivadanacional.adicionar","SmartChurchPanel.executivadanacional.editar",
+                                    "SmartChurchPanel.executivadanacional.participantes"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "ExecutivaNacional", "ExecutivaNacionalSave", "ExecutivaNacionalRemove", 
+                                    "ExecutivaNacionalBlock", "ExecutivaNacionalParticipantes"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "agendadanacional",
+                    "titulo": "Agenda", 
+                    "sref": "SmartChurchPanel.agendadanacional.buscar",
+                    "states": ["SmartChurchPanel.agendadanacional.buscar","SmartChurchPanel.agendadanacional.adicionar","SmartChurchPanel.agendadanacional.editar"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "AgendaNacional", "AgendaNacionalSave", "AgendaNacionalRemove", "AgendaNacionalBlock"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "eventosdanacional",
+                    "titulo": "Eventos", 
+                    "sref": "SmartChurchPanel.eventosdanacional.buscar",
+                    "states": ["SmartChurchPanel.eventosdanacional.buscar","SmartChurchPanel.eventosdanacional.adicionar","SmartChurchPanel.eventosdanacional.editar"],
+                    "modulos": ["MOD_EVENTOS"], 
+                    "perms": [ "EventoNacional", "EventoNacionalSave", "EventoNacionalRemove", "EventoNacionalBlock", "EventoNacionalManage"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "eleicoesdanacional",
+                    "titulo": "Eleições", 
+                    "sref": "SmartChurchPanel.eleicoesdanacional.buscar",
+                    "states": ["SmartChurchPanel.eleicoesdanacional.buscar","SmartChurchPanel.eleicoesdanacional.adicionar","SmartChurchPanel.eleicoesdanacional.editar"],
+                    "modulos": ["MOD_ELEICOES"], 
+                    "perms": [ "EleicaoNacional", "EleicaoNacionalSave", "EleicaoNacionalRemove", "EleicaoNacionalBlock", "EleicaoNacionalManage"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "financasdanacional",
+                    "titulo": "Finanças", 
+                    "sref": "SmartChurchPanel.financasdanacional.gerenciar",
+                    "states": ["SmartChurchPanel.financasdanacional.gerenciar"],
+                    "modulos": ["MOD_FINANCAS"], 
+                    "perms": [ "FinancaNacional"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "relatoriosdanacional",
+                    "titulo": "Relatórios", 
+                    "sref": "SmartChurchPanel.relatoriosdanacional.buscar",
+                    "states": ["SmartChurchPanel.relatoriosdanacional.buscar","SmartChurchPanel.relatoriosdanacional.adicionar","SmartChurchPanel.relatoriosdanacional.editar"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "RelatorioNacional", "RelatorioNacionalSave", "RelatorioNacionalRemove", "RelatorioNacionalBlock"], 
+                    "setted": []
+                }
+            ]
+        }
+    ]
+}

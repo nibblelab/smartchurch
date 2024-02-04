@@ -1,0 +1,182 @@
+<ol class="breadcrumb pull-right">
+    <li class="breadcrumb-item"><a ui-sref='{{sref.back_level2}}'>Salas da Escola Dominical</a></li>
+    <li class="breadcrumb-item active">{{objList}}</li>
+</ol>
+
+<h1 class="page-header">&nbsp;</h1>
+
+<div class="panel panel-inverse">
+    <div class="panel-heading">
+        <h4 class="panel-title">{{opTitle}} {{objList}} ::. {{salaData.nome}}</h4>
+        <div class="panel-heading-btn">
+            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div class="add-btn-area">
+            <div class="row filter-row">
+                <div class="col-sm-4">
+                    <button class="btn btn-danger" type="button" ng-click="removeSelected()" 
+                            tooltips tooltip-template="Remover Selecionados" tooltip-side="right"
+                            ng-show="markList.length > 0 && USER.doIHavePermission(user, localPerms.remove)">
+                        <i class="fa fa-trash"></i>
+                    </button>
+                </div>
+                <div class="col-sm-3"></div>
+                <div class="col-sm-2"></div>
+                <div class="col-sm-3 text-right">
+                    <button type="button" class="btn btn-lg btn-primary" ng-show="USER.doIHavePermission(user, localPerms.add)"
+                            tooltips tooltip-template="Adicionar" tooltip-side="left"
+                            ng-click="toAdd(sref.add, sref.addParams)" ><i class="fa fa-plus"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="row filter-row" style="margin-bottom: 10px;">
+            <div class="col-sm-1 text-left">
+                <button class="btn btn-white" type="button" ng-click="clear()" tooltips tooltip-template="Limpar Filtros" tooltip-side="right">
+                    <i class="fa fa-trash"></i>
+                </button>
+            </div>
+            <div class="col-sm-6">
+                <form ng-submit="doSearch(true)">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="" ng-model="searchBy">
+                        <span class="input-group-append">
+                            <button class="btn btn-primary" type="submit" >
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+            <div class="col-sm-4">
+                <button class="btn btn-white" ng-click="enableFilters()">
+                    Filtros
+                    <i class="fas fa-plus" ng-hide="filterEnabled"></i>
+                    <i class="fas fa-minus" ng-show="filterEnabled"></i>
+                    <span class="badge badge-warning" ng-show="filterUsed">!</span>
+                </button>
+            </div>
+        </div>
+        <div class="row filter-row" style="margin-bottom: 10px;" ng-show="filterEnabled">
+            <div class="col-sm-1">
+                
+            </div>
+            <div class="col-sm-3">
+                <select class="form-control" ng-model="frequencia" ng-change="doSearch(true)" >
+                    <option value="">Status</option>
+                    <option value="{{i.value}}" ng-repeat="i in listFrequencias">{{i.label}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="row filter-row" style="margin-bottom: 10px;" ng-show="filterEnabled">
+            <div class="col-sm-1">
+                
+            </div>
+            <div class="col-sm-3">
+                <select class="form-control" ng-model="sexo" ng-change="doSearch(true)" >
+                    <option value="">Sexo</option>
+                    <option value="{{i.value}}" ng-repeat="i in listSexos">{{i.label}}</option>
+                </select>
+            </div>
+            <div class="col-sm-3">
+                <select class="form-control" ng-model="escolaridade" ng-change="doSearch(true)" >
+                    <option value="">Escolaridade</option>
+                    <option value="{{i.value}}" ng-repeat="i in listEscolaridade">{{i.label}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="row filter-row" style="margin-bottom: 10px;" ng-show="filterEnabled">
+            <div class="col-sm-1">
+                
+            </div>
+            <div class="col-sm-3">
+                <select class="form-control" ng-model="estado_civil" ng-change="doSearch(true)" >
+                    <option value="">Estado Civil</option>
+                    <option value="{{i.value}}" ng-repeat="i in listEstadoCivil">{{i.label}}</option>
+                </select>
+            </div>
+            <div class="col-sm-3">
+                <div class="checkbox checkbox-css" ng-hide="sem_filhos">
+                    <input type="checkbox" id="checkbox_com_filhos" ng-model="com_filhos" ng-change="doSearch(true)" /> 
+                    <label for="checkbox_com_filhos" class="checkbox">
+                        Com Filhos
+                    </label>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="checkbox checkbox-css" ng-hide="com_filhos" >
+                    <input type="checkbox" id="checkbox_sem_filhos" ng-model="sem_filhos" ng-change="doSearch(true)" /> 
+                    <label for="checkbox_sem_filhos" class="checkbox">
+                        Sem Filhos
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="row filter-row" style="margin-bottom: 20px;">
+            <div class="col-sm-1">
+                
+            </div>
+            <div class="col-sm-3">
+                <form >
+                    <select class="form-control" ng-model="pageSize" ng-change="doSearch(true)">
+                        <option value="10">10 registros</option>
+                        <option value="25">25 registros</option>
+                        <option value="50">50 registros</option>
+                        <option value="100">100 registros</option>
+                    </select>
+                </form>
+            </div>
+            <div class="col-sm-8 text-right">
+                <form ng-submit="doSort()" class="form-inline">
+                    <select class="form-control" ng-model="orderField">
+                        <option value="">Ordenar por</option>
+                        <option value="nome">Nome</option>
+                    </select>
+                    <select class="form-control" ng-model="orderOrientation">
+                        <option value="asc">Crescente</option>
+                        <option value="desc">Decrescente</option>
+                    </select>
+                    <button class="btn btn-primary" type="submit" tooltips tooltip-template="Ordenar" tooltip-side="left" >
+                        <i class="fas fa-sort"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="margin-bottom-50" ng-show="list.length > 0">
+            <div class="table-responsive">
+                <table class="table m-b-0">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th ng-repeat="r in listRange">
+                                {{r.label}}
+                                
+                                <button type="button" class="btn btn-warning btn-xs" ng-show="USER.doIHavePermission(user, localPerms.edit)"
+                                        tooltips tooltip-template="Editar" tooltip-side="left"
+                                        ng-click="toEdit(sref.edit, r.dia, sref.editParams, 'dia')" >
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button type="button" class="btn btn-danger btn-xs" tooltips tooltip-template="Remover" tooltip-side="left"
+                                        ng-show="USER.doIHavePermission(user, localPerms.remove)"
+                                        ng-click="remove(r.dia)">
+                                    <i class="fas fa-trash-alt"></i>
+                                </button>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="d in list">
+                            <td>
+                                {{d.nome}}
+                            </td>
+                            <td ng-repeat="r in listRange" ng-class="{'presente': (checkPresenca(d, r.dia) == 'P'), 'ausente': checkPresenca(d, r.dia) == 'A'}"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+

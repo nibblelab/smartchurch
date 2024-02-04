@@ -1,0 +1,37 @@
+<ol class="breadcrumb pull-right">
+    <li class="breadcrumb-item"><a ui-sref='{{back}}'>Buscar</a></li>
+    <li class="breadcrumb-item active">{{opTitle}}</li>
+</ol>
+
+<h1 class="page-header">&nbsp;</h1>
+
+<div class="panel panel-inverse">
+    <div class="panel-heading">
+        <h4 class="panel-title">{{opTitle}} {{objForm}}</h4>
+        <div class="panel-heading-btn">
+            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+        </div>
+    </div>
+    <div class="panel-body">
+        <form id="dataFrm" method="POST" autocomplete="off">
+            <legend>Dados Básicos</legend>
+            <div class="form-group row m-b-15">
+                <label class="col-form-label col-md-2">Motivo *</label>
+                <div class="col-md-8">
+                    <input class="form-control m-b-5" type="text" placeholder="Nome" ng-model="dataFrm.data.motivo.value"
+                            ng-class="{'is-invalid': !dataFrm.data.motivo.valid}"
+                            name="validation[motivo]" data-validation="[NOTEMPTY]"
+                            data-validation-message="O motivo não pode ser vazio" />
+                </div>
+            </div>
+            
+            <div class="form-actions">
+                <div class="form-group row">
+                    <div class="col-md-9 offset-md-3">
+                        <button type="submit" class="btn width-150 btn-primary">Salvar</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

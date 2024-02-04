@@ -1,0 +1,25 @@
+<div class="login-cover">
+    <div class="login-cover-image" style="background-image: url(img/login_bg.jpg)" data-id="login-cover-image"></div>
+</div>
+
+<div id="page-container" class="">
+    <div class="login login-v2">
+        <div class="login-header">
+            <div class="brand">
+                <img src="img/logo_small.png" class="img-fluid" alt="smartchurch" />
+            </div>
+        </div>
+        <div class="login-content">
+            <form id="frm" method="POST" class="margin-bottom-0">
+                <div class="form-group m-b-20">
+                    <input type="email" class="form-control form-control-lg" ng-model="dataFrm.data.email.value" name="validation[email]" 
+                           placeholder="E-mail" data-validation="[NOTEMPTY,EMAIL]"
+                           data-validation-message="O e-mail de acesso precisa ser fornecido" />
+                </div>
+                <div class="login-buttons">
+                    <button type="submit" class="btn btn-primary btn-block btn-lg">Requisitar Nova Senha</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

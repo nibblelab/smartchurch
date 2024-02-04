@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#348fe2</color>
+    <color name="colorPrimaryDark">#348fe2</color>
+    <color name="colorAccent">#5db0ff</color>
+    <color name="colorDangerBg">#fcf2f2</color>
+    <color name="colorDangerTitle">#a94442</color>
+    <color name="colorInfoTitle">#31708f</color>
+    <color name="colorSuccessTitle">#3c763d</color>
+    <color name="colorWarningTitle">#8a6d3b</color>
+    <color name="colorDangerTxt">#333</color>
+    <color name="sideBarTop">#eee</color>
+    <color name="sideBarTxt">#2d353c</color>
+    <color name="menuBg">#2d353c</color>
+    <color name="menuTxt">#fff</color>
+    <color name="menuColor">#555</color>
+    <color name="menuImgColor">#333</color>
+    <color name="member">#3c763d</color>
+    <color name="visitor">#ff8c1a</color>
+    <color name="sermaoBg">#f0f0f0</color>
+    <color name="sermaoTitle">#333</color>
+    <color name="sermaoTitleLight">#fff</color>
+    <color name="monthColor">#0e0e0e</color>
+    <color name="weekDayColor">#0a0a0a</color>
+    <color name="weekendDayColor">#49c1f7</color>
+    <color name="invalidDayColor">#e4e4e4</color>
+    <color name="validDayColor">#515151</color>
+    <color name="translucent">#60000000</color>
+    <color name="editColor">#f59c1a</color>
+    <color name="deleteColor">#ff5b57</color>
+</resources>

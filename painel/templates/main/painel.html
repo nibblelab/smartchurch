@@ -1,0 +1,204 @@
+<div class="text-center m-b-20">
+    <img src="img/logo_small.png" class="img-fluid" alt="umpnet" />
+</div>
+<div ng-if="USER.doIHaveContexts()">
+    <h4 class="context-title">
+        Contextos Administrativos
+    </h4>
+    <div class="row">
+        <div class="col-xl-6 col-md-6 col-xs-12" ng-show="igrejasContextos.length > 0">
+            <div class="panel panel-inverse" >
+                <div class="panel-heading ui-sortable-handle">
+                    <h4 class="panel-title">
+                        Igrejas
+                    </h4>
+                </div>
+                <div class="list-group">
+                    <a href="javascript:;" ng-repeat="ctx in igrejasContextos" ng-click="activeIgrejaContext(ctx)"
+                            class="list-group-item list-group-item-action list-group-item-inverse d-flex justify-content-between align-items-center text-ellipsis">
+                        <span class="d-none d-sm-inline">{{ctx.nome}}</span>
+                        <span class="d-inline d-sm-none">{{ctx.nome.substring(0,20)}}</span>
+                        <span class="badge f-s-10" ng-class="{'bg-silver-darker': igreja != ctx.id, 'bg-teal': igreja == ctx.id}">Administrar</span>
+                    </a> 
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6 col-md-6 col-xs-12" ng-show="pastoresContextos.length > 0">
+            <div class="panel panel-inverse" >
+                <div class="panel-heading ui-sortable-handle">
+                    <h4 class="panel-title">
+                        Pastoreio
+                    </h4>
+                </div>
+                <div class="list-group">
+                    <a href="javascript:;" ng-repeat="ctx in pastoresContextos" ng-click="activePastorContext(ctx)"
+                            class="list-group-item list-group-item-action list-group-item-inverse d-flex justify-content-between align-items-center text-ellipsis">
+                        <span class="d-none d-sm-inline">{{ctx.nome}}</span>
+                        <span class="d-inline d-sm-none">{{ctx.nome.substring(0,20)}}</span>
+                        <span class="badge f-s-10" ng-class="{'bg-silver-darker': pastor != ctx.id, 'bg-teal': pastor == ctx.id}">Administrar</span>
+                    </a> 
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6 col-md-6 col-xs-12" ng-show="evangelistasContextos.length > 0">
+            <div class="panel panel-inverse" >
+                <div class="panel-heading ui-sortable-handle">
+                    <h4 class="panel-title">
+                        Evangelismo
+                    </h4>
+                </div>
+                <div class="list-group">
+                    <a href="javascript:;" ng-repeat="ctx in evangelistasContextos" ng-click="activeEvangelistaContext(ctx)"
+                            class="list-group-item list-group-item-action list-group-item-inverse d-flex justify-content-between align-items-center text-ellipsis">
+                        <span class="d-none d-sm-inline">{{ctx.nome}}</span>
+                        <span class="d-inline d-sm-none">{{ctx.nome.substring(0,20)}}</span>
+                        <span class="badge f-s-10" ng-class="{'bg-silver-darker': evangelista != ctx.id, 'bg-teal': evangelista == ctx.id}">Administrar</span>
+                    </a> 
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6 col-md-6 col-xs-12" ng-show="conselhosContextos.length > 0">
+            <div class="panel panel-inverse" >
+                <div class="panel-heading ui-sortable-handle">
+                    <h4 class="panel-title">
+                        Conselhos
+                    </h4>
+                </div>
+                <div class="list-group">
+                    <a href="javascript:;" ng-repeat="ctx in conselhosContextos" ng-click="activeConselhoContext(ctx)"
+                            class="list-group-item list-group-item-action list-group-item-inverse d-flex justify-content-between align-items-center text-ellipsis">
+                        <span class="d-none d-sm-inline">{{ctx.nome}}</span>
+                        <span class="d-inline d-sm-none">{{ctx.nome.substring(0,20)}}</span>
+                        <span class="badge f-s-10" ng-class="{'bg-silver-darker': conselho != ctx.id, 'bg-teal': conselho == ctx.id}">Administrar</span>
+                    </a> 
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6 col-md-6 col-xs-12" ng-show="juntasContextos.length > 0">
+            <div class="panel panel-inverse" >
+                <div class="panel-heading ui-sortable-handle">
+                    <h4 class="panel-title">
+                        Juntas Diaconais
+                    </h4>
+                </div>
+                <div class="list-group">
+                    <a href="javascript:;" ng-repeat="ctx in juntasContextos" ng-click="activeJuntaContext(ctx)"
+                            class="list-group-item list-group-item-action list-group-item-inverse d-flex justify-content-between align-items-center text-ellipsis">
+                        <span class="d-none d-sm-inline">{{ctx.nome}}</span>
+                        <span class="d-inline d-sm-none">{{ctx.nome.substring(0,20)}}</span>
+                        <span class="badge f-s-10" ng-class="{'bg-silver-darker': junta != ctx.id, 'bg-teal': junta == ctx.id}">Administrar</span>
+                    </a> 
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6 col-md-6 col-xs-12" ng-show="sociedadesContextos.length > 0">
+            <div class="panel panel-inverse" >
+                <div class="panel-heading ui-sortable-handle">
+                    <h4 class="panel-title">
+                        Sociedades Internas
+                    </h4>
+                </div>
+                <div class="list-group">
+                    <a href="javascript:;" ng-repeat="ctx in sociedadesContextos" ng-click="activeSociedadeContext(ctx)"
+                            class="list-group-item list-group-item-action list-group-item-inverse d-flex justify-content-between align-items-center text-ellipsis">
+                        <span class="d-none d-sm-inline">{{ctx.nome}}</span>
+                        <span class="d-inline d-sm-none">{{ctx.nome.substring(0,20)}}</span>
+                        <span class="badge f-s-10" ng-class="{'bg-silver-darker': sociedade != ctx.id, 'bg-teal': sociedade == ctx.id}">Administrar</span>
+                    </a> 
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6 col-md-6 col-xs-12" ng-show="federacoesContextos.length > 0">
+            <div class="panel panel-inverse" >
+                <div class="panel-heading ui-sortable-handle">
+                    <h4 class="panel-title">
+                        Federações
+                    </h4>
+                </div>
+                <div class="list-group">
+                    <a href="javascript:;" ng-repeat="ctx in federacoesContextos" ng-click="activeFederacaoContext(ctx)"
+                            class="list-group-item list-group-item-action list-group-item-inverse d-flex justify-content-between align-items-center text-ellipsis">
+                        {{ctx.sigla}}
+                        <span class="badge f-s-10" ng-class="{'bg-silver-darker': federacao != ctx.id, 'bg-teal': federacao == ctx.id}">Administrar</span>
+                    </a> 
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6 col-md-6 col-xs-12" ng-show="sinodaisContextos.length > 0">
+            <div class="panel panel-inverse" >
+                <div class="panel-heading ui-sortable-handle">
+                    <h4 class="panel-title">
+                        Sinodais
+                    </h4>
+                </div>
+                <div class="list-group">
+                    <a href="javascript:;" ng-repeat="ctx in sinodaisContextos" ng-click="activeSinodalContext(ctx)"
+                            class="list-group-item list-group-item-action list-group-item-inverse d-flex justify-content-between align-items-center text-ellipsis">
+                        {{ctx.sigla}}
+                        <span class="badge f-s-10" ng-class="{'bg-silver-darker': sinodal != ctx.id, 'bg-teal': sinodal == ctx.id}">Administrar</span>
+                    </a> 
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6 col-md-6 col-xs-12" ng-show="secretariasContextos.length > 0">
+            <div class="panel panel-inverse" >
+                <div class="panel-heading ui-sortable-handle">
+                    <h4 class="panel-title">
+                        Secretarias
+                    </h4>
+                </div>
+                <div class="list-group">
+                    <a href="javascript:;" ng-repeat="ctx in secretariasContextos" ng-click="activeSecretariaContext(ctx)"
+                            class="list-group-item list-group-item-action list-group-item-inverse d-flex justify-content-between align-items-center text-ellipsis">
+                        {{ctx.nome}} [{{ctx.reference.substring(0,20)}}]
+                        <span class="badge f-s-10" ng-class="{'bg-silver-darker': secretaria != ctx.id, 'bg-teal': secretaria == ctx.id}">Administrar</span>
+                    </a> 
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6 col-md-6 col-xs-12" ng-show="ministeriosContextos.length > 0">
+            <div class="panel panel-inverse" >
+                <div class="panel-heading ui-sortable-handle">
+                    <h4 class="panel-title">
+                        Ministérios
+                    </h4>
+                </div>
+                <div class="list-group">
+                    <a href="javascript:;" ng-repeat="ctx in ministeriosContextos" ng-click="activeMinisterioContext(ctx)"
+                            class="list-group-item list-group-item-action list-group-item-inverse d-flex justify-content-between align-items-center text-ellipsis">
+                        {{ctx.nome}} [{{ctx.reference.substring(0,20)}}]
+                        <span class="badge f-s-10" ng-class="{'bg-silver-darker': ministerio != ctx.id, 'bg-teal': ministerio == ctx.id}">Administrar</span>
+                    </a> 
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6 col-md-6 col-xs-12" ng-show="ebdsContextos.length > 0">
+            <div class="panel panel-inverse" >
+                <div class="panel-heading ui-sortable-handle">
+                    <h4 class="panel-title">
+                        Escola Dominical
+                    </h4>
+                </div>
+                <div class="list-group">
+                    <a href="javascript:;" ng-repeat="ctx in ebdsContextos" ng-click="activeEbdContext(ctx)"
+                            class="list-group-item list-group-item-action list-group-item-inverse d-flex justify-content-between align-items-center text-ellipsis">
+                        {{ctx.nome}} [{{ctx.nome.substring(0,20)}}]
+                        <span class="badge f-s-10" ng-class="{'bg-silver-darker': ebd != ctx.id, 'bg-teal': ebd == ctx.id}">Administrar</span>
+                    </a> 
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ng-if="igreja != ''">
+        <igreja-home igreja="igreja" ></igreja-home>
+    </div>
+    <div ng-if="sociedade != ''">
+        <sociedade-home sociedade="sociedade" ></sociedade-home>
+    </div>
+    <div ng-if="federacao != ''">
+        <federacao-home federacao="federacao" ></federacao-home>
+    </div>
+    <div ng-if="sinodal != ''">
+        <sinodal-home sinodal="sinodal" ></sinodal-home>
+    </div>
+</div>

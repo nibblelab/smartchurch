@@ -1,0 +1,12 @@
+<ol class="breadcrumb pull-right">
+    <li class="breadcrumb-item active">{{opTitle}}</li>
+</ol>
+
+<h1 class="page-header">&nbsp;</h1>
+
+
+<div class="responsive-video" ng-repeat="d in list">
+    <iframe ng-src="{{d.videoData.url}}" 
+            frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+

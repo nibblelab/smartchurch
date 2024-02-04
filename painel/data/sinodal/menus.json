@@ -1,0 +1,177 @@
+{
+    "menus": [
+        { 
+            "nome": "sinodal",
+            "titulo": "Sinodal", 
+            "icon": "fas fa-layer-group", 
+            "modulos": ["MOD_BASE","MOD_B_IGREJA","MOD_CONFEDERACAO","MOD_AGENDA","MOD_EVENTOS","MOD_ELEICOES","MOD_FINANCAS"], 
+            "setted": ["manage_sinodal"],
+            "submenus": [
+                { 
+                    "nome": "dadosdasinodal",
+                    "titulo": "Dados da Sinodal", 
+                    "sref": "SmartChurchPanel.sinodal.dados.editar",
+                    "states": ["SmartChurchPanel.sinodal.dados.editar"],
+                    "modulos": ["MOD_BASE"], 
+                    "perms": [ "InstanciaSave"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "igrejasdasinodal",
+                    "titulo": "Igrejas", 
+                    "sref": "SmartChurchPanel.sinodal.igrejas.buscar",
+                    "states": ["SmartChurchPanel.sinodal.igrejas.buscar"],
+                    "modulos": ["MOD_B_IGREJA"], 
+                    "perms": [ "IgrejaSinodal"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "congregacoesdasinodal",
+                    "titulo": "Congregações", 
+                    "sref": "SmartChurchPanel.sinodal.congregacoes.buscar",
+                    "states": ["SmartChurchPanel.sinodal.congregacoes.buscar"],
+                    "modulos": ["MOD_B_IGREJA"], 
+                    "perms": [ "CongregacaoSinodal"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "pontosdasinodal",
+                    "titulo": "Pontos", 
+                    "sref": "SmartChurchPanel.sinodal.pontos.buscar",
+                    "states": ["SmartChurchPanel.sinodal.pontos.buscar"],
+                    "modulos": ["MOD_B_IGREJA"], 
+                    "perms": [ "PontoSinodal"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "federacoesdasinodal",
+                    "titulo": "Federações", 
+                    "sref": "SmartChurchPanel.sinodal.federacoes.buscar",
+                    "states": ["SmartChurchPanel.sinodal.federacoes.buscar"],
+                    "modulos": ["MOD_B_IGREJA"], 
+                    "perms": [ "FederacaoSinodal"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "sociedadesdasinodal",
+                    "titulo": "Sociedades", 
+                    "sref": "SmartChurchPanel.sinodal.sociedades.buscar",
+                    "states": ["SmartChurchPanel.sinodal.sociedades.buscar"],
+                    "modulos": ["MOD_B_IGREJA"], 
+                    "perms": [ "SociedadeSinodal"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "pessoasdasinodal",
+                    "titulo": "Pessoas", 
+                    "sref": "SmartChurchPanel.sinodal.pessoas.buscar",
+                    "states": ["SmartChurchPanel.sinodal.pessoas.buscar"],
+                    "modulos": ["MOD_B_IGREJA"], 
+                    "perms": [ "PessoaSinodal"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "diretoriasdasinodal",
+                    "titulo": "Diretoria", 
+                    "sref": "SmartChurchPanel.sinodal.diretorias.buscar",
+                    "states": ["SmartChurchPanel.sinodal.diretorias.buscar","SmartChurchPanel.sinodal.diretorias.adicionar",
+                                    "SmartChurchPanel.sinodal.diretorias.editar","SmartChurchPanel.sinodal.diretorias.oficiais.buscar",
+                                    "SmartChurchPanel.sinodal.diretorias.oficiais.adicionar","SmartChurchPanel.sinodal.diretorias.oficiais.editar"],
+                    "modulos": ["MOD_CONFEDERACAO"], 
+                    "perms": [ "DiretoriaSinodal", "DiretoriaSinodalSave", "DiretoriaSinodalRemove", "DiretoriaSinodalBlock", "DiretoriaSinodalOficiais"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "secretariasdasinodal",
+                    "titulo": "Secretarias", 
+                    "sref": "SmartChurchPanel.sinodal.secretarias.buscar",
+                    "states": ["SmartChurchPanel.sinodal.secretarias.buscar","SmartChurchPanel.sinodal.secretarias.adicionar",
+                                    "SmartChurchPanel.sinodal.secretarias.editar"],
+                    "modulos": ["MOD_CONFEDERACAO"], 
+                    "perms": [ "SecretariaSinodal", "SecretariaSinodalSave", "SecretariaSinodalRemove", "SecretariaSinodalBlock", 
+                                "SecretariaSinodalManage"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "executivadasinodal",
+                    "titulo": "Executiva", 
+                    "sref": "SmartChurchPanel.sinodal.executiva.buscar",
+                    "states": ["SmartChurchPanel.sinodal.executiva.buscar","SmartChurchPanel.sinodal.executiva.adicionar",
+                                    "SmartChurchPanel.sinodal.executiva.editar",
+                                    "SmartChurchPanel.sinodal.executiva.participantes"],
+                    "modulos": ["MOD_CONFEDERACAO"], 
+                    "perms": [ "ExecutivaSinodal", "ExecutivaSinodalSave", "ExecutivaSinodalRemove", 
+                                    "ExecutivaSinodalBlock", "ExecutivaSinodalParticipantes"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "agendadasinodal",
+                    "titulo": "Agenda", 
+                    "sref": "SmartChurchPanel.sinodal.agenda.buscar",
+                    "states": ["SmartChurchPanel.sinodal.agenda.buscar","SmartChurchPanel.sinodal.agenda.adicionar",
+                                    "SmartChurchPanel.sinodal.agenda.editar"],
+                    "modulos": ["MOD_AGENDA"], 
+                    "perms": [ "AgendaSinodal", "AgendaSinodalSave", "AgendaSinodalRemove", "AgendaSinodalBlock"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "eventosdasinodal",
+                    "titulo": "Eventos", 
+                    "sref": "SmartChurchPanel.sinodal.eventos.buscar",
+                    "states": ["SmartChurchPanel.sinodal.eventos.buscar","SmartChurchPanel.sinodal.eventos.adicionar",
+                                    "SmartChurchPanel.sinodal.eventos.editar"],
+                    "modulos": ["MOD_EVENTOS"], 
+                    "perms": [ "EventoSinodal", "EventoSinodalSave", "EventoSinodalRemove", "EventoSinodalBlock", "EventoSinodalManage"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "eleicoesdasinodal",
+                    "titulo": "Eleições", 
+                    "sref": "SmartChurchPanel.sinodal.eleicoes.buscar",
+                    "states": ["SmartChurchPanel.sinodal.eleicoes.buscar","SmartChurchPanel.sinodal.eleicoes.adicionar",
+                                    "SmartChurchPanel.sinodal.eleicoes.editar"],
+                    "modulos": ["MOD_ELEICOES"], 
+                    "perms": [ "EleicaoSinodal", "EleicaoSinodalSave", "EleicaoSinodalRemove", "EleicaoSinodalBlock", "EleicaoSinodalManage"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "financasdasinodal",
+                    "titulo": "Finanças", 
+                    "sref": "SmartChurchPanel.sinodal.financas.gerenciar",
+                    "states": ["SmartChurchPanel.sinodal.financas.gerenciar"],
+                    "modulos": ["MOD_FINANCAS"], 
+                    "perms": [ "FinancaSinodal"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "relatoriosdasinodal",
+                    "titulo": "Relatórios", 
+                    "sref": "SmartChurchPanel.sinodal.relatorios.buscar",
+                    "states": ["SmartChurchPanel.sinodal.relatorios.buscar","SmartChurchPanel.sinodal.relatorios.adicionar",
+                                    "SmartChurchPanel.sinodal.relatorios.editar"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "RelatorioSinodal", "RelatorioSinodalSave", "RelatorioSinodalRemove", "RelatorioSinodalBlock"], 
+                    "setted": []
+                }
+            ]
+        },
+        {
+            "nome": "integracao_sinodal",
+            "titulo": "Integração", 
+            "icon": "fas fa-flask", 
+            "modulos": ["MOD_BASE"], 
+            "setted": ["manage_sinodal"],
+            "submenus": [ 
+                { 
+                    "nome": "token",
+                    "titulo": "Token", 
+                    "sref": "SmartChurchPanel.sinodal.token.gerar",
+                    "states": ["SmartChurchPanel.sinodal.token.gerar"],
+                    "modulos": ["MOD_BASE"], 
+                    "perms": [ "IntegracaoSinodal"], 
+                    "setted": []
+                }
+            ]
+        }
+    ]
+}

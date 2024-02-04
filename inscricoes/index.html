@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html ng-app="SmartChurchInscricoes" ng-controller="InscricoesCtrl as ctrl">
+    <head>
+        <link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+        <link rel="manifest" href="manifest.json">
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-TileImage" content="ms-icon-144x144.png">
+        <meta name="theme-color" content="#ffffff">
+        <title>SmartChurch ::. Inscrições {{ctrl.data.nome}}</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:700" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,600,70&display=swap" rel="stylesheet">
+        <link href="bower_components/font-awesome/css/all.min.css" rel="stylesheet" type="text/css" />
+        <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css" />
+        <link href="bower_components/PACE/themes/blue/pace-theme-loading-bar.css" rel="stylesheet" type="text/css" />
+        <link href="bower_components/jquery-toast-plugin/dist/jquery.toast.min.css" rel="stylesheet" type="text/css" />
+        <link href="bower_components/nblutils/dist/css/nblutils.min.css" rel="stylesheet" type="text/css" />
+        <link href="css/style.css?v=0.8.1" rel="stylesheet" />
+        <script src="bower_components/PACE/pace.min.js"></script>
+        <base href="/inscricoes/">
+    </head>
+    <body ng-cloak>
+        
+        <div class="container" ng-show="ctrl.loaded">
+            <section class="evento-wrapper">
+                <h1>{{ctrl.data.nome}}</h1>
+                <p>
+                    {{ctrl.data.descricao}}
+                </p>
+                <div class="row add-info">
+                    <div class="col-4">
+                        <div class="row">
+                            <div class="col-4"><b>Início:</b></div>
+                            <div class="col-8">{{ctrl.data.inicio}}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4"><b>Término:</b></div>
+                            <div class="col-8">{{ctrl.data.termino}}</div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <address>
+                            {{ctrl.data.local.rua}}{{ctrl.data.local.numero}}{{ctrl.data.local.complemento}} <br>
+                            {{ctrl.data.local.bairro}} <br>
+                            {{ctrl.data.local.cidade}} / {{ctrl.data.local.uf}} <br>
+                            {{ctrl.data.local.cep}} <br>
+                        </address>
+                    </div>
+                    <div class="col-4">
+                        <a href="{{ctrl.data.links.site}}" ng-show="ctrl.data.links.site.length > 0" target="_blank" class="btn btn-block btn-link btn-sm">
+                            <i class="fas fa-external-link-alt"></i> 
+                        </a>
+                        <a href="{{ctrl.data.links.facebook}}" ng-show="ctrl.data.links.facebook.length > 0" target="_blank" class="btn btn-block btn-primary btn-sm">
+                            <i class="fab fa-facebook-square"></i> 
+                        </a>
+                        <a href="{{ctrl.data.links.instagram}}" ng-show="ctrl.data.links.instagram.length > 0" target="_blank" class="btn btn-block btn-pink btn-sm">
+                            <i class="fab fa-instagram"></i> 
+                        </a>
+                        <a href="{{ctrl.data.links.youtube}}" ng-show="ctrl.data.links.youtube.length > 0" target="_blank" class="btn btn-block btn-danger btn-sm">
+                            <i class="fab fa-youtube"></i> 
+                        </a>
+                        <a href="{{ctrl.data.links.vimeo}}" ng-show="ctrl.data.links.vimeo.length > 0" target="_blank" class="btn btn-block btn-info btn-sm">
+                            <i class="fab fa-vimeo-v"></i> 
+                        </a>
+                    </div>
+                </div>
+                <form ng-if="ctrl.data.inscricoes_ativas">
+                    <div class="form-group" ng-repeat="f in ctrl.data.form" ng-if="f.checked">
+                        <label >{{f.label}}</label>
+                        <input type="text" class="form-control" ng-model="f.value" ng-if="f.type == 'text'" />
+                        <input type="email" class="form-control" ng-model="f.value" ng-if="f.type == 'email'" />
+                        <input type="text" class="form-control datepicker" ng-model="f.value" ui-mask="99/99/9999" model-view-value="true" ng-if="f.type == 'date'" />
+                        <input type="text" class="form-control" ng-model="f.value" ui-mask="(99) 9999-9999" model-view-value="true" ng-if="f.type == 'phone'" />
+                        <input type="text" class="form-control" ng-model="f.value" ui-mask="(99) 9 9999-9999" model-view-value="true" ng-if="f.type == 'cellphone'" />
+                        <input type="file" nv-file-select uploader="f.value" ng-if="f.type == 'file'">
+                        <select class="form-control" ng-model="f.value" ng-if="f.type == 'sex'" >
+                            <option></option>
+                            <option value="{{s.value}}" ng-repeat="s in ctrl.listSexos">{{s.label}}</option>
+                        </select>
+                        <select class="form-control" ng-model="f.value" ng-if="f.type == 'marital'" >
+                            <option value="{{s.value}}" ng-repeat="s in ctrl.listEstadosCivis">{{s.label}}</option>
+                        </select>
+                        <select class="form-control" ng-model="f.value" ng-if="f.type == 'sinod'" 
+                                ng-change="ctrl.filterList('listPresbiterios','sinodo',f.value)">
+                            <option></option>
+                            <option value="{{s.id}}" ng-repeat="s in ctrl.listSinodos">{{s.nome}}</option>
+                        </select>
+                        <select class="form-control" ng-model="f.value" ng-if="f.type == 'presbytery'" 
+                                ng-change="ctrl.filterList('listIgrejas','presbiterio',f.value)" >
+                            <option></option>
+                            <option value="{{s.id}}" ng-repeat="s in ctrl.listPresbiterios" ng-show="s.show">{{s.nome}}</option>
+                        </select>
+                        <select class="form-control" ng-model="f.value" ng-if="f.type == 'church'" >
+                            <option></option>
+                            <option value="{{s.id}}" ng-repeat="s in ctrl.listIgrejas" ng-show="s.show">{{s.nome}}</option>
+                        </select>
+                        <select class="form-control" ng-model="f.value" ng-if="f.type == 's_sinod'" 
+                                ng-change="ctrl.filterList('listFederacoes','sinodal',f.value)" >
+                            <option></option>
+                            <option value="{{s.id}}" ng-repeat="s in ctrl.listSinodais">{{s.sigla}}</option>
+                        </select>
+                        <select class="form-control" ng-model="f.value" ng-if="f.type == 's_presbytery'" 
+                                ng-change="ctrl.filterList('listSociedades','federacao',f.value)" >
+                            <option></option>
+                            <option value="{{s.id}}" ng-repeat="s in ctrl.listFederacoes" ng-show="s.show">{{s.sigla}}</option>
+                        </select>
+                        <select class="form-control" ng-model="f.value" ng-if="f.type == 's_church'" >
+                            <option></option>
+                            <option value="{{s.id}}" ng-repeat="s in ctrl.listSociedades" ng-show="s.show">{{s.nome}}</option>
+                        </select>
+                        <select class="form-control" ng-model="f.value" ng-if="f.type == 'office'" >
+                            <option></option>
+                            <option value="{{s.id}}" ng-repeat="s in ctrl.listCargos">{{s.nome}}</option>
+                        </select>
+                    </div>
+                    
+                    <div class="text-center">
+                        <button type="button" class="btn btn-primary" ng-click="ctrl.procInscricaoFiles()">Me Inscrever!</button>
+                    </div>
+                </form>
+            </section>
+        </div>
+        
+        
+        
+        <script src="bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="bower_components/angular/angular.min.js"></script>
+        <script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+        <script src="bower_components/angular-i18n/angular-locale_pt-br.js"></script>
+        <script src="bower_components/momentjs/min/moment-with-locales.min.js"></script>
+        <script src="bower_components/nblutils/dist/js/nblutils.min.js"></script>
+        <script src="bower_components/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="bower_components/angular-ui-mask/dist/mask.min.js"></script>
+        <script src="bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+        <script src="bower_components/bootstrap-datepicker/dist/locales/bootstrap-datepicker.pt-BR.min.js"></script>
+        <script src="bower_components/jquery-toast-plugin/dist/jquery.toast.min.js"></script>
+        <script src="bower_components/angular-file-upload/dist/angular-file-upload.min.js"></script>
+        <script src="js/util.js"></script>
+        <script src="js/inscricoes.js"></script>
+    </body>
+</html>

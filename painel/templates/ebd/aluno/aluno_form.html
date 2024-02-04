@@ -1,0 +1,77 @@
+<ol class="breadcrumb pull-right">
+    <li class="breadcrumb-item"><a ui-sref='{{sref.back_level2}}'>Salas da Escola Dominical</a></li>
+    <li class="breadcrumb-item"><a href="" ng-click="toBack(sref.back, sref.backParams)">Alunos</a></li>
+    <li class="breadcrumb-item active">{{opTitle}}</li>
+</ol>
+
+<h1 class="page-header">&nbsp;</h1>
+
+<div class="panel panel-inverse">
+    <div class="panel-heading">
+        <h4 class="panel-title">{{opTitle}} {{objForm}} ::. {{salaData.nome}}</h4>
+        <div class="panel-heading-btn">
+            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+        </div>
+    </div>
+    <div class="panel-body">
+        <form id="dataFrm" method="POST" autocomplete="off">
+            <legend ng-if="!multiple">Dados Básicos</legend>
+            <div class="form-group row m-b-15" ng-if="!multiple">
+                <label class="col-form-label col-md-2">Nome *</label>
+                <div class="col-md-10">
+                    <input id="nome" class="form-control m-b-5" type="text" placeholder="Nome" ng-model="dataFrm.data.nome.value"
+                        ng-class="{'is-invalid': !dataFrm.data.nome.valid}"
+                        ng-disabled="dataFrm.data.id.value != ''"
+                        name="validation[nome]" data-validation="[NOTEMPTY]"
+                        data-validation-message="O nome não pode ser vazio" />
+                </div>
+            </div>
+            
+            <legend ng-if="multiple">Alunos</legend>
+            <table class="table form-table table-hover" ng-if="multiple && dataFrm.data.pessoas.value.length > 0">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Participa?</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="a in dataFrm.data.pessoas.value">
+                        <td>{{a.nome}}</td>
+                        <td>
+                            <div class="custom-control custom-switch">
+                                <input type="checkbox" class="custom-control-input" id="aluno_{{a.id}}" ng-model="a.checked">
+                                <label class="custom-control-label" for="aluno_{{a.id}}">Marque se participa da sala</label>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            
+            <legend>Período de Participação</legend>
+            <div class="form-group row m-b-15">
+                <label class="col-form-label col-md-2">Início</label>
+                <div class="col-md-4">
+                    <input class="form-control m-b-5 datepicker" type="text" ng-model="dataFrm.data.inicio.value"
+                            ui-mask="99/99/9999" model-view-value="true"
+                            ng-class="{'is-invalid': !dataFrm.data.inicio.valid}" />
+                </div>
+                <label class="col-form-label col-md-2">Término</label>
+                <div class="col-md-4">
+                    <input class="form-control m-b-5 datepicker" type="text" ng-model="dataFrm.data.fim.value"
+                            ui-mask="99/99/9999" model-view-value="true"
+                            ng-class="{'is-invalid': !dataFrm.data.fim.valid}" />
+                </div>
+            </div>
+            
+            <div class="form-actions">
+                <div class="form-group row">
+                    <div class="col-md-9 offset-md-3">
+                        <button type="submit" class="btn width-150 btn-primary">Salvar</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

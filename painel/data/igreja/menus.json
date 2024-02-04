@@ -1,0 +1,312 @@
+{
+    "menus": [
+        { 
+            "nome": "igreja",
+            "titulo": "Igreja", 
+            "icon": "fas fa-church", 
+            "modulos": ["MOD_BASE","MOD_B_IGREJA","MOD_IGREJA","MOD_EBD","MOD_EVENTOS","MOD_AGENDA","MOD_ELEICOES","MOD_FINANCAS"], 
+            "setted": ["manage_igreja"],
+            "submenus": [
+                { 
+                    "nome": "dados",
+                    "titulo": "Dados da Igreja", 
+                    "sref": "SmartChurchPanel.igreja.dados.editar",
+                    "states": ["SmartChurchPanel.igreja.dados.editar"],
+                    "modulos": ["MOD_BASE"], 
+                    "perms": [ "InstanciaSave"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "congregacoes",
+                    "titulo": "Congregações", 
+                    "sref": "SmartChurchPanel.igreja.congregacoes.buscar",
+                    "states": ["SmartChurchPanel.igreja.congregacoes.buscar","SmartChurchPanel.igreja.congregacoes.adicionar","SmartChurchPanel.igreja.congregacoes.editar"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "CongregacaoIgreja", "CongregacaoIgrejaSave", "CongregacaoIgrejaRemove", "CongregacaoIgrejaBlock"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "pontosdepregacao",
+                    "titulo": "Pontos", 
+                    "sref": "SmartChurchPanel.igreja.pontosdepregacao.buscar",
+                    "states": ["SmartChurchPanel.igreja.pontosdepregacao.buscar","SmartChurchPanel.igreja.pontosdepregacao.adicionar","SmartChurchPanel.igreja.pontosdepregacao.editar"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "PontoIgreja", "PontoIgrejaSave", "PontoIgrejaRemove", "PontoIgrejaBlock"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "membros",
+                    "titulo": "Membresia", 
+                    "sref": "SmartChurchPanel.igreja.membros.buscar",
+                    "states": ["SmartChurchPanel.igreja.membros.buscar","SmartChurchPanel.igreja.membros.adicionar",
+                                "SmartChurchPanel.igreja.membros.editar"],
+                    "modulos": ["MOD_B_IGREJA"], 
+                    "perms": [ "MembroIgreja", "MembroIgrejaSave", "MembroIgrejaRemove", "MembroIgrejaBlock", "MembroIgrejaEspeciais"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "secretarias",
+                    "titulo": "Secretarias", 
+                    "sref": "SmartChurchPanel.igreja.secretarias.buscar",
+                    "states": ["SmartChurchPanel.igreja.secretarias.buscar","SmartChurchPanel.igreja.secretarias.adicionar","SmartChurchPanel.igreja.secretarias.editar",
+                                    "SmartChurchPanel.igreja.secretarias.secretarios.buscar","SmartChurchPanel.igreja.secretarias.secretarios.adicionar",
+                                    "SmartChurchPanel.igreja.secretarias.secretarios.editar"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "SecretariaIgreja", "SecretariaIgrejaSave", "SecretariaIgrejaRemove", "SecretariaIgrejaBlock", 
+                                "SecretariaIgrejaPessoa"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "ministerios",
+                    "titulo": "Ministérios", 
+                    "sref": "SmartChurchPanel.igreja.ministerios.buscar",
+                    "states": ["SmartChurchPanel.igreja.ministerios.buscar","SmartChurchPanel.igreja.ministerios.adicionar","SmartChurchPanel.igreja.ministerios.editar",
+                                    "SmartChurchPanel.igreja.ministerios.participantes.buscar","SmartChurchPanel.igreja.ministerios.participantes.adicionar",
+                                    "SmartChurchPanel.igreja.ministerios.participantes.editar"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "MinisterioIgreja", "MinisterioIgrejaSave", "MinisterioIgrejaRemove", "MinisterioIgrejaBlock", "MinisterioIgrejaPessoa"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "sociedades",
+                    "titulo": "Sociedades", 
+                    "sref": "SmartChurchPanel.igreja.sociedades.buscar",
+                    "states": ["SmartChurchPanel.igreja.sociedades.buscar","SmartChurchPanel.igreja.sociedades.adicionar","SmartChurchPanel.igreja.sociedades.editar",
+                                    "SmartChurchPanel.igreja.sociedades.socios.buscar","SmartChurchPanel.igreja.sociedades.socios.adicionar",
+                                    "SmartChurchPanel.igreja.sociedades.socios.editar"],
+                    "modulos": ["MOD_B_IGREJA"], 
+                    "perms": [ "SociedadeIgreja", "SociedadeIgrejaSave", "SociedadeIgrejaRemove", "SociedadeIgrejaBlock",
+                                "SociedadeIgrejaSocio"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "pequenosgrupos",
+                    "titulo": "Pequenos Grupos", 
+                    "sref": "SmartChurchPanel.igreja.pequenosgrupos.buscar",
+                    "states": ["SmartChurchPanel.igreja.pequenosgrupos.buscar","SmartChurchPanel.igreja.pequenosgrupos.adicionar",
+                                    "SmartChurchPanel.igreja.pequenosgrupos.editar","SmartChurchPanel.igreja.pequenosgrupos.participantes.buscar",
+                                    "SmartChurchPanel.igreja.pequenosgrupos.participantes.adicionar",
+                                    "SmartChurchPanel.igreja.pequenosgrupos.participantes.editar"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "PequenoGrupoIgreja", "PequenoGrupoIgrejaSave", "PequenoGrupoIgrejaRemove", "PequenoGrupoIgrejaBlock", 
+                                "PequenoGrupoIgrejaParticipantes"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "pastores",
+                    "titulo": "Pastores", 
+                    "sref": "SmartChurchPanel.igreja.pastores.buscar",
+                    "states": ["SmartChurchPanel.igreja.pastores.buscar","SmartChurchPanel.igreja.pastores.adicionar","SmartChurchPanel.igreja.pastores.editar"],
+                    "modulos": ["MOD_B_IGREJA"], 
+                    "perms": [ "PastorIgreja", "PastorIgrejaSave", "PastorIgrejaRemove", "PastorIgrejaBlock"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "evangelistas",
+                    "titulo": "Evangelistas", 
+                    "sref": "SmartChurchPanel.igreja.evangelistas.buscar",
+                    "states": ["SmartChurchPanel.igreja.evangelistas.buscar","SmartChurchPanel.igreja.evangelistas.adicionar","SmartChurchPanel.igreja.evangelistas.editar"],
+                    "modulos": ["MOD_B_IGREJA"], 
+                    "perms": [ "EvangelistaIgreja", "EvangelistaIgrejaSave", "EvangelistaIgrejaRemove", "EvangelistaIgrejaBlock"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "presbiteros",
+                    "titulo": "Presbíteros", 
+                    "sref": "SmartChurchPanel.igreja.presbiteros.buscar",
+                    "states": ["SmartChurchPanel.igreja.presbiteros.buscar","SmartChurchPanel.igreja.presbiteros.adicionar","SmartChurchPanel.igreja.presbiteros.editar"],
+                    "modulos": ["MOD_B_IGREJA"], 
+                    "perms": [ "PresbiteroIgreja", "PresbiteroIgrejaSave", "PresbiteroIgrejaRemove", "PresbiteroIgrejaBlock"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "diaconos",
+                    "titulo": "Diáconos", 
+                    "sref": "SmartChurchPanel.igreja.diaconos.buscar",
+                    "states": ["SmartChurchPanel.igreja.diaconos.buscar","SmartChurchPanel.igreja.diaconos.adicionar","SmartChurchPanel.igreja.diaconos.editar"],
+                    "modulos": ["MOD_B_IGREJA"], 
+                    "perms": [ "DiaconoIgreja", "DiaconoIgrejaSave", "DiaconoIgrejaRemove", "DiaconoIgrejaBlock"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "oficiais",
+                    "titulo": "Oficiais", 
+                    "sref": "SmartChurchPanel.igreja.oficiais.buscar",
+                    "states": ["SmartChurchPanel.igreja.oficiais.buscar","SmartChurchPanel.igreja.oficiais.adicionar","SmartChurchPanel.igreja.oficiais.editar"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "OficialIgreja", "OficialIgrejaSave", "OficialIgrejaRemove", "OficialIgrejaBlock"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "conselho",
+                    "titulo": "Conselho", 
+                    "sref": "SmartChurchPanel.igreja.conselho.buscar",
+                    "states": ["SmartChurchPanel.igreja.conselho.buscar"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "ConselhoIgreja", "ConselhoIgrejaManage"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "junta",
+                    "titulo": "Junta", 
+                    "sref": "SmartChurchPanel.igreja.junta.buscar",
+                    "states": ["SmartChurchPanel.igreja.junta.buscar"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "JuntaIgreja", "JuntaIgrejaManage"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "agenda",
+                    "titulo": "Agenda", 
+                    "sref": "SmartChurchPanel.igreja.agenda.buscar",
+                    "states": ["SmartChurchPanel.igreja.agenda.buscar","SmartChurchPanel.igreja.agenda.adicionar","SmartChurchPanel.igreja.agenda.editar"],
+                    "modulos": ["MOD_AGENDA"], 
+                    "perms": [ "AgendaIgreja", "AgendaIgrejaSave", "AgendaIgrejaRemove", "AgendaIgrejaBlock"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "eventos",
+                    "titulo": "Eventos", 
+                    "sref": "SmartChurchPanel.igreja.eventos.buscar",
+                    "states": ["SmartChurchPanel.igreja.eventos.buscar","SmartChurchPanel.igreja.eventos.adicionar","SmartChurchPanel.igreja.eventos.editar"],
+                    "modulos": ["MOD_EVENTOS"], 
+                    "perms": [ "EventoIgreja", "EventoIgrejaSave", "EventoIgrejaRemove", "EventoIgrejaBlock", "EventoIgrejaManage"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "eleicoes",
+                    "titulo": "Eleições", 
+                    "sref": "SmartChurchPanel.igreja.eleicoes.buscar",
+                    "states": ["SmartChurchPanel.igreja.eleicoes.buscar","SmartChurchPanel.igreja.eleicoes.adicionar","SmartChurchPanel.igreja.eleicoes.editar"],
+                    "modulos": ["MOD_ELEICOES"], 
+                    "perms": [ "EleicaoIgreja", "EleicaoIgrejaSave", "EleicaoIgrejaRemove", "EleicaoIgrejaBlock", "EleicaoIgrejaManage"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "financas",
+                    "titulo": "Finanças", 
+                    "sref": "SmartChurchPanel.igreja.financas.gerenciar",
+                    "states": ["SmartChurchPanel.igreja.financas.gerenciar"],
+                    "modulos": ["MOD_FINANCAS"], 
+                    "perms": [ "FinancaIgreja"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "transmissoes",
+                    "titulo": "Transmissões", 
+                    "sref": "SmartChurchPanel.igreja.transmissoes.buscar",
+                    "states": ["SmartChurchPanel.igreja.transmissoes.buscar","SmartChurchPanel.igreja.transmissoes.adicionar",
+                                    "SmartChurchPanel.igreja.transmissoes.editar","SmartChurchPanel.igreja.transmissoes.ver"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "TransmissaoIgreja", "TransmissaoIgrejaSave", "TransmissaoIgrejaRemove", "TransmissaoIgrejaBlock"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "superintendencia",
+                    "titulo": "Superintendência", 
+                    "sref": "SmartChurchPanel.igreja.superintendencia.buscar",
+                    "states": ["SmartChurchPanel.igreja.superintendencia.buscar","SmartChurchPanel.igreja.superintendencia.adicionar",
+                                    "SmartChurchPanel.igreja.superintendencia.editar"],
+                    "modulos": ["MOD_EBD"], 
+                    "perms": [ "SuperintendenciaIgreja", "SuperintendenciaIgrejaSave", "SuperintendenciaIgrejaRemove", "SuperintendenciaIgrejaBlock"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "mural",
+                    "titulo": "Mural", 
+                    "sref": "SmartChurchPanel.igreja.mural.buscar",
+                    "states": ["SmartChurchPanel.igreja.mural.buscar","SmartChurchPanel.igreja.mural.adicionar",
+                                    "SmartChurchPanel.igreja.mural.editar"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "Mural", "MuralSave", "MuralRemove", "MuralBlock"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "pedidosdeoracao",
+                    "titulo": "Pedidos de Oração", 
+                    "sref": "SmartChurchPanel.igreja.pedidosdeoracao.buscar",
+                    "states": ["SmartChurchPanel.igreja.pedidosdeoracao.buscar"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "PedidosOracaoIgreja"], 
+                    "setted": []
+                }
+            ]
+        },
+        { 
+            "nome": "palavraigreja",
+            "titulo": "Palavra", 
+            "icon": "ion ion-md-book", 
+            "modulos": ["MOD_IGREJA"], 
+            "setted": ["manage_igreja"],
+            "submenus": [
+                { 
+                    "nome": "seriesdesermoes",
+                    "titulo": "Séries", 
+                    "sref": "SmartChurchPanel.igreja.seriesdesermoes.buscar",
+                    "states": ["SmartChurchPanel.igreja.seriesdesermoes.buscar","SmartChurchPanel.igreja.seriesdesermoes.adicionar",
+                                    "SmartChurchPanel.igreja.seriesdesermoes.editar","SmartChurchPanel.igreja.seriesdesermoes.ver"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "SerieSermao", "SerieSermaoSave", "SerieSermaoRemove", "SerieSermaoBlock"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "sermoes",
+                    "titulo": "Sermões", 
+                    "sref": "SmartChurchPanel.igreja.sermoes.buscar",
+                    "states": ["SmartChurchPanel.igreja.sermoes.buscar","SmartChurchPanel.igreja.sermoes.adicionar",
+                                    "SmartChurchPanel.igreja.sermoes.editar","SmartChurchPanel.igreja.sermoes.ver"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "Sermao", "SermaoSave", "SermaoRemove", "SermaoBlock"], 
+                    "setted": []
+                }
+            ]
+        },
+        { 
+            "nome": "estudoigreja",
+            "titulo": "Estudos", 
+            "icon": "fas fa-graduation-cap", 
+            "modulos": ["MOD_IGREJA"], 
+            "setted": ["manage_igreja"],
+            "submenus": [
+                { 
+                    "nome": "seriesdeestudos",
+                    "titulo": "Séries", 
+                    "sref": "SmartChurchPanel.igreja.seriesdeestudos.buscar",
+                    "states": ["SmartChurchPanel.igreja.seriesdeestudos.buscar","SmartChurchPanel.igreja.seriesdeestudos.adicionar",
+                                    "SmartChurchPanel.igreja.seriesdeestudos.editar","SmartChurchPanel.igreja.seriesdeestudos.ver"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "SerieEstudoIgreja", "SerieEstudoIgrejaSave", "SerieEstudoIgrejaRemove", "SerieEstudoIgrejaBlock"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "estudos",
+                    "titulo": "Estudos", 
+                    "sref": "SmartChurchPanel.igreja.estudos.buscar",
+                    "states": ["SmartChurchPanel.igreja.estudos.buscar","SmartChurchPanel.igreja.estudos.adicionar",
+                                    "SmartChurchPanel.igreja.estudos.editar","SmartChurchPanel.igreja.estudos.ver"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "EstudoIgreja", "EstudoIgrejaSave", "EstudoIgrejaRemove", "EstudoIgrejaBlock"], 
+                    "setted": []
+                }
+            ]
+        },
+        {
+            "nome": "integracao",
+            "titulo": "Integração", 
+            "icon": "fas fa-flask", 
+            "modulos": ["MOD_IGREJA"], 
+            "setted": ["manage_igreja"],
+            "submenus": [ 
+                { 
+                    "nome": "token",
+                    "titulo": "Token", 
+                    "sref": "SmartChurchPanel.igreja.token.gerar",
+                    "states": ["SmartChurchPanel.igreja.token.gerar"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "IntegracaoIgreja"], 
+                    "setted": []
+                }
+            ]
+        }
+    ]
+}

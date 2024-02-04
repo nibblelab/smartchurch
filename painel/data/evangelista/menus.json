@@ -1,0 +1,24 @@
+{
+    "menus": [
+        { 
+            "nome": "evangelista",
+            "titulo": "Evangelista", 
+            "icon": "fas fa-chess-bishop", 
+            "modulos": ["MOD_IGREJA"], 
+            "setted": ["manage_evangelista"],
+            "submenus": [
+                { 
+                    "nome": "agendadoevangelista",
+                    "titulo": "Agenda", 
+                    "sref": "SmartChurchPanel.evangelista.agenda.buscar",
+                    "states": ["SmartChurchPanel.evangelista.agenda.buscar",
+                                    "SmartChurchPanel.evangelista.agenda.adicionar",
+                                    "SmartChurchPanel.evangelista.agenda.editar"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "AgendaEvangelista", "AgendaEvangelistaSave", "AgendaEvangelistaRemove", "AgendaEvangelistaBlock"], 
+                    "setted": []
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,191 @@
+<script type="text/ng-template" id="agenda_data.html">
+    <legend>Dados Básicos</legend>
+    <div class="form-group row m-b-15">
+        <label class="col-form-label col-md-2">Atividade *</label>
+        <div class="col-md-10">
+            <input class="form-control m-b-5" type="text" placeholder="Atividade" ng-model="ctrl.dataFrm.data.nome.value"
+                    ng-class="{'is-invalid': !ctrl.dataFrm.data.nome.valid}"
+                    name="validation[nome]" data-validation="[NOTEMPTY]"
+                    data-validation-message="A atividade não pode ser vazia" />
+        </div>
+    </div>
+    <div class="form-group row m-b-15" ng-if="ctrl.listTiposResponsaveis.length > 0">
+        <label class="col-form-label col-md-2">Organização *</label>
+        <div class="col-md-8">
+            <select class="form-control" ng-model="ctrl.dataFrm.data.organizacao.value" 
+                    ng-change="ctrl.filterResponsavel(ctrl.dataFrm.data.organizacao.value, 'responsavel')"
+                    ng-class="{'is-invalid': !ctrl.dataFrm.data.organizacao.valid}"
+                    name="validation[organizacao]" data-validation="[NOTEMPTY]"
+                    data-validation-message="O grupo responsável pela organização não pode ser vazio" >
+                <option value=""></option>
+                <option value="{{i.id}}" ng-repeat="i in ctrl.listTiposResponsaveis">{{i.nome}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group row m-b-15" ng-if="ctrl.listResponsaveis.length > 0">
+        <label class="col-form-label col-md-2">Responsável *</label>
+        <div class="col-md-8">
+            <select class="form-control" ng-model="ctrl.dataFrm.data.responsavel.value"
+                    ng-class="{'is-invalid': !ctrl.dataFrm.data.responsavel.valid}"
+                    name="validation[responsavel]" data-validation="[NOTEMPTY]"
+                    data-validation-message="O responsável pela atividade não pode ser vazio" >
+                <option value=""></option>
+                <option value="{{i.id}}" ng-repeat="i in ctrl.listResponsaveis" ng-show="i.show">{{i.nome}}</option>
+            </select>
+        </div>
+    </div>
+
+    <legend>Datas & Recorrência</legend>
+    <div class="form-group row m-b-15" ng-class="{'has-danger': !ctrl.dataFrm.data.recorrente.valid}">
+        <label class="col-form-label col-md-2" >Recorrente?</label>
+        <div class="col-md-6">
+            <div class="checkbox checkbox-css">
+                <input type="checkbox" id="checkbox_recorrente" ng-model="ctrl.dataFrm.data.recorrente.value" /> 
+                <label for="checkbox_recorrente" class="checkbox">
+                    Sim
+                </label>
+            </div>
+            <small>
+                Marque caso a atividade ocorra frequentemente em dias e horários definidos 
+                como cultos, escola dominical, etc.
+            </small>
+        </div>
+        <div class="col-md-3">
+            <button type="button" class="btn btn-block btn-primary" ng-click="ctrl.addDiaHorario()"
+                    ng-show="ctrl.dataFrm.data.recorrente.value">Adicionar Dia & Horário</button>
+        </div>
+    </div>
+    <div class="form-group row m-b-15" ng-hide="ctrl.dataFrm.data.recorrente.value">
+        <label class="col-form-label col-md-2">Início *</label>
+        <div class="col-md-2">
+            <div class="input-group">
+                <input class="form-control datepicker" type="text" ng-model="ctrl.dataFrm.data.data_ini.value" ui-mask="99/99/9999" model-view-value="true" 
+                    ng-class="{'is-invalid': !ctrl.dataFrm.data.data_ini.valid}"
+                    name="validation[data_ini]" data-validation="[NOTEMPTY]"
+                    data-validation-message="O início não pode ser vazio" />
+                <span class="input-group-addon" >
+                    <i class="far fa-calendar-alt"></i>
+                </span>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="input-group">
+                <input class="form-control" type="text" ng-model="ctrl.dataFrm.data.hora_ini.value" ui-mask="99:99" model-view-value="true"
+                    ng-class="{'is-invalid': !ctrl.dataFrm.data.hora_ini.valid}"
+                    name="validation[hora_ini]" data-validation="[NOTEMPTY]"
+                    data-validation-message="O início não pode ser vazio" />
+                <span class="input-group-addon" >
+                    <i class="fa fa-clock"></i>
+                </span>
+            </div>
+        </div>
+        <label class="col-form-label col-md-2">Término *</label>
+        <div class="col-md-2">
+            <div class="input-group">
+                <input class="form-control datepicker" type="text" ng-model="ctrl.dataFrm.data.data_end.value" ui-mask="99/99/9999" model-view-value="true" 
+                    ng-class="{'is-invalid': !ctrl.dataFrm.data.data_end.valid}"
+                    name="validation[data_end]" data-validation="[NOTEMPTY]"
+                    data-validation-message="O término não pode ser vazio" />
+                <span class="input-group-addon" >
+                    <i class="far fa-calendar-alt"></i>
+                </span>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="input-group">
+                <input class="form-control" type="text" ng-model="ctrl.dataFrm.data.hora_end.value" ui-mask="99:99" model-view-value="true"
+                    ng-class="{'is-invalid': !ctrl.dataFrm.data.hora_end.valid}"
+                    name="validation[hora_end]" data-validation="[NOTEMPTY]"
+                    data-validation-message="O término não pode ser vazio" />
+                <span class="input-group-addon" >
+                    <i class="fa fa-clock"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="b-sep mb-2 pb-2" ng-repeat="d in ctrl.dataFrm.data.dias_horarios.value">
+        <div class="form-group row m-b-15">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col">
+                        <div class="checkbox checkbox-css">
+                            <input type="checkbox" id="checkbox_domingo_{{d.id}}" ng-model="d.domingo" /> 
+                            <label for="checkbox_domingo_{{d.id}}" class="checkbox">
+                                Domingo
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="checkbox checkbox-css">
+                            <input type="checkbox" id="checkbox_segunda_{{d.id}}" ng-model="d.segunda" /> 
+                            <label for="checkbox_segunda_{{d.id}}" class="checkbox">
+                                Segunda
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="checkbox checkbox-css">
+                            <input type="checkbox" id="checkbox_terca_{{d.id}}" ng-model="d.terca" /> 
+                            <label for="checkbox_terca_{{d.id}}" class="checkbox">
+                                Terça
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="checkbox checkbox-css">
+                            <input type="checkbox" id="checkbox_quarta_{{d.id}}" ng-model="d.quarta" /> 
+                            <label for="checkbox_quarta_{{d.id}}" class="checkbox">
+                                Quarta
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="checkbox checkbox-css">
+                            <input type="checkbox" id="checkbox_quinta_{{d.id}}" ng-model="d.quinta" /> 
+                            <label for="checkbox_quinta_{{d.id}}" class="checkbox">
+                                Quinta
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="checkbox checkbox-css">
+                            <input type="checkbox" id="checkbox_sexta_{{d.id}}" ng-model="d.sexta" /> 
+                            <label for="checkbox_sexta_{{d.id}}" class="checkbox">
+                                Sexta
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="checkbox checkbox-css">
+                            <input type="checkbox" id="checkbox_sabado_{{d.id}}" ng-model="d.sabado" /> 
+                            <label for="checkbox_sabado_{{d.id}}" class="checkbox">
+                                Sábado
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row m-b-15">
+            <label class="col-form-label col-md-2">Início *</label>
+            <div class="col-md-4">
+                <input class="form-control" type="text" ng-model="d.inicio"
+                        ui-mask="99:99" model-view-value="true" />
+            </div>
+            <label class="col-form-label col-md-2">Término *</label>
+            <div class="col-md-4">
+                <input class="form-control" type="text" ng-model="d.termino"
+                        ui-mask="99:99" model-view-value="true" />
+            </div>
+        </div>
+    </div>
+    
+    <legend>Informação Adicional</legend>
+    <div class="form-group row m-b-15">
+        <label class="col-form-label col-md-2">Observações</label>
+        <div class="col-md-10">
+            <textarea class="form-control m-b-5" rows="5" ng-model="ctrl.dataFrm.data.observacoes.value"
+                    ng-class="{'is-invalid': !ctrl.dataFrm.data.observacoes.valid}" ></textarea>
+        </div>
+    </div>
+</script>

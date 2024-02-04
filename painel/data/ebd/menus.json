@@ -1,0 +1,26 @@
+{
+    "menus": [
+        { 
+            "nome": "ebd",
+            "titulo": "Escola Dominical", 
+            "icon": "fas fa-school", 
+            "modulos": ["MOD_EBD"], 
+            "setted": ["manage_ebd"],
+            "submenus": [
+                { 
+                    "nome": "salasebd",
+                    "titulo": "Salas", 
+                    "sref": "SmartChurchPanel.ebd.salas.buscar",
+                    "states": ["SmartChurchPanel.ebd.salas.buscar","SmartChurchPanel.ebd.salas.adicionar","SmartChurchPanel.ebd.salas.editar",
+                        "SmartChurchPanel.ebd.salas.professores.buscar","SmartChurchPanel.ebd.salas.professores.adicionar","SmartChurchPanel.ebd.salas.professores.editar",
+                        "SmartChurchPanel.ebd.salas.alunos.buscar","SmartChurchPanel.ebd.salas.alunos.adicionar","SmartChurchPanel.ebd.salas.alunos.editar",
+                        "SmartChurchPanel.ebd.salas.frequencias.buscar","SmartChurchPanel.ebd.salas.frequencias.adicionar","SmartChurchPanel.ebd.salas.frequencias.editar"],
+                    "modulos": ["MOD_EBD"], 
+                    "perms": [ "SalaEBD", "SalaEBDSave", "SalaEBDRemove", "SalaEBDBlock", "SalaEBDProfessores", "SalaEBDAlunos", 
+                        "FrequenciaEBD", "FrequenciaEBDSave", "FrequenciaEBDRemove"], 
+                    "setted": []
+                }
+            ]
+        }
+    ]
+}

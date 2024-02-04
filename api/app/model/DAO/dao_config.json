@@ -1,0 +1,1928 @@
+{
+    "dtos": [{
+        "name": "Escrutinios",
+        "from_sql": "escrutinios",
+        "tables": [{
+            "name": "escrutinios",
+            "alias": "",
+            "where_sql": true,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "votacao", "size": "24", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "escrutinio", "size": "", "default": "", "validation": "IS_INT", "is_auto": false }
+            ]
+        }]
+    },{
+        "name": "MotivosRecusa",
+        "from_sql": "motivos_recusa",
+        "tables": [{
+            "name": "motivos_recusa",
+            "alias": "",
+            "where_sql": true,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "motivo", "size": "150", "default": "", "validation": "MX_SIZE", "is_auto": false }
+            ]
+        }]
+    },{
+        "name": "Sociedades",
+        "from_sql": "sociedades as sc left join sites as s on s.id = sc.id",
+        "tables": [{
+            "name": "sociedades",
+            "alias": "sc",
+            "where_sql": true,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "igreja", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "federacao", "size": "24", "default": "", "validation": "BE_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "sinodal", "size": "24", "default": "", "validation": "BE_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "nacional", "size": "24", "default": "", "validation": "BE_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "reference", "size": "3", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "nome", "size": "150", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "logo", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "fundacao", "size": "", "default": "", "validation": "BE_NULL|IS_DATE_DB", "is_auto": false },
+                { "name": "email", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "telefone", "size": "20", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "ramal", "size": "20", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "stat", "size": "3", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "time_cad", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_mod", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_amod", "size": "150", "default": "STR#SmartChurch", "validation": "NOT_EMPTY", "is_auto": false }
+            ]
+        },{
+            "name": "sites",
+            "alias": "s",
+            "where_sql": false,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "site", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "facebook", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "instagram", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "youtube", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "vimeo", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false }
+            ]
+        }]
+    },{
+        "name": "Presbiterios",
+        "from_sql": "presbiterios as p left join sites as s on s.id = p.id",
+        "tables": [{
+            "name": "presbiterios",
+            "alias": "p",
+            "where_sql": true,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "sinodo", "size": "24", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "sigla", "size": "15", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "nome", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "email", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "fundacao", "size": "", "default": "", "validation": "BE_NULL|IS_DATE_DB", "is_auto": false },
+                { "name": "stat", "size": "3", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "time_cad", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_mod", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_amod", "size": "150", "default": "STR#SmartChurch", "validation": "NOT_EMPTY", "is_auto": false }
+            ]
+        },{
+            "name": "sites",
+            "alias": "s",
+            "where_sql": false,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "site", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "facebook", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "instagram", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "youtube", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "vimeo", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false }
+            ]
+        }]
+    },{
+        "name": "Socios",
+        "from_sql": "socios",
+        "tables": [{
+            "name": "socios",
+            "alias": "",
+            "where_sql": true,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "sociedade", "size": "24", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "pessoa", "size": "24", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "data_admissao", "size": "", "default": "", "validation": "BE_NULL|IS_DATE_DB", "is_auto": false },
+                { "name": "data_demissao", "size": "", "default": "", "validation": "BE_NULL|IS_DATE_DB", "is_auto": false },
+                { "name": "stat", "size": "3", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "admin", "size": "1", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "diretoria", "size": "1", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "cooperador", "size": "1", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "time_cad", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_mod", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_amod", "size": "150", "default": "STR#SmartChurch", "validation": "NOT_EMPTY", "is_auto": false }
+            ]
+        }]
+    },{
+        "name": "Eventos",
+        "from_sql": "eventos",
+        "tables": [{
+            "name": "eventos",
+            "alias": "",
+            "where_sql": true,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "agenda", "size": "24", "default": "", "validation": "BE_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "chave", "size": "40", "default": "", "validation": "BE_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "nome", "size": "150", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "logo", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "descricao", "size": "", "default": "", "validation": "", "is_auto": false },
+                { "name": "ref", "size": "24", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "ref_tp", "size": "3", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "inscricoes_ativas", "size": "1", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "formulario_inscricao", "size": "", "default": "", "validation": "", "is_auto": false },
+                { "name": "valor", "size": "", "default": "", "validation": "IS_FLOAT", "is_auto": false },
+                { "name": "opcoes_pagto", "size": "", "default": "", "validation": "", "is_auto": false },
+                { "name": "lotes", "size": "", "default": "", "validation": "", "is_auto": false },
+                { "name": "fim_inscricao", "size": "", "default": "", "validation": "BE_NULL|IS_DATETIME_DB", "is_auto": false },
+                { "name": "time_ini", "size": "", "default": "", "validation": "BE_NULL|IS_DATETIME_DB", "is_auto": false },
+                { "name": "time_end", "size": "", "default": "", "validation": "BE_NULL|IS_DATETIME_DB", "is_auto": false },
+                { "name": "tem_eleicoes", "size": "1", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "credencial_digital", "size": "1", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "data_delegados", "size": "", "default": "", "validation": "BE_NULL|IS_DATETIME_DB", "is_auto": false },
+                { "name": "stat", "size": "3", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "time_cad", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_mod", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_amod", "size": "150", "default": "STR#SmartChurch", "validation": "NOT_EMPTY", "is_auto": false }
+            ]
+        }]
+    },{
+        "name": "Pessoas",
+        "from_sql": "pessoas as p left join usuarios as u on u.id = p.id left join enderecos as e on e.id = p.id left join sites as s on s.id = p.id",
+        "tables": [{
+            "name": "usuarios",
+            "alias": "u",
+            "where_sql": false,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "perfil", "size": "24", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "nome", "size": "150", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "email", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "senha", "size": "40", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "stat", "size": "3", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "tp", "size": "3", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "avatar", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "is_master", "size": "1", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "is_android", "size": "1", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "fcm_token", "size": "", "default": "", "validation": "", "is_auto": false },
+                { "name": "reset_code", "size": "7", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "time_cad", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_mod", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_sync", "size": "", "default": "", "validation": "BE_NULL|IS_DATETIME_DB", "is_auto": false },
+                { "name": "last_amod", "size": "150", "default": "STR#SmartChurch", "validation": "NOT_EMPTY", "is_auto": false }
+            ]
+        },{
+            "name": "pessoas",
+            "alias": "p",
+            "where_sql": true,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "profissao", "size": "24", "default": "", "validation": "BE_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "sexo", "size": "1", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "data_nascimento", "size": "", "default": "", "validation": "BE_NULL|IS_DATE_DB", "is_auto": false },
+                { "name": "crianca", "size": "1", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "responsavel", "size": "24", "default": "", "validation": "BE_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "estado_civil", "size": "3", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "tem_filhos", "size": "1", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "escolaridade", "size": "3", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "telefone", "size": "20", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "celular_1", "size": "20", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "celular_2", "size": "20", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "pai", "size": "150", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "mae", "size": "150", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "naturalidade", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "nacionalidade", "size": "150", "default": "", "validation": "MX_SIZE", "is_auto": false }
+            ]
+        },{
+            "name": "enderecos",
+            "alias": "e",
+            "where_sql": false,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "endereco", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "numero", "size": "20", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "complemento", "size": "45", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "bairro", "size": "150", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "cidade", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "uf", "size": "2", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "cep", "size": "20", "default": "", "validation": "MX_SIZE", "is_auto": false }
+            ]
+        },{
+            "name": "sites",
+            "alias": "s",
+            "where_sql": false,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "site", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "facebook", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "instagram", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "youtube", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "vimeo", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false }
+            ]
+        }]
+    },{
+        "name": "Oficiais",
+        "from_sql": "oficiais",
+        "tables": [{
+            "name": "oficiais",
+            "alias": "",
+            "where_sql": true,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "pessoa", "size": "24", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "cargo", "size": "24", "default": "", "validation": "BE_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "diretoria", "size": "24", "default": "", "validation": "BE_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "email", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "telefone", "size": "20", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "celular", "size": "20", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "inicio", "size": "", "default": "", "validation": "BE_NULL|IS_DATE_DB", "is_auto": false },
+                { "name": "fim", "size": "", "default": "", "validation": "BE_NULL|IS_DATE_DB", "is_auto": false },
+                { "name": "ref", "size": "24", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "ref_tp", "size": "3", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "stat", "size": "3", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "tipo", "size": "3", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "disponibilidade", "size": "3", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "time_cad", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_mod", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_amod", "size": "150", "default": "STR#SmartChurch", "validation": "NOT_EMPTY", "is_auto": false }
+            ]
+        }]
+    },{
+        "name": "Diretorias",
+        "from_sql": "diretorias",
+        "tables": [{
+            "name": "diretorias",
+            "alias": "",
+            "where_sql": true,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "nome", "size": "150", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "gestao_inicio", "size": "", "default": "", "validation": "BE_NULL|IS_DATE_DB", "is_auto": false },
+                { "name": "gestao_fim", "size": "", "default": "", "validation": "BE_NULL|IS_DATE_DB", "is_auto": false },
+                { "name": "ref", "size": "24", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "ref_tp", "size": "3", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "stat", "size": "3", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "time_cad", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_mod", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_amod", "size": "150", "default": "STR#SmartChurch", "validation": "NOT_EMPTY", "is_auto": false }
+            ]
+        }]
+    },{
+        "name": "Superintendentes",
+        "from_sql": "superintendentes",
+        "tables": [{
+            "name": "superintendentes",
+            "alias": "",
+            "where_sql": true,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "perfil", "size": "24", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "igreja", "size": "24", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "pessoa", "size": "24", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "email", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "inicio", "size": "", "default": "", "validation": "BE_NULL|IS_DATE_DB", "is_auto": false },
+                { "name": "fim", "size": "", "default": "", "validation": "BE_NULL|IS_DATE_DB", "is_auto": false },
+                { "name": "stat", "size": "3", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "time_cad", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_mod", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_amod", "size": "150", "default": "STR#SmartChurch", "validation": "NOT_EMPTY", "is_auto": false }
+            ]
+        }]
+    },{
+        "name": "Contas",
+        "from_sql": "contas",
+        "tables": [{
+            "name": "contas",
+            "alias": "",
+            "where_sql": true,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "ref", "size": "24", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "ref_tp", "size": "3", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "nome", "size": "150", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "stat", "size": "3", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "time_cad", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_mod", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_amod", "size": "150", "default": "STR#SmartChurch", "validation": "NOT_EMPTY", "is_auto": false }
+            ]
+        }]
+    },{
+        "name": "Categorias",
+        "from_sql": "categorias",
+        "tables": [{
+            "name": "categorias",
+            "alias": "",
+            "where_sql": true,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "ref", "size": "24", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "ref_tp", "size": "3", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "nome", "size": "150", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "cor", "size": "45", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "stat", "size": "3", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "time_cad", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_mod", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_amod", "size": "150", "default": "STR#SmartChurch", "validation": "NOT_EMPTY", "is_auto": false }
+            ]
+        }]
+    },{
+        "name": "Subcategorias",
+        "from_sql": "subcategorias",
+        "tables": [{
+            "name": "subcategorias",
+            "alias": "",
+            "where_sql": true,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "categoria", "size": "24", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "ref", "size": "24", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "ref_tp", "size": "3", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "nome", "size": "150", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "cor", "size": "45", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "stat", "size": "3", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "time_cad", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_mod", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_amod", "size": "150", "default": "STR#SmartChurch", "validation": "NOT_EMPTY", "is_auto": false }
+            ]
+        }]
+    },{
+        "name": "Tags",
+        "from_sql": "tags",
+        "tables": [{
+            "name": "tags",
+            "alias": "",
+            "where_sql": true,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "ref", "size": "24", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "ref_tp", "size": "3", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "nome", "size": "150", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "cor", "size": "45", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "stat", "size": "3", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "time_cad", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_mod", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_amod", "size": "150", "default": "STR#SmartChurch", "validation": "NOT_EMPTY", "is_auto": false }
+            ]
+        }]
+    },{
+        "name": "TagsDaEntrada",
+        "from_sql": "tags_da_entrada",
+        "tables": [{
+            "name": "tags_da_entrada",
+            "alias": "",
+            "where_sql": true,
+            "primary_keys": ["tag", "entrada"],
+            "fields": [
+                { "name": "tag", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "entrada", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false }
+            ]
+        }]
+    },{
+        "name": "TagsDaSaida",
+        "from_sql": "tags_da_saida",
+        "tables": [{
+            "name": "tags_da_saida",
+            "alias": "",
+            "where_sql": true,
+            "primary_keys": ["tag", "saida"],
+            "fields": [
+                { "name": "tag", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "saida", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false }
+            ]
+        }]
+    },{
+        "name": "Entradas",
+        "from_sql": "entradas",
+        "tables": [{
+            "name": "entradas",
+            "alias": "",
+            "where_sql": true,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "categoria", "size": "24", "default": "", "validation": "BE_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "subcategoria", "size": "24", "default": "", "validation": "BE_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "conta", "size": "24", "default": "", "validation": "BE_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "ref", "size": "24", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "ref_tp", "size": "3", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "registro", "size": "150", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "valor", "size": "", "default": "", "validation": "IS_FLOAT", "is_auto": false },
+                { "name": "data_registro", "size": "", "default": "", "validation": "IS_DATE_DB", "is_auto": false },
+                { "name": "stat", "size": "3", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "time_cad", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_mod", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_amod", "size": "150", "default": "STR#SmartChurch", "validation": "NOT_EMPTY", "is_auto": false }
+            ]
+        }]
+    },{
+        "name": "Saidas",
+        "from_sql": "saidas",
+        "tables": [{
+            "name": "saidas",
+            "alias": "",
+            "where_sql": true,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "categoria", "size": "24", "default": "", "validation": "BE_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "subcategoria", "size": "24", "default": "", "validation": "BE_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "conta", "size": "24", "default": "", "validation": "BE_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "ref", "size": "24", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "ref_tp", "size": "3", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "registro", "size": "150", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "valor", "size": "", "default": "", "validation": "IS_FLOAT", "is_auto": false },
+                { "name": "data_registro", "size": "", "default": "", "validation": "IS_DATE_DB", "is_auto": false },
+                { "name": "stat", "size": "3", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "time_cad", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_mod", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_amod", "size": "150", "default": "STR#SmartChurch", "validation": "NOT_EMPTY", "is_auto": false }
+            ]
+        }]
+    },{
+        "name": "PermissoesDoPerfil",
+        "from_sql": "permissoes_do_perfil",
+        "tables": [{
+            "name": "permissoes_do_perfil",
+            "alias": "",
+            "where_sql": true,
+            "primary_keys": ["permissao", "perfil"],
+            "fields": [
+                { "name": "permissao", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "perfil", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false }
+            ]
+        }]
+    },{
+        "name": "Eleitores",
+        "from_sql": "eleitores",
+        "tables": [{
+            "name": "eleitores",
+            "alias": "",
+            "where_sql": true,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "pessoa", "size": "24", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "eleicao", "size": "24", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false }
+            ]
+        }]
+    },{
+        "name": "Cargo",
+        "from_sql": "cargo",
+        "tables": [{
+            "name": "cargo",
+            "alias": "",
+            "where_sql": true,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "perfil", "size": "24", "default": "", "validation": "BE_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "nome", "size": "150", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "instancia", "size": "3", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "time_cad", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_mod", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_amod", "size": "150", "default": "STR#SmartChurch", "validation": "NOT_EMPTY", "is_auto": false }
+            ]
+        }]
+    },{
+        "name": "Atas",
+        "from_sql": "atas",
+        "tables": [{
+            "name": "atas",
+            "alias": "",
+            "where_sql": true,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "titulo", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "ref", "size": "24", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "ref_tp", "size": "3", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "conteudo", "size": "", "default": "", "validation": "", "is_auto": false },
+                { "name": "arquivo", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "stat", "size": "3", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "requer_aprovacao", "size": "1", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "aprovado", "size": "1", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "time_cad", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_mod", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_amod", "size": "150", "default": "STR#SmartChurch", "validation": "NOT_EMPTY", "is_auto": false }
+            ]
+        }]
+    },{
+        "name": "TagsAgenda",
+        "from_sql": "tags_agenda",
+        "tables": [{
+            "name": "tags_agenda",
+            "alias": "",
+            "where_sql": true,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "tag", "size": "150", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "cor", "size": "20", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "contextos", "size": "", "default": "", "validation": "", "is_auto": false },
+                { "name": "stat", "size": "3", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "time_cad", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_mod", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_amod", "size": "150", "default": "STR#SmartChurch", "validation": "NOT_EMPTY", "is_auto": false }
+            ]
+        }]
+    },{
+        "name": "TagsDaAgenda",
+        "from_sql": "tags_da_agenda",
+        "tables": [{
+            "name": "tags_da_agenda",
+            "alias": "",
+            "where_sql": true,
+            "primary_keys": ["agenda","tag"],
+            "fields": [
+                { "name": "agenda", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "tag", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false }
+            ]
+        }]
+    },{
+        "name": "Agendas",
+        "from_sql": "agendas",
+        "from_sql": "agendas as a left join enderecos as e on e.id = a.id left join sites as s on s.id = a.id",
+        "tables": [{
+            "name": "agendas",
+            "alias": "a",
+            "where_sql": true,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "nome", "size": "150", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "logo", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "ref", "size": "24", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "ref_tp", "size": "3", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "responsavel", "size": "24", "default": "", "validation": "BE_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "time_ini", "size": "", "default": "", "validation": "BE_NULL|IS_DATETIME_DB", "is_auto": false },
+                { "name": "time_end", "size": "", "default": "", "validation": "BE_NULL|IS_DATETIME_DB", "is_auto": false },
+                { "name": "observacoes", "size": "", "default": "", "validation": "", "is_auto": false },
+                { "name": "recorrente", "size": "1", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "dias_horarios", "size": "", "default": "", "validation": "", "is_auto": false },
+                { "name": "stat", "size": "3", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "time_cad", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_mod", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_amod", "size": "150", "default": "STR#SmartChurch", "validation": "NOT_EMPTY", "is_auto": false }
+            ]
+        },{
+            "name": "enderecos",
+            "alias": "e",
+            "where_sql": false,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "endereco", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "numero", "size": "20", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "complemento", "size": "45", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "bairro", "size": "150", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "cidade", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "uf", "size": "2", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "cep", "size": "20", "default": "", "validation": "MX_SIZE", "is_auto": false }
+            ]
+        },{
+            "name": "sites",
+            "alias": "s",
+            "where_sql": false,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "site", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "facebook", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "instagram", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "youtube", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "vimeo", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false }
+            ]
+        }]
+    },{
+        "name": "Permissoes",
+        "from_sql": "permissoes",
+        "tables": [{
+            "name": "permissoes",
+            "alias": "",
+            "where_sql": true,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "nome", "size": "45", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "descricao", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "ordem", "size": "", "default": "", "validation": "IS_INT", "is_auto": false },
+                { "name": "staff_only", "size": "1", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "modulo", "size": "45", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "grupo", "size": "45", "default": "", "validation": "MX_SIZE", "is_auto": false }
+            ]
+        }]
+    },{
+        "name": "Perfis",
+        "from_sql": "perfis",
+        "tables": [{
+            "name": "perfis",
+            "alias": "",
+            "where_sql": true,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "nome", "size": "150", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "descricao", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "staff_only", "size": "1", "default": "", "validation": "EQ_SIZE", "is_auto": false },
+                { "name": "time_cad", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_mod", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_amod", "size": "150", "default": "STR#SmartChurch", "validation": "NOT_EMPTY", "is_auto": false }
+            ]
+        }]
+    },{
+        "name": "Sysconfigs",
+        "from_sql": "sysconfigs",
+        "tables": [{
+            "name": "sysconfigs",
+            "alias": "",
+            "where_sql": true,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "perfil_membro", "size": "24", "default": "", "validation": "EQ_SIZE", "is_auto": false },
+                { "name": "perfil_cliente", "size": "24", "default": "", "validation": "EQ_SIZE", "is_auto": false },
+                { "name": "perfil_diretoria_sociedade", "size": "24", "default": "", "validation": "EQ_SIZE", "is_auto": false },
+                { "name": "perfil_federacao", "size": "24", "default": "", "validation": "EQ_SIZE", "is_auto": false },
+                { "name": "perfil_sinodal", "size": "24", "default": "", "validation": "EQ_SIZE", "is_auto": false },
+                { "name": "perfil_superintendente", "size": "24", "default": "", "validation": "EQ_SIZE", "is_auto": false },
+                { "name": "perfil_secretario", "size": "24", "default": "", "validation": "EQ_SIZE", "is_auto": false },
+                { "name": "perfil_ministerio", "size": "24", "default": "", "validation": "EQ_SIZE", "is_auto": false },
+                { "name": "perfil_pastor", "size": "24", "default": "", "validation": "EQ_SIZE", "is_auto": false },
+                { "name": "perfil_evangelista", "size": "24", "default": "", "validation": "EQ_SIZE", "is_auto": false },
+                { "name": "perfil_presbitero", "size": "24", "default": "", "validation": "EQ_SIZE", "is_auto": false },
+                { "name": "perfil_diacono", "size": "24", "default": "", "validation": "EQ_SIZE", "is_auto": false },
+                { "name": "perfil_referencia", "size": "24", "default": "", "validation": "EQ_SIZE", "is_auto": false },
+                { "name": "perfil_professor", "size": "24", "default": "", "validation": "EQ_SIZE", "is_auto": false },
+                { "name": "tag_evento", "size": "24", "default": "", "validation": "EQ_SIZE", "is_auto": false },
+                { "name": "tag_eleicao", "size": "24", "default": "", "validation": "EQ_SIZE", "is_auto": false }
+            ]
+        }]
+    },{
+        "name": "Sites",
+        "from_sql": "sites",
+        "tables": [{
+            "name": "sites",
+            "alias": "",
+            "where_sql": true,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "site", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "facebook", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "instagram", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "youtube", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "vimeo", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false }
+            ]
+        }]
+    },{
+        "name": "Igrejas",
+        "from_sql": "igrejas as ig left join enderecos as e on e.id = ig.id left join sites as s on s.id = ig.id",
+        "tables": [{
+            "name": "igrejas",
+            "alias": "ig",
+            "where_sql": true,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "sinodo", "size": "24", "default": "", "validation": "BE_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "presbiterio", "size": "24", "default": "", "validation": "BE_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "igreja", "size": "24", "default": "", "validation": "BE_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "nome", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "fundacao", "size": "", "default": "", "validation": "BE_NULL|IS_DATE_DB", "is_auto": false },
+                { "name": "organizada", "size": "1", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "telefone", "size": "20", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "email", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "stat", "size": "3", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "time_cad", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_mod", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_amod", "size": "150", "default": "STR#SmartChurch", "validation": "NOT_EMPTY", "is_auto": false }
+            ]
+        },{
+            "name": "enderecos",
+            "alias": "e",
+            "where_sql": false,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "endereco", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "numero", "size": "20", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "complemento", "size": "45", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "bairro", "size": "150", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "cidade", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "uf", "size": "2", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "cep", "size": "20", "default": "", "validation": "MX_SIZE", "is_auto": false }
+            ]
+        },{
+            "name": "sites",
+            "alias": "s",
+            "where_sql": false,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "site", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "facebook", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "instagram", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "youtube", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "vimeo", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false }
+            ]
+        }]
+    },{
+        "name": "Credenciais",
+        "from_sql": "credenciais",
+        "tables": [{
+            "name": "credenciais",
+            "alias": "",
+            "where_sql": true,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "id_responsavel", "size": "24", "default": "", "validation": "BE_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "nome_responsavel", "size": "150", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "email_responsavel", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "telefone_responsavel", "size": "20", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "assinatura_inscrito", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "assinatura_responsavel", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "assinatura_instancia", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "assinatura_plataforma", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "stat", "size": "3", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "time_cad", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_mod", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_amod", "size": "150", "default": "STR#SmartChurch", "validation": "NOT_EMPTY", "is_auto": false }
+            ]
+        }]
+    },{
+        "name": "Inscricoes",
+        "from_sql": "inscricoes",
+        "tables": [{
+            "name": "inscricoes",
+            "alias": "",
+            "where_sql": true,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "pessoa", "size": "24", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "evento", "size": "24", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "credencial_digital", "size": "24", "default": "", "validation": "BE_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "motivo_recusa", "size": "24", "default": "", "validation": "BE_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "igreja", "size": "24", "default": "", "validation": "BE_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "presbiterio", "size": "24", "default": "", "validation": "BE_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "sinodo", "size": "24", "default": "", "validation": "BE_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "sociedade", "size": "24", "default": "", "validation": "BE_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "federacao", "size": "24", "default": "", "validation": "BE_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "sinodal", "size": "24", "default": "", "validation": "BE_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "qrcode", "size": "15", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "delegado", "size": "1", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "cargo_ref", "size": "3", "default": "", "validation": "BE_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "cargo", "size": "24", "default": "", "validation": "BE_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "credencial", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "stat", "size": "3", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "forma_pagto", "size": "3", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "stat_pagto", "size": "3", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "valor_pago", "size": "", "default": "", "validation": "IS_FLOAT", "is_auto": false },
+                { "name": "gateway_code", "size": "45", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "data_pagto", "size": "", "default": "", "validation": "BE_NULL|IS_DATE_DB", "is_auto": false },
+                { "name": "time_cad", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_mod", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_amod", "size": "150", "default": "STR#SmartChurch", "validation": "NOT_EMPTY", "is_auto": false }
+            ]
+        }]
+    },{
+        "name": "ConfigsPagto",
+        "from_sql": "configs_pagto",
+        "tables": [{
+            "name": "configs_pagto",
+            "alias": "",
+            "where_sql": true,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "nome", "size": "150", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "email", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "token_prod", "size": "45", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "token_test", "size": "45", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "ref", "size": "24", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "ref_tp", "size": "3", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false }
+            ]
+        }]
+    },{
+        "name": "Votos",
+        "from_sql": "votos",
+        "tables": [{
+            "name": "votos",
+            "alias": "",
+            "where_sql": true,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "eleicao", "size": "24", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "votacao", "size": "24", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "escrutinio", "size": "24", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "candidato", "size": "24", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "time_cad", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false }
+            ]
+        }]
+    },{
+        "name": "AprovacoesAta",
+        "from_sql": "aprovacoes_ata",
+        "tables": [{
+            "name": "aprovacoes_ata",
+            "alias": "",
+            "where_sql": true,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "ata", "size": "24", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "pessoa", "size": "24", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "aprovado", "size": "1", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "time_cad", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false }
+            ]
+        }]
+    },{
+        "name": "SupremoConciclio",
+        "from_sql": "supremo_concilio as sc left join sites as s on s.id = sc.id",
+        "tables": [{
+            "name": "supremo_concilio",
+            "alias": "sc",
+            "where_sql": true,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "nome", "size": "150", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "email", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "fundacao", "size": "", "default": "", "validation": "BE_NULL|IS_DATE_DB", "is_auto": false },
+                { "name": "stat", "size": "3", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "time_cad", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_mod", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_amod", "size": "150", "default": "STR#SmartChurch", "validation": "NOT_EMPTY", "is_auto": false }
+            ]
+        },{
+            "name": "sites",
+            "alias": "s",
+            "where_sql": false,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "site", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "facebook", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "instagram", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "youtube", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "vimeo", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false }
+            ]
+        }]
+    },{
+        "name": "Eleicoes",
+        "from_sql": "eleicoes",
+        "tables": [{
+            "name": "eleicoes",
+            "alias": "",
+            "where_sql": true,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "agenda", "size": "24", "default": "", "validation": "BE_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "evento", "size": "24", "default": "", "validation": "BE_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "nome", "size": "150", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "ref", "size": "24", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "ref_tp", "size": "3", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "time_ini", "size": "", "default": "", "validation": "BE_NULL|IS_DATETIME_DB", "is_auto": false },
+                { "name": "time_end", "size": "", "default": "", "validation": "BE_NULL|IS_DATETIME_DB", "is_auto": false },
+                { "name": "apenas_presentes", "size": "1", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "apenas_delegados", "size": "1", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "stat", "size": "3", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "time_cad", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_mod", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_amod", "size": "150", "default": "STR#SmartChurch", "validation": "NOT_EMPTY", "is_auto": false }
+            ]
+        }]
+    },{
+        "name": "AlunosDasSalas",
+        "from_sql": "alunos_das_salas",
+        "tables": [{
+            "name": "alunos_das_salas",
+            "alias": "",
+            "where_sql": true,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "pessoa", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "sala", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "inicio", "size": "", "default": "", "validation": "BE_NULL|IS_DATE_DB", "is_auto": false },
+                { "name": "fim", "size": "", "default": "", "validation": "BE_NULL|IS_DATE_DB", "is_auto": false },
+                { "name": "stat", "size": "3", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "time_cad", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_mod", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_amod", "size": "150", "default": "STR#SmartChurch", "validation": "NOT_EMPTY", "is_auto": false }
+            ]
+        }]
+    },{
+        "name": "Secretarias",
+        "from_sql": "secretarias as sec left join sites as s on s.id = sec.id",
+        "tables": [{
+            "name": "secretarias",
+            "alias": "sec",
+            "where_sql": true,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "nome", "size": "150", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "logo", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "email", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "telefone", "size": "20", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "ramal", "size": "20", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "stat", "size": "3", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "ref", "size": "24", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "ref_tp", "size": "3", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "time_cad", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_mod", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_amod", "size": "150", "default": "STR#SmartChurch", "validation": "NOT_EMPTY", "is_auto": false }
+            ]
+        },{
+            "name": "sites",
+            "alias": "s",
+            "where_sql": false,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "site", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "facebook", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "instagram", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "youtube", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "vimeo", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false }
+            ]
+        }]
+    },{
+        "name": "Frequencias",
+        "from_sql": "frequencias",
+        "tables": [{
+            "name": "frequencias",
+            "alias": "",
+            "where_sql": true,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "pessoa", "size": "24", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "sala", "size": "24", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "presente", "size": "1", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "dia", "size": "", "default": "", "validation": "IS_DATE_DB", "is_auto": false }
+            ]
+        }]
+    },{
+        "name": "Ministerios",
+        "from_sql": "ministerios as m left join sites as s on s.id = m.id",
+        "tables": [{
+            "name": "ministerios",
+            "alias": "m",
+            "where_sql": true,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "igreja", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "nome", "size": "150", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "logo", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "email", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "telefone", "size": "20", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "ramal", "size": "20", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "stat", "size": "3", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "time_cad", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_mod", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_amod", "size": "150", "default": "STR#SmartChurch", "validation": "NOT_EMPTY", "is_auto": false }
+            ]
+        },{
+            "name": "sites",
+            "alias": "s",
+            "where_sql": false,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "site", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "facebook", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "instagram", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "youtube", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "vimeo", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false }
+            ]
+        }]
+    },{
+        "name": "Familias",
+        "from_sql": "familias",
+        "tables": [{
+            "name": "familias",
+            "alias": "",
+            "where_sql": true,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "pessoa", "size": "24", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "parente", "size": "24", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "tipo", "size": "3", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "nome_externo", "size": "150", "default": "", "validation": "MX_SIZE", "is_auto": false }
+            ]
+        }]
+    },{
+        "name": "Sinodos",
+        "from_sql": "sinodos as sn left join sites as s on s.id = sn.id",
+        "tables": [{
+            "name": "sinodos",
+            "alias": "sn",
+            "where_sql": true,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "nacional", "size": "24", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "sigla", "size": "15", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "nome", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "email", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "fundacao", "size": "", "default": "", "validation": "BE_NULL|IS_DATE_DB", "is_auto": false },
+                { "name": "stat", "size": "3", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "time_cad", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_mod", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_amod", "size": "150", "default": "STR#SmartChurch", "validation": "NOT_EMPTY", "is_auto": false }
+            ]
+        },{
+            "name": "sites",
+            "alias": "s",
+            "where_sql": false,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "site", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "facebook", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "instagram", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "youtube", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "vimeo", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false }
+            ]
+        }]
+    },{
+        "name": "Comissoes",
+        "from_sql": "comissoes",
+        "tables": [{
+            "name": "comissoes",
+            "alias": "",
+            "where_sql": true,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "nome", "size": "150", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "ref", "size": "24", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "ref_tp", "size": "3", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "stat", "size": "3", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "time_cad", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_mod", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_amod", "size": "150", "default": "STR#SmartChurch", "validation": "NOT_EMPTY", "is_auto": false }
+            ]
+        }]
+    },{
+        "name": "Candidatos",
+        "from_sql": "candidatos",
+        "tables": [{
+            "name": "candidatos",
+            "alias": "",
+            "where_sql": true,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "pessoa", "size": "24", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "eleicao", "size": "24", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "votacao", "size": "24", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "escrutinio", "size": "24", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false }
+            ]
+        }]
+    },{
+        "name": "PessoasDasComissoes",
+        "from_sql": "pessoas_das_comissoes",
+        "tables": [{
+            "name": "pessoas_das_comissoes",
+            "alias": "",
+            "where_sql": true,
+            "primary_keys": ["pessoa", "comissao"],
+            "fields": [
+                { "name": "pessoa", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "comissao", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "relator", "size": "1", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false }
+            ]
+        }]
+    },{
+        "name": "Usuarios",
+        "from_sql": "usuarios",
+        "tables": [{
+            "name": "usuarios",
+            "alias": "",
+            "where_sql": true,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "perfil", "size": "24", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "nome", "size": "150", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "email", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "senha", "size": "40", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "stat", "size": "3", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "tp", "size": "3", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "avatar", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "is_master", "size": "1", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "is_android", "size": "1", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "fcm_token", "size": "", "default": "", "validation": "", "is_auto": false },
+                { "name": "reset_code", "size": "7", "default": "", "validation": "", "is_auto": false },
+                { "name": "time_cad", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_mod", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_sync", "size": "", "default": "", "validation": "BE_NULL|IS_DATETIME_DB", "is_auto": false },
+                { "name": "last_amod", "size": "150", "default": "STR#SmartChurch", "validation": "NOT_EMPTY", "is_auto": false }
+            ]
+        }]
+    },{
+        "name": "Checkins",
+        "from_sql": "checkins",
+        "tables": [{
+            "name": "checkins",
+            "alias": "",
+            "where_sql": true,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "pessoa", "size": "24", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "ref", "size": "35", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "ref_tp", "size": "3", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "time_cad", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false }
+            ]
+        }]
+    },{
+        "name": "Votantes",
+        "from_sql": "votantes",
+        "tables": [{
+            "name": "votantes",
+            "alias": "",
+            "where_sql": true,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "votacao", "size": "24", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "pessoa", "size": "24", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false }
+            ]
+        }]
+    },{
+        "name": "SalasEbd",
+        "from_sql": "salas_ebd",
+        "tables": [{
+            "name": "salas_ebd",
+            "alias": "",
+            "where_sql": true,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "igreja", "size": "24", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "nome", "size": "150", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "inicio", "size": "", "default": "", "validation": "BE_NULL|IS_DATE_DB", "is_auto": false },
+                { "name": "fim", "size": "", "default": "", "validation": "BE_NULL|IS_DATE_DB", "is_auto": false },
+                { "name": "atualizar_sumario", "size": "1", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "last_sumario_run", "size": "", "default": "", "validation": "BE_NULL|IS_DATETIME_DB", "is_auto": false },
+                { "name": "stat", "size": "3", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "time_cad", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_mod", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_amod", "size": "150", "default": "STR#SmartChurch", "validation": "NOT_EMPTY", "is_auto": false }
+            ]
+        }]
+    },{
+        "name": "AtualizacoesSumarios",
+        "from_sql": "atualizacoes_sumarios",
+        "tables": [{
+            "name": "atualizacoes_sumarios",
+            "alias": "",
+            "where_sql": true,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "sala", "size": "24", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "dia", "size": "", "default": "", "validation": "BE_NULL|IS_DATE_DB", "is_auto": false }
+            ]
+        }]
+    },{
+        "name": "Enderecos",
+        "from_sql": "enderecos",
+        "tables": [{
+            "name": "enderecos",
+            "alias": "",
+            "where_sql": true,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "endereco", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "numero", "size": "20", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "complemento", "size": "45", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "bairro", "size": "150", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "cidade", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "uf", "size": "2", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "cep", "size": "20", "default": "", "validation": "MX_SIZE", "is_auto": false }
+            ]
+        }]
+    },{
+        "name": "Membros",
+        "from_sql": "membros",
+        "tables": [{
+            "name": "membros",
+            "alias": "",
+            "where_sql": true,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "pessoa", "size": "24", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "igreja", "size": "24", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "codigo", "size": "5", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "comungante", "size": "1", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "especial", "size": "1", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "arrolado", "size": "1", "default": "", "validation": "BE_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "data_admissao", "size": "", "default": "", "validation": "BE_NULL|IS_DATE_DB", "is_auto": false },
+                { "name": "data_demissao", "size": "", "default": "", "validation": "BE_NULL|IS_DATE_DB", "is_auto": false },
+                { "name": "stat", "size": "3", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "time_cad", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_mod", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_amod", "size": "150", "default": "STR#SmartChurch", "validation": "NOT_EMPTY", "is_auto": false }
+            ]
+        }]
+    },{
+        "name": "HistoricoMembresia",
+        "from_sql": "historico_membresia",
+        "tables": [{
+            "name": "historico_membresia",
+            "alias": "",
+            "where_sql": true,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "pessoa", "size": "24", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "igreja", "size": "256", "default": "", "validation": "NOT_EMPTY|MX_SIZE", "is_auto": false },
+                { "name": "pastor", "size": "150", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "telefone_pastor", "size": "20", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "email_pastor", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "membro", "size": "1", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "frequentou_de", "size": "", "default": "", "validation": "BE_NULL|IS_DATE_DB", "is_auto": false },
+                { "name": "frequentou_ate", "size": "", "default": "", "validation": "BE_NULL|IS_DATE_DB", "is_auto": false },
+                { "name": "comungante", "size": "1", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "batizado", "size": "1", "default": "", "validation": "BE_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "data_batismo", "size": "", "default": "", "validation": "BE_NULL|IS_DATE_DB", "is_auto": false },
+                { "name": "time_cad", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_mod", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_amod", "size": "150", "default": "STR#SmartChurch", "validation": "NOT_EMPTY", "is_auto": false }
+            ]
+        }]
+    },{
+        "name": "Votacoes",
+        "from_sql": "votacoes",
+        "tables": [{
+            "name": "votacoes",
+            "alias": "",
+            "where_sql": true,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "cargo", "size": "24", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "eleicao", "size": "24", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "stat", "size": "3", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "time_cad", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_mod", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_amod", "size": "150", "default": "STR#SmartChurch", "validation": "NOT_EMPTY", "is_auto": false }
+            ]
+        }]
+    },{
+        "name": "VotosCtrl",
+        "from_sql": "votos_ctrl",
+        "tables": [{
+            "name": "votos_ctrl",
+            "alias": "",
+            "where_sql": true,
+            "primary_keys": ["votacao", "escrutinio", "votante"],
+            "fields": [
+                { "name": "votacao", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "escrutinio", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "votante", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false }
+            ]
+        }]
+    },{
+        "name": "Instancias",
+        "from_sql": "instancias",
+        "tables": [{
+            "name": "instancias",
+            "alias": "",
+            "where_sql": true,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "ref", "size": "24", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "ref_tp", "size": "3", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "modulos", "size": "", "default": "", "validation": "", "is_auto": false },
+                { "name": "pai", "size": "24", "default": "", "validation": "BE_NULL|EQ_SIZE", "is_auto": false }
+            ]
+        }]
+    },{
+        "name": "Contextos",
+        "from_sql": "contextos",
+        "tables": [{
+            "name": "contextos",
+            "alias": "",
+            "where_sql": true,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "usuario", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "instancia", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "ref", "size": "24", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "ref_tp", "size": "3", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "perfil", "size": "24", "default": "", "validation": "BE_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "stat", "size": "3", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false }
+            ]
+        }]
+    },{
+        "name": "PequenosGrupos",
+        "from_sql": "pequenos_grupos",
+        "tables": [{
+            "name": "pequenos_grupos",
+            "alias": "",
+            "where_sql": true,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "igreja", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "nome", "size": "150", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "reunioes", "size": "", "default": "", "validation": "", "is_auto": false },
+                { "name": "stat", "size": "3", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "time_cad", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_mod", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_amod", "size": "150", "default": "STR#SmartChurch", "validation": "NOT_EMPTY", "is_auto": false }
+            ]
+        }]
+    },{
+        "name": "Participantes",
+        "from_sql": "participantes",
+        "tables": [{
+            "name": "participantes",
+            "alias": "",
+            "where_sql": true,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "grupo", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "pessoa", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "stat", "size": "3", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "lider", "size": "1", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "time_cad", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_mod", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_amod", "size": "150", "default": "STR#SmartChurch", "validation": "NOT_EMPTY", "is_auto": false }
+            ]
+        }]
+    },{
+        "name": "Secretarios",
+        "from_sql": "secretarios",
+        "tables": [{
+            "name": "secretarios",
+            "alias": "",
+            "where_sql": true,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "secretaria", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "pessoa", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "perfil", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "tipo", "size": "1", "default": "", "validation": "BE_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "data_admissao", "size": "", "default": "", "validation": "BE_NULL|IS_DATE_DB", "is_auto": false },
+                { "name": "data_demissao", "size": "", "default": "", "validation": "BE_NULL|IS_DATE_DB", "is_auto": false },
+                { "name": "stat", "size": "3", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "time_cad", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_mod", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_amod", "size": "150", "default": "STR#SmartChurch", "validation": "NOT_EMPTY", "is_auto": false }
+            ]
+        }]
+    },{
+        "name": "Servos",
+        "from_sql": "servos",
+        "tables": [{
+            "name": "servos",
+            "alias": "",
+            "where_sql": true,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "ministerio", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "pessoa", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "data_admissao", "size": "", "default": "", "validation": "BE_NULL|IS_DATE_DB", "is_auto": false },
+                { "name": "data_demissao", "size": "", "default": "", "validation": "BE_NULL|IS_DATE_DB", "is_auto": false },
+                { "name": "admin", "size": "1", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "stat", "size": "3", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "time_cad", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_mod", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_amod", "size": "150", "default": "STR#SmartChurch", "validation": "NOT_EMPTY", "is_auto": false }
+            ]
+        }]
+    },{
+        "name": "SeriesSermoes",
+        "from_sql": "series_sermoes",
+        "tables": [{
+            "name": "series_sermoes",
+            "alias": "",
+            "where_sql": true,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "igreja", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "nome", "size": "150", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "chave", "size": "150", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "logo", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "inicio", "size": "", "default": "", "validation": "BE_NULL|IS_DATE_DB", "is_auto": false },
+                { "name": "termino", "size": "", "default": "", "validation": "BE_NULL|IS_DATE_DB", "is_auto": false },
+                { "name": "stat", "size": "3", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "time_cad", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_mod", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_amod", "size": "150", "default": "STR#SmartChurch", "validation": "NOT_EMPTY", "is_auto": false }
+            ]
+        }]
+    },{
+        "name": "Sermoes",
+        "from_sql": "sermoes",
+        "tables": [{
+            "name": "sermoes",
+            "alias": "",
+            "where_sql": true,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "igreja", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "serie", "size": "24", "default": "", "validation": "BE_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "autor", "size": "24", "default": "", "validation": "BE_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "titulo", "size": "150", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "chave", "size": "150", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "logo", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "logo_app", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "data_sermao", "size": "", "default": "", "validation": "BE_NULL|IS_DATE_DB", "is_auto": false },
+                { "name": "conteudo", "size": "", "default": "", "validation": "", "is_auto": false },
+                { "name": "anexo", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "video", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "audio", "size": "", "default": "", "validation": "", "is_auto": false },
+                { "name": "stat", "size": "3", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "time_cad", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_mod", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_amod", "size": "150", "default": "STR#SmartChurch", "validation": "NOT_EMPTY", "is_auto": false }
+            ]
+        }]
+    },{
+        "name": "Transmissoes",
+        "from_sql": "transmissoes",
+        "tables": [{
+            "name": "transmissoes",
+            "alias": "",
+            "where_sql": true,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "ref", "size": "24", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "ref_tp", "size": "3", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "video", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "stat", "size": "3", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "time_cad", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_mod", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_amod", "size": "150", "default": "STR#SmartChurch", "validation": "NOT_EMPTY", "is_auto": false }
+            ]
+        }]
+    },{
+        "name": "SeriesEstudos",
+        "from_sql": "series_estudos",
+        "tables": [{
+            "name": "series_estudos",
+            "alias": "",
+            "where_sql": true,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "ref", "size": "24", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "ref_tp", "size": "3", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "nome", "size": "150", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "chave", "size": "150", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "logo", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "destinatarios", "size": "", "default": "", "validation": "", "is_auto": false },
+                { "name": "stat", "size": "3", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "time_cad", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_mod", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_amod", "size": "150", "default": "STR#SmartChurch", "validation": "NOT_EMPTY", "is_auto": false }
+            ]
+        }]
+    },{
+        "name": "Estudos",
+        "from_sql": "estudos",
+        "tables": [{
+            "name": "estudos",
+            "alias": "",
+            "where_sql": true,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "ref", "size": "24", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "ref_tp", "size": "3", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "serie", "size": "24", "default": "", "validation": "BE_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "autor", "size": "24", "default": "", "validation": "BE_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "titulo", "size": "150", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "chave", "size": "150", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "logo", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "logo_app", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "conteudo", "size": "", "default": "", "validation": "", "is_auto": false },
+                { "name": "anexo", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "video", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "audio", "size": "", "default": "", "validation": "", "is_auto": false },
+                { "name": "destinatarios", "size": "", "default": "", "validation": "", "is_auto": false },
+                { "name": "stat", "size": "3", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "time_cad", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_mod", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_amod", "size": "150", "default": "STR#SmartChurch", "validation": "NOT_EMPTY", "is_auto": false }
+            ]
+        }]
+    },{
+        "name": "FreqSumarios",
+        "from_sql": "freq_sumarios",
+        "tables": [{
+            "name": "freq_sumarios",
+            "alias": "",
+            "where_sql": true,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "sala", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "dia", "size": "", "default": "", "validation": "BE_NULL|IS_DATE_DB", "is_auto": false },
+                { "name": "presentes", "size": "", "default": "", "validation": "IS_INT", "is_auto": false },
+                { "name": "ausentes", "size": "", "default": "", "validation": "IS_INT", "is_auto": false },
+                { "name": "visitantes", "size": "", "default": "", "validation": "IS_INT", "is_auto": false },
+                { "name": "total", "size": "", "default": "", "validation": "IS_INT", "is_auto": false }
+            ]
+        }]
+    },{
+        "name": "ProfessoresDasSalas",
+        "from_sql": "professores_das_salas",
+        "tables": [{
+            "name": "professores_das_salas",
+            "alias": "",
+            "where_sql": true,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "pessoa", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "sala", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "inicio", "size": "", "default": "", "validation": "BE_NULL|IS_DATE_DB", "is_auto": false },
+                { "name": "fim", "size": "", "default": "", "validation": "BE_NULL|IS_DATE_DB", "is_auto": false },
+                { "name": "stat", "size": "3", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "time_cad", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_mod", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_amod", "size": "150", "default": "STR#SmartChurch", "validation": "NOT_EMPTY", "is_auto": false }
+            ]
+        }]
+    },{
+        "name": "ComissoesExecutivas",
+        "from_sql": "comissoes_executivas",
+        "tables": [{
+            "name": "comissoes_executivas",
+            "alias": "",
+            "where_sql": true,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "gestao_inicio", "size": "", "default": "", "validation": "BE_NULL|IS_DATE_DB", "is_auto": false },
+                { "name": "gestao_fim", "size": "", "default": "", "validation": "BE_NULL|IS_DATE_DB", "is_auto": false },
+                { "name": "ref", "size": "24", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "ref_tp", "size": "3", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "stat", "size": "3", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "time_cad", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_mod", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_amod", "size": "150", "default": "STR#SmartChurch", "validation": "NOT_EMPTY", "is_auto": false }
+            ]
+        }]
+    },{
+        "name": "PessoasDasCes",
+        "from_sql": "pessoas_das_ces",
+        "tables": [{
+            "name": "pessoas_das_ces",
+            "alias": "",
+            "where_sql": true,
+            "primary_keys": ["pessoa","comissao_executiva"],
+            "fields": [
+                { "name": "pessoa", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "comissao_executiva", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false }
+            ]
+        }]
+    },{
+        "name": "Nacionais",
+        "from_sql": "nacionais as nc left join sites as s on s.id = nc.id",
+        "tables": [{
+            "name": "nacionais",
+            "alias": "nc",
+            "where_sql": true,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "supremo_conciclio", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "reference", "size": "3", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "sigla", "size": "15", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "nome", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "email", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "fundacao", "size": "", "default": "", "validation": "BE_NULL|IS_DATE_DB", "is_auto": false },
+                { "name": "stat", "size": "3", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "time_cad", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_mod", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_amod", "size": "150", "default": "STR#SmartChurch", "validation": "NOT_EMPTY", "is_auto": false }
+            ]
+        },{
+            "name": "sites",
+            "alias": "s",
+            "where_sql": false,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "site", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "facebook", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "instagram", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "youtube", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "vimeo", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false }
+            ]
+        }]
+    },{
+        "name": "Sinodais",
+        "from_sql": "sinodais as sn left join sites as s on s.id = sn.id",
+        "tables": [{
+            "name": "sinodais",
+            "alias": "sn",
+            "where_sql": true,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "sinodo", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "nacional", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "reference", "size": "3", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "sigla", "size": "15", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "nome", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "email", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "fundacao", "size": "", "default": "", "validation": "BE_NULL|IS_DATE_DB", "is_auto": false },
+                { "name": "stat", "size": "3", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "time_cad", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_mod", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_amod", "size": "150", "default": "STR#SmartChurch", "validation": "NOT_EMPTY", "is_auto": false }
+            ]
+        },{
+            "name": "sites",
+            "alias": "s",
+            "where_sql": false,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "site", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "facebook", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "instagram", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "youtube", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "vimeo", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false }
+            ]
+        }]
+    },{
+        "name": "Federacoes",
+        "from_sql": "federacoes as fd left join sites as s on s.id = fd.id",
+        "tables": [{
+            "name": "federacoes",
+            "alias": "fd",
+            "where_sql": true,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "sinodo", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "presbiterio", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "sinodal", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "reference", "size": "3", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "sigla", "size": "15", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "nome", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "email", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "fundacao", "size": "", "default": "", "validation": "BE_NULL|IS_DATE_DB", "is_auto": false },
+                { "name": "stat", "size": "3", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "time_cad", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_mod", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_amod", "size": "150", "default": "STR#SmartChurch", "validation": "NOT_EMPTY", "is_auto": false }
+            ]
+        },{
+            "name": "sites",
+            "alias": "s",
+            "where_sql": false,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "site", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "facebook", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "instagram", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "youtube", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "vimeo", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false }
+            ]
+        }]
+    },{
+        "name": "UFs",
+        "from_sql": "ufs",
+        "tables": [{
+            "name": "ufs",
+            "alias": "",
+            "where_sql": true,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "", "default": "", "validation": "IS_INT", "is_auto": false },
+                { "name": "nome", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "sigla", "size": "2", "default": "STR#SmartChurch", "validation": "EQ_SIZE", "is_auto": false }
+            ]
+        }]
+    },{
+        "name": "Cidades",
+        "from_sql": "cidades",
+        "tables": [{
+            "name": "cidades",
+            "alias": "",
+            "where_sql": true,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "", "default": "", "validation": "IS_INT", "is_auto": false },
+                { "name": "uf", "size": "", "default": "", "validation": "IS_INT", "is_auto": false },
+                { "name": "nome", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false }
+            ]
+        }]
+    },{
+        "name": "Profissoes",
+        "from_sql": "profissoes",
+        "tables": [{
+            "name": "profissoes",
+            "alias": "",
+            "where_sql": true,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "nome", "size": "150", "default": "", "validation": "MX_SIZE", "is_auto": false }
+            ]
+        }]
+    },{
+        "name": "Doacoes",
+        "from_sql": "doacoes",
+        "tables": [{
+            "name": "doacoes",
+            "alias": "",
+            "where_sql": true,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "nome", "size": "150", "default": "", "validation": "MX_SIZE", "is_auto": false }
+            ]
+        }]
+    },{
+        "name": "Doadores",
+        "from_sql": "doadores",
+        "tables": [{
+            "name": "doadores",
+            "alias": "",
+            "where_sql": true,
+            "primary_keys": ["doacao", "pessoa"],
+            "fields": [
+                { "name": "doacao", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "pessoa", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false }
+            ]
+        }]
+    },{
+        "name": "NecessidadesEspeciais",
+        "from_sql": "necessidades_especiais",
+        "tables": [{
+            "name": "necessidades_especiais",
+            "alias": "",
+            "where_sql": true,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "nome", "size": "150", "default": "", "validation": "MX_SIZE", "is_auto": false }
+            ]
+        }]
+    },{
+        "name": "NecessidadesDasPessoas",
+        "from_sql": "necessidades_das_pessoas",
+        "tables": [{
+            "name": "necessidades_das_pessoas",
+            "alias": "",
+            "where_sql": true,
+            "primary_keys": ["necessidade", "pessoa"],
+            "fields": [
+                { "name": "necessidade", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "pessoa", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false }
+            ]
+        }]
+    },{
+        "name": "Bookmarks",
+        "from_sql": "bookmarks",
+        "tables": [{
+            "name": "bookmarks",
+            "alias": "",
+            "where_sql": true,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "pessoa", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "ref", "size": "24", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "ref_tp", "size": "3", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false }
+            ]
+        }]
+    },{
+        "name": "Mural",
+        "from_sql": "mural",
+        "tables": [{
+            "name": "mural",
+            "alias": "",
+            "where_sql": true,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "ref", "size": "24", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "ref_tp", "size": "3", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "titulo", "size": "150", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "chave", "size": "150", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "img", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "conteudo", "size": "", "default": "", "validation": "", "is_auto": false },
+                { "name": "video", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "audio", "size": "", "default": "", "validation": "", "is_auto": false },
+                { "name": "destinatarios", "size": "", "default": "", "validation": "", "is_auto": false },
+                { "name": "stat", "size": "3", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "time_cad", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_mod", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_amod", "size": "150", "default": "STR#SmartChurch", "validation": "NOT_EMPTY", "is_auto": false }
+            ]
+        }]
+    },{
+        "name": "PedidosOracao",
+        "from_sql": "pedidos_oracao",
+        "tables": [{
+            "name": "pedidos_oracao",
+            "alias": "",
+            "where_sql": true,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "autor", "size": "24", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "ref", "size": "24", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "ref_tp", "size": "3", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "pedido", "size": "", "default": "", "validation": "", "is_auto": false },
+                { "name": "stat", "size": "3", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "time_cad", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_mod", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_amod", "size": "150", "default": "STR#SmartChurch", "validation": "NOT_EMPTY", "is_auto": false }
+            ]
+        }]
+    },{
+        "name": "TemasEBD",
+        "from_sql": "temas_ebd",
+        "tables": [{
+            "name": "temas_ebd",
+            "alias": "",
+            "where_sql": true,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "sala", "size": "24", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "nome", "size": "150", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "bibliografia", "size": "", "default": "", "validation": "", "is_auto": false },
+                { "name": "stat", "size": "3", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "time_cad", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_mod", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_amod", "size": "150", "default": "STR#SmartChurch", "validation": "NOT_EMPTY", "is_auto": false }
+            ]
+        }]
+    },{
+        "name": "ConteudosEBD",
+        "from_sql": "conteudos_ebd",
+        "tables": [{
+            "name": "conteudos_ebd",
+            "alias": "",
+            "where_sql": true,
+            "primary_keys": ["id"],
+            "fields": [
+                { "name": "id", "size": "24", "default": "", "validation": "NOT_NULL|EQ_SIZE", "is_auto": false },
+                { "name": "tema", "size": "24", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "titulo", "size": "150", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "conteudo", "size": "", "default": "", "validation": "", "is_auto": false },
+                { "name": "anexo", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "video", "size": "256", "default": "", "validation": "MX_SIZE", "is_auto": false },
+                { "name": "audio", "size": "", "default": "", "validation": "", "is_auto": false },
+                { "name": "stat", "size": "3", "default": "", "validation": "NOT_EMPTY|EQ_SIZE", "is_auto": false },
+                { "name": "time_cad", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_mod", "size": "", "default": "DATE#Y-m-d H:i:s", "validation": "NOT_EMPTY", "is_auto": false },
+                { "name": "last_amod", "size": "150", "default": "STR#SmartChurch", "validation": "NOT_EMPTY", "is_auto": false }
+            ]
+        }]
+    }]
+}

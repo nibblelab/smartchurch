@@ -1,0 +1,60 @@
+{
+    "menus": [
+        { 
+            "nome": "evento",
+            "titulo": "Evento", 
+            "icon": "fab fa-gripfire", 
+            "modulos": ["MOD_EVENTOS","MOD_FINANCAS","MOD_DOCUMENTOS"], 
+            "setted": ["manage_evento"],
+            "submenus": [
+                { 
+                    "nome": "inscricoes",
+                    "titulo": "Inscrições", 
+                    "sref": "SmartChurchPanel.evento.inscricoes.buscar",
+                    "states": ["SmartChurchPanel.evento.inscricoes.buscar","SmartChurchPanel.evento.inscricoes.adicionar","SmartChurchPanel.evento.inscricoes.editar"],
+                    "modulos": ["MOD_EVENTOS"], 
+                    "perms": [ "Inscricao", "InscricaoSave", "InscricaoRemove", "InscricaoBlock"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "comissoes",
+                    "titulo": "Comissões", 
+                    "sref": "SmartChurchPanel.evento.comissoes.buscar",
+                    "states": ["SmartChurchPanel.evento.comissoes.buscar","SmartChurchPanel.evento.comissoes.adicionar","SmartChurchPanel.evento.comissoes.editar","SmartChurchPanel.evento.comissoes.participantes",
+                                "SmartChurchPanel.evento.comissoes.relatorios.buscar","SmartChurchPanel.evento.comissoes.relatorios.adicionar","SmartChurchPanel.evento.comissoes.relatorios.editar"],
+                    "modulos": ["MOD_EVENTOS","MOD_DOCUMENTOS"], 
+                    "perms": [ "Comissao", "ComissaoSave", "ComissaoRemove", "ComissaoBlock", "ComissaoParticipantes", 
+                                "ComissaoRelatorios", "ComissaoRelatoriosSave", "ComissaoRelatoriosRemove", "ComissaoRelatoriosBlock", "ComissaoRelatoriosAvail"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "relatoriosdovento",
+                    "titulo": "Relatórios", 
+                    "sref": "SmartChurchPanel.evento.relatoriosdovento.buscar",
+                    "states": ["SmartChurchPanel.evento.relatoriosdovento.buscar","SmartChurchPanel.evento.relatoriosdovento.adicionar","SmartChurchPanel.evento.relatoriosdovento.editar"],
+                    "modulos": ["MOD_DOCUMENTOS"], 
+                    "perms": [ "RelatorioEvento", "RelatorioEventoSave", "RelatorioEventoRemove", "RelatorioEventoBlock", "RelatorioEventoAvail"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "checkin",
+                    "titulo": "Check-in", 
+                    "sref": "SmartChurchPanel.evento.checkin.buscar",
+                    "states": ["SmartChurchPanel.evento.checkin.buscar","SmartChurchPanel.evento.checkin.marcar"],
+                    "modulos": ["MOD_EVENTOS"], 
+                    "perms": [ "Checkin", "CheckinSave"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "financasdoevento",
+                    "titulo": "Finanças", 
+                    "sref": "SmartChurchPanel.evento.financasdoevento.gerenciar",
+                    "states": ["SmartChurchPanel.evento.financasdoevento.gerenciar"],
+                    "modulos": ["MOD_FINANCAS"], 
+                    "perms": [ "FinancaEvento"], 
+                    "setted": []
+                }
+            ]
+        }
+    ]
+}

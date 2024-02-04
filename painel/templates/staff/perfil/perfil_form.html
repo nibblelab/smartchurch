@@ -1,0 +1,85 @@
+<ol class="breadcrumb pull-right">
+    <li class="breadcrumb-item"><a ui-sref='{{back}}'>Buscar</a></li>
+    <li class="breadcrumb-item active">{{opTitle}}</li>
+</ol>
+
+<h1 class="page-header">&nbsp;</h1>
+
+<div class="panel panel-inverse">
+    <div class="panel-heading">
+        <h4 class="panel-title">{{opTitle}} {{objForm}}</h4>
+        <div class="panel-heading-btn">
+            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+        </div>
+    </div>
+    <div class="panel-body">
+        <form id="dataFrm" method="POST" autocomplete="off">
+            <legend>Dados Básicos</legend>
+            <div class="form-group row m-b-15">
+                <label class="col-form-label col-md-2">Nome *</label>
+                <div class="col-md-10">
+                    <input class="form-control m-b-5" type="text" placeholder="Nome" ng-model="dataFrm.data.nome.value"
+                            ng-class="{'is-invalid': !dataFrm.data.nome.valid}"
+                            name="validation[nome]" data-validation="[NOTEMPTY]"
+                            data-validation-message="O nome não pode ser vazio" />
+                </div>
+            </div>
+            <div class="form-group row m-b-15">
+                <label class="col-form-label col-md-2" >Descrição</label>
+                <div class="col-md-10">
+                    <textarea class="form-control" ng-class="{'is-invalid': !dataFrm.data.descricao.valid}" 
+                              placeholder="Descrição" ng-model="dataFrm.data.descricao.value" rows="5" ></textarea>
+                </div>
+            </div>
+            <div class="form-group row m-b-15">
+                <label class="col-form-label col-md-2" >Apenas Equipe?</label>
+                <div class="col-md-10">
+                    <div class="checkbox checkbox-css m-b-20">
+                        <input type="checkbox" id="checkbox_staff_only" ng-model="dataFrm.data.staff_only.value" /> 
+                        <label for="checkbox_staff_only" class="checkbox">
+                            Sim
+                        </label>
+                    </div>
+                    <small >Marque se esse perfil for restrito à equipe de gestão do sistema</small>
+                </div>
+            </div>
+            <div class="form-group row m-b-15" ng-class="{'has-danger': !dataFrm.data.permissoes.valid}">
+                <label class="col-form-label col-md-2" >Permissões *</label>
+                <div class="col-md-10">
+                    <div ng-repeat="g in dataFrm.data.permissoes.value" class="permissoes-block">
+                        <h5 ng-click="toggleSubGrupoPermissions(g)">
+                            {{g.grupo}}
+                            <span class="pull-right">
+                                <i class="fa fa-plus" ng-hide="g.show"></i>
+                                <i class="fa fa-minus" ng-show="g.show"></i>
+                            </span>
+                        </h5>
+                        <div ng-repeat="s in g.subgrupo" class="permissoes-subgrupo" ng-show="g.show">
+                            <h6 ng-show="s.nome.length > 0">
+                                {{s.nome}}
+                            </h6>
+                            <div class="row">
+                                <div class="col-md-4" ng-repeat="p in s.permissoes">
+                                    <div class="checkbox checkbox-css m-b-20">
+                                        <input type="checkbox" id="checkbox_{{p.id}}" ng-model="p.checked" /> 
+                                        <label for="checkbox_{{p.id}}" class="checkbox">
+                                            {{p.label}}
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-actions">
+                <div class="form-group row">
+                    <div class="col-md-9 offset-md-3">
+                        <button type="submit" class="btn width-150 btn-primary">Salvar</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

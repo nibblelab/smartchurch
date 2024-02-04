@@ -1,0 +1,235 @@
+<ol class="breadcrumb pull-right">
+    <li class="breadcrumb-item active">{{opTitle}}</li>
+</ol>
+
+<h1 class="page-header">&nbsp;</h1>
+
+<div class="panel panel-inverse">
+    <div class="panel-heading">
+        <h4 class="panel-title">{{opTitle}} {{objForm}}</h4>
+        <div class="panel-heading-btn">
+            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+        </div>
+    </div>
+    <div class="panel-body">
+        <form id="dataFrm" method="POST" autocomplete="off">
+            <legend>Dados Básicos</legend>
+            <div class="form-group row m-b-15">
+                <label class="col-form-label col-md-2">Perfil de Membro *</label>
+                <div class="col-md-8">
+                    <select class="form-control" ng-model="dataFrm.data.perfil_membro.value"
+                            ng-class="{'is-invalid': !dataFrm.data.perfil_membro.valid}"
+                            name="validation[perfil_membro]" data-validation="[NOTEMPTY]"
+                            data-validation-message="O perfil padrão de membresia não pode ser vazio"  >
+                        <option value=""></option>
+                        <option value="{{i.id}}" ng-repeat="i in listPerfis">{{i.nome}}</option>
+                    </select>
+                    <small >Perfil padrão de membresia</small>
+                </div>
+            </div>
+            <div class="form-group row m-b-15">
+                <label class="col-form-label col-md-2">Perfil de Cliente *</label>
+                <div class="col-md-8">
+                    <select class="form-control" ng-model="dataFrm.data.perfil_cliente.value"
+                            ng-class="{'is-invalid': !dataFrm.data.perfil_cliente.valid}"
+                            name="validation[perfil_cliente]" data-validation="[NOTEMPTY]"
+                            data-validation-message="O perfil padrão de cliente não pode ser vazio"  >
+                        <option value=""></option>
+                        <option value="{{i.id}}" ng-repeat="i in listPerfis">{{i.nome}}</option>
+                    </select>
+                    <small >Perfil padrão de cliente</small>
+                </div>
+            </div>
+            <div class="form-group row m-b-15">
+                <label class="col-form-label col-md-2">Perfil de Diretoria de Sociedade *</label>
+                <div class="col-md-8">
+                    <select class="form-control" ng-model="dataFrm.data.perfil_diretoria_sociedade.value"
+                            ng-class="{'is-invalid': !dataFrm.data.perfil_diretoria_sociedade.valid}"
+                            name="validation[perfil_diretoria_sociedade]" data-validation="[NOTEMPTY]"
+                            data-validation-message="O perfil padrão de diretoria de sociedade não pode ser vazio"  >
+                        <option value=""></option>
+                        <option value="{{i.id}}" ng-repeat="i in listPerfis">{{i.nome}}</option>
+                    </select>
+                    <small >Perfil padrão de diretoria de sociedade interna</small>
+                </div>
+            </div>
+            <div class="form-group row m-b-15">
+                <label class="col-form-label col-md-2">Perfil de Diretoria de Sinodal *</label>
+                <div class="col-md-8">
+                    <select class="form-control" ng-model="dataFrm.data.perfil_sinodal.value"
+                            ng-class="{'is-invalid': !dataFrm.data.perfil_sinodal.valid}"
+                            name="validation[perfil_sinodal]" data-validation="[NOTEMPTY]"
+                            data-validation-message="O perfil padrão de diretoria de sinodal não pode ser vazio"  >
+                        <option value=""></option>
+                        <option value="{{i.id}}" ng-repeat="i in listPerfis">{{i.nome}}</option>
+                    </select>
+                    <small >Perfil padrão de diretoria de sociedade interna</small>
+                </div>
+            </div>
+            <div class="form-group row m-b-15">
+                <label class="col-form-label col-md-2">Perfil de Diretoria de Federação *</label>
+                <div class="col-md-8">
+                    <select class="form-control" ng-model="dataFrm.data.perfil_federacao.value"
+                            ng-class="{'is-invalid': !dataFrm.data.perfil_federacao.valid}"
+                            name="validation[perfil_federacao]" data-validation="[NOTEMPTY]"
+                            data-validation-message="O perfil padrão de diretoria de federação não pode ser vazio"  >
+                        <option value=""></option>
+                        <option value="{{i.id}}" ng-repeat="i in listPerfis">{{i.nome}}</option>
+                    </select>
+                    <small >Perfil padrão de diretoria de sociedade interna</small>
+                </div>
+            </div>
+            <div class="form-group row m-b-15">
+                <label class="col-form-label col-md-2">Perfil de Superintendente *</label>
+                <div class="col-md-8">
+                    <select class="form-control" ng-model="dataFrm.data.perfil_superintendente.value"
+                            ng-class="{'is-invalid': !dataFrm.data.perfil_superintendente.valid}"
+                            name="validation[perfil_superintendente]" data-validation="[NOTEMPTY]"
+                            data-validation-message="O perfil padrão de superintendente não pode ser vazio"  >
+                        <option value=""></option>
+                        <option value="{{i.id}}" ng-repeat="i in listPerfis">{{i.nome}}</option>
+                    </select>
+                    <small >Perfil padrão de superintendente</small>
+                </div>
+            </div>
+            <div class="form-group row m-b-15">
+                <label class="col-form-label col-md-2">Perfil de Secretário *</label>
+                <div class="col-md-8">
+                    <select class="form-control" ng-model="dataFrm.data.perfil_secretario.value"
+                            ng-class="{'is-invalid': !dataFrm.data.perfil_secretario.valid}"
+                            name="validation[perfil_superintendente]" data-validation="[NOTEMPTY]"
+                            data-validation-message="O perfil padrão de secretário não pode ser vazio"  >
+                        <option value=""></option>
+                        <option value="{{i.id}}" ng-repeat="i in listPerfis">{{i.nome}}</option>
+                    </select>
+                    <small >Perfil padrão de secretário</small>
+                </div>
+            </div>
+            <div class="form-group row m-b-15">
+                <label class="col-form-label col-md-2">Perfil de Ministério *</label>
+                <div class="col-md-8">
+                    <select class="form-control" ng-model="dataFrm.data.perfil_ministerio.value"
+                            ng-class="{'is-invalid': !dataFrm.data.perfil_ministerio.valid}"
+                            name="validation[perfil_ministerio]" data-validation="[NOTEMPTY]"
+                            data-validation-message="O perfil padrão de ministério não pode ser vazio"  >
+                        <option value=""></option>
+                        <option value="{{i.id}}" ng-repeat="i in listPerfis">{{i.nome}}</option>
+                    </select>
+                    <small >Perfil padrão de ministério</small>
+                </div>
+            </div>
+            <div class="form-group row m-b-15">
+                <label class="col-form-label col-md-2">Perfil de Pastor *</label>
+                <div class="col-md-8">
+                    <select class="form-control" ng-model="dataFrm.data.perfil_pastor.value"
+                            ng-class="{'is-invalid': !dataFrm.data.perfil_pastor.valid}"
+                            name="validation[perfil_pastor]" data-validation="[NOTEMPTY]"
+                            data-validation-message="O perfil padrão de pastor não pode ser vazio"  >
+                        <option value=""></option>
+                        <option value="{{i.id}}" ng-repeat="i in listPerfis">{{i.nome}}</option>
+                    </select>
+                    <small >Perfil padrão de pastor</small>
+                </div>
+            </div>
+            <div class="form-group row m-b-15">
+                <label class="col-form-label col-md-2">Perfil de Evangelista *</label>
+                <div class="col-md-8">
+                    <select class="form-control" ng-model="dataFrm.data.perfil_evangelista.value"
+                            ng-class="{'is-invalid': !dataFrm.data.perfil_evangelista.valid}"
+                            name="validation[perfil_evangelista]" data-validation="[NOTEMPTY]"
+                            data-validation-message="O perfil padrão de evangelista não pode ser vazio"  >
+                        <option value=""></option>
+                        <option value="{{i.id}}" ng-repeat="i in listPerfis">{{i.nome}}</option>
+                    </select>
+                    <small >Perfil padrão de evangelista</small>
+                </div>
+            </div>
+            <div class="form-group row m-b-15">
+                <label class="col-form-label col-md-2">Perfil de Presbítero *</label>
+                <div class="col-md-8">
+                    <select class="form-control" ng-model="dataFrm.data.perfil_presbitero.value"
+                            ng-class="{'is-invalid': !dataFrm.data.perfil_presbitero.valid}"
+                            name="validation[perfil_presbitero]" data-validation="[NOTEMPTY]"
+                            data-validation-message="O perfil padrão de presbítero não pode ser vazio"  >
+                        <option value=""></option>
+                        <option value="{{i.id}}" ng-repeat="i in listPerfis">{{i.nome}}</option>
+                    </select>
+                    <small >Perfil padrão de presbítero</small>
+                </div>
+            </div>
+            <div class="form-group row m-b-15">
+                <label class="col-form-label col-md-2">Perfil de Diácono *</label>
+                <div class="col-md-8">
+                    <select class="form-control" ng-model="dataFrm.data.perfil_diacono.value"
+                            ng-class="{'is-invalid': !dataFrm.data.perfil_diacono.valid}"
+                            name="validation[perfil_diacono]" data-validation="[NOTEMPTY]"
+                            data-validation-message="O perfil padrão de diácono não pode ser vazio"  >
+                        <option value=""></option>
+                        <option value="{{i.id}}" ng-repeat="i in listPerfis">{{i.nome}}</option>
+                    </select>
+                    <small >Perfil padrão de diácono</small>
+                </div>
+            </div>
+            <div class="form-group row m-b-15">
+                <label class="col-form-label col-md-2">Perfil de Professor *</label>
+                <div class="col-md-8">
+                    <select class="form-control" ng-model="dataFrm.data.perfil_professor.value"
+                            ng-class="{'is-invalid': !dataFrm.data.perfil_professor.valid}"
+                            name="validation[perfil_professor]" data-validation="[NOTEMPTY]"
+                            data-validation-message="O perfil padrão de professor não pode ser vazio"  >
+                        <option value=""></option>
+                        <option value="{{i.id}}" ng-repeat="i in listPerfis">{{i.nome}}</option>
+                    </select>
+                    <small >Perfil padrão de professor da EBD</small>
+                </div>
+            </div>
+            <div class="form-group row m-b-15">
+                <label class="col-form-label col-md-2">Perfil de Referência *</label>
+                <div class="col-md-8">
+                    <select class="form-control" ng-model="dataFrm.data.perfil_referencia.value"
+                            ng-class="{'is-invalid': !dataFrm.data.perfil_referencia.valid}"
+                            name="validation[perfil_referencia]" data-validation="[NOTEMPTY]"
+                            data-validation-message="O perfil padrão de referência não pode ser vazio"  >
+                        <option value=""></option>
+                        <option value="{{i.id}}" ng-repeat="i in listPerfis">{{i.nome}}</option>
+                    </select>
+                    <small >Perfil padrão de referência (login na API)</small>
+                </div>
+            </div>
+            <div class="form-group row m-b-15">
+                <label class="col-form-label col-md-2">Tag de Evento *</label>
+                <div class="col-md-8">
+                    <select class="form-control" ng-model="dataFrm.data.tag_evento.value"
+                            ng-class="{'is-invalid': !dataFrm.data.tag_evento.valid}"
+                            name="validation[tag_evento]" data-validation="[NOTEMPTY]"
+                            data-validation-message="A tag de evento na agenda não pode ser vazia"  >
+                        <option value=""></option>
+                        <option value="{{i.id}}" ng-repeat="i in listTags">{{i.tag}}</option>
+                    </select>
+                    <small >Tag de evento na agenda</small>
+                </div>
+            </div>
+            <div class="form-group row m-b-15">
+                <label class="col-form-label col-md-2">Tag de Eleição *</label>
+                <div class="col-md-8">
+                    <select class="form-control" ng-model="dataFrm.data.tag_eleicao.value"
+                            ng-class="{'is-invalid': !dataFrm.data.tag_eleicao.valid}"
+                            name="validation[tag_eleicao]" data-validation="[NOTEMPTY]"
+                            data-validation-message="A tag de eleição na agenda não pode ser vazia"  >
+                        <option value=""></option>
+                        <option value="{{i.id}}" ng-repeat="i in listTags">{{i.tag}}</option>
+                    </select>
+                    <small >Tag de evento na agenda</small>
+                </div>
+            </div>
+            
+            <div class="form-actions">
+                <div class="form-group row">
+                    <div class="col-md-9 offset-md-3">
+                        <button type="submit" class="btn width-150 btn-primary">Salvar</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,132 @@
+<resources>
+    <string name="app_name">SmartChurch</string>
+    <string name="navigation_drawer_open">Abrir menu</string>
+    <string name="navigation_drawer_close">Fechar menu</string>
+    <string name="nav_header_title">SmartChurch</string>
+    <string name="nav_header_subtitle">suporte@smartchurch.software</string>
+    <string name="nav_header_desc">Menu</string>
+    <string name="action_settings">Configurações</string>
+
+    <string name="register">Quero Registrar!</string>
+    <string name="forget_pass">Esqueci a senha</string>
+    <string name="login">Acessar</string>
+    <string name="login_mail">E-mail</string>
+    <string name="login_pass">Senha</string>
+
+    <string name="reg_title">Registro</string>
+    <string name="reg_name">Nome</string>
+    <string name="reg_aceite">Li e Aceito os</string>
+    <string name="reg_termos">Termos de Uso</string>
+    <string name="reg_btn">Me Registrar!</string>
+
+    <string name="fgt_title">Esqueci a Senha</string>
+    <string name="fgt_mail">E-mail</string>
+    <string name="fgt_btn">Requisitar Nova Senha</string>
+
+    <string name="token_file">token.json</string>
+    <string name="user_file">usuario.json</string>
+    <string name="smartchurch_file">smartchurch.json</string>
+
+    <string name="menu_inicio">Início</string>
+    <string name="menu_perfil">Meus Dados</string>
+    <string name="menu_perfil_short">Dados </string>
+    <string name="menu_membro">Membresia</string>
+    <string name="menu_membro_short">Membro</string>
+    <string name="menu_palavra">Palavra</string>
+    <string name="menu_estudo">Estudos</string>
+    <string name="menu_transmissao">Transmissão</string>
+    <string name="menu_transmissao_short">Live</string>
+    <string name="menu_agenda">Agenda</string>
+    <string name="menu_like">Gostei disso</string>
+    <string name="menu_smart">SmartCode</string>
+    <string name="menu_smart_short">Smart</string>
+    <string name="menu_pedido_oracao">Pedidos De Oração</string>
+    <string name="menu_pedido_oracao_short">Oração</string>
+    <string name="menu_logout">Sair</string>
+
+    <string name="frm_dbasico_lbl">Dados Básicos</string>
+    <string name="frm_dadicional_lbl">Dados Adicionais</string>
+    <string name="frm_localidade_lbl">Localidade</string>
+
+    <string name="p_nome_lbl">Nome</string>
+    <string name="p_email_lbl">E-mail</string>
+    <string name="p_senha_lbl">Senha</string>
+    <string name="p_sexo_lbl">Sexo</string>
+    <string name="p_sexo_femea_lbl">Feminino</string>
+    <string name="p_sexo_macho_lbl">Masculino</string>
+    <string name="p_dtnasc_lbl">Data de Nascimento</string>
+    <string name="p_ecivil_lbl">Estado Civil</string>
+    <string name="p_filhos_lbl">Possui Filhos?</string>
+    <string name="sim">Sim</string>
+    <string name="p_escolaridade_lbl">Escolaridade</string>
+    <string name="p_profissao_lbl">Profissão</string>
+    <string name="p_endereco_lbl">Endereço</string>
+    <string name="p_numero_lbl">Número</string>
+    <string name="p_complemento_lbl">Complemento</string>
+    <string name="p_bairro_lbl">Bairro</string>
+    <string name="p_cidade_lbl">Cidade</string>
+    <string name="p_uf_lbl">UF</string>
+    <string name="p_cep_lbl">CEP</string>
+    <string name="p_telefone_lbl">Telefone Fixo</string>
+    <string name="p_cel1_lbl">Celular (1)</string>
+    <string name="p_cel2_lbl">Celular (2)</string>
+    <string name="p_doador_m_lbl">Sou Doador De</string>
+    <string name="p_doador_f_lbl">Sou Doadora De</string>
+    <string name="p_necessidade_lbl">Necessidades Especiais</string>
+
+    <string name="m_sinodo_lbl">Sínodo</string>
+    <string name="m_presbiterio_lbl">Presbitério</string>
+    <string name="m_igreja_lbl">Igreja</string>
+    <string name="m_membresia_lbl">Membresia</string>
+    <string name="m_membresia_membro">Membro</string>
+    <string name="m_membresia_visita">Visitante</string>
+
+    <string name="pv_serie">Série</string>
+    <string name="pv_ver">Ver</string>
+    <string name="pg_prev">Anterior</string>
+    <string name="pg_next">Próximo</string>
+
+    <string name="form_register">Registrar</string>
+    <string name="form_save">Salvar</string>
+    <string name="btn_back">Voltar</string>
+    <string name="btn_next">Próximo</string>
+    <string name="btn_plus">Adicionar</string>
+
+    <string name="h_counter">1</string>
+    <string name="h_sermao_title">Sermões</string>
+    <string name="h_sermao_title_s">Sermão</string>
+    <string name="h_sermao_desc">publicados nas 2 últimas semanas</string>
+    <string name="h_sermao_desc_s">publicado nas 2 últimas semanas</string>
+    <string name="h_transmissao_title">Transmissões</string>
+    <string name="h_transmissao_title_s">Transmissão</string>
+    <string name="h_transmissao_desc">online agora</string>
+    <string name="h_dados_title">Atenção</string>
+    <string name="h_dados_desc">verifique sua membresia!</string>
+    <string name="h_perf_title">Preenchimento do Perfil</string>
+
+    <string name="cal_dom">Dom</string>
+    <string name="cal_seg">Seg</string>
+    <string name="cal_ter">Ter</string>
+    <string name="cal_qua">Qua</string>
+    <string name="cal_qui">Qui</string>
+    <string name="cal_sex">Sex</string>
+    <string name="cal_sab">Sáb</string>
+
+    <string name="no_data">Sem dados :(</string>
+    <string name="cal_no_data">Não há eventos agendados para este dia</string>
+
+    <string name="smart_instrucao">Posicione o leitor sobre o qr-code para acessar a função do SmartCode</string>
+
+    <string name="no_internet">A internet parece estar desativada. O SmartChurch não conseguirá realizar suas tarefas ...</string>
+
+    <string name="po_frm_title">Pedir Oração</string>
+    <string name="po_save">Enviar Pedido</string>
+
+    <string name="btn_edit">Editar</string>
+    <string name="btn_delete">Apagar</string>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>

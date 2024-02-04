@@ -1,0 +1,66 @@
+{
+    "menus": [
+        { 
+            "nome": "minhaigreja",
+            "titulo": "Igreja", 
+            "icon": "fas fa-church", 
+            "modulos": ["MOD_IGREJA"], 
+            "setted": [ "ver_igreja"],
+            "submenus": [
+                {
+                    "nome": "palavra",
+                    "titulo": "Palavra", 
+                    "sref": "SmartChurchPanel.smartapp.palavra.buscar",
+                    "states": ["SmartChurchPanel.smartapp.palavra.buscar","SmartChurchPanel.smartapp.palavra.ver"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "DataView"], 
+                    "setted": [],
+                    "submenus": []
+                },
+                {
+                    "nome": "transmissoes",
+                    "titulo": "Transmissões", 
+                    "sref": "SmartChurchPanel.smartapp.transmissoes.buscar",
+                    "states": ["SmartChurchPanel.smartapp.transmissoes.buscar"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "DataView"], 
+                    "setted": [],
+                    "submenus": [ ]
+                },
+                {
+                    "nome": "pedidosdeoracao",
+                    "titulo": "Pedidos de Oração", 
+                    "sref": "SmartChurchPanel.smartapp.pedidosdeoracaonaigreja.buscar",
+                    "states": ["SmartChurchPanel.smartapp.pedidosdeoracaonaigreja.buscar",
+                                "SmartChurchPanel.smartapp.pedidosdeoracaonaigreja.adicionar",
+                                "SmartChurchPanel.smartapp.pedidosdeoracaonaigreja.editar"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "Dados"], 
+                    "setted": [],
+                    "submenus": [ ]
+                }
+            ]
+        },
+        { 
+            "nome": "minhasociedade",
+            "titulo": "Sociedade", 
+            "icon": "fas fa-star", 
+            "modulos": ["MOD_IGREJA"], 
+            "setted": [ "ver_sociedade"],
+            "submenus": [
+                {
+                    "nome": "pedidosdeoracao",
+                    "titulo": "Pedidos de Oração", 
+                    "sref": "SmartChurchPanel.smartapp.pedidosdeoracaonasociedade.buscar",
+                    "states": ["SmartChurchPanel.smartapp.pedidosdeoracaonasociedade.buscar",
+                                "SmartChurchPanel.smartapp.pedidosdeoracaonasociedade.adicionar",
+                                "SmartChurchPanel.smartapp.pedidosdeoracaonasociedade.editar"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "Dados"], 
+                    "setted": [],
+                    "submenus": [ ]
+                }
+            ]
+        }
+    ]
+}

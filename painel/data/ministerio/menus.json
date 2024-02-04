@@ -1,0 +1,72 @@
+{
+    "menus": [
+        { 
+            "nome": "ministerio",
+            "titulo": "Ministério", 
+            "icon": "fas fa-people-carry", 
+            "modulos": ["MOD_IGREJA","MOD_AGENDA","MOD_FINANCAS","MOD_EVENTOS","MOD_DOCUMENTOS"], 
+            "setted": ["manage_ministerio"],
+            "submenus": [
+                { 
+                    "nome": "participantesdoministerio",
+                    "titulo": "Participantes", 
+                    "sref": "SmartChurchPanel.ministerio.participantes.buscar",
+                    "states": ["SmartChurchPanel.ministerio.participantes.buscar","SmartChurchPanel.ministerio.participantes.adicionar",
+                                    "SmartChurchPanel.ministerio.participantes.editar"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "Servo", "ServoSave", "ServoRemove", "ServoBlock"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "secretariasdoministerio",
+                    "titulo": "Secretarias", 
+                    "sref": "SmartChurchPanel.ministerio.secretarias.buscar",
+                    "states": ["SmartChurchPanel.ministerio.secretarias.buscar","SmartChurchPanel.ministerio.secretarias.adicionar",
+                                    "SmartChurchPanel.ministerio.secretarias.editar","SmartChurchPanel.ministerio.secretarias.secretarios.buscar",
+                                    "SmartChurchPanel.ministerio.secretarias.secretarios.adicionar",
+                                    "SmartChurchPanel.ministerio.secretarias.secretarios.editar"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "SecretariaMinisterio", "SecretariaMinisterioSave", "SecretariaMinisterioRemove", "SecretariaMinisterioBlock", 
+                                "SecretariaMinisterioPessoa"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "agendadoministerio",
+                    "titulo": "Agenda", 
+                    "sref": "SmartChurchPanel.ministerio.agenda.buscar",
+                    "states": ["SmartChurchPanel.ministerio.agenda.buscar","SmartChurchPanel.ministerio.agenda.adicionar","SmartChurchPanel.ministerio.agenda.editar"],
+                    "modulos": ["MOD_AGENDA"], 
+                    "perms": [ "AgendaMinisterio", "AgendaMinisterioSave", "AgendaMinisterioRemove", "AgendaMinisterioBlock"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "eventosdoministerio",
+                    "titulo": "Eventos", 
+                    "sref": "SmartChurchPanel.ministerio.eventos.buscar",
+                    "states": ["SmartChurchPanel.ministerio.eventos.buscar","SmartChurchPanel.ministerio.eventos.adicionar","SmartChurchPanel.ministerio.eventos.editar"],
+                    "modulos": ["MOD_EVENTOS"], 
+                    "perms": [ "EventoMinisterio", "EventoMinisterioSave", "EventoMinisterioRemove", "EventoMinisterioBlock", "EventoMinisterioManage"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "financasdoministerio",
+                    "titulo": "Finanças", 
+                    "sref": "SmartChurchPanel.ministerio.financas.gerenciar",
+                    "states": ["SmartChurchPanel.ministerio.financas.gerenciar"],
+                    "modulos": ["MOD_FINANCAS"], 
+                    "perms": [ "FinancaMinisterio"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "relatoriosdoministerio",
+                    "titulo": "Relatórios", 
+                    "sref": "SmartChurchPanel.ministerio.relatorios.buscar",
+                    "states": ["SmartChurchPanel.ministerio.relatorios.buscar","SmartChurchPanel.ministerio.relatorios.adicionar","SmartChurchPanel.ministerio.relatorios.editar"],
+                    "modulos": ["MOD_DOCUMENTOS"], 
+                    "perms": [ "RelatorioMinisterio", "RelatorioMinisterioSave", "RelatorioMinisterioRemove", "RelatorioMinisterioBlock", "RelatorioMinisterioAvail"], 
+                    "setted": []
+                }
+            ]
+        }
+    ]
+}

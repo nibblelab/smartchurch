@@ -1,0 +1,114 @@
+<script type="text/ng-template" id="federacao_home.html">
+    <div class="row">
+        <div class="col-xl-6 col-md-6 col-xs-12" ng-if="ctrl.USER.doIHavePermission(ctrl.user, 'RelFedSociedades')">
+            <div class="panel panel-inverse">
+                <div class="panel-heading">
+                    <h4 class="panel-title">Sociedades Ativas x Inativas</h4>
+                </div>
+                <div class="panel-body">
+                    <div id="sociedades_ativa" class="height-sm"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6 col-md-6 col-xs-12" ng-if="ctrl.USER.doIHavePermission(ctrl.user, 'RelFedSocioAno')">
+            <div class="panel panel-inverse">
+                <div class="panel-heading">
+                    <h4 class="panel-title">Sócios x Idade</h4>
+                </div>
+                <div class="panel-body">
+                    <div id="socios_idade" class="height-sm"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6 col-md-6 col-xs-12" ng-if="ctrl.USER.doIHavePermission(ctrl.user, 'RelFedSocioSexo')">
+            <div class="panel panel-inverse">
+                <div class="panel-heading">
+                    <h4 class="panel-title">Sócios x Sexo</h4>
+                </div>
+                <div class="panel-body">
+                    <div id="socios_sexo" class="height-sm"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6 col-md-6 col-xs-12" ng-if="ctrl.USER.doIHavePermission(ctrl.user, 'RelFedSocioEstadoCivil')">
+            <div class="panel panel-inverse">
+                <div class="panel-heading">
+                    <h4 class="panel-title">Sócios x Estado Civil</h4>
+                </div>
+                <div class="panel-body">
+                    <div id="socios_estado_civil" class="height-sm"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6 col-md-6 col-xs-12" ng-if="ctrl.USER.doIHavePermission(ctrl.user, 'RelFedSocioEscolaridade')">
+            <div class="panel panel-inverse">
+                <div class="panel-heading">
+                    <h4 class="panel-title">Sócios x Escolaridade</h4>
+                </div>
+                <div class="panel-body">
+                    <div id="socios_escolaridade" class="height-sm"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6 col-md-6 col-xs-12" ng-if="ctrl.USER.doIHavePermission(ctrl.user, 'RelFedSocioComungante')">
+            <div class="panel panel-inverse">
+                <div class="panel-heading">
+                    <h4 class="panel-title">Sócios x Profissão de Fé</h4>
+                </div>
+                <div class="panel-body">
+                    <div id="socios_comungante" class="height-sm"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6 col-md-6 col-xs-12" ng-if="ctrl.USER.doIHavePermission(ctrl.user, 'RelFedSocioFilho')">
+            <div class="panel panel-inverse">
+                <div class="panel-heading">
+                    <h4 class="panel-title">Sócios x Filhos</h4>
+                </div>
+                <div class="panel-body">
+                    <div id="socios_filho" class="height-sm"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6 col-md-6 col-xs-12" ng-if="ctrl.USER.doIHavePermission(ctrl.user, 'RelFedSocioFilhoSexo')">
+            <div class="panel panel-inverse">
+                <div class="panel-heading">
+                    <h4 class="panel-title">Filhos x Sexo</h4>
+                </div>
+                <div class="panel-body">
+                    <div id="socios_filho_por_sexo" class="height-sm"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6 col-md-6 col-xs-12" ng-if="ctrl.USER.doIHavePermission(ctrl.user, 'RelFedSocioNecessidade')">
+            <div class="panel panel-inverse">
+                <div class="panel-heading">
+                    <h4 class="panel-title">Sócios x Necessidades Especiais</h4>
+                </div>
+                <div class="panel-body">
+                    <div id="socios_necessidade" class="height-sm"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6 col-md-6 col-xs-12" ng-if="ctrl.USER.doIHavePermission(ctrl.user, 'RelFedSocioDoacao')">
+            <div class="panel panel-inverse">
+                <div class="panel-heading">
+                    <h4 class="panel-title">Sócios x Doações</h4>
+                </div>
+                <div class="panel-body">
+                    <div id="socios_doacao" class="height-sm"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6 col-md-6 col-xs-12" ng-if="ctrl.USER.doIHavePermission(ctrl.user, 'RelFedSocioArrolamento')">
+            <div class="panel panel-inverse">
+                <div class="panel-heading">
+                    <h4 class="panel-title">Sócios x Cooperadores</h4>
+                </div>
+                <div class="panel-body">
+                    <div id="socios_cooperador" class="height-sm"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>

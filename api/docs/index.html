@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>SmartChurch API</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto:wght@700&family=Source+Code+Pro&display=swap" rel="stylesheet">
+        <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="bower_components/font-awesome/css/all.min.css" rel="stylesheet" type="text/css" />
+        <link href="css/style.css" rel="stylesheet" />
+    </head>
+    <body ng-app="Docs" ng-controller="DocsCtrl as ctrl" >
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-3">
+                    <div class="menu">
+                        <h2 class="title">WebServices</h2>
+                        <ul>
+                            <li ng-repeat="ws in ctrl.webservices">
+                                <a href="" ng-click="ctrl.showWsDoc(ws)">{{ws}}</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-9 content">
+                    <div ng-show="ctrl.webservice.is_loaded">
+                        <h4 class="title">{{ctrl.webservice.data.name}}</h4>
+                        <p class="text-justify">{{ctrl.webservice.data.desc}}</p>
+                        <div class="method" ng-repeat="m in ctrl.webservice.data.methods">
+                            <p class="text-justify code">
+                                <code>
+                                    {{m.http_method}} {{ctrl.webservice.data.name}}/{{m.name}}<span ng-if="m.http_method == 'PUT'">/{id}</span>
+                                </code>
+                            </p>
+                            <p class="text-justify">{{m.desc}}</p>
+                            <p class="text-justify">
+                                <span class="badge badge-warning">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                </span>
+                                Requer Autenticação
+                            </p>
+                            <div ng-show="m.params.length > 0">
+                                <h6 class="text-center">Parâmetros</h6>
+                                <table class="table">
+                                    <tr>
+                                        <th>Parâmetro</th>
+                                        <th>Descrição</th>
+                                        <th style="width: 50px">Obrigatório</th>
+                                    </tr>
+                                    <tr ng-repeat="p in m.params">
+                                        <td>{{p.param}}</td>
+                                        <td>{{p.desc}}</td>
+                                        <td><span class="label label-green" ng-show="p.required">Sim</span></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <script src="bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="bower_components/angular/angular.min.js"></script>
+        <script src="js/doc.js"></script>
+    </body>
+</html>

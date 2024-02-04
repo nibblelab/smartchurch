@@ -1,0 +1,170 @@
+<script type="text/ng-template" id="igreja_home.html">
+    <div class="row">
+        <div class="col-xl-6 col-md-6 col-xs-12" ng-if="ctrl.USER.doIHavePermission(ctrl.user, 'RelMembroAno')">
+            <div class="panel panel-inverse">
+                <div class="panel-heading">
+                    <h4 class="panel-title">Membros x Idade</h4>
+                </div>
+                <div class="panel-body">
+                    <div id="membros_idade" class="height-sm"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6 col-md-6 col-xs-12" ng-if="ctrl.USER.doIHavePermission(ctrl.user, 'RelMembroGrpIdade')">
+            <div class="panel panel-inverse">
+                <div class="panel-heading">
+                    <h4 class="panel-title">Membros x Grupo de Idade</h4>
+                </div>
+                <div class="panel-body">
+                    <div id="membros_grupo_idade" class="height-sm"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6 col-md-6 col-xs-12" ng-if="ctrl.USER.doIHavePermission(ctrl.user, 'RelMembroSexo')">
+            <div class="panel panel-inverse">
+                <div class="panel-heading">
+                    <h4 class="panel-title">Membros x Sexo</h4>
+                </div>
+                <div class="panel-body">
+                    <div id="membros_sexo" class="height-sm"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6 col-md-6 col-xs-12" ng-if="ctrl.USER.doIHavePermission(ctrl.user, 'RelMembroEstadoCivil')">
+            <div class="panel panel-inverse">
+                <div class="panel-heading">
+                    <h4 class="panel-title">Membros x Estado Civil</h4>
+                </div>
+                <div class="panel-body">
+                    <div id="membros_estado_civil" class="height-sm"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6 col-md-6 col-xs-12" ng-if="ctrl.USER.doIHavePermission(ctrl.user, 'RelMembroEscolaridade')">
+            <div class="panel panel-inverse">
+                <div class="panel-heading">
+                    <h4 class="panel-title">Membros x Escolaridade</h4>
+                </div>
+                <div class="panel-body">
+                    <div id="membros_escolaridade" class="height-sm"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6 col-md-6 col-xs-12" ng-if="ctrl.USER.doIHavePermission(ctrl.user, 'RelMembroComungante')">
+            <div class="panel panel-inverse">
+                <div class="panel-heading">
+                    <h4 class="panel-title">Membros x Profissão de Fé</h4>
+                </div>
+                <div class="panel-body">
+                    <div id="membros_comungante" class="height-sm"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6 col-md-6 col-xs-12" ng-if="ctrl.USER.doIHavePermission(ctrl.user, 'RelMembroBairro','MOD_IGREJA')">
+            <div class="panel panel-inverse">
+                <div class="panel-heading">
+                    <h4 class="panel-title">Membros x Bairro</h4>
+                </div>
+                <div class="panel-body">
+                    <div id="membros_bairro" class="height-sm"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6 col-md-6 col-xs-12" ng-if="ctrl.USER.doIHavePermission(ctrl.user, 'RelMembroVisitante','MOD_IGREJA')">
+            <div class="panel panel-inverse">
+                <div class="panel-heading">
+                    <h4 class="panel-title">Arrolados x Visitantes</h4>
+                </div>
+                <div class="panel-body">
+                    <div id="membros_visitantes" class="height-sm"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6 col-md-6 col-xs-12" ng-if="ctrl.USER.doIHavePermission(ctrl.user, 'RelMembroSocialNet','MOD_IGREJA')">
+            <div class="panel panel-inverse">
+                <div class="panel-heading">
+                    <h4 class="panel-title">Membros x Redes Sociais</h4>
+                </div>
+                <div class="panel-body">
+                    <div id="membros_socialnet" class="height-sm"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6 col-md-6 col-xs-12" ng-if="ctrl.USER.doIHavePermission(ctrl.user, 'RelMembroNecessidade','MOD_IGREJA')">
+            <div class="panel panel-inverse">
+                <div class="panel-heading">
+                    <h4 class="panel-title">Membros x Necessidades Especiais</h4>
+                </div>
+                <div class="panel-body">
+                    <div id="membros_necessidades" class="height-sm"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6 col-md-6 col-xs-12" ng-if="ctrl.USER.doIHavePermission(ctrl.user, 'RelMembroDoacao','MOD_IGREJA')">
+            <div class="panel panel-inverse">
+                <div class="panel-heading">
+                    <h4 class="panel-title">Membros x Doações</h4>
+                </div>
+                <div class="panel-body">
+                    <div id="membros_doacao" class="height-sm"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6 col-md-6 col-xs-12" ng-if="ctrl.USER.doIHavePermission(ctrl.user, 'RelMembroEspecial','MOD_IGREJA')">
+            <div class="panel panel-inverse">
+                <div class="panel-heading">
+                    <h4 class="panel-title">Membros x Especial</h4>
+                </div>
+                <div class="panel-body">
+                    <div id="membros_especial" class="height-sm"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6 col-md-6 col-xs-12" ng-if="ctrl.USER.doIHavePermission(ctrl.user, 'RelMembroAdmissao','MOD_IGREJA')">
+            <div class="panel panel-inverse">
+                <div class="panel-heading">
+                    <h4 class="panel-title">Membros x Ano Admissão</h4>
+                </div>
+                <div class="panel-body">
+                    <div id="membros_admissao" class="height-sm"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6 col-md-6 col-xs-12" ng-if="ctrl.USER.doIHavePermission(ctrl.user, 'RelMembroDemissao','MOD_IGREJA')">
+            <div class="panel panel-inverse">
+                <div class="panel-heading">
+                    <h4 class="panel-title">Membros x Ano Demissão</h4>
+                </div>
+                <div class="panel-body">
+                    <div id="membros_demissao" class="height-sm"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6 col-md-6 col-xs-12" ng-if="ctrl.USER.doIHavePermission(ctrl.user, 'RelMembroPreenchimento','MOD_IGREJA')">
+            <div class="panel panel-inverse">
+                <div class="panel-heading">
+                    <h4 class="panel-title">Membros x Preenchimento do Perfil</h4>
+                </div>
+                <div class="panel-body">
+                    <div id="membros_preenchimento" class="height-sm"></div>
+                    <ul>
+                        <li>Básico: Nome e e-mail</li>
+                        <li>Mínimo: Básico + gênero e data de nascimento</li>
+                        <li>Médio: Mínimo + informação de endereço</li>
+                        <li>Total: Médio + estado civil, escolaridade e pelo menos 1 número de celular</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6 col-md-6 col-xs-12" ng-if="ctrl.USER.doIHavePermission(ctrl.user, 'RelMembroFilhos','MOD_IGREJA')">
+            <div class="panel panel-inverse">
+                <div class="panel-heading">
+                    <h4 class="panel-title">Membros Com Filhos x Membros Sem Filhos</h4>
+                </div>
+                <div class="panel-body">
+                    <div id="membros_filhos" class="height-sm"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>

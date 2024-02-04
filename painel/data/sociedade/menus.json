@@ -1,0 +1,100 @@
+{
+    "menus": [
+        { 
+            "nome": "sociedade",
+            "titulo": "Sociedade", 
+            "icon": "fas fa-star", 
+            "modulos": ["MOD_IGREJA","MOD_B_IGREJA","MOD_EVENTOS","MOD_AGENDA","MOD_FINANCAS","MOD_DOCUMENTOS"], 
+            "setted": ["manage_sociedade"],
+            "submenus": [
+                { 
+                    "nome": "socios",
+                    "titulo": "Sócios", 
+                    "sref": "SmartChurchPanel.sociedade.socios.buscar",
+                    "states": ["SmartChurchPanel.sociedade.socios.buscar","SmartChurchPanel.sociedade.socios.adicionar","SmartChurchPanel.sociedade.socios.editar"],
+                    "modulos": ["MOD_B_IGREJA"], 
+                    "perms": [ "Socio", "SocioSave", "SocioRemove", "SocioBlock"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "diretoriasdasociedade",
+                    "titulo": "Diretoria", 
+                    "sref": "SmartChurchPanel.sociedade.diretorias.buscar",
+                    "states": ["SmartChurchPanel.sociedade.diretorias.buscar","SmartChurchPanel.sociedade.diretorias.adicionar",
+                                    "SmartChurchPanel.sociedade.diretorias.editar","SmartChurchPanel.sociedade.diretorias.oficiais.buscar",
+                                    "SmartChurchPanel.sociedade.diretorias.oficiais.adicionar","SmartChurchPanel.sociedade.diretorias.oficiais.editar"],
+                    "modulos": ["MOD_B_IGREJA"], 
+                    "perms": [ "DiretoriaSociedade", "DiretoriaSociedadeSave", "DiretoriaSociedadeRemove", "DiretoriaSociedadeBlock", 
+                                    "DiretoriaSociedadeOficiais"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "secretariasdasociedade",
+                    "titulo": "Secretarias", 
+                    "sref": "SmartChurchPanel.sociedade.secretarias.buscar",
+                    "states": ["SmartChurchPanel.sociedade.secretarias.buscar","SmartChurchPanel.sociedade.secretarias.adicionar","SmartChurchPanel.sociedade.secretarias.editar",
+                                    "SmartChurchPanel.sociedade.secretarias.secretarios.buscar","SmartChurchPanel.sociedade.secretarias.secretarios.adicionar",
+                                    "SmartChurchPanel.sociedade.secretarias.secretarios.editar"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "SecretariaSociedade", "SecretariaSociedadeSave", "SecretariaSociedadeRemove", "SecretariaSociedadeBlock", 
+                                "SecretariaSociedadePessoa"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "agendadasociedade",
+                    "titulo": "Agenda", 
+                    "sref": "SmartChurchPanel.sociedade.agenda.buscar",
+                    "states": ["SmartChurchPanel.sociedade.agenda.buscar","SmartChurchPanel.sociedade.agenda.adicionar","SmartChurchPanel.sociedade.agenda.editar"],
+                    "modulos": ["MOD_AGENDA"], 
+                    "perms": [ "AgendaSociedade", "AgendaSociedadeSave", "AgendaSociedadeRemove", "AgendaSociedadeBlock"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "pedidosdeoracaodasociedade",
+                    "titulo": "Pedidos de Oração", 
+                    "sref": "SmartChurchPanel.sociedade.pedidosdeoracao.buscar",
+                    "states": ["SmartChurchPanel.sociedade.pedidosdeoracao.buscar"],
+                    "modulos": ["MOD_IGREJA"], 
+                    "perms": [ "PedidosOracaoSociedade"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "eventosdasociedade",
+                    "titulo": "Eventos", 
+                    "sref": "SmartChurchPanel.sociedade.eventos.buscar",
+                    "states": ["SmartChurchPanel.sociedade.eventos.buscar","SmartChurchPanel.sociedade.eventos.adicionar","SmartChurchPanel.sociedade.eventos.editar"],
+                    "modulos": ["MOD_EVENTOS"], 
+                    "perms": [ "EventoSociedade", "EventoSociedadeSave", "EventoSociedadeRemove", "EventoSociedadeBlock", "EventoSociedadeManage"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "eleicoesdasociedade",
+                    "titulo": "Eleições", 
+                    "sref": "SmartChurchPanel.sociedade.eleicoes.buscar",
+                    "states": ["SmartChurchPanel.sociedade.eleicoes.buscar","SmartChurchPanel.sociedade.eleicoes.adicionar","SmartChurchPanel.sociedade.eleicoes.editar"],
+                    "modulos": ["MOD_ELEICOES"], 
+                    "perms": [ "EleicaoSociedade", "EleicaoSociedadeSave", "EleicaoSociedadeRemove", "EleicaoSociedadeBlock", "EleicaoSociedadeManage"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "financasdasociedade",
+                    "titulo": "Finanças", 
+                    "sref": "SmartChurchPanel.sociedade.financas.gerenciar",
+                    "states": ["SmartChurchPanel.sociedade.financas.gerenciar"],
+                    "modulos": ["MOD_FINANCAS"], 
+                    "perms": [ "FinancaSociedade"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "relatoriosdasociedade",
+                    "titulo": "Relatórios", 
+                    "sref": "SmartChurchPanel.sociedade.relatorios.buscar",
+                    "states": ["SmartChurchPanel.sociedade.relatorios.buscar","SmartChurchPanel.sociedade.relatorios.adicionar","SmartChurchPanel.sociedade.relatorios.editar"],
+                    "modulos": ["MOD_DOCUMENTOS"], 
+                    "perms": [ "RelatorioSociedade", "RelatorioSociedadeSave", "RelatorioSociedadeRemove", "RelatorioSociedadeBlock", "RelatorioSociedadeAvail"], 
+                    "setted": []
+                }
+            ]
+        }
+    ]
+}

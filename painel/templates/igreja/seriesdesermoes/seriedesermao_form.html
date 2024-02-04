@@ -1,0 +1,80 @@
+<ol class="breadcrumb pull-right">
+    <li class="breadcrumb-item"><a ui-sref='{{back}}'>Buscar</a></li>
+    <li class="breadcrumb-item active">{{opTitle}}</li>
+</ol>
+
+<h1 class="page-header">&nbsp;</h1>
+
+<div class="panel panel-inverse">
+    <div class="panel-heading">
+        <h4 class="panel-title">{{opTitle}} {{objForm}}</h4>
+        <div class="panel-heading-btn">
+            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+        </div>
+    </div>
+    <div class="panel-body">
+        <form id="dataFrm" method="POST" autocomplete="off">
+            <legend>Dados Básicos</legend>
+            <div class="form-group row m-b-15">
+                <label class="col-form-label col-md-2">Nome *</label>
+                <div class="col-md-10">
+                    <input class="form-control m-b-5" type="text" placeholder="Nome" ng-model="dataFrm.data.nome.value"
+                            ng-class="{'is-invalid': !dataFrm.data.nome.valid}"
+                            name="validation[nome]" data-validation="[NOTEMPTY]"
+                            data-validation-message="O nome não pode ser vazio" />
+                </div>
+            </div>
+            <div class="form-group row m-b-15">
+                <label class="col-form-label col-md-2">Chave</label>
+                <div class="col-md-10">
+                    <div class="input-group">
+                        <input class="form-control m-b-5" type="text" placeholder="Chave" ng-model="dataFrm.data.chave.value"
+                                ng-class="{'is-invalid': !dataFrm.data.chave.valid}" />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-default" 
+                                    tooltips tooltip-template="Gerar" tooltip-side="top"
+                                    ng-click="generateChave()">
+                                <i class="fas fa-cog"></i>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row m-b-15">
+                <label class="col-form-label col-md-2">Imagem</label>
+                <div class="col-md-10">
+                    <input type="file" fileread="dataFrm.data.arquivo.value"
+                            ng-class="{'is-invalid': !dataFrm.data.arquivo.valid}" />
+                    
+                    <small ng-show="dataFrm.dataFrm.data.id.value != ''">Para alterar envia outra imagem</small>
+                    
+                    <div ng-if="dataFrm.data.logo_url.value != ''" class="margin-top-30">
+                        <img ng-src="{{dataFrm.data.logo_url.value}}" class="img-fluid" />
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row m-b-15" >
+                <label class="col-form-label col-md-2">Início</label>
+                <div class="col-md-4">
+                    <input class="form-control m-b-5 datepicker-endform" type="text" ng-model="dataFrm.data.inicio.value"
+                            ui-mask="99/99/9999" model-view-value="true" 
+                            ng-class="{'is-invalid': !dataFrm.data.inicio.valid}" />
+                </div>
+                <label class="col-form-label col-md-2">Término</label>
+                <div class="col-md-4">
+                    <input class="form-control m-b-5 datepicker-endform" type="text" ng-model="dataFrm.data.termino.value"
+                            ui-mask="99/99/9999" model-view-value="true" 
+                            ng-class="{'is-invalid': !dataFrm.data.termino.valid}" />
+                </div>
+            </div>
+            
+            <div class="form-actions">
+                <div class="form-group row">
+                    <div class="col-md-9 offset-md-3">
+                        <button type="submit" class="btn width-150 btn-primary">Salvar</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

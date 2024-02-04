@@ -1,0 +1,100 @@
+<ol class="breadcrumb pull-right">
+    <li class="breadcrumb-item"><a ui-sref='{{back}}'>Buscar</a></li>
+    <li class="breadcrumb-item active">{{opTitle}}</li>
+</ol>
+
+<h1 class="page-header">&nbsp;</h1>
+
+<div class="panel panel-inverse">
+    <div class="panel-heading">
+        <h4 class="panel-title">{{opTitle}} {{objForm}}</h4>
+        <div class="panel-heading-btn">
+            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+        </div>
+    </div>
+    <div class="panel-body">
+        <form id="dataFrm" method="POST" autocomplete="off">
+            
+            <usuario-data 
+                    model="dataFrm" 
+                    igreja="igreja"
+                    perfis="listPerfis" 
+                    pessoa-service="Pessoa" 
+                    membro-service="MembroDaIgreja"
+                    check-nome="true"
+                    perfil-default="perfilDefault"
+                    readonly="true"></usuario-data>
+            
+            <pessoa-data 
+                    model="dataFrm" 
+                    igreja="igreja"
+                    escolaridades="listEscolaridade"
+                    profissoes="listProfissoes"
+                    sexos="listSexos" 
+                    estadoscivis="listEstadosCivis" 
+                    relacoes="listRelacoes"
+                    pessoa-service="Pessoa" 
+                    membro-service="MembroDaIgreja"
+                    familia-factory="familiaFactory"
+                    user-service="USER" 
+                    user="user"
+                    readonly="true"></pessoa-data>
+            
+            <endereco-data 
+                    model="dataFrm" 
+                    ufs="listUFs"
+                    cidades="listCidades"
+                    readonly="true"></endereco-data>
+            
+            <site-data 
+                    model="dataFrm"
+                    readonly="true"></site-data>
+            
+            <legend>Profissão de Fé & Arrolamento</legend>
+            <div class="form-group row m-b-15" >
+                <label class="col-form-label col-md-2">Comungante?</label>
+                <div class="col-md-4">
+                    <div class="checkbox checkbox-css m-b-20">
+                        <input type="checkbox" id="checkbox_comungante" ng-model="dataFrm.data.comungante.value" /> 
+                        <label for="checkbox_comungante" class="checkbox">
+                            Sim
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row m-b-15" >
+                <label class="col-form-label col-md-2">Parte do Rol?</label>
+                <div class="col-md-4">
+                    <div class="checkbox checkbox-css m-b-20">
+                        <input type="checkbox" id="checkbox_arrolado" ng-model="dataFrm.data.arrolado.value" /> 
+                        <label for="checkbox_arrolado" class="checkbox">
+                            Sim
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row m-b-15" >
+                <label class="col-form-label col-md-2" ng-show="dataFrm.data.arrolado.value">Data de Admissão</label>
+                <div class="col-md-4" ng-show="dataFrm.data.arrolado.value">
+                    <input class="form-control m-b-5 datepicker-endform" type="text" ng-model="dataFrm.data.data_admissao.value"
+                            ui-mask="99/99/9999" model-view-value="true" 
+                            ng-class="{'is-invalid': !dataFrm.data.data_admissao.valid}" />
+                </div>
+                <label class="col-form-label col-md-2" ng-show="dataFrm.data.arrolado.value">Data de Demissão</label>
+                <div class="col-md-4" ng-show="dataFrm.data.arrolado.value">
+                    <input class="form-control m-b-5 datepicker-endform" type="text" ng-model="dataFrm.data.data_demissao.value"
+                            ui-mask="99/99/9999" model-view-value="true" 
+                            ng-class="{'is-invalid': !dataFrm.data.data_demissao.valid}" />
+                </div>
+            </div>
+            
+            <div class="form-actions">
+                <div class="form-group row">
+                    <div class="col-md-9 offset-md-3">
+                        <button type="submit" class="btn width-150 btn-primary">Salvar</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

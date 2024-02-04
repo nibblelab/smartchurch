@@ -1,0 +1,207 @@
+{
+    "menus": [
+        { 
+            "nome": "perfil",
+            "titulo": "Perfil", 
+            "icon": "ion ion-md-contacts", 
+            "modulos": ["MOD_BASE"], 
+            "setted": [],
+            "submenus": [
+                { 
+                    "nome": "perfis",
+                    "titulo": "Perfis", 
+                    "sref": "SmartChurchPanel.staff.perfis.buscar",
+                    "states": ["SmartChurchPanel.staff.perfis.buscar","SmartChurchPanel.staff.perfis.adicionar","SmartChurchPanel.staff.perfis.editar"],
+                    "modulos": ["MOD_BASE"], 
+                    "perms": [ "Perfil", "PerfilSave", "PerfilRemove"], 
+                    "setted": []
+                }
+            ]
+        },
+        { 
+            "nome": "config",
+            "titulo": "Configurações", 
+            "icon": "ion ion-md-settings", 
+            "modulos": ["MOD_BASE"], 
+            "setted": [],
+            "submenus": [
+                { 
+                    "nome": "sysconfig",
+                    "titulo": "Sistema", 
+                    "sref": "SmartChurchPanel.staff.sysconfig.editar",
+                    "states": ["SmartChurchPanel.staff.sysconfig.editar"],
+                    "modulos": ["MOD_BASE"], 
+                    "perms": [ "SysConfig"], 
+                    "setted": []
+                }
+            ]
+        },
+        { 
+            "nome": "estrutura",
+            "titulo": "Estrutura", 
+            "icon": "ion ion-md-business", 
+            "modulos": ["MOD_BASE"], 
+            "setted": [],
+            "submenus": [
+                { 
+                    "nome": "supremoconcilio",
+                    "titulo": "Supremo", 
+                    "sref": "SmartChurchPanel.staff.supremoconcilio.buscar",
+                    "states": ["SmartChurchPanel.staff.supremoconcilio.buscar",
+                                "SmartChurchPanel.staff.supremoconcilio.adicionar",
+                                "SmartChurchPanel.staff.supremoconcilio.editar"],
+                    "modulos": ["MOD_BASE"], 
+                    "perms": [ "Supremo", "SupremoSave", "SupremoRemove", "SupremoBlock"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "sinodos",
+                    "titulo": "Sínodos", 
+                    "sref": "SmartChurchPanel.staff.sinodos.buscar",
+                    "states": ["SmartChurchPanel.staff.sinodos.buscar","SmartChurchPanel.staff.sinodos.adicionar","SmartChurchPanel.staff.sinodos.editar"],
+                    "modulos": ["MOD_BASE"], 
+                    "perms": [ "Sinodo", "SinodoSave", "SinodoRemove", "SinodoBlock"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "presbiterios",
+                    "titulo": "Presbitérios", 
+                    "sref": "SmartChurchPanel.staff.presbiterios.buscar",
+                    "states": ["SmartChurchPanel.staff.presbiterios.buscar","SmartChurchPanel.staff.presbiterios.adicionar","SmartChurchPanel.staff.presbiterios.editar"],
+                    "modulos": ["MOD_BASE"], 
+                    "perms": [ "Presbiterio", "PresbiterioSave", "PresbiterioRemove", "PresbiterioBlock"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "igrejas",
+                    "titulo": "Igrejas", 
+                    "sref": "SmartChurchPanel.staff.igrejas.buscar",
+                    "states": ["SmartChurchPanel.staff.igrejas.buscar","SmartChurchPanel.staff.igrejas.adicionar","SmartChurchPanel.staff.igrejas.editar"],
+                    "modulos": ["MOD_BASE"], 
+                    "perms": [ "Igreja", "IgrejaSave", "IgrejaRemove", "IgrejaBlock"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "congregacoes",
+                    "titulo": "Congregações", 
+                    "sref": "SmartChurchPanel.staff.congregacoes.buscar",
+                    "states": ["SmartChurchPanel.staff.congregacoes.buscar","SmartChurchPanel.staff.congregacoes.adicionar","SmartChurchPanel.staff.congregacoes.editar"],
+                    "modulos": ["MOD_BASE"], 
+                    "perms": [ "Congregacao", "CongregacaoSave", "CongregacaoRemove", "CongregacaoBlock"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "pontosdepregacao",
+                    "titulo": "Pontos", 
+                    "sref": "SmartChurchPanel.staff.pontosdepregacao.buscar",
+                    "states": ["SmartChurchPanel.staff.pontosdepregacao.buscar","SmartChurchPanel.staff.pontosdepregacao.adicionar","SmartChurchPanel.staff.pontosdepregacao.editar"],
+                    "modulos": ["MOD_BASE"], 
+                    "perms": [ "Ponto", "PontoSave", "PontoRemove", "PontoBlock"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "nacionais",
+                    "titulo": "Nacionais", 
+                    "sref": "SmartChurchPanel.staff.nacionais.buscar",
+                    "states": ["SmartChurchPanel.staff.nacionais.buscar","SmartChurchPanel.staff.nacionais.adicionar","SmartChurchPanel.staff.nacionais.editar"],
+                    "modulos": ["MOD_BASE"], 
+                    "perms": [ "Nacional", "NacionalSave", "NacionalRemove", "NacionalBlock"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "sinodais",
+                    "titulo": "Sinodais", 
+                    "sref": "SmartChurchPanel.staff.sinodais.buscar",
+                    "states": ["SmartChurchPanel.staff.sinodais.buscar","SmartChurchPanel.staff.sinodais.adicionar","SmartChurchPanel.staff.sinodais.editar",
+                        "SmartChurchPanel.sinodais.admin"],
+                    "modulos": ["MOD_BASE"], 
+                    "perms": [ "Sinodal", "SinodalSave", "SinodalRemove", "SinodalBlock", "SinodalAdmin"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "federacoes",
+                    "titulo": "Federações", 
+                    "sref": "SmartChurchPanel.staff.federacoes.buscar",
+                    "states": ["SmartChurchPanel.staff.federacoes.buscar","SmartChurchPanel.staff.federacoes.adicionar","SmartChurchPanel.staff.federacoes.editar",
+                        "SmartChurchPanel.federacoes.admin"],
+                    "modulos": ["MOD_BASE"], 
+                    "perms": [ "Federacao", "FederacaoSave", "FederacaoRemove", "FederacaoBlock", "FederacaoAdmin"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "cargos",
+                    "titulo": "Cargos", 
+                    "sref": "SmartChurchPanel.staff.cargos.buscar",
+                    "states": ["SmartChurchPanel.staff.cargos.buscar","SmartChurchPanel.staff.cargos.adicionar","SmartChurchPanel.staff.cargos.editar"],
+                    "modulos": ["MOD_BASE"], 
+                    "perms": [ "Cargo", "CargoSave", "CargoRemove"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "tagsagenda",
+                    "titulo": "Tags Agenda", 
+                    "sref": "SmartChurchPanel.staff.tagsagenda.buscar",
+                    "states": ["SmartChurchPanel.staff.tagsagenda.buscar","SmartChurchPanel.staff.tagsagenda.adicionar","SmartChurchPanel.staff.tagsagenda.editar"],
+                    "modulos": ["MOD_BASE"], 
+                    "perms": [ "TagAgenda", "TagAgendaSave", "TagAgendaRemove", "TagAgendaBlock"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "profissoes",
+                    "titulo": "Profissões", 
+                    "sref": "SmartChurchPanel.staff.profissoes.buscar",
+                    "states": ["SmartChurchPanel.staff.profissoes.buscar","SmartChurchPanel.staff.profissoes.adicionar","SmartChurchPanel.staff.profissoes.editar"],
+                    "modulos": ["MOD_BASE"], 
+                    "perms": [ "Profissao", "ProfissaoSave", "ProfissaoRemove"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "doacoes",
+                    "titulo": "Doações", 
+                    "sref": "SmartChurchPanel.staff.doacoes.buscar",
+                    "states": ["SmartChurchPanel.staff.doacoes.buscar","SmartChurchPanel.staff.doacoes.adicionar","SmartChurchPanel.staff.doacoes.editar"],
+                    "modulos": ["MOD_BASE"], 
+                    "perms": [ "Doacao", "DoacaoSave", "DoacaoRemove"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "necessidadesespeciais",
+                    "titulo": "Necessidades", 
+                    "sref": "SmartChurchPanel.staff.necessidadesespeciais.buscar",
+                    "states": ["SmartChurchPanel.staff.necessidadesespeciais.buscar","SmartChurchPanel.staff.necessidadesespeciais.adicionar",
+                                "SmartChurchPanel.staff.necessidadesespeciais.editar"],
+                    "modulos": ["MOD_BASE"], 
+                    "perms": [ "Necessidade", "NecessidadeSave", "NecessidadeRemove"], 
+                    "setted": []
+                },
+                { 
+                    "nome": "motivosrecusa",
+                    "titulo": "Motivos Recusa", 
+                    "sref": "SmartChurchPanel.staff.motivosrecusa.buscar",
+                    "states": ["SmartChurchPanel.staff.motivosrecusa.buscar","SmartChurchPanel.staff.motivosrecusa.adicionar","SmartChurchPanel.staff.motivosrecusa.editar"],
+                    "modulos": ["MOD_BASE"], 
+                    "perms": [ "MotivoRecusa", "MotivoRecusaSave", "MotivoRecusaRemove"], 
+                    "setted": []
+                }
+            ]
+        }, 
+        {
+            "nome": "cliente",
+            "titulo": "Cliente", 
+            "icon": "fas fa-user-tag", 
+            "modulos": ["MOD_BASE"], 
+            "setted": [],
+            "submenus": [
+                { 
+                    "nome": "clientes",
+                    "titulo": "Clientes", 
+                    "sref": "SmartChurchPanel.staff.clientes.buscar",
+                    "states": ["SmartChurchPanel.staff.clientes.buscar","SmartChurchPanel.staff.clientes.adicionar","SmartChurchPanel.staff.clientes.editar"],
+                    "modulos": ["MOD_BASE"], 
+                    "perms": [ "Cliente", "ClienteSave", "ClienteRemove", "ClienteBlock"], 
+                    "setted": []
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,200 @@
+<ol class="breadcrumb pull-right">
+    <li class="breadcrumb-item active">{{opTitle}}</li>
+</ol>
+
+<h1 class="page-header">&nbsp;</h1>
+
+<div class="panel panel-inverse">
+    <div class="panel-heading">
+        <h4 class="panel-title">{{opTitle}} {{objList}}</h4>
+        <div class="panel-heading-btn">
+            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div class="add-btn-area">
+            <div class="row filter-row">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-3"></div>
+                <div class="col-sm-2"></div>
+                <div class="col-sm-3 text-right">
+                    <button type="button" class="btn btn-lg btn-primary" ng-show="USER.doIHavePermission(user, localPerms.add)"
+                            tooltips tooltip-template="Adicionar" tooltip-side="left"
+                            ui-sref="SmartChurchPanel.igreja.agenda.adicionar({back: 'SmartChurchPanel.igreja.agenda.buscar'})" ><i class="fa fa-plus"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="row filter-row" style="margin-bottom: 10px;">
+            <div class="col-sm-1 text-left">
+                <button class="btn btn-white" type="button" ng-click="clear()" tooltips tooltip-template="Limpar Filtros" tooltip-side="right">
+                    <i class="fa fa-trash"></i>
+                </button>
+            </div>
+            <div class="col-sm-6">
+                <form ng-submit="doSearch(true)">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="" ng-model="searchBy">
+                        <span class="input-group-append">
+                            <button class="btn btn-primary" type="submit" >
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+            <div class="col-sm-4">
+                <button class="btn btn-white" ng-click="enableFilters()">
+                    Filtros
+                    <i class="fas fa-plus" ng-hide="filterEnabled"></i>
+                    <i class="fas fa-minus" ng-show="filterEnabled"></i>
+                    <span class="badge badge-warning" ng-show="filterUsed">!</span>
+                </button>
+            </div>
+        </div>
+        <div class="row filter-row" style="margin-bottom: 10px;" ng-show="filterEnabled">
+            <div class="col-sm-1">
+                
+            </div>
+            <div class="col-sm-4">
+                <form class="form-inline">
+                    <label>Início:</label>
+                    <input type="text" class="form-control" ng-model="inicio" ng-blur="doSearch(true)"
+                           ui-mask="99/99/9999" model-view-value="true" >
+                </form>
+            </div>
+            <div class="col-sm-4">
+                <form class="form-inline">
+                    <label>Término:</label>
+                    <input type="text" class="form-control" ng-model="termino" ng-blur="doSearch(true)"
+                           ui-mask="99/99/9999" model-view-value="true" >
+                </form>
+            </div>
+        </div>
+        <div class="row filter-row" style="margin-bottom: 10px;" ng-show="filterEnabled">
+            <div class="col-sm-1">
+                
+            </div>
+            <div class="col-sm-4">
+                <select class="form-control" ng-model="stat" ng-change="doSearch(true)" >
+                    <option value="">Status</option>
+                    <option value="{{i.value}}" ng-repeat="i in listStatus">{{i.label}}</option>
+                </select>
+            </div>
+            <div class="col-sm-4">
+                <select class="form-control" ng-model="responsavel" ng-change="doSearch(true)" >
+                    <option value="">Responsável</option>
+                    <option value="{{i.id}}" ng-repeat="i in listResponsaveis">{{i.nome}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="row filter-row" style="margin-bottom: 10px;" ng-show="filterEnabled">
+            <div class="col-sm-1">
+                
+            </div>
+            <div class="col-sm-3">
+                <div class="checkbox checkbox-css">
+                    <input type="checkbox" id="checkbox_recorrente" ng-model="recorrente" ng-change="doSearch(true)" /> 
+                    <label for="checkbox_recorrente" class="checkbox">
+                        Recorrente
+                    </label>
+                </div>
+            </div>
+            <div class="col-sm-3"></div>
+        </div>
+        <div class="row filter-row" style="margin-bottom: 10px;" ng-show="filterEnabled && recorrente">
+            <div class="col-sm-1">
+                
+            </div>
+            <div class="col-sm-3">
+                <div class="checkbox checkbox-css">
+                    <input type="checkbox" id="checkbox_domingo" ng-model="domingo" ng-change="doSearch(true)" /> 
+                    <label for="checkbox_domingo" class="checkbox">
+                        Domingo
+                    </label>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="checkbox checkbox-css">
+                    <input type="checkbox" id="checkbox_segunda" ng-model="segunda" ng-change="doSearch(true)" /> 
+                    <label for="checkbox_segunda" class="checkbox">
+                        Segunda
+                    </label>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="checkbox checkbox-css">
+                    <input type="checkbox" id="checkbox_terca" ng-model="terca" ng-change="doSearch(true)" /> 
+                    <label for="checkbox_terca" class="checkbox">
+                        Terça
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="row filter-row" style="margin-bottom: 10px;" ng-show="filterEnabled && recorrente">
+            <div class="col-sm-1">
+                
+            </div>
+            <div class="col-sm-3">
+                <div class="checkbox checkbox-css">
+                    <input type="checkbox" id="checkbox_quarta" ng-model="quarta" ng-change="doSearch(true)" /> 
+                    <label for="checkbox_quarta" class="checkbox">
+                        Quarta
+                    </label>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="checkbox checkbox-css">
+                    <input type="checkbox" id="checkbox_quinta" ng-model="quinta" ng-change="doSearch(true)" /> 
+                    <label for="checkbox_quinta" class="checkbox">
+                        Quinta
+                    </label>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="checkbox checkbox-css">
+                    <input type="checkbox" id="checkbox_sexta" ng-model="sexta" ng-change="doSearch(true)" /> 
+                    <label for="checkbox_sexta" class="checkbox">
+                        Sexta
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="row filter-row" style="margin-bottom: 10px;" ng-show="filterEnabled && recorrente">
+            <div class="col-sm-1">
+                
+            </div>
+            <div class="col-sm-3">
+                <div class="checkbox checkbox-css">
+                    <input type="checkbox" id="checkbox_sabado" ng-model="sabado" ng-change="doSearch(true)" /> 
+                    <label for="checkbox_sabado" class="checkbox">
+                        Sábado
+                    </label>
+                </div>
+            </div>
+            <div class="col-sm-3"></div>
+        </div>
+        <div class="row filter-row" style="margin-bottom: 10px;" ng-show="filterEnabled">
+            <div class="col-sm-1">
+                
+            </div>
+            <div class="col-sm-11">
+                <div class="row">
+                    <div class="col-4 m-b-10" ng-repeat="t in listTags">
+                        <div class="checkbox checkbox-css">
+                            <input type="checkbox" id="checkbox_tag_{{t.id}}" ng-model="t.checked" ng-change="doSearch(true)" /> 
+                            <label for="checkbox_tag_{{t.id}}" class="checkbox">
+                                <span class="tag" style="background: {{t.cor}}" >
+                                    <span class="tag-icon" style="color: {{t.cor}}"><i class="fas fa-tag"></i></span>
+                                    {{t.tag}}
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="margin-bottom-50 margin-top-30" >
+            <div id="calendar"></div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,367 @@
+<ol class="breadcrumb pull-right">
+    <li class="breadcrumb-item"><a ui-sref='{{back}}'>Buscar</a></li>
+    <li class="breadcrumb-item active">{{opTitle}}</li>
+</ol>
+
+<h1 class="page-header">&nbsp;</h1>
+
+<div class="panel panel-inverse">
+    <div class="panel-heading">
+        <h4 class="panel-title">{{opTitle}} {{objForm}}</h4>
+        <div class="panel-heading-btn">
+            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+        </div>
+    </div>
+    <div class="panel-body">
+        <form id="dataFrm" method="POST">
+            <legend>Dados Básicos</legend>
+            <div class="form-group row m-b-15">
+                <label class="col-form-label col-md-2">Nome *</label>
+                <div class="col-md-10">
+                    <input class="form-control" type="text" id="nome_pessoa" placeholder="Pessoa" ng-model="dataFrm.data.nome.value"
+                            ng-class="{'is-invalid': !dataFrm.data.nome.valid}" ng-disabled="isView"
+                            name="validation[nome_pessoa]" data-validation="[NOTEMPTY]"
+                            data-validation-message="É necessário informar quem está sendo inscrito" />
+                </div>
+            </div>
+            <div class="form-group row m-b-15">
+                <label class="col-form-label col-md-2">E-mail *</label>
+                <div class="col-md-10">
+                    <input class="form-control m-b-5" type="email" placeholder="E-mail" ng-model="dataFrm.data.email.value"
+                            ng-class="{'is-invalid': !dataFrm.data.email.valid}" ng-disabled="isView"
+                            name="validation[email]" data-validation="[NOTEMPTY]"
+                            data-validation-message="O e-mail não pode ser vazio!" />
+                </div>
+            </div>
+            
+            <legend ng-show="formFieldVisibility.inscrito">Dados do Inscrito</legend>
+            <div class="form-group row m-b-15" ng-show="dataFrm.data.data_nascimento.show">
+                <label class="col-form-label col-md-2">Data de Nascimento</label>
+                <div class="col-md-4">
+                    <input class="form-control m-b-5" type="text" ng-model="dataFrm.data.data_nascimento.value"
+                            ui-mask="99/99/9999" model-view-value="true" ng-disabled="isView"
+                            ng-class="{'is-invalid': !dataFrm.data.data_nascimento.valid}" />
+                </div>
+            </div>
+            <div class="form-group row m-b-15" ng-show="dataFrm.data.sexo.show || dataFrm.data.estado_civil.show">
+                <label class="col-form-label col-md-2" ng-show="dataFrm.data.sexo.show">Sexo</label>
+                <div class="col-md-4" ng-show="dataFrm.data.sexo.show">
+                    <select class="form-control" ng-model="dataFrm.data.sexo.value" ng-disabled="isView"
+                            ng-class="{'is-invalid': !dataFrm.data.sexo.valid}" >
+                        <option value="" ></option>
+                        <option value="{{i.value}}" ng-repeat="i in listSexos">{{i.label}}</option>
+                    </select>
+                </div>
+                <label class="col-form-label col-md-2" ng-show="dataFrm.data.estado_civil.show">Estado Civil</label>
+                <div class="col-md-4" ng-show="dataFrm.data.estado_civil.show">
+                    <select class="form-control" ng-model="dataFrm.data.estado_civil.value" ng-disabled="isView"
+                            ng-class="{'is-invalid': !dataFrm.data.estado_civil.valid}" >
+                        <option value="" ></option>
+                        <option value="{{i.value}}" ng-repeat="i in listEstadosCivis">{{i.label}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row m-b-15" ng-show="dataFrm.data.telefone.show">
+                <label class="col-form-label col-md-2">Telefone</label>
+                <div class="col-md-4">
+                    <input class="form-control m-b-5" type="text" ng-model="dataFrm.data.telefone.value"
+                            ui-mask="(99) 9999-9999" model-view-value="true" ng-disabled="isView"
+                            ng-class="{'is-invalid': !dataFrm.data.telefone.valid}" />
+                </div>
+            </div>
+            <div class="form-group row m-b-15" ng-show="dataFrm.data.celular_1.show || dataFrm.data.celular_2.show">
+                <label class="col-form-label col-md-2" ng-show="dataFrm.data.celular_1.show">Celular (1)</label>
+                <div class="col-md-4" ng-show="dataFrm.data.celular_1.show">
+                    <input class="form-control m-b-5" type="text" ng-model="dataFrm.data.celular_1.value"
+                            ui-mask="(99) 9 9999-9999" model-view-value="true" ng-disabled="isView"
+                            ng-class="{'is-invalid': !dataFrm.data.celular_1.valid}" />
+                </div>
+                <label class="col-form-label col-md-2" ng-show="dataFrm.data.celular_2.show">Celular (2)</label>
+                <div class="col-md-4" ng-show="dataFrm.data.celular_2.show">
+                    <input class="form-control m-b-5" type="text" ng-model="dataFrm.data.celular_2.value"
+                            ui-mask="(99) 9 9999-9999" model-view-value="true" ng-disabled="isView"
+                            ng-class="{'is-invalid': !dataFrm.data.celular_2.valid}" />
+                </div>
+            </div>
+            
+            <fieldset ng-show="formFieldVisibility.igreja">
+                <legend>
+                    Igreja
+                </legend>
+                <div class="form-group row m-b-15" ng-show="dataFrm.data.sinodo.show">
+                    <label class="col-form-label col-md-2">Sínodo</label>
+                    <div class="col-md-10">
+                        <select class="form-control" ng-model="dataFrm.data.sinodo.value" ng-disabled="isView"
+                                ng-change="filterPresbiterio(dataFrm.data.sinodo.value)"
+                                ng-class="{'is-invalid': !dataFrm.data.sinodo.valid}" >
+                            <option value=""></option>
+                            <option value="{{i.id}}" ng-repeat="i in listSinodos">{{i.nome}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row m-b-15" ng-show="dataFrm.data.presbiterio.show">
+                    <label class="col-form-label col-md-2">Presbitério</label>
+                    <div class="col-md-10">
+                        <select class="form-control" ng-model="dataFrm.data.presbiterio.value" ng-disabled="isView"
+                                ng-change="filterIgreja(dataFrm.data.presbiterio.value)"
+                                ng-class="{'is-invalid': !dataFrm.data.presbiterio.valid}" >
+                            <option value=""></option>
+                            <option value="{{i.id}}" ng-repeat="i in listPresbiterios" ng-show="i.show">{{i.nome}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row m-b-15" ng-show="dataFrm.data.igreja.show">
+                    <label class="col-form-label col-md-2">Igreja</label>
+                    <div class="col-md-10">
+                        <select class="form-control" ng-model="dataFrm.data.igreja.value" ng-disabled="isView"
+                                ng-class="{'is-invalid': !dataFrm.data.igreja.valid}">
+                            <option value=""></option>
+                            <option value="{{i.id}}" ng-repeat="i in listIgrejas" ng-show="i.show">{{i.nome}}</option>
+                        </select>
+                    </div>
+                </div>
+            </fieldset>
+            
+            
+            <fieldset ng-show="formFieldVisibility.sociedade_interna">
+                <legend>
+                    Sociedade Interna
+                </legend>
+                <div class="form-group row m-b-15" ng-show="dataFrm.data.sinodal.show">
+                    <label class="col-form-label col-md-2">Sinodal</label>
+                    <div class="col-md-10">
+                        <select class="form-control" ng-model="dataFrm.data.sinodal.value" ng-disabled="isView"
+                                ng-change="filterFederacao(dataFrm.data.sinodal.value)"
+                                ng-class="{'is-invalid': !dataFrm.data.sinodal.valid}" >
+                            <option value=""></option>
+                            <option value="{{i.id}}" ng-repeat="i in listSinodais">{{i.nome}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row m-b-15" ng-show="dataFrm.data.federacao.show">
+                    <label class="col-form-label col-md-2">Federação</label>
+                    <div class="col-md-10">
+                        <select class="form-control" ng-model="dataFrm.data.federacao.value" ng-disabled="isView"
+                                ng-change="filterSociedade(dataFrm.data.federacao.value)"
+                                ng-class="{'is-invalid': !dataFrm.data.federacao.valid}">
+                            <option value=""></option>
+                            <option value="{{i.id}}" ng-repeat="i in listFederacoes" ng-show="i.show">{{i.nome}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row m-b-15" ng-show="dataFrm.data.sociedade.show">
+                    <label class="col-form-label col-md-2">Sociedade</label>
+                    <div class="col-md-10">
+                        <select class="form-control" ng-model="dataFrm.data.sociedade.value" ng-disabled="isView" 
+                                ng-class="{'is-invalid': !dataFrm.data.sociedade.valid}">
+                            <option value=""></option>
+                            <option value="{{i.id}}" ng-repeat="i in listSociedades" ng-show="i.show">{{i.nome}}</option>
+                        </select>
+                    </div>
+                </div>
+            </fieldset>
+            
+            
+            <fieldset ng-show="formFieldVisibility.oficialato">
+                <legend >
+                    Detalhes de Oficialato
+                </legend>
+                <div class="form-group row m-b-15">
+                    <label class="col-form-label col-md-2" ng-show="dataFrm.data.cargo.show">Possui Cargo?</label>
+                    <div class="col-md-4" ng-show="dataFrm.data.cargo.show">
+                        <div class="checkbox checkbox-css">
+                            <input type="checkbox" id="checkbox_cargo" ng-model="dataFrm.data.possui_cargo.value" ng-disabled="isView" /> 
+                            <label for="checkbox_cargo" class="checkbox">
+                                Sim
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row m-b-15" ng-show="dataFrm.data.possui_cargo.value && dataFrm.data.cargo.show">
+                    <label class="col-form-label col-md-2">Onde?</label>
+                    <div class="col-md-4">
+                        <select class="form-control" ng-model="dataFrm.data.cargo_ref.value" ng-disabled="isView"
+                                ng-change="filterCargo(dataFrm.data.cargo_ref.value)"
+                                ng-class="{'is-invalid': !dataFrm.data.cargo_ref.valid}">
+                            <option value=""></option>
+                            <option value="{{i.value}}" ng-repeat="i in listInstancias">{{i.label}}</option>
+                        </select>
+                    </div>
+                    <label class="col-form-label col-md-2">Cargo</label>
+                    <div class="col-md-4">
+                        <select class="form-control" ng-model="dataFrm.data.cargo.value" ng-disabled="isView" 
+                                ng-class="{'is-invalid': !dataFrm.data.cargo.valid}" >
+                            <option value=""></option>
+                            <option value="{{i.id}}" ng-repeat="i in listCargos" ng-show="i.show">{{i.nome}}</option>
+                        </select>
+                    </div>
+                </div>
+            </fieldset>
+            
+            
+            <fieldset ng-show="formFieldVisibility.oficialato" >
+                <legend>
+                    Detalhes de Credencial
+                </legend>
+                <div class="form-group row m-b-15">
+                    <label class="col-form-label col-md-2" ng-show="dataFrm.data.delegado.show">Delegado?</label>
+                    <div class="col-md-4" ng-show="dataFrm.data.delegado.show">
+                        <div class="checkbox checkbox-css">
+                            <input type="checkbox" id="checkbox_delegado" ng-model="dataFrm.data.delegado.value" ng-change="updateCredencialView()" ng-disabled="isView" /> 
+                            <label for="checkbox_delegado" class="checkbox">
+                                Sim
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row m-b-15" ng-show="dataFrm.data.credencial_digital_data.value.show">
+                    <label class="col-form-label col-md-2">Nome Responsavel</label>
+                    <div class="col-md-10">
+                        <input class="form-control" type="text" placeholder="Nome Responsável" 
+                                ng-model="dataFrm.data.credencial_digital_data.value.nome_responsavel"
+                                ng-disabled="isView" />
+                    </div>
+                </div>
+                <div class="form-group row m-b-15" ng-show="dataFrm.data.credencial_digital_data.value.show">
+                    <label class="col-form-label col-md-2">E-mail Responsavel</label>
+                    <div class="col-md-8">
+                        <input class="form-control m-b-5" type="email" placeholder="E-mail do Responsável" 
+                                ng-model="dataFrm.data.credencial_digital_data.value.email_responsavel"
+                                ng-disabled="isView" />
+                    </div>
+                    <div class="col-md-2" ng-if="isEdit">
+                        <button type="button" class="btn width-150 btn-white" ng-click="generateChaveResponsavel()">
+                            Link de validação
+                        </button>
+                    </div>
+                </div>
+                <div class="form-group row m-b-15" ng-show="dataFrm.data.credencial_digital_data.value.show">
+                    <label class="col-form-label col-md-2" >Celular Responsavel</label>
+                    <div class="col-md-4" ng-show="dataFrm.data.celular_1.show">
+                        <input class="form-control m-b-5" type="text" 
+                                ng-model="dataFrm.data.credencial_digital_data.value.telefone_responsavel"
+                                ui-mask="(99) 9 9999-9999" model-view-value="true" ng-disabled="isView"
+                                 />
+                    </div>
+                </div>
+            </fieldset>
+            
+            
+            <fieldset ng-show="dataFrm.data.has_pagto.value">
+                <legend >
+                    Pagamento
+                </legend>
+                <div class="form-group row m-b-15" ng-show="dataFrm.data.has_pagto.value">
+                    <label class="col-form-label col-md-2">Valor</label>
+                    <div class="col-md-4">
+                        <input class="form-control" type="text" placeholder="Valor" ng-model="dataFrm.data.valor.value" ui-money-mask ng-disabled="isView" />
+                    </div>
+                    <div class="col-md-4">
+                        <span class="label label-info">[{{dataFrm.data.lote.value}}]</span>
+                    </div>
+                </div>
+                <div class="form-group row m-b-15" ng-show="dataFrm.data.has_pagto.value">
+                    <label class="col-form-label col-md-2">Forma Pagto.</label>
+                    <div class="col-md-4">
+                        <select class="form-control" ng-model="dataFrm.data.forma_pagto.value" ng-change="onSelectFormaPagto()" ng-disabled="isView" >
+                            <option value=""></option>
+                            <option value="{{i.value}}" ng-repeat="i in listFormasPagto" ng-show="i.show">{{i.label}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row m-b-15" ng-show="dataFrm.data.deposito.value.show">
+                    <label class="col-form-label col-md-2">Detalhes</label>
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-4">
+                                <label class="col-form-label">Banco</label>
+                                <input class="form-control" type="text" ng-model="dataFrm.data.deposito.value.banco" ng-disabled="isView" />
+                            </div>
+                            <div class="col-xs-12 col-sm-4">
+                                <label class="col-form-label">Agência</label>
+                                <input class="form-control" type="text" ng-model="dataFrm.data.deposito.value.agencia" ng-disabled="isView" />
+                            </div>
+                            <div class="col-xs-12 col-sm-4">
+                                <label class="col-form-label">Conta</label>
+                                <input class="form-control" type="text" ng-model="dataFrm.data.deposito.value.conta" ng-disabled="isView" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-8">
+                                <label class="col-form-label">Favorecido</label>
+                                <input class="form-control" type="text" ng-model="dataFrm.data.deposito.value.favorecido" ng-disabled="isView" />
+                            </div>
+                            <div class="col-xs-12 col-sm-4">
+                                <label class="col-form-label">CPF/CNPJ</label>
+                                <input class="form-control" type="text" ng-model="dataFrm.data.deposito.value.documento" ng-disabled="isView" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row m-b-15" ng-show="dataFrm.data.has_pagto.value">
+                    <label class="col-form-label col-md-2">Status</label>
+                    <div class="col-md-4">
+                        <select class="form-control" ng-model="dataFrm.data.stat_pagto.value" ng-change="onSelectPagtoStat()" ng-disabled="isView" >
+                            <option value=""></option>
+                            <option value="{{i.value}}" ng-repeat="i in listStatusPagto" >{{i.label}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row m-b-15" ng-show="dataFrm.data.has_pagto.value && dataFrm.data.is_pago.value">
+                    <label class="col-form-label col-md-2">Valor Pago</label>
+                    <div class="col-md-4">
+                        <input class="form-control" type="text" placeholder="" ng-model="dataFrm.data.valor_pago.value"
+                                ng-class="{'is-invalid': !dataFrm.data.valor_pago.valid}" ui-money-mask ng-disabled="isView" />
+                    </div>
+                    <label class="col-form-label col-md-2">Data Pagto.</label>
+                    <div class="col-md-4">
+                        <input class="form-control m-b-5 datepicker" type="text" ng-model="dataFrm.data.data_pagto.value"
+                                ui-mask="99/99/9999" model-view-value="true" ng-disabled="isView"
+                                ng-class="{'is-invalid': !dataFrm.data.data_pagto.valid}" />
+                    </div>
+                </div>
+            </fieldset>
+            
+            
+            <div class="form-actions" ng-show="isCreate || isEdit">
+                <div class="form-group row">
+                    <div class="col-md-9 offset-md-3">
+                        <button type="submit" class="btn width-150 btn-primary">Salvar</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<div id="linkModal" class="modal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Link de Validação</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="input-group">
+                        <input id="linkUrl" class="form-control m-b-5" type="text" ng-model="validacao.link" />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-info" 
+                                    tooltips tooltip-template="Copiar Link" tooltip-side="top"
+                                    ngclipboard data-clipboard-target="#linkUrl">
+                                <i class="far fa-copy"></i>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+                
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
