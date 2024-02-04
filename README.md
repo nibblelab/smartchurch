@@ -37,11 +37,11 @@ Sistema web (RESTFul) voltado para gestão de igrejas presbiterianas
     - acesso ao banco de dados
     - senha mestre
     - conta do e-mail de notificação
-* Cria o usuário principal (root) diretamente no banco de dados na tabela usuário scom os campos
-    perfil = 201801311908460356487174
-    stat = ATV
-    tp = STF
-    is_master = N
+* Cria o usuário principal (root) diretamente no banco de dados na tabela usuário scom os campos:
+    - perfil = 201801311908460356487174
+    - stat = ATV
+    - tp = STF
+    - is_master = N
 * Cria o vhost no nginx usando como base o arquivo em nginx/vhost.conf
 * Se em ambiente de desenvolvimento, altere o arquivo /etc/hosts para reconhecer o name smartchurch.local. Ex: [opcional]
     127.0.1.1	smartchurch.local
