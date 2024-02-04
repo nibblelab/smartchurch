@@ -32,7 +32,7 @@ Sistema web (RESTFul) voltado para gestão de igrejas presbiterianas
 * Clona o repositório inteiro
 * Configura o banco de dados com o script de criação em projeto/create.sql
 * Importa os dados básicos com o sql em projeto/dados.sql
-* Configura o arquivo principal de configurações em api/app/config/conf.cfg.php:
+* Configura o arquivo principal de configurações em api/app/config/conf.cfg.php (use como base o api/app/config/conf.cfg.sample.php):
     - paths do sistema em ambiente de desenvolvimento, testes e produção
     - acesso ao banco de dados
     - senha mestre
