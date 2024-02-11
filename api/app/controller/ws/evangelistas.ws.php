@@ -10,6 +10,23 @@ require_once WS_PATH . '/contextos.ws.php';
  */
 class EvangelistasWS extends WSUtil
 {
+    /**
+     * 
+     * @var \EvangelistasWS singleton instance
+     */
+    private static $_Instance = null;
+    
+    /**
+     * Get singleton instance
+     * 
+     * @return \EvangelistasWS
+     */
+    public static function getInstance(): \EvangelistasWS {
+        if(self::$_Instance == null) {
+            self::$_Instance = new self();
+        }
+        return self::$_Instance;
+    }
     
     /**
      * Obtem o evangelista pelo id

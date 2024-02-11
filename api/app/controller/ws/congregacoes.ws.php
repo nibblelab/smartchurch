@@ -9,6 +9,24 @@ class CongregacoesWS extends WSUtil
 {
     /**
      * 
+     * @var \CongregacoesWS singleton instance
+     */
+    private static $_Instance = null;
+    
+    /**
+     * Get singleton instance
+     * 
+     * @return \CongregacoesWS
+     */
+    public static function getInstance(): \CongregacoesWS {
+        if(self::$_Instance == null) {
+            self::$_Instance = new self();
+        }
+        return self::$_Instance;
+    }
+    
+    /**
+     * 
      * Cria
      * 
      * @httpmethod POST

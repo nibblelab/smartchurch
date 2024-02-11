@@ -7,6 +7,23 @@ require_once DAO_PATH . '/FreqSumariosDAO.class.php';
  */
 class FreqSumariosWS extends WSUtil
 {
+    /**
+     * 
+     * @var \FreqSumariosWS singleton instance
+     */
+    private static $_Instance = null;
+    
+    /**
+     * Get singleton instance
+     * 
+     * @return \FreqSumariosWS
+     */
+    public static function getInstance(): \FreqSumariosWS {
+        if(self::$_Instance == null) {
+            self::$_Instance = new self();
+        }
+        return self::$_Instance;
+    }
     
     /**
      * Crie o sumário

@@ -11,6 +11,24 @@ require_once WS_PATH . '/contextos.ws.php';
 class ProfessoresDasSalasWS extends WSUtil
 {
     /**
+     * 
+     * @var \ProfessoresDasSalasWS singleton instance
+     */
+    private static $_Instance = null;
+    
+    /**
+     * Get singleton instance
+     * 
+     * @return \ProfessoresDasSalasWS
+     */
+    public static function getInstance(): \ProfessoresDasSalasWS {
+        if(self::$_Instance == null) {
+            self::$_Instance = new self();
+        }
+        return self::$_Instance;
+    }
+    
+    /**
      * Verifica se uma pessoa é professor de uma sala
      * 
      * @param string $pessoa id da pessoa

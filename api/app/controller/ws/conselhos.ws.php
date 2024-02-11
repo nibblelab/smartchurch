@@ -12,6 +12,24 @@ class ConselhosWS extends WSUtil
 {
     /**
      * 
+     * @var \ConselhosWS singleton instance
+     */
+    private static $_Instance = null;
+    
+    /**
+     * Get singleton instance
+     * 
+     * @return \ConselhosWS
+     */
+    public static function getInstance(): \ConselhosWS {
+        if(self::$_Instance == null) {
+            self::$_Instance = new self();
+        }
+        return self::$_Instance;
+    }
+    
+    /**
+     * 
      * Busca 
      * 
      * @httpmethod GET

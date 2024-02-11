@@ -10,6 +10,23 @@ require_once WS_PATH . '/sinodais.ws.php';
  */
 class EventosWS extends WSUtil
 {
+    /**
+     * 
+     * @var \EventosWS singleton instance
+     */
+    private static $_Instance = null;
+    
+    /**
+     * Get singleton instance
+     * 
+     * @return \EventosWS
+     */
+    public static function getInstance(): \EventosWS {
+        if(self::$_Instance == null) {
+            self::$_Instance = new self();
+        }
+        return self::$_Instance;
+    }
     
     /**
      * Obtêm o evento pelo seu id

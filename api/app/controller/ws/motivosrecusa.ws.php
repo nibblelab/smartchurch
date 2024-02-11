@@ -8,6 +8,24 @@ require_once DAO_PATH . '/MotivosRecusaDAO.class.php';
 class MotivosRecusaWS extends WSUtil
 {
     /**
+     * 
+     * @var \MotivosRecusaWS singleton instance
+     */
+    private static $_Instance = null;
+    
+    /**
+     * Get singleton instance
+     * 
+     * @return \MotivosRecusaWS
+     */
+    public static function getInstance(): \MotivosRecusaWS {
+        if(self::$_Instance == null) {
+            self::$_Instance = new self();
+        }
+        return self::$_Instance;
+    }
+    
+    /**
      * Obtem o motivo pelo id
      * 
      * @param string $id id do motivo

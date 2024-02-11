@@ -9,6 +9,24 @@ class PerfisWS extends WSUtil
 {
     /**
      * 
+     * @var \PerfisWS singleton instance
+     */
+    private static $_Instance = null;
+    
+    /**
+     * Get singleton instance
+     * 
+     * @return \PerfisWS
+     */
+    public static function getInstance(): \PerfisWS {
+        if(self::$_Instance == null) {
+            self::$_Instance = new self();
+        }
+        return self::$_Instance;
+    }
+    
+    /**
+     * 
      * Cria
      * 
      * @httpmethod POST

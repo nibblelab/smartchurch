@@ -9,6 +9,24 @@ require_once WS_PATH . '/instancias.ws.php';
 class SociedadesWS extends WSUtil
 {
     /**
+     * 
+     * @var \SociedadesWS singleton instance
+     */
+    private static $_Instance = null;
+    
+    /**
+     * Get singleton instance
+     * 
+     * @return \SociedadesWS
+     */
+    public static function getInstance(): \SociedadesWS {
+        if(self::$_Instance == null) {
+            self::$_Instance = new self();
+        }
+        return self::$_Instance;
+    }
+    
+    /**
      * Obtêm a sociedade pelo seu id
      * 
      * @param string $id id da sociedade

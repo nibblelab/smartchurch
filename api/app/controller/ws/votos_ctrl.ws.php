@@ -9,6 +9,24 @@ class VotosCtrlWS extends WSUtil
 {
     /**
      * 
+     * @var \VotosCtrlWS singleton instance
+     */
+    private static $_Instance = null;
+    
+    /**
+     * Get singleton instance
+     * 
+     * @return \VotosCtrlWS
+     */
+    public static function getInstance(): \VotosCtrlWS {
+        if(self::$_Instance == null) {
+            self::$_Instance = new self();
+        }
+        return self::$_Instance;
+    }
+    
+    /**
+     * 
      * Cria
      * 
      * @httpmethod POST

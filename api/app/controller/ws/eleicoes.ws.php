@@ -9,6 +9,24 @@ class EleicoesWS extends WSUtil
 {
     /**
      * 
+     * @var \EleicoesWS singleton instance
+     */
+    private static $_Instance = null;
+    
+    /**
+     * Get singleton instance
+     * 
+     * @return \EleicoesWS
+     */
+    public static function getInstance(): \EleicoesWS {
+        if(self::$_Instance == null) {
+            self::$_Instance = new self();
+        }
+        return self::$_Instance;
+    }
+    
+    /**
+     * 
      * Cria
      * 
      * @httpmethod POST

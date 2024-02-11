@@ -9,6 +9,24 @@ class TagsAgendaWS extends WSUtil
 {
     /**
      * 
+     * @var \TagsAgendaWS singleton instance
+     */
+    private static $_Instance = null;
+    
+    /**
+     * Get singleton instance
+     * 
+     * @return \TagsAgendaWS
+     */
+    public static function getInstance(): \TagsAgendaWS {
+        if(self::$_Instance == null) {
+            self::$_Instance = new self();
+        }
+        return self::$_Instance;
+    }
+    
+    /**
+     * 
      * Cria
      * 
      * @httpmethod POST

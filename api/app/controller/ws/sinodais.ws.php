@@ -8,6 +8,24 @@ require_once DAO_PATH . '/SinodaisDAO.class.php';
 class SinodaisWS extends WSUtil
 {
     /**
+     * 
+     * @var \SinodaisWS singleton instance
+     */
+    private static $_Instance = null;
+    
+    /**
+     * Get singleton instance
+     * 
+     * @return \SinodaisWS
+     */
+    public static function getInstance(): \SinodaisWS {
+        if(self::$_Instance == null) {
+            self::$_Instance = new self();
+        }
+        return self::$_Instance;
+    }
+    
+    /**
      * Obtem a sinodal pelo id
      * 
      * @param string $id id da sinodal

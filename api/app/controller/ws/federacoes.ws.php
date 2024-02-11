@@ -9,6 +9,24 @@ require_once WS_PATH . '/igrejas.ws.php';
 class FederacoesWS extends WSUtil
 {
     /**
+     * 
+     * @var \FederacoesWS singleton instance
+     */
+    private static $_Instance = null;
+    
+    /**
+     * Get singleton instance
+     * 
+     * @return \FederacoesWS
+     */
+    public static function getInstance(): \FederacoesWS {
+        if(self::$_Instance == null) {
+            self::$_Instance = new self();
+        }
+        return self::$_Instance;
+    }
+    
+    /**
      * Obtem a federação pelo id
      * 
      * @param string $id id da federação

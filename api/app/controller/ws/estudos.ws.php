@@ -11,6 +11,24 @@ require_once WS_PATH . '/pessoas.ws.php';
 class EstudosWS extends WSUtil
 {
     /**
+     * 
+     * @var \EstudosWS singleton instance
+     */
+    private static $_Instance = null;
+    
+    /**
+     * Get singleton instance
+     * 
+     * @return \EstudosWS
+     */
+    public static function getInstance(): \EstudosWS {
+        if(self::$_Instance == null) {
+            self::$_Instance = new self();
+        }
+        return self::$_Instance;
+    }
+    
+    /**
      * Obtenho o anexo do estudo
      * 
      * @param string $id id do sermão

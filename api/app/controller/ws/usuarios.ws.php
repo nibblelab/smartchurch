@@ -8,6 +8,23 @@ require_once FCT_PATH . '/context.cfc.php';
  */
 class UsuariosWS extends WSUtil
 {
+    /**
+     * 
+     * @var \UsuariosWS singleton instance
+     */
+    private static $_Instance = null;
+    
+    /**
+     * Get singleton instance
+     * 
+     * @return \UsuariosWS
+     */
+    public static function getInstance(): \UsuariosWS {
+        if(self::$_Instance == null) {
+            self::$_Instance = new self();
+        }
+        return self::$_Instance;
+    }
     
     /**
      * Altere o perfil do usuário

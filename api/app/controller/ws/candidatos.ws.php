@@ -9,6 +9,24 @@ class CandidatosWS extends WSUtil
 {
     /**
      * 
+     * @var \CandidatosWS singleton instance
+     */
+    private static $_Instance = null;
+    
+    /**
+     * Get singleton instance
+     * 
+     * @return \CandidatosWS
+     */
+    public static function getInstance(): \CandidatosWS {
+        if(self::$_Instance == null) {
+            self::$_Instance = new self();
+        }
+        return self::$_Instance;
+    }
+    
+    /**
+     * 
      * Cria
      * 
      * @httpmethod POST

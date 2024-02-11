@@ -9,6 +9,24 @@ class EnderecosWS extends WSUtil
 {
     /**
      * 
+     * @var \EnderecosWS singleton instance
+     */
+    private static $_Instance = null;
+    
+    /**
+     * Get singleton instance
+     * 
+     * @return \EnderecosWS
+     */
+    public static function getInstance(): \EnderecosWS {
+        if(self::$_Instance == null) {
+            self::$_Instance = new self();
+        }
+        return self::$_Instance;
+    }
+    
+    /**
+     * 
      * Cria
      * 
      * @httpmethod POST

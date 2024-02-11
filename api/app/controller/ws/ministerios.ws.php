@@ -8,6 +8,23 @@ require_once WS_PATH . '/instancias.ws.php';
  */
 class MinisteriosWS extends WSUtil
 {
+    /**
+     * 
+     * @var \MinisteriosWS singleton instance
+     */
+    private static $_Instance = null;
+    
+    /**
+     * Get singleton instance
+     * 
+     * @return \MinisteriosWS
+     */
+    public static function getInstance(): \MinisteriosWS {
+        if(self::$_Instance == null) {
+            self::$_Instance = new self();
+        }
+        return self::$_Instance;
+    }
     
     /**
      * Obtêm o ministério pelo seu id

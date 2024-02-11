@@ -12,6 +12,23 @@ require_once WS_PATH . '/sociedades.ws.php';
  */
 class SociosWS extends WSUtil
 {
+    /**
+     * 
+     * @var \SociosWS singleton instance
+     */
+    private static $_Instance = null;
+    
+    /**
+     * Get singleton instance
+     * 
+     * @return \SociosWS
+     */
+    public static function getInstance(): \SociosWS {
+        if(self::$_Instance == null) {
+            self::$_Instance = new self();
+        }
+        return self::$_Instance;
+    }
     
     /**
      * Obtem o sócio pelo id

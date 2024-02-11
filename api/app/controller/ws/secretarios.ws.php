@@ -11,6 +11,23 @@ require_once WS_PATH . '/secretarias.ws.php';
  */
 class SecretariosWS extends WSUtil
 {
+    /**
+     * 
+     * @var \SecretariosWS singleton instance
+     */
+    private static $_Instance = null;
+    
+    /**
+     * Get singleton instance
+     * 
+     * @return \SecretariosWS
+     */
+    public static function getInstance(): \SecretariosWS {
+        if(self::$_Instance == null) {
+            self::$_Instance = new self();
+        }
+        return self::$_Instance;
+    }
     
     /**
      * Obtem o secretário pelo id

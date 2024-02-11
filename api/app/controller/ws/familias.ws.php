@@ -9,7 +9,7 @@ class FamiliasWS extends WSUtil
 {
     /**
      * 
-     * @var FamiliasWS singleton instance
+     * @var \FamiliasWS singleton instance
      */
     private static $_Instance = null;
     
@@ -18,7 +18,7 @@ class FamiliasWS extends WSUtil
      * 
      * @return \FamiliasWS
      */
-    public static function getInstance() {
+    public static function getInstance(): \FamiliasWS {
         if(self::$_Instance == null) {
             self::$_Instance = new self();
         }

@@ -9,6 +9,24 @@ class EscrutiniosWS extends WSUtil
 {
     /**
      * 
+     * @var \EscrutiniosWS singleton instance
+     */
+    private static $_Instance = null;
+    
+    /**
+     * Get singleton instance
+     * 
+     * @return \EscrutiniosWS
+     */
+    public static function getInstance(): \EscrutiniosWS {
+        if(self::$_Instance == null) {
+            self::$_Instance = new self();
+        }
+        return self::$_Instance;
+    }
+    
+    /**
+     * 
      * Cria
      * 
      * @httpmethod POST

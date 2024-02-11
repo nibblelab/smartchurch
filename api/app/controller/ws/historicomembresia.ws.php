@@ -7,6 +7,23 @@ require_once DAO_PATH . '/HistoricoMembresiaDAO.class.php';
  */
 class HistoricoMembresiaWS extends WSUtil
 {
+    /**
+     * 
+     * @var \HistoricoMembresiaWS singleton instance
+     */
+    private static $_Instance = null;
+    
+    /**
+     * Get singleton instance
+     * 
+     * @return \HistoricoMembresiaWS
+     */
+    public static function getInstance(): \HistoricoMembresiaWS {
+        if(self::$_Instance == null) {
+            self::$_Instance = new self();
+        }
+        return self::$_Instance;
+    }
 
     /**
      * Gera o objeto de dados (DTO) de histórico de membresia

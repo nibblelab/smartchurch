@@ -10,6 +10,23 @@ require_once WS_PATH . '/contextos.ws.php';
  */
 class PastoresWS extends WSUtil
 {
+    /**
+     * 
+     * @var \PastoresWS singleton instance
+     */
+    private static $_Instance = null;
+    
+    /**
+     * Get singleton instance
+     * 
+     * @return \PastoresWS
+     */
+    public static function getInstance(): \PastoresWS {
+        if(self::$_Instance == null) {
+            self::$_Instance = new self();
+        }
+        return self::$_Instance;
+    }
     
     /**
      * Obtem o pastor pelo id

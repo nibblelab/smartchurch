@@ -9,6 +9,24 @@ class CheckinsWS extends WSUtil
 {
     /**
      * 
+     * @var \CheckinsWS singleton instance
+     */
+    private static $_Instance = null;
+    
+    /**
+     * Get singleton instance
+     * 
+     * @return \CheckinsWS
+     */
+    public static function getInstance(): \CheckinsWS {
+        if(self::$_Instance == null) {
+            self::$_Instance = new self();
+        }
+        return self::$_Instance;
+    }
+    
+    /**
+     * 
      * Cria
      * 
      * @httpmethod POST

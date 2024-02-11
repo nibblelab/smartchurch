@@ -9,7 +9,23 @@ require_once DAO_PATH . '/TagsDaAgendaDAO.class.php';
  */
 class AgendasWS extends WSUtil
 {
+    /**
+     * 
+     * @var \AgendasWS singleton instance
+     */
+    private static $_Instance = null;
     
+    /**
+     * Get singleton instance
+     * 
+     * @return \AgendasWS
+     */
+    public static function getInstance(): \AgendasWS {
+        if(self::$_Instance == null) {
+            self::$_Instance = new self();
+        }
+        return self::$_Instance;
+    }
     
     /**
      * Obtem a agenda pelo id

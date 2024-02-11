@@ -11,6 +11,23 @@ require_once WS_PATH . '/membros.ws.php';
  */
 class InscricoesWS extends WSUtil
 {
+    /**
+     * 
+     * @var \InscricoesWS singleton instance
+     */
+    private static $_Instance = null;
+    
+    /**
+     * Get singleton instance
+     * 
+     * @return \InscricoesWS
+     */
+    public static function getInstance(): \InscricoesWS {
+        if(self::$_Instance == null) {
+            self::$_Instance = new self();
+        }
+        return self::$_Instance;
+    }
     
     /**
      * Notifique uma pessoa recém cadastrada no sistema através de uma inscrição de evento

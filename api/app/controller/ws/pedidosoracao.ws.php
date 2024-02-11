@@ -8,6 +8,23 @@ require_once WS_PATH . '/pessoas.ws.php';
  */
 class PedidosOracaoWS extends WSUtil
 {
+    /**
+     * 
+     * @var \PedidosOracaoWS singleton instance
+     */
+    private static $_Instance = null;
+    
+    /**
+     * Get singleton instance
+     * 
+     * @return \PedidosOracaoWS 
+     */
+    public static function getInstance(): \PedidosOracaoWS {
+        if(self::$_Instance == null) {
+            self::$_Instance = new self();
+        }
+        return self::$_Instance;
+    }
     
     
     /**

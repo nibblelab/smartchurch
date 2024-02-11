@@ -14,6 +14,24 @@ require_once WS_PATH . '/oficiais.ws.php';
 class MembrosWS extends WSUtil
 {
     /**
+     * 
+     * @var \MembrosWS singleton instance
+     */
+    private static $_Instance = null;
+    
+    /**
+     * Get singleton instance
+     * 
+     * @return \MembrosWS
+     */
+    public static function getInstance(): \MembrosWS {
+        if(self::$_Instance == null) {
+            self::$_Instance = new self();
+        }
+        return self::$_Instance;
+    }
+    
+    /**
      * Obtêm dados básicos de membresia de uma pessoa
      * 
      * @param string $pessoa id da pessoa
@@ -120,11 +138,12 @@ class MembrosWS extends WSUtil
     public static function generateDTO($data, $mode, $requester = ''): \MembrosDTO
     {
         $dto = new MembrosDTO();
-
+        $instance = self::getInstance();
+        
         if($mode == DTOMode::ADD) {
             $dto->add = true;
             $dto->id = NblPHPUtil::makeNumericId();
-            $dto->codigo = $this->getCode();
+            $dto->codigo = $instance->getCode();
             $dto->stat = Status::ACTIVE;
             $dto->time_cad = date('Y-m-d H:i:s');
             $dto->last_mod = $dto->time_cad;

@@ -9,6 +9,23 @@ require_once HLP_PATH . '/DocHelper.class.php';
  */
 class SeriesSermoesWS extends WSUtil
 {
+    /**
+     * 
+     * @var \SeriesSermoesWS singleton instance
+     */
+    private static $_Instance = null;
+    
+    /**
+     * Get singleton instance
+     * 
+     * @return \SeriesSermoesWS
+     */
+    public static function getInstance(): \SeriesSermoesWS {
+        if(self::$_Instance == null) {
+            self::$_Instance = new self();
+        }
+        return self::$_Instance;
+    }
     
     /**
      * Obtenha a logo da série

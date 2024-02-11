@@ -9,6 +9,24 @@ class AprovacoesAtaWS extends WSUtil
 {
     /**
      * 
+     * @var \AprovacoesAtaWS singleton instance
+     */
+    private static $_Instance = null;
+    
+    /**
+     * Get singleton instance
+     * 
+     * @return \AprovacoesAtaWS
+     */
+    public static function getInstance(): \AprovacoesAtaWS {
+        if(self::$_Instance == null) {
+            self::$_Instance = new self();
+        }
+        return self::$_Instance;
+    }
+    
+    /**
+     * 
      * Cria
      * 
      * @httpmethod POST

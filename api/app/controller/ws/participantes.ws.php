@@ -10,6 +10,23 @@ require_once WS_PATH . '/pequenosgrupos.ws.php';
  */
 class ParticipantesWS extends WSUtil
 {
+    /**
+     * 
+     * @var \ParticipantesWS singleton instance
+     */
+    private static $_Instance = null;
+    
+    /**
+     * Get singleton instance
+     * 
+     * @return \ParticipantesWS
+     */
+    public static function getInstance(): \ParticipantesWS {
+        if(self::$_Instance == null) {
+            self::$_Instance = new self();
+        }
+        return self::$_Instance;
+    }
     
     /**
      * Verifica se uma pessoa é participante de um pequeno grupo

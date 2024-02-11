@@ -10,6 +10,23 @@ require_once WS_PATH . '/contextos.ws.php';
  */
 class OficiaisWS extends WSUtil
 {
+    /**
+     * 
+     * @var \OficiaisWS singleton instance
+     */
+    private static $_Instance = null;
+    
+    /**
+     * Get singleton instance
+     * 
+     * @return \OficiaisWS
+     */
+    public static function getInstance(): \OficiaisWS {
+        if(self::$_Instance == null) {
+            self::$_Instance = new self();
+        }
+        return self::$_Instance;
+    }
     
     /**
      * Obtem o oficial pelo id

@@ -7,7 +7,24 @@ require_once DAO_PATH . '/DiretoriasDAO.class.php';
  */
 class DiretoriasWS extends WSUtil
 {
+    /**
+     * 
+     * @var \DiretoriasWS singleton instance
+     */
+    private static $_Instance = null;
     
+    /**
+     * Get singleton instance
+     * 
+     * @return \DiretoriasWS
+     */
+    public static function getInstance(): \DiretoriasWS {
+        if(self::$_Instance == null) {
+            self::$_Instance = new self();
+        }
+        return self::$_Instance;
+    }
+        
     /**
      * Desabilita diretorias cadastradas pela referência, com exceção da informada em parâmetro
      * 

@@ -10,7 +10,24 @@ require_once WS_PATH . '/contextos.ws.php';
  */
 class DiaconosWS extends WSUtil
 {
+    /**
+     * 
+     * @var \DiaconosWS singleton instance
+     */
+    private static $_Instance = null;
     
+    /**
+     * Get singleton instance
+     * 
+     * @return \DiaconosWS
+     */
+    public static function getInstance(): \DiaconosWS {
+        if(self::$_Instance == null) {
+            self::$_Instance = new self();
+        }
+        return self::$_Instance;
+    }
+        
     /**
      * Obtem o diácono pelo id
      * 

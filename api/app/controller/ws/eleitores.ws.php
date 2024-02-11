@@ -9,6 +9,24 @@ class EleitoresWS extends WSUtil
 {
     /**
      * 
+     * @var \EleitoresWS singleton instance
+     */
+    private static $_Instance = null;
+    
+    /**
+     * Get singleton instance
+     * 
+     * @return \EleitoresWS
+     */
+    public static function getInstance(): \EleitoresWS {
+        if(self::$_Instance == null) {
+            self::$_Instance = new self();
+        }
+        return self::$_Instance;
+    }
+    
+    /**
+     * 
      * Cria
      * 
      * @httpmethod POST

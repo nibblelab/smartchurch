@@ -9,6 +9,24 @@ class ConfigsPagtoWS extends WSUtil
 {
     /**
      * 
+     * @var \ConfigsPagtoWS singleton instance
+     */
+    private static $_Instance = null;
+    
+    /**
+     * Get singleton instance
+     * 
+     * @return \ConfigsPagtoWS
+     */
+    public static function getInstance(): \ConfigsPagtoWS {
+        if(self::$_Instance == null) {
+            self::$_Instance = new self();
+        }
+        return self::$_Instance;
+    }
+    
+    /**
+     * 
      * Cria
      * 
      * @httpmethod POST

@@ -11,6 +11,23 @@ require_once WS_PATH . '/bookmarks.ws.php';
  */
 class MuralWS extends WSUtil
 {
+    /**
+     * 
+     * @var \MuralWS singleton instance
+     */
+    private static $_Instance = null;
+    
+    /**
+     * Get singleton instance
+     * 
+     * @return \MuralWS
+     */
+    public static function getInstance(): \MuralWS {
+        if(self::$_Instance == null) {
+            self::$_Instance = new self();
+        }
+        return self::$_Instance;
+    }
         
     /**
      * Obtenha a imagem 

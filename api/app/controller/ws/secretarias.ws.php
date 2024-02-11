@@ -9,6 +9,24 @@ require_once WS_PATH . '/instancias.ws.php';
 class SecretariasWS extends WSUtil
 {
     /**
+     * 
+     * @var \SecretariasWS singleton instance
+     */
+    private static $_Instance = null;
+    
+    /**
+     * Get singleton instance
+     * 
+     * @return \SecretariasWS
+     */
+    public static function getInstance(): \SecretariasWS {
+        if(self::$_Instance == null) {
+            self::$_Instance = new self();
+        }
+        return self::$_Instance;
+    }
+    
+    /**
      * Obtêm os ids das secretarias por suas referências
      * 
      * @param string $ref id da referência

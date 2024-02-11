@@ -9,6 +9,24 @@ require_once WS_PATH . '/pessoas.ws.php';
 class AlunosDasSalasWS extends WSUtil
 {
     /**
+     * 
+     * @var \AlunosDasSalasWS singleton instance
+     */
+    private static $_Instance = null;
+    
+    /**
+     * Get singleton instance
+     * 
+     * @return \AlunosDasSalasWS
+     */
+    public static function getInstance(): \AlunosDasSalasWS {
+        if(self::$_Instance == null) {
+            self::$_Instance = new self();
+        }
+        return self::$_Instance;
+    }
+    
+    /**
      * Verifica se uma pessoa é aluno de uma sala
      * 
      * @param string $pessoa id da pessoa

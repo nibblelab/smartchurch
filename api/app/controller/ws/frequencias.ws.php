@@ -11,6 +11,23 @@ require_once WS_PATH . '/atualizacoessumarios.ws.php';
  */
 class FrequenciasWS extends WSUtil
 {
+    /**
+     * 
+     * @var \FrequenciasWS singleton instance
+     */
+    private static $_Instance = null;
+    
+    /**
+     * Get singleton instance
+     * 
+     * @return \FrequenciasWS
+     */
+    public static function getInstance(): \FrequenciasWS {
+        if(self::$_Instance == null) {
+            self::$_Instance = new self();
+        }
+        return self::$_Instance;
+    }
     
     /**
      * Busque as frequências por sala e dia

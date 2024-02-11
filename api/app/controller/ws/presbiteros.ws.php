@@ -10,6 +10,23 @@ require_once WS_PATH . '/contextos.ws.php';
  */
 class PresbiterosWS extends WSUtil
 {
+    /**
+     * 
+     * @var \PresbiterosWS singleton instance
+     */
+    private static $_Instance = null;
+    
+    /**
+     * Get singleton instance
+     * 
+     * @return \PresbiterosWS
+     */
+    public static function getInstance(): \PresbiterosWS {
+        if(self::$_Instance == null) {
+            self::$_Instance = new self();
+        }
+        return self::$_Instance;
+    }
     
     /**
      * Obtem o presbítero pelo id

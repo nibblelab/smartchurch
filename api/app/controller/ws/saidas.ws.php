@@ -9,6 +9,24 @@ class SaidasWS extends WSUtil
 {
     /**
      * 
+     * @var \SaidasWS singleton instance
+     */
+    private static $_Instance = null;
+    
+    /**
+     * Get singleton instance
+     * 
+     * @return \SaidasWS
+     */
+    public static function getInstance(): \SaidasWS {
+        if(self::$_Instance == null) {
+            self::$_Instance = new self();
+        }
+        return self::$_Instance;
+    }
+    
+    /**
+     * 
      * Cria
      * 
      * @httpmethod POST

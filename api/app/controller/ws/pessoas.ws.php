@@ -17,7 +17,7 @@ class PessoasWS extends WSUtil
 {
     /**
      * 
-     * @var PessoasWS singleton instance
+     * @var \PessoasWS singleton instance
      */
     private static $_Instance = null;
     
@@ -26,7 +26,7 @@ class PessoasWS extends WSUtil
      * 
      * @return \PessoasWS
      */
-    public static function getInstance() {
+    public static function getInstance(): \PessoasWS {
         if(self::$_Instance == null) {
             self::$_Instance = new self();
         }

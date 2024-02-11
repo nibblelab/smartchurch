@@ -7,6 +7,23 @@ require_once DAO_PATH . '/AtualizacoesSumariosDAO.class.php';
  */
 class AtualizacoesSumariosWS extends WSUtil
 {
+    /**
+     * 
+     * @var \AtualizacoesSumariosWS singleton instance
+     */
+    private static $_Instance = null;
+    
+    /**
+     * Get singleton instance
+     * 
+     * @return \AtualizacoesSumariosWS
+     */
+    public static function getInstance(): \AtualizacoesSumariosWS {
+        if(self::$_Instance == null) {
+            self::$_Instance = new self();
+        }
+        return self::$_Instance;
+    }
     
     /**
      * Crie registro de atualização de sumário

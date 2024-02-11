@@ -9,6 +9,24 @@ require_once DAO_PATH . '/ContextosDAO.class.php';
 class ContextosWS extends WSUtil
 {
     /**
+     * 
+     * @var \ContextosWS singleton instance
+     */
+    private static $_Instance = null;
+    
+    /**
+     * Get singleton instance
+     * 
+     * @return \ContextosWS
+     */
+    public static function getInstance(): \ContextosWS {
+        if(self::$_Instance == null) {
+            self::$_Instance = new self();
+        }
+        return self::$_Instance;
+    }
+    
+    /**
      * Verifica se o usuário já possui contexto para a instância e referência opcionalmente
      * 
      * @param string $usuario id do usuário

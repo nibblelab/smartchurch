@@ -7,6 +7,23 @@ require_once DAO_PATH . '/CargoDAO.class.php';
  */
 class CargoWS extends WSUtil
 {
+    /**
+     * 
+     * @var \CargoWS singleton instance
+     */
+    private static $_Instance = null;
+    
+    /**
+     * Get singleton instance
+     * 
+     * @return \CargoWS
+     */
+    public static function getInstance(): \CargoWS {
+        if(self::$_Instance == null) {
+            self::$_Instance = new self();
+        }
+        return self::$_Instance;
+    }
     
     public static function getAll(): array
     {

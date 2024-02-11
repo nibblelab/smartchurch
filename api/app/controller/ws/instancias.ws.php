@@ -9,6 +9,24 @@ require_once DAO_PATH . '/InstanciasDAO.class.php';
 class InstanciasWS extends WSUtil
 {
     /**
+     * 
+     * @var \InstanciasWS singleton instance
+     */
+    private static $_Instance = null;
+    
+    /**
+     * Get singleton instance
+     * 
+     * @return \InstanciasWS
+     */
+    public static function getInstance(): \InstanciasWS {
+        if(self::$_Instance == null) {
+            self::$_Instance = new self();
+        }
+        return self::$_Instance;
+    }
+    
+    /**
      * Obtêm uma instância por suas referências
      * 
      * @param string $ref id da referência

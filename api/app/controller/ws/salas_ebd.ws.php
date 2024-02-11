@@ -9,6 +9,24 @@ class SalasEbdWS extends WSUtil
 {
     /**
      * 
+     * @var \SalasEbdWS singleton instance
+     */
+    private static $_Instance = null;
+    
+    /**
+     * Get singleton instance
+     * 
+     * @return \SalasEbdWS
+     */
+    public static function getInstance(): \SalasEbdWS {
+        if(self::$_Instance == null) {
+            self::$_Instance = new self();
+        }
+        return self::$_Instance;
+    }
+    
+    /**
+     * 
      * Cria
      * 
      * @httpmethod POST

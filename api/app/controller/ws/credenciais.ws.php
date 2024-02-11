@@ -10,7 +10,24 @@ require_once WS_PATH . '/cargos.ws.php';
  */
 class CredenciaisWS extends WSUtil
 {
+    /**
+     * 
+     * @var \CredenciaisWS singleton instance
+     */
+    private static $_Instance = null;
     
+    /**
+     * Get singleton instance
+     * 
+     * @return \CredenciaisWS
+     */
+    public static function getInstance(): \CredenciaisWS {
+        if(self::$_Instance == null) {
+            self::$_Instance = new self();
+        }
+        return self::$_Instance;
+    }
+        
     /**
      * Obtêm a credencial pelo seu id
      * 

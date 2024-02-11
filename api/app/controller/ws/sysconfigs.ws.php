@@ -7,6 +7,23 @@ require_once DAO_PATH . '/SysconfigsDAO.class.php';
  */
 class SysconfigsWS extends WSUtil
 {
+    /**
+     * 
+     * @var \SysconfigsWS singleton instance
+     */
+    private static $_Instance = null;
+    
+    /**
+     * Get singleton instance
+     * 
+     * @return \SysconfigsWS
+     */
+    public static function getInstance(): \SysconfigsWS {
+        if(self::$_Instance == null) {
+            self::$_Instance = new self();
+        }
+        return self::$_Instance;
+    }
     
     /**
      * Obtem o id da tag de evento na agenda

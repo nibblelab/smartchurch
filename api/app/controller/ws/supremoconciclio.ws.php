@@ -9,6 +9,24 @@ class SupremoConciclioWS extends WSUtil
 {
     /**
      * 
+     * @var \SupremoConciclioWS singleton instance
+     */
+    private static $_Instance = null;
+    
+    /**
+     * Get singleton instance
+     * 
+     * @return \SupremoConciclioWS
+     */
+    public static function getInstance(): \SupremoConciclioWS {
+        if(self::$_Instance == null) {
+            self::$_Instance = new self();
+        }
+        return self::$_Instance;
+    }
+    
+    /**
+     * 
      * Cria
      * 
      * @httpmethod POST

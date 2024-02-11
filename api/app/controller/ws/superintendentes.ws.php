@@ -11,6 +11,24 @@ require_once WS_PATH . '/contextos.ws.php';
 class SuperintendentesWS extends WSUtil
 {
     /**
+     * 
+     * @var \SuperintendentesWS singleton instance
+     */
+    private static $_Instance = null;
+    
+    /**
+     * Get singleton instance
+     * 
+     * @return \SuperintendentesWS
+     */
+    public static function getInstance(): \SuperintendentesWS {
+        if(self::$_Instance == null) {
+            self::$_Instance = new self();
+        }
+        return self::$_Instance;
+    }
+    
+    /**
      * Obtem o superintendente pelo id
      * 
      * @param string $id id do superintendente

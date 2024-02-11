@@ -7,6 +7,23 @@ require_once DAO_PATH . '/PequenosGruposDAO.class.php';
  */
 class PequenosGruposWS extends WSUtil
 {
+    /**
+     * 
+     * @var \PequenosGruposWS singleton instance
+     */
+    private static $_Instance = null;
+    
+    /**
+     * Get singleton instance
+     * 
+     * @return \PequenosGruposWS
+     */
+    public static function getInstance(): \PequenosGruposWS {
+        if(self::$_Instance == null) {
+            self::$_Instance = new self();
+        }
+        return self::$_Instance;
+    }
     
     /**
      * Obtêm o pequeno grupo pelo seu id

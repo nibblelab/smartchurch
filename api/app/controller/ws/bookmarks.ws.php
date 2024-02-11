@@ -7,6 +7,23 @@ require_once DAO_PATH . '/BookmarksDAO.class.php';
  */
 class BookmarksWS extends WSUtil
 {
+    /**
+     * 
+     * @var \BookmarksWS singleton instance
+     */
+    private static $_Instance = null;
+    
+    /**
+     * Get singleton instance
+     * 
+     * @return \BookmarksWS
+     */
+    public static function getInstance(): \BookmarksWS {
+        if(self::$_Instance == null) {
+            self::$_Instance = new self();
+        }
+        return self::$_Instance;
+    }
     
     /**
      * Busque os bookmarks de mural

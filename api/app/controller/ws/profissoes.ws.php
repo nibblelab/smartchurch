@@ -7,6 +7,23 @@ require_once DAO_PATH . '/ProfissoesDAO.class.php';
  */
 class ProfissoesWS extends WSUtil
 {
+    /**
+     * 
+     * @var \ProfissoesWS singleton instance
+     */
+    private static $_Instance = null;
+    
+    /**
+     * Get singleton instance
+     * 
+     * @return \ProfissoesWS
+     */
+    public static function getInstance(): \ProfissoesWS {
+        if(self::$_Instance == null) {
+            self::$_Instance = new self();
+        }
+        return self::$_Instance;
+    }
     
     /**
      * Busa pelo id

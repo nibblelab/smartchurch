@@ -8,6 +8,24 @@ require_once DAO_PATH . '/IgrejasDAO.class.php';
 class IgrejasWS extends WSUtil
 {
     /**
+     * 
+     * @var \IgrejasWS singleton instance
+     */
+    private static $_Instance = null;
+    
+    /**
+     * Get singleton instance
+     * 
+     * @return \IgrejasWS
+     */
+    public static function getInstance(): \IgrejasWS {
+        if(self::$_Instance == null) {
+            self::$_Instance = new self();
+        }
+        return self::$_Instance;
+    }
+    
+    /**
      * Obtem a igreja pelo id
      * 
      * @param string $id id da igreja

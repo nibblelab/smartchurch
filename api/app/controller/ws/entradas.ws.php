@@ -9,6 +9,24 @@ class EntradasWS extends WSUtil
 {
     /**
      * 
+     * @var \EntradasWS singleton instance
+     */
+    private static $_Instance = null;
+    
+    /**
+     * Get singleton instance
+     * 
+     * @return \EntradasWS
+     */
+    public static function getInstance(): \EntradasWS {
+        if(self::$_Instance == null) {
+            self::$_Instance = new self();
+        }
+        return self::$_Instance;
+    }
+    
+    /**
+     * 
      * Cria
      * 
      * @httpmethod POST

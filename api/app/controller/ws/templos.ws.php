@@ -8,6 +8,24 @@ require_once DAO_PATH . '/IgrejasDAO.class.php';
 class TemplosWS extends WSUtil
 {
     /**
+     * 
+     * @var \TemplosWS singleton instance
+     */
+    private static $_Instance = null;
+    
+    /**
+     * Get singleton instance
+     * 
+     * @return \TemplosWS
+     */
+    public static function getInstance(): \TemplosWS {
+        if(self::$_Instance == null) {
+            self::$_Instance = new self();
+        }
+        return self::$_Instance;
+    }
+    
+    /**
      * Busque pelo id
      * 
      * @param string $id

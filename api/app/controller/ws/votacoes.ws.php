@@ -9,6 +9,24 @@ class VotacoesWS extends WSUtil
 {
     /**
      * 
+     * @var \VotacoesWS singleton instance
+     */
+    private static $_Instance = null;
+    
+    /**
+     * Get singleton instance
+     * 
+     * @return \VotacoesWS
+     */
+    public static function getInstance(): \VotacoesWS {
+        if(self::$_Instance == null) {
+            self::$_Instance = new self();
+        }
+        return self::$_Instance;
+    }
+    
+    /**
+     * 
      * Cria
      * 
      * @httpmethod POST

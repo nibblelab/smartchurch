@@ -9,6 +9,24 @@ class AtasWS extends WSUtil
 {
     /**
      * 
+     * @var \AtasWS singleton instance
+     */
+    private static $_Instance = null;
+    
+    /**
+     * Get singleton instance
+     * 
+     * @return \AtasWS
+     */
+    public static function getInstance(): \AtasWS {
+        if(self::$_Instance == null) {
+            self::$_Instance = new self();
+        }
+        return self::$_Instance;
+    }
+    
+    /**
+     * 
      * Cria
      * 
      * @httpmethod POST

@@ -7,6 +7,23 @@ require_once DAO_PATH . '/TransmissoesDAO.class.php';
  */
 class TransmissoesWS extends WSUtil
 {
+    /**
+     * 
+     * @var \TransmissoesWS singleton instance
+     */
+    private static $_Instance = null;
+    
+    /**
+     * Get singleton instance
+     * 
+     * @return \TransmissoesWS
+     */
+    public static function getInstance(): \TransmissoesWS {
+        if(self::$_Instance == null) {
+            self::$_Instance = new self();
+        }
+        return self::$_Instance;
+    }
     
     /**
      * 

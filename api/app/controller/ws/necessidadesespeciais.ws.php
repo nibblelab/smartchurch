@@ -7,6 +7,23 @@ require_once DAO_PATH . '/NecessidadesEspeciaisDAO.class.php';
  */
 class NecessidadesEspeciaisWS extends WSUtil
 {
+    /**
+     * 
+     * @var \NecessidadesEspeciaisWS singleton instance
+     */
+    private static $_Instance = null;
+    
+    /**
+     * Get singleton instance
+     * 
+     * @return \NecessidadesEspeciaisWS
+     */
+    public static function getInstance(): \NecessidadesEspeciaisWS {
+        if(self::$_Instance == null) {
+            self::$_Instance = new self();
+        }
+        return self::$_Instance;
+    }
     
     /**
      * Busa pelo id

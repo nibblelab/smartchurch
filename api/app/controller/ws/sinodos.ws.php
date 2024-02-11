@@ -9,6 +9,24 @@ class SinodosWS extends WSUtil
 {
     /**
      * 
+     * @var \SinodosWS singleton instance
+     */
+    private static $_Instance = null;
+    
+    /**
+     * Get singleton instance
+     * 
+     * @return \SinodosWS
+     */
+    public static function getInstance(): \SinodosWS {
+        if(self::$_Instance == null) {
+            self::$_Instance = new self();
+        }
+        return self::$_Instance;
+    }
+    
+    /**
+     * 
      * Cria
      * 
      * @httpmethod POST

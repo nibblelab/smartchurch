@@ -7,6 +7,23 @@ require_once DAO_PATH . '/PresbiteriosDAO.class.php';
  */
 class PresbiteriosWS extends WSUtil
 {
+    /**
+     * 
+     * @var \PresbiteriosWS singleton instance
+     */
+    private static $_Instance = null;
+    
+    /**
+     * Get singleton instance
+     * 
+     * @return \PresbiteriosWS
+     */
+    public static function getInstance(): \PresbiteriosWS {
+        if(self::$_Instance == null) {
+            self::$_Instance = new self();
+        }
+        return self::$_Instance;
+    }
     
     /**
      * Busque os ids dos presbitérios pelo id do sínodo

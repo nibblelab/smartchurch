@@ -19,6 +19,23 @@ require_once WS_PATH . '/contextos.ws.php';
  */
 class ClientesWS extends WSUtil
 {
+    /**
+     * 
+     * @var \ClientesWS singleton instance
+     */
+    private static $_Instance = null;
+    
+    /**
+     * Get singleton instance
+     * 
+     * @return \ClientesWS
+     */
+    public static function getInstance(): \ClientesWS {
+        if(self::$_Instance == null) {
+            self::$_Instance = new self();
+        }
+        return self::$_Instance;
+    }
     
     /**
      * Notifique o novo cliente do cadastro dele como admin

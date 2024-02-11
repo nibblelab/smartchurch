@@ -12,6 +12,23 @@ require_once WS_PATH . '/ministerios.ws.php';
  */
 class ServosWS extends WSUtil
 {
+    /**
+     * 
+     * @var \ServosWS singleton instance
+     */
+    private static $_Instance = null;
+    
+    /**
+     * Get singleton instance
+     * 
+     * @return \ServosWS
+     */
+    public static function getInstance(): \ServosWS {
+        if(self::$_Instance == null) {
+            self::$_Instance = new self();
+        }
+        return self::$_Instance;
+    }
     
     /**
      * Obtem o servo pelo id
