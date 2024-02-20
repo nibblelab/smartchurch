@@ -159,14 +159,13 @@ class MembrosWS extends WSUtil
             return $dto;
         }
         
-        $dto->pessoa = (is_object(NblFram::$context->data->pessoa)) ? NblFram::$context->data->pessoa->id : NblFram::$context->data->pessoa;
-        $dto->igreja = NblFram::$context->data->igreja;
-        $dto->comungante = (NblFram::$context->data->comungante) ? GenericHave::YES : GenericHave::NO;
-        $dto->especial = (NblFram::$context->data->especial) ? GenericHave::YES : GenericHave::NO;
-        $dto->arrolado = (NblFram::$context->data->arrolado) ? GenericHave::YES : GenericHave::NO;
-        $dto->data_admissao = (empty(NblFram::$context->data->data_admissao)) ? NULL : NblPHPUtil::HumanDate2DBDate(NblFram::$context->data->data_admissao);
-        $dto->data_demissao = (empty(NblFram::$context->data->data_demissao)) ? NULL : NblPHPUtil::HumanDate2DBDate(NblFram::$context->data->data_demissao);
-        $dto->last_amod = NblFram::$context->token['data']['nome'];
+        $dto->pessoa = (is_object($data->pessoa)) ? $data->pessoa->id : $data->pessoa;
+        $dto->igreja = $data->igreja;
+        $dto->comungante = ($data->comungante) ? GenericHave::YES : GenericHave::NO;
+        $dto->especial = ($data->especial) ? GenericHave::YES : GenericHave::NO;
+        $dto->arrolado = ($data->arrolado) ? GenericHave::YES : GenericHave::NO;
+        $dto->data_admissao = (empty($data->data_admissao)) ? NULL : NblPHPUtil::HumanDate2DBDate($data->data_admissao);
+        $dto->data_demissao = (empty($data->data_demissao)) ? NULL : NblPHPUtil::HumanDate2DBDate($data->data_demissao);
         $dto->last_amod = (empty($requester)) ? NblFram::$context->token['data']['nome'] : $requester;
 
         return $dto;

@@ -173,7 +173,7 @@ angular.module('SmartChurchPanel').controller('MembresiaCtrl', function ($scope,
             }
             else
             {
-                promise = MembroDaIgreja.edit($scope.id, $scope.dataFrm.toSend);
+                promise = MembroDaIgreja.edit($scope.dataFrm.toSend.id, $scope.dataFrm.toSend);
             }
             promise.then(function(r) {
                 $dialogs.onRequested('Sucesso', 'Membresia salva com sucesso! É necessário refazer o login para atualizar os dados.').then(function() {

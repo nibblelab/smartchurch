@@ -51,7 +51,6 @@ public class SoundCloudPlayer extends WebView {
         this.getSettings().setDatabaseEnabled(false);
         this.getSettings().setDomStorageEnabled(false);
         this.getSettings().setAllowFileAccess(false);
-        this.getSettings().setAppCacheEnabled(false);
 
         // user agent pra tirar o aviso nojento que soundcloud coloca em webview
         String DESKTOP_USER_AGENT = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2049.0 Safari/537.36";

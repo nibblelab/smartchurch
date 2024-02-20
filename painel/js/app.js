@@ -46,8 +46,8 @@
         })
         
         .constant('Versions', {
-            html: '1.1.7',
-            data: '0.9.5'
+            html: '1.1.8',
+            data: '0.9.6'
         })
         
         .directive('focusOn', function() {

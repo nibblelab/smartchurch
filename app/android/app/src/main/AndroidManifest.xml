@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.nibblelab.smartchurch">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -34,7 +37,8 @@
             android:theme="@style/SmartChurchAppTheme.NoTitleBar" />
         <activity
             android:name=".activity.Splash"
-            android:theme="@style/SmartChurchAppTheme.NoTitleBar">
+            android:theme="@style/SmartChurchAppTheme.NoTitleBar"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
